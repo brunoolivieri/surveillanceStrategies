@@ -229,7 +229,7 @@
 
 <MessageTransmission ConstantTime="1"/>
 
-<ThreadToRunWithTSP threads="2"/>
+<ThreadToRunWithTSP threads="16"/>
 <ThreadToRunWithTSPTimer maxduration="3600000"/>
 <ThreadToRunWithTSPTimeEnabler enabled="true"/>
 
