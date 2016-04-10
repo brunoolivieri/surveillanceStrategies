@@ -1,0 +1,9 @@
+java -cp binaries/bin sinalgo.Run
+
+
+java -cp binaries/bin sinalgo.Run -project UAV_samples -rounds 1000 -refreshRate 1 
+
+-gen 5 UAV_samples:POInode sample2:LakeAvoidRandomDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
+
+
+-gen 2 UAV_samples:UAVnode UAV_samples:UAV_GS_distribution C=UDG I=NoInterference M=UAV_samples:LakeAvoid R=ReliableDelivery
