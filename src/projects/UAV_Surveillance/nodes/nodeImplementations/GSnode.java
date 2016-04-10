@@ -107,6 +107,9 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			 }
 		if (toPrint) System.out.println("\n");	
 		
+		System.out.println("\n[PrepMatrix]Returning matrix...");	
+		
+		
 		return myDist;
 		
 	}
@@ -183,6 +186,9 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			e.printStackTrace();
 		}
 		
+		System.out.println("\n[TSP] " + THREADS + " threads created... for " + listOfPOIs.size() + " POIs");	
+
+		
 		List<Solver> solvers = new ArrayList<>();
 		for(int i = 0 ; i < THREADS; i++){
 		   Solver solver = new Solver();
@@ -191,22 +197,25 @@ public class GSnode extends Node implements Comparable<GSnode> {
 		   //the search should also be declared within that method
 		} 			
 		
+		System.out.println("\n[TSP] " + THREADS + " solvers created... for " + listOfPOIs.size() + " POIs");	
+		
 		SMF.prepareForParallelResolution(solvers);		
 				
 		solvers.parallelStream().forEach(s -> {
-			
+
+    		System.out.println("\n[TSP] Sending " + s.getName());	
+
 	        if (setOfUAVs.first().myMobilityModelName.endsWith("AntiTSPbasedMobility")){       
 	        	s.findOptimalSolution(ResolutionPolicy.MAXIMIZE);
 	        	syncSolutions(s, "max");
 	        } else {
 	        	s.findOptimalSolution(ResolutionPolicy.MINIMIZE);
 	        	syncSolutions(s, "min");
-	        }
-		    
-		    //syncSolutions(s) takes care of race condition.
-	        
+	        }		    
+		    //syncSolutions(s) takes care of race condition. 
 		});
                 			
+		
 	    // Re-formating the best result
 		// Is necessary follow the path to recreate that
 		//
@@ -308,32 +317,33 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	private synchronized void syncSolutions(Solver s, String policy){
 		// This method choose the best result from each thread. 
 		
+		System.out.println("\n[TSP] syncSolutions called...");	
+
+		
 	    IntVar[] VS_local = s.retrieveIntVars().clone();				    			    
    
 	    if (policy.equals("min")){
 	    	if (VS_local[listOfPOIs.size()].getValue()  <  bestCost){
-			    System.out.println("[TSP " + s.nextId() + "] bestCost found  -> " +  VS_local[listOfPOIs.size()] + " =-> \n");
+			    System.out.println("[TSP " + s.getName() + "] bestCost found  -> " +  VS_local[listOfPOIs.size()] + " =-> \n");
 			    bestCost = VS_local[listOfPOIs.size()].getValue();
-//			    VS_bestTour = VS_local;
-//			    for (int i=0; i< listOfPOIs.size() ;i++){ // without multithread shoudl be VS.lenght()
-//				    System.out.print(VS_local[i]  + " -> ");
-//			    }
+			    for (int i=0; i< listOfPOIs.size() ;i++){ // without multithread shoudl be VS.lenght()
+				    System.out.print(VS_local[i]  + " -> ");
+			    }
 		    }
 	    } else {
 	    	if (VS_local[listOfPOIs.size()].getValue()  >  bestCost){
-			    System.out.println("[TSP " + s.nextId() + "] bestCost found  -> " +  VS_local[listOfPOIs.size()] + " =-> \n");
+			    System.out.println("[TSP " + s.getName() + "] bestCost found  -> " +  VS_local[listOfPOIs.size()] + " =-> \n");
 			    bestCost = VS_local[listOfPOIs.size()].getValue();
-//			    VS_bestTour = VS_local;
-//			    for (int i=0; i< listOfPOIs.size() ;i++){
-//				    System.out.print(VS_local[i]  + " -> ");
-//			    }
+			    for (int i=0; i< listOfPOIs.size() ;i++){
+				    System.out.print(VS_local[i]  + " -> ");
+			    }
 		    }	    	
 	    }       
 	    
 	    VS_bestTour = VS_local;
-	    for (int i=0; i< listOfPOIs.size() ;i++){
-		    System.out.print(VS_local[i]  + " -> ");
-	    }
+//	    for (int i=0; i< listOfPOIs.size() ;i++){
+//		    System.out.print(VS_local[i]  + " -> ");
+//	    }
 	    
 	    System.out.println("\n");
 	}
@@ -352,9 +362,12 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			useTimer = Configuration.getStringParameter("ThreadToRunWithTSPTimeEnabler/enabled");
 			if (useTimer.equals("true")){			
 				long maxTimeMs = Integer.MAX_VALUE;
+				System.out.println("[TSP] [" + solver.getName() + "] timeout created as " + (maxTimeMs/1000) + " seconds..." );
 				try {
 					maxTimeMs = (int) Configuration.getIntegerParameter("ThreadToRunWithTSPTimer/maxduration");
 					SMF.limitTime(solver, maxTimeMs);
+					System.out.println("[TSP] [" + solver.getName() + "] timeout changed for  " + (maxTimeMs/1000) + "seconds..." );
+
 				} catch (CorruptConfigurationEntryException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

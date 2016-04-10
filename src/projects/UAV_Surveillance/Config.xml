@@ -59,7 +59,7 @@
 		<javaCmd value="java" />
 
 		<!--Maximum memory the Java VM is allowed to use (in MB)-->
-		<javaVMmaxMem value="1024" />
+		<javaVMmaxMem value="8192" />
 
 		<!--***********************************************************************-->
 		<!--  Random number generators                                             -->
@@ -229,7 +229,7 @@
 
 <MessageTransmission ConstantTime="1"/>
 
-<ThreadToRunWithTSP threads="16"/>
+<ThreadToRunWithTSP threads="4"/>
 <ThreadToRunWithTSPTimer maxduration="3600000"/>
 <ThreadToRunWithTSPTimeEnabler enabled="true"/>
 
