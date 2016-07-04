@@ -231,7 +231,7 @@
 
 <ThreadToRunWithTSP threads="4"/>
 <ThreadToRunWithTSPTimer maxduration="3600000"/>
-<ThreadToRunWithTSPTimeEnabler enabled="true"/>
+<ThreadToRunWithTSPTimeEnabler enabled="false"/>
 
 
 <GeometricNodeCollection rMax="10"/>

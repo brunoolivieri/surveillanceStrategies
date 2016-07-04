@@ -1,0 +1,26 @@
+Ter Abr 12 20:20:10 BRT 2016
+nPOI = 20  strat = TSPbasedMobility  i = 1
+Ter Abr 12 20:20:33 BRT 2016
+nPOI = 20  strat = TSPbasedMobility  i = 2
+Ter Abr 12 20:20:55 BRT 2016
+nPOI = 20  strat = TSPbasedMobility  i = 3
+Ter Abr 12 20:24:44 BRT 2016
+nPOI = 25  strat = TSPbasedMobility  i = 1
+Ter Abr 12 20:42:24 BRT 2016
+nPOI = 25  strat = TSPbasedMobility  i = 2
+Ter Abr 12 22:04:44 BRT 2016
+nPOI = 25  strat = TSPbasedMobility  i = 3
+Ter Abr 12 22:09:01 BRT 2016
+nPOI = 30  strat = TSPbasedMobility  i = 1
+Ter Abr 12 22:29:16 BRT 2016
+nPOI = 30  strat = TSPbasedMobility  i = 2
+Qua Abr 13 00:59:22 BRT 2016
+nPOI = 30  strat = TSPbasedMobility  i = 3
+Qua Abr 13 14:28:11 BRT 2016
+nPOI = 35  strat = TSPbasedMobility  i = 1
+Sex Abr 15 14:18:36 BRT 2016
+nPOI = 35  strat = TSPbasedMobility  i = 2
+Ter Abr 19 23:59:44 BRT 2016
+nPOI = 35  strat = TSPbasedMobility  i = 1
+Qui Abr 21 22:22:53 BRT 2016
+nPOI = 40  strat = TSPbasedMobility  i = 1

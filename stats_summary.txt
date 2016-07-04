@@ -1,5 +1,1 @@
-projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;20;3;19,86785%;10;1000000;500;23segs;4_TSP_thread
-projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;20;3;17,55370%;10;1000000;500;33segs;4_TSP_thread
-projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;20;3;22,96780%;10;1000000;500;27segs;4_TSP_thread
-projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;20;3;19,63293%;10;1000000;500;88segs;4_TSP_thread
-projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;25;3;18,30480%;10;1000000;500;1060segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;35;5;24.34714%;10;1000000;500;166985segs;4_TSP_thread

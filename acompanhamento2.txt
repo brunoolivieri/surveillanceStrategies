@@ -1,0 +1,461 @@
+ 
+ ----------------------------------------------------------------------------
+ 
+ nPOI = 35  strat = TSPbasedMobility  i = 1
+ 
+ ----------------------------------------------------------------------------
+ 
+You may have an invalid Java version: 25#72-b15. The application requires version 1.5 or more recent.
+> Starting SINALGO in BATCH-Mode for project UAV_Surveillance.Warning: At least some nodes use the 'NoMobility' mobility model. If you do not consider mobility at all in your project, you can considerably improve performance by turning off mobility in the XML configuration file.
+> Initialisation terminated.
+
+------------------------------------------------------
+General Config
+------------------------------------------------------
+Command Line arguments: -project UAV_Surveillance -rounds 1000000 -refreshRate 1000000 -batch exitAfter=true exitAfter/Rounds=1000000 exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen 5 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:TSPbasedMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen 35 UAV_Surveillance:POInode UAV_Surveillance:PoiDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery 
+Java VM arguments: -Xmx8192m 
+Class path: binaries/bin:binaries/jdom.jar:binaries/bin:binaries/choco-solver-3.3.3-j7-with-dependencies.jar
+------------------------------------------------------
+Configuration settings
+------------------------------------------------------
+ Simulation Area
+    dimensions = 2
+    dimX = 500
+    dimY = 500
+    dimZ = 1
+ Simulation
+    asynchronousMode = false
+    mobility = true
+    interference = false
+    interferenceIsAdditive = true
+    canReceiveWhileSending = true
+    canReceiveMultiplePacketsInParallel = true
+    edgeType = sinalgo.nodes.edges.Edge
+    exitOnTerminationInGUI = false
+    initializeConnectionsOnStartup = false
+    refreshRate = 1000000
+    generateNAckMessages = false
+    handleEmptyEventQueue = true
+    javaCmd = java
+    javaVMmaxMem = 8192
+ Random number generators
+    useSameSeedAsInPreviousRun = false
+    useFixedSeed = false
+    fixedSeed = 2185354461866928661
+ Logging
+    logFileName = logfile.txt
+    outputToConsole = true
+    logToTimeDirectory = true
+    logConfiguration = true
+    eagerFlush = false
+ GUI
+    extendedControl = true
+    drawArrows = false
+    zoomStep = 1.2
+    wheelZoomStep = 1.05
+    minZoomFactor = 0.05
+    draw3DGraphNodesInProperOrder = true
+    usePerspectiveView = true
+    perspectiveViewDistance = 40
+ Background map in 2D
+    useMap = false
+    map = images/map4.bmp
+ Models
+    DefaultMessageTransmissionModel = ConstantTime
+    DefaultConnectivityModel = UDG
+    DefaultDistributionModel = sample2:LakeAvoidRandomDistribution
+    DefaultInterferenceModel = NoInterference
+    DefaultMobilityModel = sample2:LakeAvoid
+    DefaultReliabilityModel = ReliableDelivery
+    DefaultNodeImplementation = sample2:S2Node
+    showModelsOfAllProjects = false
+ Node storage, position transformation
+    guiPositionTransformation2D = sinalgo.gui.transformation.Transformation2D
+    guiPositionTransformation3D = sinalgo.gui.transformation.Transformation3D
+    nodeCollection2D = sinalgo.runtime.nodeCollection.Geometric2DNodeCollection
+    nodeCollection3D = sinalgo.runtime.nodeCollection.Geometric3DNodeCollection
+ Export Settings
+    epsToPdfCommand = epstopdf %s
+    epsDrawDeploymentAreaBoundingBox = true
+    epsDrawBackgroundWhite = true
+ Animation Settings
+    showMessageAnimations = false
+    messageAnimationEnvelopeWidth = 30.0
+    messageAnimationEnvelopeHeight = 20.0
+    messageAnimationEnvelopeColor = r=255,g=255,b=0
+ Diverse Settings
+    showOptimizationHints = true
+    drawEdges = true
+    drawNodes = true
+    shownEventQueueSize = 10
+    outputTextFieldHeight = 200
+    arrowLength = 8
+    arrowWidth = 1
+    defaultRoundNumber = 1
+------------------------------------------------------
+Custom settings
+------------------------------------------------------
+ geometricnodecollection/rmax = 10
+ messagetransmission/constanttime = 1
+ node/defaultsize = 30
+ randomwaypoint/speed/distribution = Gaussian
+ randomwaypoint/speed/mean = 1
+ randomwaypoint/speed/variance = 0
+ randomwaypoint/waitingtime/distribution = Poisson
+ randomwaypoint/waitingtime/lambda = 10
+ threadtorunwithtsp/threads = 4
+ threadtorunwithtsptimeenabler/enabled = false
+ threadtorunwithtsptimer/maxduration = 3600000
+ udg/rmax = 10
+------------------------------------------------------
+Seed for Random Number Generators
+------------------------------------------------------
+ Randomly selected seed: 2185354461866928661
+------------------------------------------------------
+End of settings
+------------------------------------------------------
+
+> Starting the Simulation.
+
+[GSnode] Default route: 7 - 8 - 9 - 10 - 11 - 12 - 13 - 14 - 15 - 16 - 17 - 18 - 19 - 20 - 21 - 22 - 23 - 24 - 25 - 26 - 27 - 28 - 29 - 30 - 31 - 32 - 33 - 34 - 35 - 36 - 37 - 38 - 39 - 40 - 41 - 
+[TSP][Prep Adj] List size: 35
+[TSP][Prep Adj] Point 0 ID 7 @ ( 327.92270041918334 , 342.0354832303679 )
+[TSP][Prep Adj] Point 1 ID 8 @ ( 190.72782192703852 , 48.95266677946153 )
+[TSP][Prep Adj] Point 2 ID 9 @ ( 93.7926823069501 , 434.5311564285467 )
+[TSP][Prep Adj] Point 3 ID 10 @ ( 58.04264911453355 , 85.58310844903794 )
+[TSP][Prep Adj] Point 4 ID 11 @ ( 117.78049823222709 , 426.669732346431 )
+[TSP][Prep Adj] Point 5 ID 12 @ ( 132.1242333608682 , 333.7314837417508 )
+[TSP][Prep Adj] Point 6 ID 13 @ ( 452.22455316890495 , 259.7951246985827 )
+[TSP][Prep Adj] Point 7 ID 14 @ ( 7.774351055396034 , 383.42231290006373 )
+[TSP][Prep Adj] Point 8 ID 15 @ ( 483.92197543495985 , 42.58787123877866 )
+[TSP][Prep Adj] Point 9 ID 16 @ ( 402.8523034170027 , 217.38759070403623 )
+[TSP][Prep Adj] Point 10 ID 17 @ ( 320.28969596082675 , 139.31577450675232 )
+[TSP][Prep Adj] Point 11 ID 18 @ ( 64.85356448436441 , 211.82654736757718 )
+[TSP][Prep Adj] Point 12 ID 19 @ ( 32.96898837616674 , 344.56599957595614 )
+[TSP][Prep Adj] Point 13 ID 20 @ ( 150.87565579180256 , 214.16367189691644 )
+[TSP][Prep Adj] Point 14 ID 21 @ ( 101.72304285383376 , 338.9931896008473 )
+[TSP][Prep Adj] Point 15 ID 22 @ ( 14.885360236550294 , 79.10687953147082 )
+[TSP][Prep Adj] Point 16 ID 23 @ ( 228.137434863885 , 169.93400928857454 )
+[TSP][Prep Adj] Point 17 ID 24 @ ( 264.42434826838564 , 257.68653675516316 )
+[TSP][Prep Adj] Point 18 ID 25 @ ( 343.41867941555034 , 3.1805140553368694 )
+[TSP][Prep Adj] Point 19 ID 26 @ ( 455.2374382772629 , 450.4601073964531 )
+[TSP][Prep Adj] Point 20 ID 27 @ ( 117.49589555936146 , 347.7706408484981 )
+[TSP][Prep Adj] Point 21 ID 28 @ ( 376.78086040988705 , 455.6959746906924 )
+[TSP][Prep Adj] Point 22 ID 29 @ ( 87.66609227456435 , 364.3459072762078 )
+[TSP][Prep Adj] Point 23 ID 30 @ ( 44.16519871870883 , 166.10395899259845 )
+[TSP][Prep Adj] Point 24 ID 31 @ ( 164.18345877978956 , 229.44253161546186 )
+[TSP][Prep Adj] Point 25 ID 32 @ ( 252.81052889398765 , 193.55892087875137 )
+[TSP][Prep Adj] Point 26 ID 33 @ ( 237.47845461773264 , 343.0238097578007 )
+[TSP][Prep Adj] Point 27 ID 34 @ ( 370.9389102438905 , 330.267890341542 )
+[TSP][Prep Adj] Point 28 ID 35 @ ( 407.1024119465923 , 434.627834481267 )
+[TSP][Prep Adj] Point 29 ID 36 @ ( 442.0019055748785 , 486.9596644900296 )
+[TSP][Prep Adj] Point 30 ID 37 @ ( 476.02867094132563 , 344.6961360060114 )
+[TSP][Prep Adj] Point 31 ID 38 @ ( 144.23871272551781 , 383.93037796512056 )
+[TSP][Prep Adj] Point 32 ID 39 @ ( 305.6014326245957 , 431.96516571827493 )
+[TSP][Prep Adj] Point 33 ID 40 @ ( 207.78283559644274 , 109.15674325708136 )
+[TSP][Prep Adj] Point 34 ID 41 @ ( 406.20855416235736 , 185.24405015777722 )
+
+ [TSP][Prep Adj] Matrix:
+
+0	323	251	372	226	195	149	322	337	145	202	293	294	218	226	408	198	105	339	167	210	123	241	333	198	166	90	44	121	184	148	188	92	262	175	
+323	0	397	137	384	290	335	381	293	270	157	205	335	169	303	178	126	221	159	480	307	447	331	187	182	157	297	334	442	504	410	338	399	62	254	
+251	397	0	350	25	107	398	100	553	377	372	224	108	227	95	364	296	245	498	361	89	283	70	272	216	288	170	296	313	352	392	71	211	344	399	
+372	137	350	0	346	258	430	302	428	369	267	126	260	158	257	43	189	268	297	539	268	488	280	81	178	222	313	397	493	555	491	310	425	151	362	
+226	384	25	346	0	94	373	118	530	353	351	221	118	215	89	362	279	223	479	338	78	260	69	270	202	269	146	270	289	329	367	50	187	330	376	
+195	290	107	258	94	0	328	133	456	294	270	139	99	121	30	280	189	152	392	343	20	273	53	189	109	184	105	238	292	345	344	51	199	236	311	
+149	335	398	430	373	328	0	461	219	65	178	390	427	304	359	473	241	187	278	190	346	209	379	418	289	210	230	107	180	227	88	332	226	287	87	
+322	381	100	302	118	133	461	0	585	428	396	180	46	221	103	304	306	285	507	452	115	376	82	220	219	309	233	367	402	446	469	136	301	339	444	
+337	293	553	428	530	456	219	585	0	192	190	451	542	374	483	470	285	307	145	408	476	426	510	456	370	276	388	309	399	446	302	481	428	284	162	
+145	270	377	369	353	294	65	428	192	0	113	338	391	251	324	411	181	144	222	238	313	239	347	362	238	151	207	117	217	272	146	307	235	223	32	
+202	157	372	267	351	270	178	396	190	113	0	265	353	185	296	311	97	130	138	339	290	321	323	277	180	86	219	197	307	368	257	301	293	116	97	
+293	205	224	126	221	139	390	180	451	338	265	0	136	86	132	141	168	204	348	457	145	395	154	50	100	188	216	328	408	466	432	189	326	175	342	
+294	335	108	260	118	99	427	46	542	391	353	136	0	175	68	266	261	247	461	435	84	361	58	178	174	266	204	338	384	433	443	118	286	293	405	
+218	169	227	158	215	121	304	221	374	251	185	86	175	0	134	191	89	121	285	385	137	330	162	117	20	103	155	248	338	398	350	169	267	119	256	
+226	303	95	257	89	30	359	103	483	324	296	132	68	134	0	274	211	181	413	370	18	298	28	182	126	209	135	269	320	371	374	61	224	253	341	
+408	178	364	43	362	280	473	304	470	411	311	141	266	191	274	0	231	306	337	576	287	522	294	91	211	264	345	435	529	590	532	331	457	195	405	
+198	126	296	189	279	189	241	306	285	181	97	168	261	89	211	231	0	94	202	360	209	322	239	184	87	34	173	214	319	382	303	229	273	64	178	
+105	221	245	268	223	152	187	285	307	144	130	204	247	121	181	306	94	0	266	271	172	227	206	238	104	65	89	128	227	289	228	174	179	158	159	
+339	159	498	297	479	392	278	507	145	222	138	348	461	285	413	337	202	266	0	461	412	453	442	340	288	210	355	328	436	493	366	429	430	172	192	
+167	480	361	539	338	343	190	452	408	238	339	457	435	385	370	576	360	271	461	0	353	78	377	499	365	327	242	146	50	38	107	318	150	421	269	
+210	307	89	268	78	20	346	115	476	313	290	145	84	137	18	287	209	172	412	353	0	280	34	195	127	205	120	254	302	353	358	44	206	255	331	
+123	447	283	488	260	273	209	376	426	239	321	395	361	330	298	522	322	227	453	78	280	0	303	441	310	289	179	125	36	72	148	243	75	385	272	
+241	331	70	280	69	53	379	82	510	347	323	154	58	162	28	294	239	206	442	377	34	303	0	202	155	237	151	285	327	374	388	59	228	282	365	
+333	187	272	81	270	189	418	220	456	362	277	50	178	117	182	91	184	238	340	499	195	441	202	0	135	210	262	365	451	511	467	239	372	173	362	
+198	182	216	178	202	109	289	219	370	238	180	100	174	20	126	211	87	104	288	365	127	310	155	135	0	95	135	230	317	378	332	155	247	127	246	
+166	157	288	222	269	184	210	309	276	151	86	188	266	103	209	264	34	65	210	327	205	289	237	210	95	0	150	180	286	349	269	219	244	95	153	
+90	297	170	313	146	105	230	233	388	207	219	216	204	155	135	345	173	89	355	242	120	179	151	262	135	150	0	134	192	250	238	101	112	235	231	
+44	334	296	397	270	238	107	367	309	117	197	328	338	248	269	435	214	128	328	146	254	125	285	365	230	180	134	0	110	172	106	232	120	274	149	
+121	442	313	493	289	292	180	402	399	217	307	408	384	338	320	529	319	227	436	50	302	36	327	451	317	286	192	110	0	62	113	267	101	381	249	
+184	504	352	555	329	345	227	446	446	272	368	466	433	398	371	590	382	289	493	38	353	72	374	511	378	349	250	172	62	0	146	315	147	444	303	
+148	410	392	491	367	344	88	469	302	146	257	432	443	350	374	532	303	228	366	107	358	148	388	467	332	269	238	106	113	146	0	334	191	356	174	
+188	338	71	310	50	51	332	136	481	307	301	189	118	169	61	331	229	174	429	318	44	243	59	239	155	219	101	232	267	315	334	0	168	282	328	
+92	399	211	425	187	199	226	301	428	235	293	326	286	267	224	457	273	179	430	150	206	75	228	372	247	244	112	120	101	147	191	168	0	337	266	
+262	62	344	151	330	236	287	339	284	223	116	175	293	119	253	195	64	158	172	421	255	385	282	173	127	95	235	274	381	444	356	282	337	0	212	
+175	254	399	362	376	311	87	444	162	32	97	342	405	256	341	405	178	159	192	269	331	272	365	362	246	153	231	149	249	303	174	328	266	212	0	
+
+
+
+[PrepMatrix]Returning matrix...
+
+[TSP] 4 threads created... for 35 POIs
+
+[TSP] 4 solvers created... for 35 POIs
+
+[TSP] Sending Solver-2
+
+[TSP] Sending Solver-3
+
+[TSP] Sending Solver-1
+
+[TSP] Sending Solver-0
+
+[TSP] syncSolutions called...
+[TSP Solver-1] bestCost found  -> obj = 2529 =-> 
+
+VS[0] = 32 -> VS[1] = 3 -> VS[2] = 4 -> VS[3] = 15 -> VS[4] = 31 -> VS[5] = 20 -> VS[6] = 9 -> VS[7] = 2 -> VS[8] = 18 -> VS[9] = 34 -> VS[10] = 25 -> VS[11] = 13 -> VS[12] = 7 -> VS[13] = 24 -> VS[14] = 22 -> VS[15] = 23 -> VS[16] = 33 -> VS[17] = 27 -> VS[18] = 10 -> VS[19] = 30 -> VS[20] = 14 -> VS[21] = 28 -> VS[22] = 12 -> VS[23] = 11 -> VS[24] = 5 -> VS[25] = 16 -> VS[26] = 17 -> VS[27] = 0 -> VS[28] = 29 -> VS[29] = 19 -> VS[30] = 6 -> VS[31] = 26 -> VS[32] = 21 -> VS[33] = 1 -> VS[34] = 8 -> 
+
+
+[TSP] syncSolutions called...
+
+
+
+[TSP] syncSolutions called...
+
+
+
+[TSP] syncSolutions called...
+
+
+
+[TSP] Original path: 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41
+
+[TSP] TSP path: 7 34 24 32 23 31 20 18 30 22 10 8 40 17 25 15 41 16 13 37 26 36 35 28 39 33 38 11 9 14 19 29 21 12 27
+
+Simulation stopped regularly after 1000000.0 rounds during 166985930 ms
+Which makes 166.98593 ms per round.
+
+Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threads
+projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;35;5;24.34714%;10;1000000;500;166985segs;4_TSP_thread
+
+
+[Summary] Saiving file: ~/stats_summary.txt
+ 
+ ----------------------------------------------------------------------------
+ 
+ nPOI = 40  strat = TSPbasedMobility  i = 1
+ 
+ ----------------------------------------------------------------------------
+ 
+You may have an invalid Java version: 25#72-b15. The application requires version 1.5 or more recent.
+> Starting SINALGO in BATCH-Mode for project UAV_Surveillance.Warning: At least some nodes use the 'NoMobility' mobility model. If you do not consider mobility at all in your project, you can considerably improve performance by turning off mobility in the XML configuration file.
+> Initialisation terminated.
+
+------------------------------------------------------
+General Config
+------------------------------------------------------
+Command Line arguments: -project UAV_Surveillance -rounds 1000000 -refreshRate 1000000 -batch exitAfter=true exitAfter/Rounds=1000000 exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen 5 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:TSPbasedMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen 40 UAV_Surveillance:POInode UAV_Surveillance:PoiDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery 
+Java VM arguments: -Xmx8192m 
+Class path: binaries/bin:binaries/jdom.jar:binaries/bin:binaries/choco-solver-3.3.3-j7-with-dependencies.jar
+------------------------------------------------------
+Configuration settings
+------------------------------------------------------
+ Simulation Area
+    dimensions = 2
+    dimX = 500
+    dimY = 500
+    dimZ = 1
+ Simulation
+    asynchronousMode = false
+    mobility = true
+    interference = false
+    interferenceIsAdditive = true
+    canReceiveWhileSending = true
+    canReceiveMultiplePacketsInParallel = true
+    edgeType = sinalgo.nodes.edges.Edge
+    exitOnTerminationInGUI = false
+    initializeConnectionsOnStartup = false
+    refreshRate = 1000000
+    generateNAckMessages = false
+    handleEmptyEventQueue = true
+    javaCmd = java
+    javaVMmaxMem = 8192
+ Random number generators
+    useSameSeedAsInPreviousRun = false
+    useFixedSeed = false
+    fixedSeed = 1528754604141898655
+ Logging
+    logFileName = logfile.txt
+    outputToConsole = true
+    logToTimeDirectory = true
+    logConfiguration = true
+    eagerFlush = false
+ GUI
+    extendedControl = true
+    drawArrows = false
+    zoomStep = 1.2
+    wheelZoomStep = 1.05
+    minZoomFactor = 0.05
+    draw3DGraphNodesInProperOrder = true
+    usePerspectiveView = true
+    perspectiveViewDistance = 40
+ Background map in 2D
+    useMap = false
+    map = images/map4.bmp
+ Models
+    DefaultMessageTransmissionModel = ConstantTime
+    DefaultConnectivityModel = UDG
+    DefaultDistributionModel = sample2:LakeAvoidRandomDistribution
+    DefaultInterferenceModel = NoInterference
+    DefaultMobilityModel = sample2:LakeAvoid
+    DefaultReliabilityModel = ReliableDelivery
+    DefaultNodeImplementation = sample2:S2Node
+    showModelsOfAllProjects = false
+ Node storage, position transformation
+    guiPositionTransformation2D = sinalgo.gui.transformation.Transformation2D
+    guiPositionTransformation3D = sinalgo.gui.transformation.Transformation3D
+    nodeCollection2D = sinalgo.runtime.nodeCollection.Geometric2DNodeCollection
+    nodeCollection3D = sinalgo.runtime.nodeCollection.Geometric3DNodeCollection
+ Export Settings
+    epsToPdfCommand = epstopdf %s
+    epsDrawDeploymentAreaBoundingBox = true
+    epsDrawBackgroundWhite = true
+ Animation Settings
+    showMessageAnimations = false
+    messageAnimationEnvelopeWidth = 30.0
+    messageAnimationEnvelopeHeight = 20.0
+    messageAnimationEnvelopeColor = r=255,g=255,b=0
+ Diverse Settings
+    showOptimizationHints = true
+    drawEdges = true
+    drawNodes = true
+    shownEventQueueSize = 10
+    outputTextFieldHeight = 200
+    arrowLength = 8
+    arrowWidth = 1
+    defaultRoundNumber = 1
+------------------------------------------------------
+Custom settings
+------------------------------------------------------
+ geometricnodecollection/rmax = 10
+ messagetransmission/constanttime = 1
+ node/defaultsize = 30
+ randomwaypoint/speed/distribution = Gaussian
+ randomwaypoint/speed/mean = 1
+ randomwaypoint/speed/variance = 0
+ randomwaypoint/waitingtime/distribution = Poisson
+ randomwaypoint/waitingtime/lambda = 10
+ threadtorunwithtsp/threads = 4
+ threadtorunwithtsptimeenabler/enabled = false
+ threadtorunwithtsptimer/maxduration = 3600000
+ udg/rmax = 10
+------------------------------------------------------
+Seed for Random Number Generators
+------------------------------------------------------
+ Randomly selected seed: 1528754604141898655
+------------------------------------------------------
+End of settings
+------------------------------------------------------
+
+> Starting the Simulation.
+
+[GSnode] Default route: 7 - 8 - 9 - 10 - 11 - 12 - 13 - 14 - 15 - 16 - 17 - 18 - 19 - 20 - 21 - 22 - 23 - 24 - 25 - 26 - 27 - 28 - 29 - 30 - 31 - 32 - 33 - 34 - 35 - 36 - 37 - 38 - 39 - 40 - 41 - 42 - 43 - 44 - 45 - 46 - 
+[TSP][Prep Adj] List size: 40
+[TSP][Prep Adj] Point 0 ID 7 @ ( 403.3131004766447 , 64.54882697002162 )
+[TSP][Prep Adj] Point 1 ID 8 @ ( 60.825782273890184 , 19.80518168339612 )
+[TSP][Prep Adj] Point 2 ID 9 @ ( 489.95866659955306 , 378.62740775461293 )
+[TSP][Prep Adj] Point 3 ID 10 @ ( 107.33391127501196 , 454.89839486919453 )
+[TSP][Prep Adj] Point 4 ID 11 @ ( 191.9700037004398 , 447.3587389050185 )
+[TSP][Prep Adj] Point 5 ID 12 @ ( 362.3696596373788 , 221.54063109366524 )
+[TSP][Prep Adj] Point 6 ID 13 @ ( 421.778952026953 , 2.4643527992086467 )
+[TSP][Prep Adj] Point 7 ID 14 @ ( 494.63573245502874 , 71.3277957138353 )
+[TSP][Prep Adj] Point 8 ID 15 @ ( 164.4055404120327 , 393.97878250754803 )
+[TSP][Prep Adj] Point 9 ID 16 @ ( 421.37056782507506 , 258.8557465100809 )
+[TSP][Prep Adj] Point 10 ID 17 @ ( 203.434364845547 , 36.16538973629035 )
+[TSP][Prep Adj] Point 11 ID 18 @ ( 142.63472995271815 , 133.74397702596352 )
+[TSP][Prep Adj] Point 12 ID 19 @ ( 332.88662119582034 , 265.29588202866665 )
+[TSP][Prep Adj] Point 13 ID 20 @ ( 192.63462519576092 , 137.0539221986397 )
+[TSP][Prep Adj] Point 14 ID 21 @ ( 280.77212796515477 , 324.4579097291732 )
+[TSP][Prep Adj] Point 15 ID 22 @ ( 120.63538401891371 , 152.8617944644829 )
+[TSP][Prep Adj] Point 16 ID 23 @ ( 119.4220011269782 , 118.77746799303013 )
+[TSP][Prep Adj] Point 17 ID 24 @ ( 127.39371780651454 , 320.5309346298791 )
+[TSP][Prep Adj] Point 18 ID 25 @ ( 440.14393782365295 , 390.79057391391 )
+[TSP][Prep Adj] Point 19 ID 26 @ ( 399.54536364332563 , 396.1390175320906 )
+[TSP][Prep Adj] Point 20 ID 27 @ ( 25.30899210490939 , 50.17153817512282 )
+[TSP][Prep Adj] Point 21 ID 28 @ ( 304.01088660687265 , 62.55023851342545 )
+[TSP][Prep Adj] Point 22 ID 29 @ ( 159.66941386161193 , 54.62238924675133 )
+[TSP][Prep Adj] Point 23 ID 30 @ ( 427.23716414704154 , 226.78325350518563 )
+[TSP][Prep Adj] Point 24 ID 31 @ ( 84.52403034970763 , 479.45115597220706 )
+[TSP][Prep Adj] Point 25 ID 32 @ ( 469.9710675557245 , 310.61035002548624 )
+[TSP][Prep Adj] Point 26 ID 33 @ ( 413.28899751599124 , 232.21397582238367 )
+[TSP][Prep Adj] Point 27 ID 34 @ ( 237.265615918185 , 335.73371286361254 )
+[TSP][Prep Adj] Point 28 ID 35 @ ( 95.09786355629302 , 265.7688985130632 )
+[TSP][Prep Adj] Point 29 ID 36 @ ( 395.5478713901629 , 228.4199045398271 )
+[TSP][Prep Adj] Point 30 ID 37 @ ( 234.24669362984753 , 118.18669539553572 )
+[TSP][Prep Adj] Point 31 ID 38 @ ( 303.8316315763129 , 220.13341936326412 )
+[TSP][Prep Adj] Point 32 ID 39 @ ( 247.6160644588799 , 161.18696241933444 )
+[TSP][Prep Adj] Point 33 ID 40 @ ( 64.5370320335163 , 0.4959482330946785 )
+[TSP][Prep Adj] Point 34 ID 41 @ ( 469.6433768631966 , 70.11508918376575 )
+[TSP][Prep Adj] Point 35 ID 42 @ ( 480.88295559455037 , 386.80752936185695 )
+[TSP][Prep Adj] Point 36 ID 43 @ ( 394.9852962990201 , 237.9485326908058 )
+[TSP][Prep Adj] Point 37 ID 44 @ ( 352.4471023383684 , 210.40124831541252 )
+[TSP][Prep Adj] Point 38 ID 45 @ ( 282.7013130470141 , 143.41856663020963 )
+[TSP][Prep Adj] Point 39 ID 46 @ ( 488.24249600659124 , 384.2634343214176 )
+
+ [TSP][Prep Adj] Matrix:
+
+0	345	325	489	437	162	64	91	406	195	201	269	212	222	287	296	289	376	328	331	378	99	243	163	523	254	167	317	368	164	177	184	183	344	66	331	173	154	144	330	
+345	0	559	437	447	362	361	436	388	432	143	140	366	176	375	145	115	308	530	506	46	246	104	420	460	501	411	361	248	394	199	314	234	19	411	557	399	348	253	561	
+325	559	0	390	305	202	382	307	325	138	446	424	193	383	216	432	452	367	51	92	569	366	462	164	417	70	165	256	410	177	364	244	325	569	309	12	169	217	313	5	
+489	437	390	0	84	345	550	545	83	370	429	323	294	329	217	302	336	135	338	298	412	438	403	392	33	390	378	176	189	366	359	306	325	456	528	379	360	346	357	387	
+437	447	305	84	0	282	500	482	60	296	411	317	230	310	151	303	336	142	254	213	430	400	394	322	112	309	308	120	205	298	331	253	291	464	468	295	291	286	317	302	
+162	362	202	345	282	0	226	200	262	69	244	236	52	189	131	251	263	254	186	178	378	169	262	65	379	139	52	169	270	33	164	58	129	370	185	203	36	14	111	205	
+64	361	382	550	500	226	0	100	468	256	220	308	277	265	351	336	323	433	388	394	399	132	267	224	584	311	229	380	419	227	220	247	235	357	82	388	237	219	198	387	
+91	436	307	545	482	200	100	0	461	201	293	357	252	309	331	382	378	443	324	338	469	190	335	169	578	240	180	368	444	185	264	241	262	435	25	315	194	198	223	313	
+406	388	325	83	60	262	468	461	0	290	359	261	212	258	135	245	278	82	275	235	370	359	339	311	116	316	296	93	145	284	284	222	247	405	445	316	278	262	277	323	
+195	432	138	370	296	69	256	201	290	0	311	305	88	259	155	318	332	300	133	139	447	228	331	32	402	70	27	199	326	39	234	123	199	440	194	141	33	84	180	142	
+201	143	446	429	411	244	220	293	359	311	0	114	263	101	298	143	117	294	426	409	178	103	47	293	458	382	287	301	253	271	87	209	132	143	268	447	278	229	133	449	
+269	140	424	323	317	236	308	357	261	305	114	0	231	50	235	29	27	187	393	367	144	176	80	299	350	372	288	223	140	270	92	182	108	154	333	422	273	223	140	426	
+212	366	193	294	230	52	277	252	212	88	263	231	0	190	78	240	258	212	165	146	375	204	272	101	327	144	86	118	237	72	177	53	134	377	238	191	67	58	131	195	
+222	176	383	329	310	189	265	309	258	259	101	50	190	0	207	73	75	194	354	331	188	133	88	251	359	327	240	203	161	222	45	138	60	187	284	381	226	175	90	385	
+287	375	216	217	151	131	351	331	135	155	298	235	78	207	0	234	261	153	172	138	374	262	295	176	250	189	161	44	194	149	211	106	166	389	316	209	143	134	181	215	
+296	145	432	302	303	251	336	382	245	318	143	29	240	73	234	0	34	167	398	370	140	204	105	315	328	383	303	216	115	285	118	195	127	162	358	429	287	238	162	434	
+289	115	452	336	336	263	323	378	278	332	117	27	258	75	261	34	0	201	420	394	116	192	75	326	362	399	315	246	148	297	114	210	135	130	353	449	300	250	165	454	
+376	308	367	135	142	254	433	443	82	300	294	187	212	194	153	167	201	0	320	282	288	312	267	314	164	342	299	110	63	283	228	203	199	326	424	359	280	250	235	366	
+328	530	51	338	254	186	388	324	275	133	426	393	165	354	172	398	420	320	0	40	536	355	437	164	366	85	160	210	366	168	341	218	299	541	322	40	159	200	293	48	
+331	506	92	298	213	178	394	338	235	139	409	367	146	331	138	370	394	282	40	0	509	346	417	171	325	110	164	173	331	167	323	200	279	518	333	81	158	191	278	89	
+378	46	569	412	430	378	399	469	370	447	178	144	375	188	374	140	116	288	536	509	0	278	134	439	433	515	428	355	226	410	219	326	248	63	444	566	414	364	273	570	
+99	246	366	438	400	169	132	190	359	228	103	176	204	133	262	204	192	312	355	346	278	0	144	205	471	298	201	281	291	189	89	157	113	247	165	369	197	155	83	370	
+243	104	462	403	394	262	267	335	339	331	47	80	272	88	295	105	75	267	437	417	134	144	0	318	431	402	309	291	220	292	97	219	138	109	310	462	298	247	151	465	
+163	420	164	392	322	65	224	169	311	32	293	299	101	251	176	315	326	314	164	171	439	205	318	0	425	94	14	218	334	31	221	123	191	427	162	168	34	76	166	168	
+523	460	417	33	112	379	584	578	116	402	458	350	327	359	250	328	362	164	366	325	433	471	431	425	0	420	411	209	213	399	391	339	357	479	562	407	393	379	390	414	
+254	501	70	390	309	139	311	240	316	70	382	372	144	327	189	383	399	342	85	110	515	298	402	94	420	0	96	234	377	110	304	189	267	510	240	76	104	154	251	75	
+167	411	165	378	308	52	229	180	296	27	287	288	86	240	161	303	315	299	160	164	428	201	309	14	411	96	0	204	319	18	212	110	180	418	171	168	19	64	157	169	
+317	361	256	176	120	169	380	368	93	199	301	223	118	203	44	216	246	110	210	173	355	281	291	218	209	234	204	0	158	191	217	133	174	377	352	248	185	170	197	255	
+368	248	410	189	205	270	419	444	145	326	253	140	237	161	194	115	148	63	366	331	226	291	220	334	213	377	319	158	0	302	202	213	184	267	422	404	301	263	223	410	
+164	394	177	366	298	33	227	185	284	39	271	270	72	222	149	285	297	283	168	167	410	189	292	31	399	110	18	191	302	0	195	92	162	401	174	179	9	46	141	181	
+177	199	364	359	331	164	220	264	284	234	87	92	177	45	211	118	114	228	341	323	219	89	97	221	391	304	212	217	202	195	0	123	45	206	240	364	200	149	54	367	
+184	314	244	306	253	58	247	241	222	123	209	182	53	138	106	195	210	203	218	200	326	157	219	123	339	189	110	133	213	92	123	0	81	324	223	243	92	49	79	246	
+183	234	325	325	291	129	235	262	247	199	132	108	134	60	166	127	135	199	299	279	248	113	138	191	357	267	180	174	184	162	45	81	0	243	239	324	166	115	39	328	
+344	19	569	456	464	370	357	435	405	440	143	154	377	187	389	162	130	326	541	518	63	247	109	427	479	510	418	377	267	401	206	324	243	0	411	567	406	356	260	571	
+66	411	309	528	468	185	82	25	445	194	268	333	238	284	316	358	353	424	322	333	444	165	310	162	562	240	171	352	422	174	240	223	239	411	0	316	183	182	200	314	
+331	557	12	379	295	203	388	315	316	141	447	422	191	381	209	429	449	359	40	81	566	369	462	168	407	76	168	248	404	179	364	243	324	567	316	0	171	218	313	7	
+173	399	169	360	291	36	237	194	278	33	278	273	67	226	143	287	300	280	159	158	414	197	298	34	393	104	19	185	301	9	200	92	166	406	183	171	0	50	146	173	
+154	348	217	346	286	14	219	198	262	84	229	223	58	175	134	238	250	250	200	191	364	155	247	76	379	154	64	170	263	46	149	49	115	356	182	218	50	0	96	220	
+144	253	313	357	317	111	198	223	277	180	133	140	131	90	181	162	165	235	293	278	273	83	151	166	390	251	157	197	223	141	54	79	39	260	200	313	146	96	0	316	
+330	561	5	387	302	205	387	313	323	142	449	426	195	385	215	434	454	366	48	89	570	370	465	168	414	75	169	255	410	181	367	246	328	571	314	7	173	220	316	0	
+
+
+
+[PrepMatrix]Returning matrix...
+
+[TSP] 4 threads created... for 40 POIs
+
+[TSP] 4 solvers created... for 40 POIs
+
+[TSP] Sending Solver-2
+
+[TSP] Sending Solver-3
+
+[TSP] Sending Solver-1
+
+[TSP] Sending Solver-0
