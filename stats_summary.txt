@@ -1,1 +1,0 @@
-projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;35;5;24.34714%;10;1000000;500;166985segs;4_TSP_thread

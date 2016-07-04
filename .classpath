@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="binaries/jdom.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/bruno/Documents/_gits/surveillanceStrategies/chocosolver/apidocs-3.3.3-j7.zip"/>
-	<classpathentry kind="lib" path="C:/Users/bruno/Documents/_gits/surveillanceStrategies/chocosolver/choco-samples-3.3.3-j7-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/bruno/Documents/_gits/surveillanceStrategies/chocosolver/choco-solver-3.3.3-j7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/bruno/Documents/_gits/surveillanceStrategies/chocosolver/choco-solver-3.3.3-j7-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/bruno/Documents/_gits/surveillanceStrategies/chocosolver/choco-solver-3.3.3-j7-with-dependencies.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/jaog/workspaceSinalgo/choco-3.3.3-j7/apidocs-3.3.3-j7.zip"/>
+	<classpathentry kind="lib" path="/home/jaog/workspaceSinalgo/choco-3.3.3-j7/choco-samples-3.3.3-j7-sources.jar"/>
+	<classpathentry kind="lib" path="/home/jaog/workspaceSinalgo/choco-3.3.3-j7/choco-solver-3.3.3-j7.jar"/>
+	<classpathentry kind="lib" path="/home/jaog/workspaceSinalgo/choco-3.3.3-j7/choco-solver-3.3.3-j7-sources.jar"/>
+	<classpathentry kind="lib" path="/home/jaog/workspaceSinalgo/choco-3.3.3-j7/choco-solver-3.3.3-j7-with-dependencies.jar"/>
 	<classpathentry kind="output" path="binaries/bin"/>
 </classpath>
