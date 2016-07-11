@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -47,7 +48,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	private int bestCost = 999999999;
 	private IntVar[] VS_bestTour = null; //VF.enumeratedArray("VS", listOfPOIs.size(), 0, listOfPOIs.size()-1, solvers.get(1));
 	
-	Logging uav_log = Logging.getLogger("UAV_GS_id_" + this.ID + ".txt");
+	//Logging uav_log = Logging.getLogger("UAV_GS_id_" + this.ID + ".txt");
 
 	
 	public void reset() {
@@ -176,9 +177,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 		// Choco Solver multithread approach 
 		final int[][] myDistMatrix = prepareDistMatrix(listOfPOIs, true);
         
-		//int THREADS = 2; // number of solvers to use
-		
-		int THREADS = 1;
+		int THREADS = 1; //default threads
 		try {
 			THREADS = (int) Configuration.getIntegerParameter("ThreadToRunWithTSP/threads");
 		} catch (CorruptConfigurationEntryException e) {
@@ -259,6 +258,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 		
 		System.out.println("\n");
 		
+		
 	}
 	
 	
@@ -279,7 +279,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			}					
 			mappedPOIs = true;			
 			
-			// Choose your flavor ... does not matter. sort() helps debug operations
+			// Choose your flavor ... z does not matter. sort() helps debug operations
 			Collections.sort(listOfPOIs); 
 			//Collections.shuffle(listOfPOIs);
 			
@@ -301,9 +301,11 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				createTSPbasedPaths(); // Does (ant)TSP path and populates "msgPOIorder"
 			}
 			else {
-				if (!(setOfUAVs.first().myMobilityModelName.endsWith("TSPbasedMobility"))){
+				if ((setOfUAVs.first().myMobilityModelName.endsWith("NaiveOrderedMobility"))){
 					
-					msgPOIorder = new msgPOIordered(listOfPOIs);					
+					System.out.println("[] NaiveOrderedMobility <<<<");
+					createNaiveBestPath();// Does O(n) path path and populates "msgPOIorder"
+					
 				}				
 			}		
 			broadcast(msgPOIorder);			
@@ -314,6 +316,44 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	}
 
 	
+	// Creates a path by choosing the nearest POI to nearest POI
+	private void createNaiveBestPath() {
+
+		// creates a Matrix such as a TSP 
+		final int[][] myDistMatrix = prepareDistMatrix(listOfPOIs, true);
+		
+		System.out.println("\n\n Ordem:  ");
+		
+//		ArrayList<POInode> tmplistOfPOIs = new ArrayList<POInode>();
+//		tmplistOfPOIs = listOfPOIs;
+//		POInode poiA = new POInode();	
+//		
+		ArrayList<Integer> poiOrder = new ArrayList<Integer>();
+		
+		int dist2Last = Integer.MAX_VALUE;
+		int j = 0;
+		while (poiOrder.size() <= listOfPOIs.size()){
+
+			int bestSoFar = -1;
+			for (int i = 0 ; i < listOfPOIs.size() ; i++){
+				
+				if ((myDistMatrix[j][i] < dist2Last) && (myDistMatrix[j][i] != 0)) {
+				
+					bestSoFar = i;
+					dist2Last = myDistMatrix[j][i];
+					
+				}		
+				
+			}
+						
+			poiOrder.add(bestSoFar);			
+			j = bestSoFar;
+			System.out.print(poiOrder + " - ");
+		}
+		
+		msgPOIorder = new msgPOIordered(listOfPOIs);
+	}
+
 	private synchronized void syncSolutions(Solver s, String policy){
 		// This method choose the best result from each thread. 
 		

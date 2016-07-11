@@ -51,7 +51,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 	};
 	
 	//@oli: Get next position avoiding obstacles.
-	// NOT TESTED WITH OBSTACLES
+	// NOT TESTED WITH OBSTACLES YET
 	public Position getNextPos(Node n){
 		Map map = Tools.getBackgroundMap();
 		Position newPos = new Position();

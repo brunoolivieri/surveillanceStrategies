@@ -77,7 +77,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public boolean receivedWayPoints = false;
 	public boolean canImove = true;
 
-	Logging uav_log = Logging.getLogger("UAV_id_" + this.ID + ".txt");
+	//Logging uav_log = Logging.getLogger("UAV_id_" + this.ID + ".txt");
 	
 	/**
 	 * Reset the list of neighbors of this node.
