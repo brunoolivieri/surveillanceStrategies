@@ -1,0 +1,1 @@
+Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threadsprojects.UAV_Surveillance.models.mobilityModels.NaiveOrderedMobility;5;1;5.46366%;10;1995;500;15segs;4_TSP_thread

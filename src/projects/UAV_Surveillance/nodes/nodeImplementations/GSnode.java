@@ -316,41 +316,60 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	}
 
 	
+	private POInode getNearestPoi(POInode poiA, ArrayList<POInode> poiList){
+		int dist2Last = Integer.MAX_VALUE;
+		int i = 0;
+		//POInode poiA = new POInode();
+		POInode lastPoi = new POInode();
+		
+		// looking for the nearest POI from the GS
+		for (i=0; i<=poiList.size(); i++){			
+			poiA = poiList.get(i);			
+			double distance = Math.hypot(poiA.getPosition().xCoord - lastPoi.getPosition().xCoord, poiA.getPosition().yCoord - lastPoi.getPosition().yCoord);
+			if (distance <= dist2Last){
+				dist2Last = (int) distance;
+				lastPoi = poiA;
+			}			
+		}		
+		return poiA;
+		
+	}
+	
 	// Creates a path by choosing the nearest POI to nearest POI
 	private void createNaiveBestPath() {
 
-		// creates a Matrix such as a TSP 
-		final int[][] myDistMatrix = prepareDistMatrix(listOfPOIs, true);
-		
 		System.out.println("\n\n Ordem:  ");
 		
-//		ArrayList<POInode> tmplistOfPOIs = new ArrayList<POInode>();
-//		tmplistOfPOIs = listOfPOIs;
-//		POInode poiA = new POInode();	
-//		
-		ArrayList<Integer> poiOrder = new ArrayList<Integer>();
+		POInode poiFrom = new POInode();		
+		poiFrom.setPosition(this.getPosition());
+		POInode poiTo = new POInode();
+		poiTo = getNearestPoi(poiFrom, listOfPOIs);
+  
+		System.out.println(" - " + poiTo.ID);
+	
 		
-		int dist2Last = Integer.MAX_VALUE;
-		int j = 0;
-		while (poiOrder.size() <= listOfPOIs.size()){
+//		ArrayList<Integer> poiOrder = new ArrayList<Integer>();
+//
+//		while (poiOrder.size() <= listOfPOIs.size()){
+//			int bestSoFar = -1;
+//			for (int j = 0 ; (j < listOfPOIs.size()) ; j++){		
+//				
+//				
+//				if (!poiOrder.contains((Integer) j ) && (i >= j)){
+//					if ((myDistMatrix[i][j] <= dist2Last)) {		
+//						bestSoFar = j;
+//						dist2Last = myDistMatrix[i][j];
+//					}
+//				}
+//				
+//			}
+//			poiOrder.add(bestSoFar);			
+//			i = bestSoFar;
+//			System.out.print(bestSoFar + " -> ");			
+//		}
+				
+		System.out.print("\n\n\n");
 
-			int bestSoFar = -1;
-			for (int i = 0 ; i < listOfPOIs.size() ; i++){
-				
-				if ((myDistMatrix[j][i] < dist2Last) && (myDistMatrix[j][i] != 0)) {
-				
-					bestSoFar = i;
-					dist2Last = myDistMatrix[j][i];
-					
-				}		
-				
-			}
-						
-			poiOrder.add(bestSoFar);			
-			j = bestSoFar;
-			System.out.print(poiOrder + " - ");
-		}
-		
 		msgPOIorder = new msgPOIordered(listOfPOIs);
 	}
 
