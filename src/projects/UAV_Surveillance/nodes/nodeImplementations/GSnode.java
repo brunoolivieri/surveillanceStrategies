@@ -316,61 +316,80 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	}
 
 	
-	private POInode getNearestPoi(POInode poiA, ArrayList<POInode> poiList){
+	private POInode getNearestPoi(POInode poiFrom, ArrayList<POInode> poiList){
 		int dist2Last = Integer.MAX_VALUE;
 		int i = 0;
-		//POInode poiA = new POInode();
-		POInode lastPoi = new POInode();
+		POInode poiA = new POInode();
+		POInode poiTo = new POInode();
 		
 		// looking for the nearest POI from the GS
-		for (i=0; i<=poiList.size(); i++){			
-			poiA = poiList.get(i);			
-			double distance = Math.hypot(poiA.getPosition().xCoord - lastPoi.getPosition().xCoord, poiA.getPosition().yCoord - lastPoi.getPosition().yCoord);
-			if (distance <= dist2Last){
-				dist2Last = (int) distance;
-				lastPoi = poiA;
-			}			
+		for (i=0; i<poiList.size(); i++){			
+			poiA = poiList.get(i);	
+			if (poiA.ID != poiFrom.ID) {	
+				// need to change it to use distance matrix created to TSP
+				double distance = Math.hypot(poiFrom.getPosition().xCoord - poiA.getPosition().xCoord, poiFrom.getPosition().yCoord - poiA.getPosition().yCoord);
+				if (distance <= dist2Last){
+					dist2Last = (int) distance;
+					poiTo = poiA;
+				}
+			}
 		}		
-		return poiA;
+		return poiTo;
 		
+	}
+	
+	private boolean isPoiInList(POInode poiFrom, ArrayList<POInode> poiList){
+		POInode poiInList = new POInode();
+		for (int i=0; i<poiList.size(); i++){
+			poiInList = poiList.get(i);
+			if (poiInList.ID == poiFrom.ID)
+				return true;
+		}		
+		return false;	
+	}
+	
+	
+	private void removePoiFromList(POInode poiFrom, ArrayList<POInode> poiList){
+		POInode poiA = new POInode();
+		for (int i = 0; i< poiList.size(); i++) {		
+			poiA = poiList.get(i);
+			if (poiA.ID == poiFrom.ID){
+				poiList.remove(i);
+				//break;
+			}
+		}
 	}
 	
 	// Creates a path by choosing the nearest POI to nearest POI
 	private void createNaiveBestPath() {
-
-		System.out.println("\n\n Ordem:  ");
 		
+		// getting first and nearest
 		POInode poiFrom = new POInode();		
-		poiFrom.setPosition(this.getPosition());
-		POInode poiTo = new POInode();
-		poiTo = getNearestPoi(poiFrom, listOfPOIs);
-  
-		System.out.println(" - " + poiTo.ID);
-	
+		poiFrom.setPosition(this.getPosition()); // GroundStation
+		POInode poiA = new POInode();
+		poiA = getNearestPoi(poiFrom, listOfPOIs);
+		poiFrom = poiA;
+		System.out.println(poiFrom.ID);
 		
-//		ArrayList<Integer> poiOrder = new ArrayList<Integer>();
-//
-//		while (poiOrder.size() <= listOfPOIs.size()){
-//			int bestSoFar = -1;
-//			for (int j = 0 ; (j < listOfPOIs.size()) ; j++){		
-//				
-//				
-//				if (!poiOrder.contains((Integer) j ) && (i >= j)){
-//					if ((myDistMatrix[i][j] <= dist2Last)) {		
-//						bestSoFar = j;
-//						dist2Last = myDistMatrix[i][j];
-//					}
-//				}
-//				
-//			}
-//			poiOrder.add(bestSoFar);			
-//			i = bestSoFar;
-//			System.out.print(bestSoFar + " -> ");			
-//		}
-				
-		System.out.print("\n\n\n");
+		// create the answerList
+		ArrayList<POInode> poiOrder = new ArrayList<POInode>();
+		poiOrder.add(poiFrom);
 
-		msgPOIorder = new msgPOIordered(listOfPOIs);
+		ArrayList<POInode> poiListTemp = new ArrayList<POInode>();
+		//poiListTemp = listOfPOIs;
+		poiListTemp = (ArrayList<POInode>)listOfPOIs.clone();
+
+		//removing the first one from the list
+		removePoiFromList(poiFrom, poiListTemp);
+	
+		//creating the chain of nearest POI to prosecute
+		while (poiOrder.size() < listOfPOIs.size()){
+			poiA = getNearestPoi((poiFrom), poiListTemp);
+			poiOrder.add(poiA);
+			poiFrom = poiA;
+			removePoiFromList(poiFrom, poiListTemp);
+		}
+		msgPOIorder = new msgPOIordered(poiOrder);
 	}
 
 	private synchronized void syncSolutions(Solver s, String policy){
