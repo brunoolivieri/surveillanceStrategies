@@ -159,6 +159,37 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public void postStep() {
 		
 		
+		// hammer to KingstonImproved, inverting PATH
+		
+		// if did all POIs, invert POIs order
+		if ((this.pathIdx == 0)&& this.visitedAllPOIs) {
+			ArrayList<POInode> poiListTemp = new ArrayList<POInode>();
+			poiListTemp = (ArrayList<POInode>)this.pathPOIs.clone();
+			
+			System.out.println("\n\n\n Removendo: ");
+			
+			POInode poiTmp = new POInode();
+			
+			//this.pathPOIs.clear();
+			for (int i = poiListTemp.size() -1 ; i <= 0 ; i-- ){
+				poiTmp = this.pathPOIs.get(i);
+				System.out.println(" removing " + poiTmp.ID);
+				this.pathPOIs.remove(i);
+			}
+
+			System.out.println("\n\n\n Adicionando: ");
+			
+			for (int i = poiListTemp.size() -1 ; i <= 0 ; i-- ){
+				poiTmp = this.pathPOIs.get(i);
+				System.out.println(" adding " + poiTmp.ID);
+				this.pathPOIs.add(poiListTemp.get(i));
+			}
+			this.visitedAllPOIs = false;
+			
+		}
+		///////
+		
+		
 	}
 	
 	@Override

@@ -60,7 +60,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 			nonFlyZone = !map.isWhite(n.getPosition());  //we are already standing in the lake
 		}
 		if(nonFlyZone){
-			Main.fatalError("A node is standing in a lake. Cannot find a step outside.");
+			Main.fatalError("A node is standing in a non flying zone. Cannot find a step outside.");
 		}
 		do{
 			nonFlyZone = false;
@@ -108,7 +108,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 
 			// determine the next point where this node moves to
 			//nextDestination = legacyGetNextWayPoint();   // <***************************************************************************
-			nextDestination = GetNextWayPoint(v); // new one.
+			nextDestination = GetNextWayPoint(v); // new one. HERE IS WHERE NAVIGATES BY UAV POIs LIST
 			
 			// determine the number of rounds needed to reach the target
 			double dist = nextDestination.distanceTo(n.getPosition());

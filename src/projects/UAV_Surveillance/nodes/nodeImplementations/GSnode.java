@@ -287,14 +287,14 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			for (POInode n: listOfPOIs){
 				System.out.print(n.ID + " - ");
 			}
-			System.out.println("");
+			System.out.println("\n");
 
 			
 		}	
 		
 		//@Oli: Sent once to inform UAVs the visit order... Naive, TSP & Anti-TSP cases
 		// Random Safe Strategy does not wait for this step, because does not have an order
-		if (!cmdsSent){
+		if ((!cmdsSent) && (!setOfUAVs.first().myMobilityModelName.endsWith("RandomSafeMobility"))){
 			//@Oli: ChocoSolver to TSP
 			if (setOfUAVs.first().myMobilityModelName.endsWith("TSPbasedMobility")){
 				
@@ -303,12 +303,21 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			else {
 				if ((setOfUAVs.first().myMobilityModelName.endsWith("NaiveOrderedMobility"))){
 					
-					System.out.println("[] NaiveOrderedMobility <<<<");
+					System.out.println("[NaiveOrderedMobility] ");
 					createNaiveBestPath();// Does O(n) path path and populates "msgPOIorder"
 					
-				}				
+				} else {
+				if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImproved"))){
+					
+					System.out.println("[KingstonImproved] ");
+					createNaiveBestPath();// same as NaiveOrderedMobility
+					
+				}
+				}
 			}		
+			
 			broadcast(msgPOIorder);			
+			
 			cmdsSent = true;	
 		}
 		
@@ -369,7 +378,6 @@ public class GSnode extends Node implements Comparable<GSnode> {
 		POInode poiA = new POInode();
 		poiA = getNearestPoi(poiFrom, listOfPOIs);
 		poiFrom = poiA;
-		System.out.println(poiFrom.ID);
 		
 		// create the answerList
 		ArrayList<POInode> poiOrder = new ArrayList<POInode>();
@@ -389,7 +397,16 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			poiFrom = poiA;
 			removePoiFromList(poiFrom, poiListTemp);
 		}
+		
+		
+		for (int i =0; i< poiOrder.size(); i++){
+			poiA = poiOrder.get(i);
+			System.out.print(poiA.ID + " - ");
+		}
+		
 		msgPOIorder = new msgPOIordered(poiOrder);
+		
+			
 	}
 
 	private synchronized void syncSolutions(Solver s, String policy){
