@@ -303,13 +303,13 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			else {
 				if ((setOfUAVs.first().myMobilityModelName.endsWith("NaiveOrderedMobility"))){
 					
-					System.out.println("[NaiveOrderedMobility] ");
+					System.out.print("[NaiveOrderedMobility] ");
 					createNaiveBestPath();// Does O(n) path path and populates "msgPOIorder"
 					
 				} else {
-				if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImproved"))){
+				if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedMobility"))){
 					
-					System.out.println("[KingstonImproved] ");
+					System.out.print("[KingstonImproved] ");
 					createNaiveBestPath();// same as NaiveOrderedMobility
 					
 				}
@@ -403,7 +403,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			poiA = poiOrder.get(i);
 			System.out.print(poiA.ID + " - ");
 		}
-		
+		System.out.println();
 		msgPOIorder = new msgPOIordered(poiOrder);
 		
 			

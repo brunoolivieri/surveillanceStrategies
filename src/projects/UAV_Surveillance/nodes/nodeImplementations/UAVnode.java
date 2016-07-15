@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 
 import projects.UAV_Surveillance.nodes.messages.msgFOV;
+import projects.UAV_Surveillance.nodes.messages.msgKingImp;
 import projects.UAV_Surveillance.nodes.messages.msgPOIordered;
 import sinalgo.configuration.WrongConfigurationException;
 import sinalgo.gui.transformation.PositionTransformation;
@@ -62,20 +63,31 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	//@Oli: Our vars
 	public int nKnownPOIs = 0;
 	public int nKnownUAVs = 0;	
+	
+	// To control execution flow 
 	private boolean visitedAllPOIs = false; // flag set to true when this node has most neighbors
 	private boolean mappedPOIs = false;
 	public String myMobilityModelName;
+	public boolean receivedWayPoints = false;
+	public boolean canImove = true;
 	
 	// The set of nodes this node has already seen
 	private TreeSet<POInode> visitedPOIs = new TreeSet<POInode>();
 	
+	// To control path
 	public ArrayList<POInode> pathPOIs = new ArrayList<POInode>();
-	public int pathIdx = this.ID -1; 
+	public int pathIdx = 0 ; //this.ID -1;
 	
+	// To use with rendezvous and change paths
+	public POInode lastPoi = new POInode();
+	public POInode nextPoi = new POInode();
+	public ArrayList<POInode> knownPOIs = new ArrayList<POInode>();
+
+	
+	// To mark visits
 	private msgFOV msgPOIseen;
-	
-	public boolean receivedWayPoints = false;
-	public boolean canImove = true;
+
+		
 
 	//Logging uav_log = Logging.getLogger("UAV_id_" + this.ID + ".txt");
 	
@@ -84,6 +96,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	 */
 	public void reset() {
 		visitedPOIs.clear();
+		knownPOIs.clear();
 		nKnownUAVs = 0;
 		nKnownPOIs = 0;
 		visitedAllPOIs = false;
@@ -102,8 +115,36 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			if(msg instanceof msgPOIordered) {
 				canImove = true; // releasing the trigger on legacyGetNextPos()
 				msgPOIordered pathMsg = (msgPOIordered)msg;
-				pathPOIs = pathMsg.data;
+				pathPOIs = pathMsg.data;		
+				knownPOIs = pathMsg.data;
 			}
+			
+			// Rendezvous to balance paths
+			
+			if (msg instanceof msgKingImp) {
+				
+				msgKingImp tmpMsg = (msgKingImp) msg;				
+				System.out.println( this.ID + " recebeu msg de " + tmpMsg.fromID);
+				
+				boolean doTheBalance = true;
+				
+				if (doTheBalance){
+					
+					if ((this.nextPoi == tmpMsg.lastPoi)&&(this.lastPoi == tmpMsg.nextPoi)){ // So, it is comming from where I am going... 
+						System.out.println("deveria haver balanceamento");
+						
+						// PAREI AQUI
+						// cria objeto só para isso...
+						// envia tudo que sabe
+						// recebe novas orientações
+						
+						
+						
+					} //else
+						//System.out.println(">>>NÃO<<< deveria haver balanceamento");				
+				}
+			}
+			
 		}
 		
 	}
@@ -131,6 +172,12 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 					visitedPOIs.add((POInode) e.endNode); // only adds really new POIs
 				}
 			} 
+			
+			// that is other UAV, rendezvous
+			if (e.endNode instanceof UAVnode){		
+				msgKingImp msgKing2send = new msgKingImp(pathPOIs, this.ID, lastPoi, nextPoi);
+				sendDirect(msgKing2send, e.endNode);
+			}
 		}
 	}
 
@@ -158,38 +205,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	@Override
 	public void postStep() {
 		
-		
-		// hammer to KingstonImproved, inverting PATH
-		
-		// if did all POIs, invert POIs order
-		if ((this.pathIdx == 0)&& this.visitedAllPOIs) {
-			ArrayList<POInode> poiListTemp = new ArrayList<POInode>();
-			poiListTemp = (ArrayList<POInode>)this.pathPOIs.clone();
-			
-			System.out.println("\n\n\n Removendo: ");
-			
-			POInode poiTmp = new POInode();
-			
-			//this.pathPOIs.clear();
-			for (int i = poiListTemp.size() -1 ; i <= 0 ; i-- ){
-				poiTmp = this.pathPOIs.get(i);
-				System.out.println(" removing " + poiTmp.ID);
-				this.pathPOIs.remove(i);
-			}
 
-			System.out.println("\n\n\n Adicionando: ");
-			
-			for (int i = poiListTemp.size() -1 ; i <= 0 ; i-- ){
-				poiTmp = this.pathPOIs.get(i);
-				System.out.println(" adding " + poiTmp.ID);
-				this.pathPOIs.add(poiListTemp.get(i));
-			}
-			this.visitedAllPOIs = false;
-			
-		}
-		///////
-		
-		
 	}
 	
 	@Override
@@ -207,12 +223,18 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		
 		if(visitedAllPOIs) {
 			this.setColor(Color.GREEN);
-			//this.drawingSizeInPixels = 10; 
 		} else {
 			this.setColor(Color.BLUE);
 		}
 	
+		// default:
 		drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
+		
+		// debug: 
+		//this.setColor(Color.BLACK);
+		//String text = this.ID + "|" + Integer.toString(pathIdx);
+		//this.drawingSizeInPixels = 10 ; 
+		//super.drawNodeAsDiskWithText(g, pt, highlight, text, 10, Color.YELLOW);
 	}
 	
 	/* (non-Javadoc)
