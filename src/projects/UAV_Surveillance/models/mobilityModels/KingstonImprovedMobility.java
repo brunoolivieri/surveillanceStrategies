@@ -1,6 +1,7 @@
 package projects.UAV_Surveillance.models.mobilityModels;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
 import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode;
@@ -26,47 +27,37 @@ public class KingstonImprovedMobility<syncronized> extends NaiveOrderedMobility{
 	@Override
 	protected synchronized Position GetNextWayPoint(UAVnode v) {
 			
-		POInode p = v.pathPOIs.get(v.pathIdx);
-				
-//		String txt = "";
-//		if (((Integer)v.ID % 4)==0) {
-//			txt += "\t";
-//		}
-//		txt += "_uav_" +  v.ID + " -> " + p.ID + " com pathIdx: " + v.pathIdx + "\n";
-//		System.out.println(txt);
-//		
+		System.out.println("_uav_" + v.ID + " idx = " + v.getPathIdx());
 		
-		// Setting origin and destination to use with rendezvous
-		v.nextPoi = p; // where I am going		
+		POInode p = v.pathPOIs.get(v.getPathIdx());
+	
+		v.nextPoi = p; // where shaw it go		
+				
+		// low level path planning
+		Position nextMapPoint = new Position(p.getPosition().xCoord, p.getPosition().yCoord, p.getPosition().zCoord); 
 		
 		POInode fakePoi = new POInode();
 		fakePoi.setPosition(v.getPosition());
 		v.lastPoi = getNearestPoi(fakePoi, v.pathPOIs); // just a shortcut. Since this UAV just reaches a POI, it is the nearest one.
 		
-		// low level path planning
-		double nextX = p.getPosition().xCoord; 
-		double nextY = p.getPosition().yCoord; 
-		double nextZ = 0;
-		Position nextMapPoint = new Position(nextX, nextY, nextZ); 
+		v.setPathIdx(v.getPathIdx() + 1); 
 		
-		// next POI pointer, after that exactaly path
-		v.pathIdx++; 
-		// if its bigger, shot back on first
-		v.pathIdx = v.pathIdx % v.pathPOIs.size();
+		System.out.print("_uav_" + v.ID + " checando ID " + v.getPathIdx() + " vs " + (v.pathPOIs.size()-1));
 		
-		// if did all POIs, invert POIs order
-		if (v.pathIdx == 0) {
-			//System.out.println("_uav_" + v.ID + " invertendo path... \n");
-			ArrayList<POInode> poiListTemp = new ArrayList<POInode>();
-			poiListTemp = (ArrayList<POInode>)v.pathPOIs.clone();		
-			POInode poiTmp = new POInode();		
-			v.pathPOIs.clear();		
-			for (int i = poiListTemp.size() -1 ; i >= 0 ; i-- ){
-				poiTmp = poiListTemp.get(i);
-				v.pathPOIs.add(poiTmp);
-			}
+		if ( v.getPathIdx() >= (v.pathOriginal.size()-1) ) { // second time pointing to first, means full POIs covered.
+			
+			//System.out.print("_uav_" + v.ID + " ori = " + v.lastPoi.ID + " to = " + v.pathPOIs.get((v.pathPOIs.size()-1)).ID + " invertendo path... ");
+			
+			Collections.reverse(v.pathPOIs);
+			
+			for (int i = 0 ; i< v.pathPOIs.size(); i++)
+				System.out.print(v.pathPOIs.get(i).ID + " - ");	
+			
+			System.out.println();
+			v.setPathIdx(0);
 		}
 		///////	
+		
 		return nextMapPoint;
 	}
 	

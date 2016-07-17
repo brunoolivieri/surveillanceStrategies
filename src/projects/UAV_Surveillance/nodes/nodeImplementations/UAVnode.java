@@ -72,18 +72,19 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public boolean canImove = true;
 	
 	// The set of nodes this node has already seen
-	private TreeSet<POInode> visitedPOIs = new TreeSet<POInode>();
+	public TreeSet<POInode> visitedPOIs = new TreeSet<POInode>();
 	
 	// To control path
 	public ArrayList<POInode> pathPOIs = new ArrayList<POInode>();
-	public int pathIdx = 0 ; //this.ID -1;
+	private  int pathIdx = 0 ; //this.ID -1;
 	
 	// To use with rendezvous and change paths
 	public POInode lastPoi = new POInode();
 	public POInode nextPoi = new POInode();
-	public ArrayList<POInode> knownPOIs = new ArrayList<POInode>();
+	public ArrayList<POInode> pathOriginal = new ArrayList<POInode>();
+	private KingImpReplanner replanner = new KingImpReplanner();
+	public TreeSet<POInode> roundVisitedPOIs = new TreeSet<POInode>();
 
-	
 	// To mark visits
 	private msgFOV msgPOIseen;
 
@@ -96,7 +97,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	 */
 	public void reset() {
 		visitedPOIs.clear();
-		knownPOIs.clear();
+		pathOriginal.clear();
 		nKnownUAVs = 0;
 		nKnownPOIs = 0;
 		visitedAllPOIs = false;
@@ -116,35 +117,32 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				canImove = true; // releasing the trigger on legacyGetNextPos()
 				msgPOIordered pathMsg = (msgPOIordered)msg;
 				pathPOIs = pathMsg.data;		
-				knownPOIs = pathMsg.data;
+				pathOriginal = pathMsg.data;
+				System.out.print("[UAV " + this.ID + "] Original Path: ");
+				for (int i = 0; i<pathPOIs.size(); i++){
+					System.out.print(pathPOIs.get(i).ID + " - ");
+				}
+				System.out.println();
 			}
 			
 			// Rendezvous to balance paths
 			
-			if (msg instanceof msgKingImp) {
-				
-				msgKingImp tmpMsg = (msgKingImp) msg;				
-				System.out.println( this.ID + " recebeu msg de " + tmpMsg.fromID);
-				
-				boolean doTheBalance = true;
-				
-				if (doTheBalance){
-					
+			if (msg instanceof msgKingImp) {	
+				boolean doTheBalance = false;
+				if (doTheBalance){					
+					msgKingImp tmpMsg = (msgKingImp) msg;				
+					System.out.println( this.ID + " recebeu msg de " + tmpMsg.fromID);					
 					if ((this.nextPoi == tmpMsg.lastPoi)&&(this.lastPoi == tmpMsg.nextPoi)){ // So, it is comming from where I am going... 
-						System.out.println("deveria haver balanceamento");
+						//System.out.println("deveria haver balanceamento");
 						
 						// PAREI AQUI
-						// cria objeto só para isso...
-						// envia tudo que sabe
-						// recebe novas orientações
 						
-						
+						replanner.getNewPath(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID);
 						
 					} //else
 						//System.out.println(">>>NÃO<<< deveria haver balanceamento");				
 				}
 			}
-			
 		}
 		
 	}
@@ -153,7 +151,6 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public void init() {		
 			
 		msgPOIseen = new msgFOV(this.ID);
-		
 		//@Oli: all strategies but Random one.
 		if (!receivedWayPoints) {
 			// Waiting GS instructions
@@ -170,6 +167,11 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			if (e.endNode instanceof POInode){
 				if (!visitedPOIs.contains((POInode) e.endNode)){
 					visitedPOIs.add((POInode) e.endNode); // only adds really new POIs
+					//System.out.println("[UAV " + this.ID + "] found POI " + e.endNode.ID);
+				}
+				if (!roundVisitedPOIs.contains((POInode) e.endNode)){
+					roundVisitedPOIs.add((POInode) e.endNode); // only adds really new POIs
+					//System.out.println("[UAV " + this.ID + "] found POI " + e.endNode.ID);
 				}
 			} 
 			
@@ -184,8 +186,8 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	@Override
 	public void preStep() {			
 			
-		broadcast(msgPOIseen);	
-		
+		broadcast(msgPOIseen);	// to POIs discover if they are under visit
+
 		//@Oli: we can not do it on Init() because does not works... BUG?
 		if (!mappedPOIs){		
 			for(Node n : Runtime.nodes) {
@@ -259,5 +261,14 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			}
 		}
 	}
+
+	public synchronized int getPathIdx() {
+		return pathIdx;
+	}
+
+	public synchronized void setPathIdx(int pathIdx) {
+		this.pathIdx = pathIdx;
+	}
+
 	
 }
