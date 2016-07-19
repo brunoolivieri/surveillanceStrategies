@@ -1,6 +1,7 @@
-package projects.UAV_Surveillance.models.mobilityModels;
+	package projects.UAV_Surveillance.models.mobilityModels;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
 import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
@@ -8,12 +9,14 @@ import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode;
 import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.nodes.Node;
 import sinalgo.nodes.Position;
+import sinalgo.runtime.Runtime;
 
 public class KingstonImprovedMobility<syncronized> extends NaiveOrderedMobility{
+	
+	private POInode tmpPoi = new POInode();
 
 	public KingstonImprovedMobility() throws CorruptConfigurationEntryException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -22,43 +25,46 @@ public class KingstonImprovedMobility<syncronized> extends NaiveOrderedMobility{
 		
 	}
 
-	
 	//@Oli: set target as next POI in each list from each UAV
 	@Override
-	protected synchronized Position GetNextWayPoint(UAVnode v) {
+	public synchronized Position GetNextWayPoint(UAVnode v) {
 			
-		System.out.println("_uav_" + v.ID + " idx = " + v.getPathIdx());
+		if (!v.roundVisitedAllPOIs){
+			
+			tmpPoi = v.pathPOIs.get(v.getPathIdx());
 		
-		POInode p = v.pathPOIs.get(v.getPathIdx());
+			v.nextPoi = tmpPoi; // where shaw it go		
+					
+			// low level path planning
+			Position nextMapPoint = new Position(tmpPoi.getPosition().xCoord, tmpPoi.getPosition().yCoord, tmpPoi.getPosition().zCoord); 
+			
+			v.setPathIdx(v.getPathIdx() + 1); // = v.pathIdx + v.ID;
+			v.setPathIdx(v.getPathIdx() % v.pathPOIs.size());
 	
-		v.nextPoi = p; // where shaw it go		
-				
-		// low level path planning
-		Position nextMapPoint = new Position(p.getPosition().xCoord, p.getPosition().yCoord, p.getPosition().zCoord); 
-		
-		POInode fakePoi = new POInode();
-		fakePoi.setPosition(v.getPosition());
-		v.lastPoi = getNearestPoi(fakePoi, v.pathPOIs); // just a shortcut. Since this UAV just reaches a POI, it is the nearest one.
-		
-		v.setPathIdx(v.getPathIdx() + 1); 
-		
-		System.out.print("_uav_" + v.ID + " checando ID " + v.getPathIdx() + " vs " + (v.pathPOIs.size()-1));
-		
-		if ( v.getPathIdx() >= (v.pathOriginal.size()-1) ) { // second time pointing to first, means full POIs covered.
+			return nextMapPoint;
 			
-			//System.out.print("_uav_" + v.ID + " ori = " + v.lastPoi.ID + " to = " + v.pathPOIs.get((v.pathPOIs.size()-1)).ID + " invertendo path... ");
+		} else {
 			
+			tmpPoi = v.pathPOIs.get(v.getPathIdx());
+			
+			// PAREI AQUI
+			System.out.println("invertendo " + v.ID + " tmpPOI = "+ tmpPoi.ID + " idx = " + v.getPathIdx());
+			v.roundVisitedAllPOIs = false;
+			v.roundVisitedPOIs.clear();
 			Collections.reverse(v.pathPOIs);
 			
-			for (int i = 0 ; i< v.pathPOIs.size(); i++)
-				System.out.print(v.pathPOIs.get(i).ID + " - ");	
+			v.nextPoi = tmpPoi; // where shaw it go		
 			
-			System.out.println();
-			v.setPathIdx(0);
+			Position nextMapPoint = new Position(tmpPoi.getPosition().xCoord, tmpPoi.getPosition().yCoord, tmpPoi.getPosition().zCoord); 
+			
+			v.setPathIdx(v.getPathIdx() + 1); // = v.pathIdx + v.ID;
+			v.setPathIdx(v.getPathIdx() % v.pathPOIs.size());
+	
+			return nextMapPoint;
+			
 		}
-		///////	
 		
-		return nextMapPoint;
+		
 	}
 	
 	

@@ -63,9 +63,11 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	//@Oli: Our vars
 	public int nKnownPOIs = 0;
 	public int nKnownUAVs = 0;	
+	public POInode tmpPOI = new POInode(); 
+
 	
 	// To control execution flow 
-	private boolean visitedAllPOIs = false; // flag set to true when this node has most neighbors
+	public boolean visitedAllPOIs = false; // flag set to true when this node has most neighbors
 	private boolean mappedPOIs = false;
 	public String myMobilityModelName;
 	public boolean receivedWayPoints = false;
@@ -84,6 +86,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public ArrayList<POInode> pathOriginal = new ArrayList<POInode>();
 	private KingImpReplanner replanner = new KingImpReplanner();
 	public TreeSet<POInode> roundVisitedPOIs = new TreeSet<POInode>();
+	public boolean roundVisitedAllPOIs = false; 
 
 	// To mark visits
 	private msgFOV msgPOIseen;
@@ -140,7 +143,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 						replanner.getNewPath(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID);
 						
 					} //else
-						//System.out.println(">>>NÃO<<< deveria haver balanceamento");				
+						//System.out.println(">>>Nï¿½O<<< deveria haver balanceamento");				
 				}
 			}
 		}
@@ -165,10 +168,13 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public void neighborhoodChange() {
 		for(Edge e : this.outgoingConnections){
 			if (e.endNode instanceof POInode){
+				// This is for all bases
 				if (!visitedPOIs.contains((POInode) e.endNode)){
 					visitedPOIs.add((POInode) e.endNode); // only adds really new POIs
 					//System.out.println("[UAV " + this.ID + "] found POI " + e.endNode.ID);
 				}
+				
+				// This is for KingStonImproved
 				if (!roundVisitedPOIs.contains((POInode) e.endNode)){
 					roundVisitedPOIs.add((POInode) e.endNode); // only adds really new POIs
 					//System.out.println("[UAV " + this.ID + "] found POI " + e.endNode.ID);
@@ -202,10 +208,35 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		} else {
 			visitedAllPOIs = false;
 		}	
+		
+		if((roundVisitedPOIs.size() >= nKnownPOIs)  && (nKnownPOIs !=0) ) { 
+			roundVisitedAllPOIs = true;
+		} else {
+			roundVisitedAllPOIs = false;
+		}	
+		
+		
+		
+		
+		
 	}
 
 	@Override
 	public void postStep() {
+		
+		
+		
+		// working on KingStonImproved here
+		
+		if (canImove) { // Safe check
+			
+			tmpPOI = this.pathPOIs.get(this.getPathIdx());
+
+			if (tmpPOI.ID == pathPOIs.get(0).ID ){
+				//System.out.println("uav " + this.ID + " deveria inverter");
+				
+			}				
+		}
 		
 
 	}
@@ -272,3 +303,4 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 
 	
 }
+
