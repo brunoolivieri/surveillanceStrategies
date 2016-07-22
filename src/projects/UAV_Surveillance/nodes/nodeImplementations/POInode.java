@@ -61,7 +61,7 @@ public class POInode extends Node implements Comparable<POInode> {
 
 	@Override
 	public void init() {
-		//@Oli: calcs distance to GS in order to be sorted
+		// calcs distance to GS in order to be sorted
 		if (!init){
 			distToGS = (int) Math.sqrt(
 		            (this.getPosition().xCoord - 0) *  (this.getPosition().xCoord - 0) + 
@@ -71,6 +71,9 @@ public class POInode extends Node implements Comparable<POInode> {
 			//System.out.println("[POI " + this.ID + "] " + "dist to GS = " + this.distToGS);
 		}
 		
+//		if (this.ID % 2 != 0){
+//		 this.ID = this.ID * 2;	
+//		}
 		
 	}
 

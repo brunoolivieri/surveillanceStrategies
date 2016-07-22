@@ -41,6 +41,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.TreeSet;
 
 import projects.UAV_Surveillance.nodes.messages.msgFOV;
@@ -119,7 +122,9 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			if(msg instanceof msgPOIordered) {
 				canImove = true; // releasing the trigger on legacyGetNextPos()
 				msgPOIordered pathMsg = (msgPOIordered)msg;
-				pathPOIs = pathMsg.data;		
+				
+				pathPOIs = (ArrayList<POInode>) pathMsg.data.clone();	// THIS KEEP ME SOMETIME!  missing ansiC
+				
 				pathOriginal = pathMsg.data;
 				System.out.print("[UAV " + this.ID + "] Original Path: ");
 				for (int i = 0; i<pathPOIs.size(); i++){
@@ -178,6 +183,15 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				if (!roundVisitedPOIs.contains((POInode) e.endNode)){
 					roundVisitedPOIs.add((POInode) e.endNode); // only adds really new POIs
 					//System.out.println("[UAV " + this.ID + "] found POI " + e.endNode.ID);
+				//	System.out.print("[UAV " + this.ID + "] roundVisitedPOIs: ");
+					
+//					Iterator<POInode> itr=roundVisitedPOIs.iterator();
+//				    while(itr.hasNext()){
+//				        POInode c=itr.next();			    
+//						System.out.print(c.ID + " - ");
+//				    }
+//					System.out.println();
+
 				}
 			} 
 			
@@ -209,8 +223,9 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			visitedAllPOIs = false;
 		}	
 		
-		if((roundVisitedPOIs.size() >= nKnownPOIs)  && (nKnownPOIs !=0) ) { 
+		if((roundVisitedPOIs.size() >= pathPOIs.size())  && (nKnownPOIs !=0) && canImove) { 
 			roundVisitedAllPOIs = true;
+			//System.out.println("[uav " + this.ID + "]\tsetando true ");
 		} else {
 			roundVisitedAllPOIs = false;
 		}	
@@ -224,19 +239,17 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	@Override
 	public void postStep() {
 		
-		
-		
 		// working on KingStonImproved here
 		
-		if (canImove) { // Safe check
-			
-			tmpPOI = this.pathPOIs.get(this.getPathIdx());
-
-			if (tmpPOI.ID == pathPOIs.get(0).ID ){
-				//System.out.println("uav " + this.ID + " deveria inverter");
-				
-			}				
-		}
+//		if (canImove) { // Safe check
+//			
+//			tmpPOI = this.pathPOIs.get(this.getPathIdx());
+//
+//			if (tmpPOI.ID == pathPOIs.get(0).ID ){
+//				//System.out.println("uav " + this.ID + " deveria inverter");
+//				
+//			}				
+//		}
 		
 
 	}
@@ -299,6 +312,20 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 
 	public synchronized void setPathIdx(int pathIdx) {
 		this.pathIdx = pathIdx;
+	}
+
+	public synchronized void invertPathRoute() {
+
+				
+//		this.roundVisitedAllPOIs = false;
+//		this.roundVisitedPOIs.clear();
+//		this.roundVisitedPOIs.add(this.pathPOIs.get(this.pathPOIs.size()-1)); // re-adding just the last because we use the size as check.
+//				
+//		Collections.reverse(this.pathPOIs);			
+//
+//		System.out.print("\n[UAV " + this.ID + "]\tvisitou todos - invertPathRoute() ");	
+			
+
 	}
 
 	

@@ -31,63 +31,55 @@ public class KingstonImprovedMobility<syncronized> extends NaiveOrderedMobility{
 			
 		if (!v.roundVisitedAllPOIs){
 			
+			
 			tmpPoi = v.pathPOIs.get(v.getPathIdx());
-		
+			
+			System.out.println("[UAV " + v.ID + "]\t pegando POI " + tmpPoi.ID);
+
 			v.nextPoi = tmpPoi; // where shaw it go		
 					
 			// low level path planning
 			Position nextMapPoint = new Position(tmpPoi.getPosition().xCoord, tmpPoi.getPosition().yCoord, tmpPoi.getPosition().zCoord); 
 			
 			v.setPathIdx(v.getPathIdx() + 1); // = v.pathIdx + v.ID;
-			v.setPathIdx(v.getPathIdx() % v.pathPOIs.size());
 	
+			if (v.getPathIdx() >= v.pathPOIs.size()){
+				v.roundVisitedAllPOIs  = true;				
+			}
+			v.setPathIdx(v.getPathIdx() % v.pathPOIs.size()); // just in case...
+
 			return nextMapPoint;
 			
 		} else {
+						
+			//v.invertPathRoute();
 			
-			tmpPoi = v.pathPOIs.get(v.getPathIdx());
-			
-			// PAREI AQUI
-			System.out.println("invertendo " + v.ID + " tmpPOI = "+ tmpPoi.ID + " idx = " + v.getPathIdx());
 			v.roundVisitedAllPOIs = false;
 			v.roundVisitedPOIs.clear();
-			Collections.reverse(v.pathPOIs);
-			
-			v.nextPoi = tmpPoi; // where shaw it go		
-			
+			v.roundVisitedPOIs.add(v.pathPOIs.get(v.pathPOIs.size()-1)); // re-adding just the last because we use the size as check.
+					
+			Collections.reverse(v.pathPOIs);			
+
+			System.out.print("\n[UAV " + v.ID + "]\tvisitou todos - invertPathRoute() ");	
+					
+			tmpPoi = v.pathPOIs.get(1);
+
+			System.out.print("[UAV " + v.ID + "]\t reverteu e apontou para " + tmpPoi.ID);
+
+			System.out.print("\tNew Path: ");
+			for (int i = 0; i<v.pathPOIs.size(); i++){
+				System.out.print(v.pathPOIs.get(i).ID + " - ");
+			}
+			System.out.println("\tindo para " + tmpPoi.ID );
+					
 			Position nextMapPoint = new Position(tmpPoi.getPosition().xCoord, tmpPoi.getPosition().yCoord, tmpPoi.getPosition().zCoord); 
 			
-			v.setPathIdx(v.getPathIdx() + 1); // = v.pathIdx + v.ID;
-			v.setPathIdx(v.getPathIdx() % v.pathPOIs.size());
+			v.setPathIdx(1);
 	
 			return nextMapPoint;
 			
 		}
-		
-		
 	}
 	
-	
-	private POInode getNearestPoi(POInode poiFrom, ArrayList<POInode> poiList){
-		int dist2Last = Integer.MAX_VALUE;
-		int i = 0;
-		POInode poiA = new POInode();
-		POInode poiTo = new POInode();
-		
-		// looking for the nearest POI from the GS
-		for (i=0; i<poiList.size(); i++){			
-			poiA = poiList.get(i);	
-			if (poiA.ID != poiFrom.ID) {	
-				// need to change it to use distance matrix created to TSP
-				double distance = Math.hypot(poiFrom.getPosition().xCoord - poiA.getPosition().xCoord, poiFrom.getPosition().yCoord - poiA.getPosition().yCoord);
-				if (distance <= dist2Last){
-					dist2Last = (int) distance;
-					poiTo = poiA;
-				}
-			}
-		}		
-		return poiTo;
-		
-	}
 	
 }

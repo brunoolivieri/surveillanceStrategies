@@ -52,7 +52,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 	
 	//@oli: Get next position avoiding obstacles.
 	// NOT TESTED WITH OBSTACLES YET
-	public Position getNextPos(Node n){
+	public synchronized Position getNextPos(Node n){
 		Map map = Tools.getBackgroundMap();
 		Position newPos = new Position();
 		boolean nonFlyZone = false;
@@ -77,7 +77,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 	}
 	
 	
-	public Position legacyGetNextPos(Node n) {
+	public synchronized Position legacyGetNextPos(Node n) {
 		
 		//@Oli: RUDE and temporary way to do not move until a condition
 		UAVnode v = (UAVnode)n;		
@@ -144,7 +144,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 	}
 	
 	//@Oli: set target as next POI in each list from each UAV
-	protected Position GetNextWayPoint(UAVnode v) {
+	protected synchronized Position GetNextWayPoint(UAVnode v) {
 			
 		POInode p = v.pathPOIs.get(v.getPathIdx());
 		
