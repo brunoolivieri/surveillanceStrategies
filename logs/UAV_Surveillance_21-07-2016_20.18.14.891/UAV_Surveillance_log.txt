@@ -1,1 +1,0 @@
-Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threadsprojects.UAV_Surveillance.models.mobilityModels.KingstonImprovedMobility;5;1;11.71367%;10;2305;500;641segs;4_TSP_thread

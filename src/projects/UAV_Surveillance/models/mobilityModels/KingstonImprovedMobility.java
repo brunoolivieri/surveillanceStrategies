@@ -30,13 +30,20 @@ public class KingstonImprovedMobility<syncronized> extends NaiveOrderedMobility{
 	public synchronized Position GetNextWayPoint(UAVnode v) {
 			
 		if (!v.roundVisitedAllPOIs){
-			
-			
+					
 			tmpPoi = v.pathPOIs.get(v.getPathIdx());
+		
+			v.nextPoi = tmpPoi; // where shaw it go			
 			
-			System.out.println("[UAV " + v.ID + "]\t pegando POI " + tmpPoi.ID);
-
-			v.nextPoi = tmpPoi; // where shaw it go		
+			if (v.getPathIdx() >= v.pathPOIs.size()-1 ){				
+				if  (v.getPathIdx() > 0) 
+				   v.lastPoi = v.pathPOIs.get(v.getPathIdx()-1);								
+			} else {
+				if  (v.getPathIdx() > 0) 
+					v.lastPoi = v.pathPOIs.get(v.getPathIdx()-1);
+			}
+			
+			//System.out.println("[UAV " + v.ID + "]\t setando LAST=" +  v.lastPoi.ID + "\tNEXT= " + v.nextPoi.ID );
 					
 			// low level path planning
 			Position nextMapPoint = new Position(tmpPoi.getPosition().xCoord, tmpPoi.getPosition().yCoord, tmpPoi.getPosition().zCoord); 
@@ -51,30 +58,23 @@ public class KingstonImprovedMobility<syncronized> extends NaiveOrderedMobility{
 			return nextMapPoint;
 			
 		} else {
-						
-			//v.invertPathRoute();
+					
+			v.nextPoi = v.pathPOIs.get(v.pathPOIs.size()-1); 
+			v.lastPoi = v.pathPOIs.get(v.pathPOIs.size()-2);
+			
+			//System.out.println("[UAV " + v.ID + "]\t setando LAST=" +  v.lastPoi.ID + "\tNEXT= " + v.nextPoi.ID + "  | after round" );
 			
 			v.roundVisitedAllPOIs = false;
 			v.roundVisitedPOIs.clear();
 			v.roundVisitedPOIs.add(v.pathPOIs.get(v.pathPOIs.size()-1)); // re-adding just the last because we use the size as check.
 					
 			Collections.reverse(v.pathPOIs);			
-
-			System.out.print("\n[UAV " + v.ID + "]\tvisitou todos - invertPathRoute() ");	
 					
+			// Now the penultimate (last but one) should be the [1] in the list, just after the Last (now the [0])
 			tmpPoi = v.pathPOIs.get(1);
-
-			System.out.print("[UAV " + v.ID + "]\t reverteu e apontou para " + tmpPoi.ID);
-
-			System.out.print("\tNew Path: ");
-			for (int i = 0; i<v.pathPOIs.size(); i++){
-				System.out.print(v.pathPOIs.get(i).ID + " - ");
-			}
-			System.out.println("\tindo para " + tmpPoi.ID );
-					
-			Position nextMapPoint = new Position(tmpPoi.getPosition().xCoord, tmpPoi.getPosition().yCoord, tmpPoi.getPosition().zCoord); 
+			v.setPathIdx(1); 
 			
-			v.setPathIdx(1);
+			Position nextMapPoint = new Position(tmpPoi.getPosition().xCoord, tmpPoi.getPosition().yCoord, tmpPoi.getPosition().zCoord); 
 	
 			return nextMapPoint;
 			

@@ -63,7 +63,7 @@ public class UavNearGsDistribution extends Grid2D { // Random {
 				
 			}
 		}
-		System.out.println("[UAV] generated on: " + pos.toString());
+		//System.out.println("[UAV] generated on: " + pos.toString());
 		return pos;
 	}
 

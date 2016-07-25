@@ -83,7 +83,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 		UAVnode v = (UAVnode)n;		
 		if (!v.canImove){
 			return v.getPosition();
-		}		
+		} 		
 		// restart a new move to a new destination if the node was moved by another means than this mobility model
 		if(currentPosition != null) {
 			if(!currentPosition.equals(n.getPosition())) {
@@ -150,11 +150,11 @@ public class NaiveOrderedMobility  extends MobilityModel{
 		
 		//System.out.println("v " + v.ID + " indo para p " + p.ID);
 		
-		if (!(v.myMobilityModelName.endsWith("NaiveOrderedMobility"))){
-			
-			System.out.print("\n ERROR - Wrong Moblity Model been used. \n\n");
-			
-		}
+//		if (!(v.myMobilityModelName.endsWith("NaiveOrderedMobility"))){
+//			
+//			System.out.print("\n ERROR - Wrong Moblity Model been used. \n\n");
+//			
+//		}
 		
 		double randx = p.getPosition().xCoord; 
 		double randy = p.getPosition().yCoord; 
@@ -166,16 +166,6 @@ public class NaiveOrderedMobility  extends MobilityModel{
 		return new Position(randx, randy, randz);
 	}
 	
-	//@Oli: Algorithm logic POIs priorization and stuff 
-//	protected Position simpleOrderedGetNextWayPoint() {
-//				
-//		double randx = random.nextDouble() * Configuration.dimX;
-//		double randy = random.nextDouble() * Configuration.dimY;
-//		double randz = 0;
-//		if(Main.getRuntime().getTransformator().getNumberOfDimensions() == 3) {
-//			randz = random.nextDouble() * Configuration.dimZ;
-//		}
-//		return new Position(randx, randy, randz);
-//	}
 	
 }
+

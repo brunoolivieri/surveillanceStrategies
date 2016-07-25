@@ -68,7 +68,7 @@ public class POInode extends Node implements Comparable<POInode> {
 		            (this.getPosition().yCoord - 0) *  (this.getPosition().yCoord - 0)
 		        );
 			init = true;
-			//System.out.println("[POI " + this.ID + "] " + "dist to GS = " + this.distToGS);
+			System.out.println("[POI " + this.ID + "] " + "dist to GS = " + this.distToGS);
 		}
 		
 //		if (this.ID % 2 != 0){

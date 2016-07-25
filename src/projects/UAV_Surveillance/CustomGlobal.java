@@ -1,5 +1,4 @@
 /*
- Copyright (c) 2007, Distributed Computing Group (DCG)
                     ETH Zurich
                     Switzerland
                     dcg.ethz.ch
@@ -92,7 +91,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	Logging customGlobal_log = Logging.getLogger("UAV_Surveillance_log.txt");
 
 	//@Oli: Our vars
-	private int ctRounds = 0;
+	public int ctRounds = 0;
 	
 	//@Oli: not used yet
 	public boolean hasTerminated() {
@@ -227,8 +226,8 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 		System.out.println(header);
 		System.out.println(logline);
-		customGlobal_log.log(header);
-		customGlobal_log.log(logline);
+		//customGlobal_log.log(header);
+		//customGlobal_log.log(logline);
 		
 		if(Global.isGuiMode){
 			if((ctUAV!=0)||(ctPOI!=0)){

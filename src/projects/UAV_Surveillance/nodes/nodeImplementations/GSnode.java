@@ -50,6 +50,8 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	
 	//Logging uav_log = Logging.getLogger("UAV_GS_id_" + this.ID + ".txt");
 
+	public double distToGS = 0;
+	public boolean init =false;
 	
 	public void reset() {
 	
@@ -68,6 +70,16 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	public void init() {
 		//@Oli: Starting stuff.
 		this.setPosition(5.0, 5.0, 0.0);
+		
+		if (!init){
+			distToGS = (int) Math.sqrt(
+		            (this.getPosition().xCoord - 0) *  (this.getPosition().xCoord - 0) + 
+		            (this.getPosition().yCoord - 0) *  (this.getPosition().yCoord - 0)
+		        );
+			init = true;
+			System.out.println("[GS " + this.ID + "] dist to zero = " + this.distToGS);
+		}
+		
 
 	}
 
@@ -137,8 +149,8 @@ public class GSnode extends Node implements Comparable<GSnode> {
         	solver.findOptimalSolution(ResolutionPolicy.MAXIMIZE, totalCost); 	
         } else {
         	solver.findOptimalSolution(ResolutionPolicy.MINIMIZE, totalCost); 	
-        }*/
-		
+        }
+		*/
         /*
 		 *@Oli: Choco Solver does not return TSP ordered path, but returns (a,b) where 'a' goes to 'b', an edge not vertices order (documentation SUCCS[i]=j)
 		 * 
@@ -166,14 +178,13 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				}
 			}
 		}
+		*/
 		/* ---------------------------------------------------------------------------	 */
 		/*
 		 *  END OF PERFECT VERSION WITH CHOCO SOLVER SINGLE THREAD!!!!!!!!! 
 		 * 
 		*/									
 
-        
-		
 		// Choco Solver multithread approach 
 		final int[][] myDistMatrix = prepareDistMatrix(listOfPOIs, true);
         
@@ -204,6 +215,8 @@ public class GSnode extends Node implements Comparable<GSnode> {
 
     		System.out.println("\n[TSP] Sending " + s.getName());	
 
+		    //syncSolutions(s) takes care of race condition. 
+
 	        if (setOfUAVs.first().myMobilityModelName.endsWith("AntiTSPbasedMobility")){       
 	        	s.findOptimalSolution(ResolutionPolicy.MAXIMIZE);
 	        	syncSolutions(s, "max");
@@ -211,35 +224,69 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	        	s.findOptimalSolution(ResolutionPolicy.MINIMIZE);
 	        	syncSolutions(s, "min");
 	        }		    
-		    //syncSolutions(s) takes care of race condition. 
 		});
                 			
+		System.out.println("[GS " + this.ID + "]\tBest path found: ");
 		
-	    // Re-formating the best result
+		
+		System.out.println("[GS " + this.ID + "]\tFormatting path\n");
+		// Re-formating the best result
 		// Is necessary follow the path to recreate that
 		//
-		int idx  = setOfUAVs.size()+2; //@Oli: To ignore  GS and UAVs 
+		//int idx  = setOfUAVs.size()+2; //@Oli: To ignore  GS and UAVs 
+		int idx = listOfPOIs.get(0).ID; // Modification on 2016-07-late | something just comes to make Node.ID almost random! :-(
+		
+		
 		ArrayList<POInode> TSPlistOfPOIs = new ArrayList<POInode>();
 		POInode p = new POInode();		        
 		int lastPoi = 0;				
 		p = listOfPOIs.get(lastPoi);
 		TSPlistOfPOIs.add(p);
+		
+//		System.out.print("[GS " + this.ID + "]\t");
+//		System.out.print("TSPlistOfPOIs.size= " + TSPlistOfPOIs.size() + "\t");
+//		System.out.print("p= " + p.ID + "\t");
+//		System.out.print("listOfPOIs.size= " + listOfPOIs.size() + "\t");
+//		System.out.print("idx= " + idx + "\t");
+//		System.out.print("VS_bestTour.size= " + VS_bestTour.length + "\n");
+//	
+//		System.out.print("\nlistOfPois " + listOfPOIs.size() + " => ");
+//		for (int i =0 ; i< listOfPOIs.size(); i++){
+//			System.out.print( (listOfPOIs.get(i).ID) + " -> ");
+//		}
+//		System.out.println("\n");
+		
 		while (TSPlistOfPOIs.size() < listOfPOIs.size()){
-			for (int i=0; i< listOfPOIs.size() ;i++){	// listOfPois instead VS_bestTour because there are garbage inside.				
+			for (int i=0; i< listOfPOIs.size() ;i++){	// listOfPois instead VS_bestTour because there may have garbage inside. 		
+			
+//				System.out.print("[GS " + this.ID + "]\t");
+//				System.out.print(" comparando i+idx " + (i +idx) + "\t");
+//				System.out.print(" com " + TSPlistOfPOIs.get(lastPoi).ID  + "\t");
+//				System.out.print("\n");
+
 				if ( ( i + idx) ==  TSPlistOfPOIs.get(lastPoi).ID ){
+//					System.out.println("\nENTROU NO IF ");	// por algum motivo parou de funcionar aqu... erro no ID?
+					
 					for (int j = 0; j < (listOfPOIs.size()); j++) {		
 						p = listOfPOIs.get(j);		
+//						System.out.print(" comparando poi " + p.ID + " com " +  ( VS_bestTour[i].getValue() + idx )     + "\n");
+
 						if ( p.ID == ( VS_bestTour[i].getValue() + idx )    ){									
 							TSPlistOfPOIs.add(p);
+//							System.out.println("adicionou " + p.ID);					
+							//lastPoi++;
+							//break;
 						}							
 					}
-					lastPoi++;							
+					System.out.println();
+					lastPoi ++;							
 					break;
 				}
-			}
-		}
+			}			
+		}//////////////////////////
 	    
-	    				    
+		System.out.println("[GS " + this.ID + "]\tFilling msg to UAVs with best path");
+						    
 		msgPOIorder = new msgPOIordered(TSPlistOfPOIs);		
 		
 		System.out.print("\n[TSP] Original path:");
@@ -332,7 +379,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 		POInode poiTo = new POInode();
 		
 		// looking for the nearest POI from the GS
-		for (i=0; i<poiList.size(); i++){			
+		for (i=0; i< poiList.size(); i++){			
 			poiA = poiList.get(i);	
 			if (poiA.ID != poiFrom.ID) {	
 				// need to change it to use distance matrix created to TSP
@@ -371,6 +418,8 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	
 	// Creates a path by choosing the nearest POI to nearest POI
 	private void createNaiveBestPath() {
+		
+		System.out.println("[GS " + this.ID + "] invoked" );
 		
 		// getting first and nearest
 		POInode poiFrom = new POInode();		
@@ -436,11 +485,11 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	    }       
 	    
 	    VS_bestTour = VS_local;
-//	    for (int i=0; i< listOfPOIs.size() ;i++){
-//		    System.out.print(VS_local[i]  + " -> ");
-//	    }
+	    for (int i=0; i< listOfPOIs.size() ;i++){
+		    System.out.print(VS_local[i]  + " -> ");
+	    }
 	    
-	    System.out.println("\n");
+	    System.out.println("\n[TSP] syncSolutions() done\n");
 	}
 	
 	

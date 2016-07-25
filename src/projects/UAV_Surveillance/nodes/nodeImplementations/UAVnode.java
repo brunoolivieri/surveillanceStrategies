@@ -75,6 +75,8 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public String myMobilityModelName;
 	public boolean receivedWayPoints = false;
 	public boolean canImove = true;
+	public double distToGS = 0;
+	public boolean init =false;
 	
 	// The set of nodes this node has already seen
 	public TreeSet<POInode> visitedPOIs = new TreeSet<POInode>();
@@ -83,7 +85,8 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public ArrayList<POInode> pathPOIs = new ArrayList<POInode>();
 	private  int pathIdx = 0 ; //this.ID -1;
 	
-	// To use with rendezvous and change paths
+	// [Kingston]To use with rendezvous and change paths
+	public boolean kingImpAllowed = false; // just to enable conditions to start changing, such as minimum visited POIs or UAVs
 	public POInode lastPoi = new POInode();
 	public POInode nextPoi = new POInode();
 	public ArrayList<POInode> pathOriginal = new ArrayList<POInode>();
@@ -121,12 +124,10 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			Message msg = inbox.next();
 			if(msg instanceof msgPOIordered) {
 				canImove = true; // releasing the trigger on legacyGetNextPos()
-				msgPOIordered pathMsg = (msgPOIordered)msg;
-				
-				pathPOIs = (ArrayList<POInode>) pathMsg.data.clone();	// THIS KEEP ME SOMETIME!  missing ansiC
-				
-				pathOriginal = pathMsg.data;
-				System.out.print("[UAV " + this.ID + "] Original Path: ");
+				msgPOIordered pathMsg = (msgPOIordered)msg;				
+				pathPOIs = (ArrayList<POInode>) pathMsg.data.clone();	// THIS KEEP ME SOMETIME!  missing ansiC			
+				pathOriginal = (ArrayList<POInode>)pathMsg.data.clone();
+				System.out.print("[UAV " + this.ID + "] Good to go with original Path: ");
 				for (int i = 0; i<pathPOIs.size(); i++){
 					System.out.print(pathPOIs.get(i).ID + " - ");
 				}
@@ -136,19 +137,18 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			// Rendezvous to balance paths
 			
 			if (msg instanceof msgKingImp) {	
-				boolean doTheBalance = false;
-				if (doTheBalance){					
+				if (kingImpAllowed){ // just to enable conditions to start changing, such as minimum visited POIs or UAVs				
 					msgKingImp tmpMsg = (msgKingImp) msg;				
 					System.out.println( this.ID + " recebeu msg de " + tmpMsg.fromID);					
 					if ((this.nextPoi == tmpMsg.lastPoi)&&(this.lastPoi == tmpMsg.nextPoi)){ // So, it is comming from where I am going... 
-						//System.out.println("deveria haver balanceamento");
+						System.out.println("[UAV " + this.ID + "]\tdeveria haver balanceamento");
 						
 						// PAREI AQUI
 						
-						replanner.getNewPath(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID);
+						//replanner.getNewPath(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID);
 						
 					} //else
-						//System.out.println(">>>N�O<<< deveria haver balanceamento");				
+						//System.out.println("[UAV " + this.ID + "]\t>>>Não<<< deveria haver balanceamento");				
 				}
 			}
 		}
@@ -167,6 +167,17 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				canImove = false;
 			}
 		}
+		
+		if (!init){
+			distToGS = (int) Math.sqrt(
+		            (this.getPosition().xCoord - 0) *  (this.getPosition().xCoord - 0) + 
+		            (this.getPosition().yCoord - 0) *  (this.getPosition().yCoord - 0)
+		        );
+			init = true;
+			System.out.println("[UAV " + this.ID + "] dist to zero = " + this.distToGS);
+		}
+		
+		
 	}
 
 	@Override
@@ -177,28 +188,19 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				if (!visitedPOIs.contains((POInode) e.endNode)){
 					visitedPOIs.add((POInode) e.endNode); // only adds really new POIs
 					//System.out.println("[UAV " + this.ID + "] found POI " + e.endNode.ID);
-				}
-				
+				}				
 				// This is for KingStonImproved
 				if (!roundVisitedPOIs.contains((POInode) e.endNode)){
 					roundVisitedPOIs.add((POInode) e.endNode); // only adds really new POIs
-					//System.out.println("[UAV " + this.ID + "] found POI " + e.endNode.ID);
-				//	System.out.print("[UAV " + this.ID + "] roundVisitedPOIs: ");
-					
-//					Iterator<POInode> itr=roundVisitedPOIs.iterator();
-//				    while(itr.hasNext()){
-//				        POInode c=itr.next();			    
-//						System.out.print(c.ID + " - ");
-//				    }
-//					System.out.println();
-
+					if (roundVisitedPOIs.size() >= 3)
+						kingImpAllowed = true;	
 				}
 			} 
 			
 			// that is other UAV, rendezvous
 			if (e.endNode instanceof UAVnode){		
-				msgKingImp msgKing2send = new msgKingImp(pathPOIs, this.ID, lastPoi, nextPoi);
-				sendDirect(msgKing2send, e.endNode);
+				//msgKingImp msgKing2send = new msgKingImp(pathPOIs, this.ID, lastPoi, nextPoi);
+				//sendDirect(msgKing2send, e.endNode);
 			}
 		}
 	}
@@ -239,19 +241,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	@Override
 	public void postStep() {
 		
-		// working on KingStonImproved here
 		
-//		if (canImove) { // Safe check
-//			
-//			tmpPOI = this.pathPOIs.get(this.getPathIdx());
-//
-//			if (tmpPOI.ID == pathPOIs.get(0).ID ){
-//				//System.out.println("uav " + this.ID + " deveria inverter");
-//				
-//			}				
-//		}
-		
-
 	}
 	
 	@Override
@@ -276,11 +266,12 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		// default:
 		drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
 		
+		
 		// debug: 
-		//this.setColor(Color.BLACK);
-		//String text = this.ID + "|" + Integer.toString(pathIdx);
-		//this.drawingSizeInPixels = 10 ; 
-		//super.drawNodeAsDiskWithText(g, pt, highlight, text, 10, Color.YELLOW);
+//		this.setColor(Color.BLACK);
+//		String text = this.ID + "|" + Integer.toString(pathIdx);
+//		this.drawingSizeInPixels = 10 ; 
+//		super.drawNodeAsDiskWithText(g, pt, highlight, text, 12, Color.YELLOW);
 	}
 	
 	/* (non-Javadoc)
@@ -314,20 +305,6 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		this.pathIdx = pathIdx;
 	}
 
-	public synchronized void invertPathRoute() {
-
-				
-//		this.roundVisitedAllPOIs = false;
-//		this.roundVisitedPOIs.clear();
-//		this.roundVisitedPOIs.add(this.pathPOIs.get(this.pathPOIs.size()-1)); // re-adding just the last because we use the size as check.
-//				
-//		Collections.reverse(this.pathPOIs);			
-//
-//		System.out.print("\n[UAV " + this.ID + "]\tvisitou todos - invertPathRoute() ");	
-			
-
-	}
-
-	
+		
 }
 
