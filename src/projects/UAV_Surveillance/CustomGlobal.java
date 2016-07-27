@@ -88,7 +88,7 @@ import sinalgo.configuration.Configuration;
  */
 public class CustomGlobal extends AbstractCustomGlobal{
 	
-	Logging customGlobal_log = Logging.getLogger("UAV_Surveillance_log.txt");
+	//Logging customGlobal_log = Logging.getLogger("UAV_Surveillance_log.txt");
 
 	//@Oli: Our vars
 	public int ctRounds = 0;

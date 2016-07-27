@@ -36,6 +36,9 @@ public class NaiveOrderedMobility  extends MobilityModel{
 	//Logging uav_log = Logging.getLogger("UAV_NaiveOrderedMobility.txt");
 
 	
+
+	
+	
 	//@Oli: Legacy constructor
 	public NaiveOrderedMobility() throws CorruptConfigurationEntryException {
 		if(!initialized) {
@@ -84,6 +87,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 		if (!v.canImove){
 			return v.getPosition();
 		} 		
+				
 		// restart a new move to a new destination if the node was moved by another means than this mobility model
 		if(currentPosition != null) {
 			if(!currentPosition.equals(n.getPosition())) {

@@ -14,6 +14,7 @@ import sinalgo.runtime.Runtime;
 public class KingstonImprovedMobility<syncronized> extends NaiveOrderedMobility{
 	
 	private POInode tmpPoi = new POInode();
+	private UAVnode tmpUAV = new UAVnode();
 
 	public KingstonImprovedMobility() throws CorruptConfigurationEntryException {
 		super();
@@ -21,9 +22,16 @@ public class KingstonImprovedMobility<syncronized> extends NaiveOrderedMobility{
 
 	@Override
 	public Position getNextPos(Node n) {
-		return super.getNextPos(n);
-		
+			
+		// This simply makes Kingston (Almost)
+		// Overhide to reset position and recalc moviments 
+		if (((UAVnode) n).shawResetMoviment){
+			super.remaining_hops = 0;
+			((UAVnode) n).shawResetMoviment = false;
+		};		
+		return super.getNextPos(n);	
 	}
+	
 
 	//@Oli: set target as next POI in each list from each UAV
 	@Override
@@ -59,8 +67,12 @@ public class KingstonImprovedMobility<syncronized> extends NaiveOrderedMobility{
 			
 		} else {
 					
-			v.nextPoi = v.pathPOIs.get(v.pathPOIs.size()-1); 
-			v.lastPoi = v.pathPOIs.get(v.pathPOIs.size()-2);
+			// fixing on 2016/07/27
+//			v.nextPoi = v.pathPOIs.get(v.pathPOIs.size()-1); 
+//			v.lastPoi = v.pathPOIs.get(v.pathPOIs.size()-2);
+			
+			v.lastPoi = v.pathPOIs.get(v.pathPOIs.size()-1); 
+			v.nextPoi = v.pathPOIs.get(v.pathPOIs.size()-2);
 			
 			//System.out.println("[UAV " + v.ID + "]\t setando LAST=" +  v.lastPoi.ID + "\tNEXT= " + v.nextPoi.ID + "  | after round" );
 			

@@ -68,6 +68,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public int nKnownUAVs = 0;	
 	public POInode tmpPOI = new POInode(); 
 	public long rounds = 0;
+	POInode poiTmp = new POInode();
 
 	
 	// To control execution flow 
@@ -91,13 +92,17 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public boolean kingImpAllowed = false; // just to enable conditions to start changing, such as minimum visited POIs or UAVs
 	public POInode lastPoi = new POInode();
 	public POInode nextPoi = new POInode();
+	public int knownUAVright = 0;
+	public int knownUAVleft = 0;
 	public ArrayList<POInode> pathOriginal = new ArrayList<POInode>();
 	private KingImpReplanner replanner = new KingImpReplanner();
 	public TreeSet<POInode> roundVisitedPOIs = new TreeSet<POInode>();
 	public boolean roundVisitedAllPOIs = false; 
-
+	public boolean shawResetMoviment = false;
+	
 	// To mark visits
 	private msgFOV msgPOIseen;
+	
 
 
 	//Logging uav_log = Logging.getLogger("UAV_id_" + this.ID + ".txt");
@@ -123,10 +128,8 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		//@Oli: msg with path arrived.
 		while(inbox.hasNext()) {
 			Message msg = inbox.next();
-			if(msg instanceof msgPOIordered) {
-				
+			if(msg instanceof msgPOIordered) {		
 				justCountRoundsToMove = true; // releasing the trigger on legacyGetNextPos()
-				
 				msgPOIordered pathMsg = (msgPOIordered)msg;				
 				pathPOIs = (ArrayList<POInode>) pathMsg.data.clone();	// THIS KEEP ME SOMETIME!  missing ansiC			
 				pathOriginal = (ArrayList<POInode>)pathMsg.data.clone();
@@ -134,27 +137,61 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				for (int i = 0; i<pathPOIs.size(); i++){
 					System.out.print(pathPOIs.get(i).ID + " - ");
 				}
-				System.out.println();
+				System.out.println(" \n\n\n");
 			}
 			
 			// Rendezvous to balance paths
 			
 			if (msg instanceof msgKingImp) {	
+				
 				if (kingImpAllowed){ // just to enable conditions to start changing, such as minimum visited POIs or UAVs				
-					msgKingImp tmpMsg = (msgKingImp) msg;				
-					System.out.println( this.ID + " recebeu msg de " + tmpMsg.fromID);					
-					if ((this.nextPoi == tmpMsg.lastPoi)&&(this.lastPoi == tmpMsg.nextPoi)){ // So, it is comming from where I am going... 
-						System.out.println("[UAV " + this.ID + "]\tdeveria haver balanceamento");
+					msgKingImp tmpMsg = (msgKingImp)msg.clone();
+					
+					System.out.println("[UAV " + this.ID + "] recebeu msg de " + tmpMsg.fromID);					
+					
+					if ((this.nextPoi.ID == tmpMsg.lastPoi.ID)&&(this.lastPoi.ID == tmpMsg.nextPoi.ID)){ // So, it is comming from where I am going... // Would be better if inserted in that class
+					
+						System.out.print("[UAV " + this.ID + "]\tdeveria haver balanceamento, newPath:");
+											
+						replanner.updateData(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID, knownUAVright, knownUAVleft);
+						replanner.calculateNewPaths();
 						
-						// PAREI AQUI
 						
-						//replanner.getNewPath(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID);
+						// Just a test to check shortcut
+						Collections.reverse(this.pathPOIs);
+						for (int i=0; i< pathPOIs.size(); i++) {
+							poiTmp = pathPOIs.get(i);
+							System.out.print( poiTmp.ID + " - " );
+						}
+						pathIdx = getIdxFromPoi(this.lastPoi, this.pathPOIs);
+						System.out.println(" ||| pathIdx= " + pathIdx);
 						
+						this.shawResetMoviment = true;
+															
+						
+						System.out.println("\n\n");
 					} //else
-						//System.out.println("[UAV " + this.ID + "]\t>>>Não<<< deveria haver balanceamento");				
+//						System.out.println("[" + this.ID + "]\t>>>Nao<<< deveria haver balanceamento");	
+//						System.out.print("[" + this.ID + "] next= " + this.nextPoi.ID + " & [" + tmpMsg.fromID + "] last = " + tmpMsg.lastPoi.ID);
+//						System.out.println("[" + this.ID + "] last= " + this.lastPoi.ID + " & [" + tmpMsg.fromID + "] next = " + tmpMsg.nextPoi.ID);
 				}
 			}
 		}
+		
+	}
+
+	private int getIdxFromPoi(POInode testPoi, ArrayList<POInode> pathPOIs) {
+		
+
+		for (int i=0; i< pathPOIs.size(); i++) {
+			poiTmp = pathPOIs.get(i);
+			if (poiTmp.ID == testPoi.ID)				
+				return i;
+		}	
+		System.out.print("[UAV " + this.ID + "]\t ERROR from getIdxFromPoi() - Inexistent POI on path.");
+		return -10;
+		
+		
 		
 	}
 
@@ -202,8 +239,8 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			
 			// that is other UAV, rendezvous
 			if (e.endNode instanceof UAVnode){		
-				//msgKingImp msgKing2send = new msgKingImp(pathPOIs, this.ID, lastPoi, nextPoi);
-				//sendDirect(msgKing2send, e.endNode);
+				msgKingImp msgKing2send = new msgKingImp(pathPOIs, this.ID, lastPoi, nextPoi, knownUAVright, knownUAVleft);
+				sendDirect(msgKing2send, e.endNode);
 			}
 		}
 	}
@@ -246,7 +283,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		
 		if (justCountRoundsToMove){ 
 			rounds++;
-			if (rounds >= this.ID*20) {
+			if (rounds >= this.ID*20) { // This 20 could be better with SIZEOFPATH_DIVIDED_BY_ALL_UAV
 				justCountRoundsToMove = false;
 				canImove = true;
 			}
@@ -275,13 +312,13 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		}
 	
 		// default:
-		drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
+		//drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
 				
 		// debug: 
-//		this.setColor(Color.BLACK);
-//		String text = this.ID + "|" + Integer.toString(pathIdx);
-//		this.drawingSizeInPixels = 10 ; 
-//		super.drawNodeAsDiskWithText(g, pt, highlight, text, 12, Color.YELLOW);
+		this.setColor(Color.BLACK);
+		String text = this.ID + "|" + Integer.toString(pathIdx);
+		this.drawingSizeInPixels = 10 ; 
+		super.drawNodeAsDiskWithText(g, pt, highlight, text, 12, Color.YELLOW);
 	}
 	
 	/* (non-Javadoc)
