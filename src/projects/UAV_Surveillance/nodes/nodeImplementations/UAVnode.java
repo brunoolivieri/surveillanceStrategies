@@ -67,6 +67,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public int nKnownPOIs = 0;
 	public int nKnownUAVs = 0;	
 	public POInode tmpPOI = new POInode(); 
+	public long rounds = 0;
 
 	
 	// To control execution flow 
@@ -74,7 +75,8 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	private boolean mappedPOIs = false;
 	public String myMobilityModelName;
 	public boolean receivedWayPoints = false;
-	public boolean canImove = true;
+	public boolean canImove = true; // if everything good to run...	
+	public boolean justCountRoundsToMove= false; // trick to release canImove just after enough space between UAVs.	
 	public double distToGS = 0;
 	public boolean init =false;
 	
@@ -97,7 +99,6 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	// To mark visits
 	private msgFOV msgPOIseen;
 
-		
 
 	//Logging uav_log = Logging.getLogger("UAV_id_" + this.ID + ".txt");
 	
@@ -123,7 +124,9 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		while(inbox.hasNext()) {
 			Message msg = inbox.next();
 			if(msg instanceof msgPOIordered) {
-				canImove = true; // releasing the trigger on legacyGetNextPos()
+				
+				justCountRoundsToMove = true; // releasing the trigger on legacyGetNextPos()
+				
 				msgPOIordered pathMsg = (msgPOIordered)msg;				
 				pathPOIs = (ArrayList<POInode>) pathMsg.data.clone();	// THIS KEEP ME SOMETIME!  missing ansiC			
 				pathOriginal = (ArrayList<POInode>)pathMsg.data.clone();
@@ -241,6 +244,14 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	@Override
 	public void postStep() {
 		
+		if (justCountRoundsToMove){ 
+			rounds++;
+			if (rounds >= this.ID*20) {
+				justCountRoundsToMove = false;
+				canImove = true;
+			}
+			
+		}
 		
 	}
 	
@@ -265,8 +276,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	
 		// default:
 		drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
-		
-		
+				
 		// debug: 
 //		this.setColor(Color.BLACK);
 //		String text = this.ID + "|" + Integer.toString(pathIdx);
