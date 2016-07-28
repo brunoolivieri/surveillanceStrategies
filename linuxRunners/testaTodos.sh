@@ -2,18 +2,20 @@
 
 cd ..
 
-LOOPS=1
-ROUNDS=1000000 
-REFRESHRATE=1000000
+LOOPS=40
+ROUNDS=3000000 
+#ROUNDS=5000
+#REFRESHRATE=5000
+REFRESHRATE=3000000
+
 #N_UAV=5
 N_POI=10
 
 
-
-for N_UAV in 1 2 4 6
+for Sname in KingstonImprovedMobility AntiTSPbasedMobility TSPbasedMobility NaiveOrderedMobility RandomSafeMobility
 do
 
-	for Sname in AntiTSPbasedMobility TSPbasedMobility NaiveOrderedMobility RandomSafeMobility
+	for N_UAV in 1 2 4 6
 	do
 
 	for ((i=1; i<=LOOPS; i++)); do

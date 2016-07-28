@@ -1,0 +1,3 @@
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedMobility,10,1,10.05075%,10,1000000,500,5segs,4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedMobility,10,1,10.36780%,10,1000000,500,6segs,4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedMobility,10,2,19.49915%,10,1000000,500,7segs,4_TSP_thread

@@ -147,11 +147,11 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				if (kingImpAllowed){ // just to enable conditions to start changing, such as minimum visited POIs or UAVs				
 					msgKingImp tmpMsg = (msgKingImp)msg.clone();
 					
-					System.out.println("[UAV " + this.ID + "] recebeu msg de " + tmpMsg.fromID);					
+					//System.out.println("[UAV " + this.ID + "] recebeu msg de " + tmpMsg.fromID);					
 					
 					if ((this.nextPoi.ID == tmpMsg.lastPoi.ID)&&(this.lastPoi.ID == tmpMsg.nextPoi.ID)){ // So, it is comming from where I am going... // Would be better if inserted in that class
 					
-						System.out.print("[UAV " + this.ID + "]\tdeveria haver balanceamento, newPath:");
+						//System.out.print("[UAV " + this.ID + "]\tdeveria haver balanceamento, newPath:");
 											
 						replanner.updateData(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID, knownUAVright, knownUAVleft);
 						replanner.calculateNewPaths();
@@ -161,15 +161,15 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 						Collections.reverse(this.pathPOIs);
 						for (int i=0; i< pathPOIs.size(); i++) {
 							poiTmp = pathPOIs.get(i);
-							System.out.print( poiTmp.ID + " - " );
+							//System.out.print( poiTmp.ID + " - " );
 						}
 						pathIdx = getIdxFromPoi(this.lastPoi, this.pathPOIs);
-						System.out.println(" ||| pathIdx= " + pathIdx);
+						//System.out.println(" ||| pathIdx= " + pathIdx);
 						
 						this.shawResetMoviment = true;
 															
 						
-						System.out.println("\n\n");
+						//System.out.println("\n\n");
 					} //else
 //						System.out.println("[" + this.ID + "]\t>>>Nao<<< deveria haver balanceamento");	
 //						System.out.print("[" + this.ID + "] next= " + this.nextPoi.ID + " & [" + tmpMsg.fromID + "] last = " + tmpMsg.lastPoi.ID);
@@ -270,12 +270,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			//System.out.println("[uav " + this.ID + "]\tsetando true ");
 		} else {
 			roundVisitedAllPOIs = false;
-		}	
-		
-		
-		
-		
-		
+		}			
 	}
 
 	@Override
