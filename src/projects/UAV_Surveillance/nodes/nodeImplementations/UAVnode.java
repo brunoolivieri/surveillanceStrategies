@@ -307,13 +307,13 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		}
 	
 		// default:
-		//drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
+		drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
 				
 		// debug: 
-		this.setColor(Color.BLACK);
-		String text = this.ID + "|" + Integer.toString(pathIdx);
-		this.drawingSizeInPixels = 10 ; 
-		super.drawNodeAsDiskWithText(g, pt, highlight, text, 12, Color.YELLOW);
+//		this.setColor(Color.BLACK);
+//		String text = this.ID + "|" + Integer.toString(pathIdx);
+//		this.drawingSizeInPixels = 10 ; 
+//		super.drawNodeAsDiskWithText(g, pt, highlight, text, 12, Color.YELLOW);
 	}
 	
 	/* (non-Javadoc)

@@ -2,17 +2,15 @@
 
 cd ..
 
-LOOPS=40
-ROUNDS=3000000 
-#ROUNDS=5000
-#REFRESHRATE=5000
-REFRESHRATE=3000000
+LOOPS=3
+ROUNDS=1000000 
+REFRESHRATE=1000000
 
 #N_UAV=5
-N_POI=10
+N_POI=20
 
 
-for Sname in KingstonImprovedMobility AntiTSPbasedMobility TSPbasedMobility NaiveOrderedMobility RandomSafeMobility
+for SNAME in NaiveOrderedMobility TSPbasedMobility KingstonImprovedMobility RandomSafeMobility AntiTSPbasedMobility
 do
 
 	for N_UAV in 1 2 4 6
@@ -30,7 +28,7 @@ do
 		echo " ----------------------------------------------------------------------------"
 		echo " "
   
-		java -cp binaries/bin/. sinalgo.Run -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:$Sname R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
+		java -cp binaries/bin/. sinalgo.Run -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:$SNAME R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
 		
 	done
 
