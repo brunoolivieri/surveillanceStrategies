@@ -4,9 +4,9 @@
 
 # data header: "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX";
 
-#sed 's/;/,/g' stats_summary.txt > tmp.txt      # necessary to parser lines inside WHILE
-#sed 's/%//g' tmp.txt > tmp2.txt
-#sed 's/projects.UAV_Surveillance.models.mobilityModels.//g' tmp2.txt > stat_em_tratamento.txt
+sed 's/;/,/g' stats_summary.txt > tmp.txt      # necessary to parser lines inside WHILE
+sed 's/%//g' tmp.txt > tmp2.txt
+sed 's/projects.UAV_Surveillance.models.mobilityModels.//g' tmp2.txt > stat_em_tratamento.txt
 
 Strategy=">> error <<"
 tax10=1

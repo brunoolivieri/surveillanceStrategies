@@ -228,3 +228,71 @@ Thu Jul 28 20:37:13 BRT 2016
 nPOI = 20  strat =   i = 3
 Thu Jul 28 20:41:12 BRT 2016
 nPOI = 20  strat =   i = 1
+Thu Jul 28 20:49:14 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 20:50:07 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 20:51:00 BRT 2016
+nPOI = 20  strat =   i = 1
+Thu Jul 28 20:51:40 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 20:52:20 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 20:52:58 BRT 2016
+nPOI = 20  strat =   i = 1
+Thu Jul 28 20:53:57 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 20:54:24 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 20:54:47 BRT 2016
+nPOI = 20  strat =   i = 1
+Thu Jul 28 20:54:59 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 20:55:11 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 20:55:24 BRT 2016
+nPOI = 20  strat =   i = 1
+Thu Jul 28 20:55:37 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 20:55:50 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 20:56:03 BRT 2016
+nPOI = 20  strat =   i = 1
+Thu Jul 28 20:56:17 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 20:56:32 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 20:56:47 BRT 2016
+nPOI = 20  strat =   i = 1
+Thu Jul 28 20:57:04 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 20:57:20 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 20:57:37 BRT 2016
+nPOI = 20  strat =   i = 1
+Thu Jul 28 20:57:49 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 20:58:01 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 20:58:13 BRT 2016
+nPOI = 20  strat =   i = 1
+Thu Jul 28 20:58:26 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 20:58:38 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 20:58:51 BRT 2016
+nPOI = 20  strat =   i = 1
+Thu Jul 28 20:59:05 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 20:59:19 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 20:59:33 BRT 2016
+nPOI = 20  strat =   i = 1
+Thu Jul 28 20:59:48 BRT 2016
+nPOI = 20  strat =   i = 2
+Thu Jul 28 21:00:04 BRT 2016
+nPOI = 20  strat =   i = 3
+Thu Jul 28 21:00:19 BRT 2016
+nPOI = 20  strat =   i = 1
+Fri Jul 29 06:20:26 BRT 2016
+nPOI = 20  strat =   i = 2
