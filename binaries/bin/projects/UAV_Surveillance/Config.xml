@@ -225,13 +225,14 @@
 
 	</Framework>
 	<Custom>
+	
 <Node defaultSize="10" />
 
 <MessageTransmission ConstantTime="1"/>
 
 <ThreadToRunWithTSP threads="4"/>
-<ThreadToRunWithTSPTimer maxduration="3600000"/>
-<ThreadToRunWithTSPTimeEnabler enabled="false"/>
+<ThreadToRunWithTSPTimer maxduration="900000"/>  		<!-- macQuadCore 5min 20 POIs easly  on 90% of cases-->
+<ThreadToRunWithTSPTimeEnabler enabled="true"/>
 
 
 <GeometricNodeCollection rMax="10"/>

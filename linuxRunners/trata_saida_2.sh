@@ -9,10 +9,10 @@ sed 's/%//g' tmp.txt > tmp2.txt
 sed 's/projects.UAV_Surveillance.models.mobilityModels.//g' tmp2.txt > stat_em_tratamento.txt
 
 Strategy=">> error <<"
-tax10=1
-tax20=2
-tax40=4
-tax60=6
+tax10=2
+tax20=4
+tax40=8
+tax60=16
 
 Strategy_antTSP="AntiTSPbasedMobility"
 AntTSP_avg_tax_10=0
@@ -34,6 +34,13 @@ Naive_avg_tax_20=0
 Naive_avg_tax_40=0
 Naive_avg_tax_60=0
 Naive_counter=0
+
+Strategy_NSNaive="NotSoNaiveOrderedMobility"
+NSNaive_avg_tax_10=0
+NSNaive_avg_tax_20=0
+NSNaive_avg_tax_40=0
+NSNaive_avg_tax_60=0
+NSNaive_counter=0
 
 Strategy_Random="RandomSafeMobility"
 Random_avg_tax_10=0
@@ -153,6 +160,38 @@ while IFS=, read -ra arr; do
 
 
 		    ;;
+	
+				$Strategy_NSNaive)  	#echo "Strategy Naive"
+
+					NSNaive_counter=$(echo "$NSNaive_counter + 1" | bc -l )
+
+					case "$nUAV" in
+						$tax10)  #echo " 10% UAV na Strategy  KingstonImproved ...  " $SucessTax
+							
+							NSNaive_avg_tax_10=$(echo "$NSNaive_avg_tax_10 + $SucessTax" | bc -l )
+
+						    ;;
+						$tax20)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+
+							NSNaive_avg_tax_20=$(echo "$NSNaive_avg_tax_20 + $SucessTax" | bc -l )
+
+						    ;;
+						$tax40)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+
+							NSNaive_avg_tax_40=$(echo "$NSNaive_avg_tax_40 + $SucessTax" | bc -l )
+
+						    ;;
+						$tax60)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+
+							NSNaive_avg_tax_60=$(echo "$NSNaive_avg_tax_60 + $SucessTax" | bc -l )
+
+						    ;;
+						*) #echo "[error] nUAV " $nUAV " not recognized on Stragety " $Strategy
+						   ;;
+					esac
+
+
+		    ;;	    
 
 			$Strategy_Random)  	#echo "Strategy Random"
 
@@ -238,33 +277,42 @@ while IFS=, read -ra arr; do
 done < stat_em_tratamento.txt
 
 
-
+KingstonImproved_counter=$(echo "$KingstonImproved_counter / 4" | bc -l )
 KingstonImproved_avg_tax_10=$(echo "$KingstonImproved_avg_tax_10 / $KingstonImproved_counter" | bc -l )
 KingstonImproved_avg_tax_20=$(echo "$KingstonImproved_avg_tax_20 / $KingstonImproved_counter" | bc -l )
 KingstonImproved_avg_tax_40=$(echo "$KingstonImproved_avg_tax_40 / $KingstonImproved_counter" | bc -l )
 KingstonImproved_avg_tax_60=$(echo "$KingstonImproved_avg_tax_60 / $KingstonImproved_counter" | bc -l )
 
+Random_counter=$(echo "$Random_counter / 4" | bc -l )
 Random_avg_tax_10=$(echo "$Random_avg_tax_10 / $Random_counter" | bc -l )
 Random_avg_tax_20=$(echo "$Random_avg_tax_20 / $Random_counter" | bc -l )
 Random_avg_tax_40=$(echo "$Random_avg_tax_40 / $Random_counter" | bc -l )
 Random_avg_tax_60=$(echo "$Random_avg_tax_60 / $Random_counter" | bc -l )
 
+Naive_counter=$(echo "$Naive_counter / 4" | bc -l )
 Naive_avg_tax_10=$(echo "$Naive_avg_tax_10 / $Naive_counter" | bc -l )
 Naive_avg_tax_20=$(echo "$Naive_avg_tax_20 / $Naive_counter" | bc -l )
 Naive_avg_tax_40=$(echo "$Naive_avg_tax_40 / $Naive_counter" | bc -l )
 Naive_avg_tax_60=$(echo "$Naive_avg_tax_60 / $Naive_counter" | bc -l )
 
+NSNaive_counter=$(echo "$NSNaive_counter / 4" | bc -l )
+NSNaive_avg_tax_10=$(echo "$NSNaive_avg_tax_10 / $NSNaive_counter" | bc -l )
+NSNaive_avg_tax_20=$(echo "$NSNaive_avg_tax_20 / $NSNaive_counter" | bc -l )
+NSNaive_avg_tax_40=$(echo "$NSNaive_avg_tax_40 / $NSNaive_counter" | bc -l )
+NSNaive_avg_tax_60=$(echo "$NSNaive_avg_tax_60 / $NSNaive_counter" | bc -l )
+
+TSP_counter=$(echo "$TSP_counter / 4" | bc -l )
 TSP_avg_tax_10=$(echo "$TSP_avg_tax_10 / $TSP_counter" | bc -l )
 TSP_avg_tax_20=$(echo "$TSP_avg_tax_20 / $TSP_counter" | bc -l )
 TSP_avg_tax_40=$(echo "$TSP_avg_tax_40 / $TSP_counter" | bc -l )
 TSP_avg_tax_60=$(echo "$TSP_avg_tax_60 / $TSP_counter" | bc -l )
 
+AntTSP_counter=$(echo "$AntTSP_counter / 4" | bc -l )
 AntTSP_avg_tax_10=$(echo "$AntTSP_avg_tax_10 / $AntTSP_counter" | bc -l )
 AntTSP_avg_tax_20=$(echo "$AntTSP_avg_tax_20 / $AntTSP_counter" | bc -l )
 AntTSP_avg_tax_40=$(echo "$AntTSP_avg_tax_40 / $AntTSP_counter" | bc -l )
 AntTSP_avg_tax_60=$(echo "$AntTSP_avg_tax_60 / $AntTSP_counter" | bc -l )    
     
-
 
 
 echo $Strategy_KingstonImproved"; counter = "$KingstonImproved_counter
@@ -297,11 +345,12 @@ echo $Strategy_antTSP";"$tax20";"$AntTSP_avg_tax_20
 echo $Strategy_antTSP";"$tax40";"$AntTSP_avg_tax_40
 echo $Strategy_antTSP";"$tax60";"$AntTSP_avg_tax_60
 
+echo $Strategy_NSNaive"; counter = "$NSNaive_counter
+echo $Strategy_NSNaive";"$tax10";"$NSNaive_avg_tax_10
+echo $Strategy_NSNaive";"$tax20";"$NSNaive_avg_tax_20
+echo $Strategy_NSNaive";"$tax40";"$NSNaive_avg_tax_40
+echo $Strategy_NSNaive";"$tax60";"$NSNaive_avg_tax_60
 
-
-
-
-#echo $Strategy_KingstonImproved";"$tax60";"$KingstonImproved_avg_tax_60";"$KingstonImproved_errorTax_60
 
 
 

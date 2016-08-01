@@ -154,12 +154,6 @@ public class NaiveOrderedMobility  extends MobilityModel{
 		
 		//System.out.println("v " + v.ID + " indo para p " + p.ID);
 		
-//		if (!(v.myMobilityModelName.endsWith("NaiveOrderedMobility"))){
-//			
-//			System.out.print("\n ERROR - Wrong Moblity Model been used. \n\n");
-//			
-//		}
-		
 		double randx = p.getPosition().xCoord; 
 		double randy = p.getPosition().yCoord; 
 		double randz = 0;
