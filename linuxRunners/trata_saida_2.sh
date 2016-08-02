@@ -11,8 +11,8 @@ sed 's/projects.UAV_Surveillance.models.mobilityModels.//g' tmp2.txt > stat_em_t
 Strategy=">> error <<"
 tax10=2
 tax20=4
-tax40=8
-tax60=16
+tax40=6
+tax60=8
 
 Strategy_antTSP="AntiTSPbasedMobility"
 AntTSP_avg_tax_10=0
