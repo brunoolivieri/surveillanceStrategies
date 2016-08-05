@@ -231,7 +231,7 @@
 <MessageTransmission ConstantTime="1"/>
 
 <ThreadToRunWithTSP threads="4"/>
-<ThreadToRunWithTSPTimer maxduration="600000"/>  		<!-- macQuadCore 5min 20 POIs easly  on 90% of cases-->
+<ThreadToRunWithTSPTimer maxduration="3600000"/>  		<!-- macQuadCore 5min 20 POIs easly  on 90% of cases-->
 <ThreadToRunWithTSPTimeEnabler enabled="true"/>
 
 

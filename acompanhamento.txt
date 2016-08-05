@@ -326,3 +326,65 @@ Tue Aug  2 06:34:37 BRT 2016
 nPOI = 15  strat = TSPbasedMobility  i = 9
 Tue Aug  2 06:35:30 BRT 2016
 nPOI = 15  strat = TSPbasedMobility  i = 10
+Tue Aug  2 06:36:18 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 11
+Tue Aug  2 06:37:04 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 12
+Tue Aug  2 06:37:52 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 13
+Tue Aug  2 06:38:39 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 14
+Tue Aug  2 06:39:29 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 15
+Tue Aug  2 06:40:15 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 16
+Tue Aug  2 06:41:03 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 17
+Tue Aug  2 06:41:51 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 18
+Tue Aug  2 06:42:38 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 19
+Tue Aug  2 06:43:28 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 20
+Tue Aug  2 06:44:17 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 21
+Tue Aug  2 06:45:07 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 22
+Tue Aug  2 06:45:58 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 23
+Tue Aug  2 06:46:44 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 24
+Tue Aug  2 06:47:30 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 25
+Tue Aug  2 06:48:18 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 26
+Tue Aug  2 06:49:04 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 27
+Tue Aug  2 06:49:51 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 28
+Tue Aug  2 06:50:35 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 29
+Tue Aug  2 06:51:24 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 30
+Tue Aug  2 06:52:10 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 1
+Tue Aug  2 06:53:11 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 2
+Tue Aug  2 06:54:09 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 3
+Tue Aug  2 06:55:10 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 4
+Tue Aug  2 06:56:07 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 5
+Tue Aug  2 06:57:13 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 6
+Tue Aug  2 06:58:08 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 7
+Tue Aug  2 06:59:09 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 8
+Tue Aug  2 06:59:51 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 9
+Tue Aug  2 06:59:55 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 10
+Tue Aug  2 06:59:55 BRT 2016
+nPOI = 15  strat = TSPbasedMobility  i = 11
