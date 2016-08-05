@@ -1,0 +1,16 @@
+projects.UAV_Surveillance.models.mobilityModels.AntiTSPbasedMobility;10;1;4.61370%;10;1000000;500;9segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;10;1;6.77365%;10;1000000;500;8segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.NaiveOrderedMobility;10;1;5.54135%;10;1000000;500;6segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.RandomSafeMobility;10;1;0.58910%;10;1000000;500;5segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.AntiTSPbasedMobility;10;2;7.83725%;10;1000000;500;10segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;10;2;17.50635%;10;1000000;500;9segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.NaiveOrderedMobility;10;2;14.12410%;10;1000000;500;6segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.RandomSafeMobility;10;2;0.98310%;10;1000000;500;6segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.AntiTSPbasedMobility;10;4;24.25775%;10;1000000;500;13segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;10;4;47.37325%;10;1000000;500;11segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.NaiveOrderedMobility;10;4;31.32805%;10;1000000;500;8segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.RandomSafeMobility;10;4;2.31990%;10;1000000;500;7segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.AntiTSPbasedMobility;10;6;27.72360%;10;1000000;500;12segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;10;6;65.61575%;10;1000000;500;12segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.NaiveOrderedMobility;10;6;43.74715%;10;1000000;500;10segs;4_TSP_thread
+projects.UAV_Surveillance.models.mobilityModels.RandomSafeMobility;10;6;3.83355%;10;1000000;500;8segs;4_TSP_thread
