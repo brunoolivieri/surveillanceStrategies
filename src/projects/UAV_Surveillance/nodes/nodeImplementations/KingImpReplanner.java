@@ -6,21 +6,24 @@ import projects.UAV_Surveillance.nodes.messages.msgKingImp;
 
 public class KingImpReplanner {
 
-	private POInode myLastPoi = new POInode();
-	private POInode myNextPoi = new POInode();
-	private ArrayList<POInode> myCurrentPath = new ArrayList<POInode>();
-	private ArrayList<POInode> myOriginalPath = new ArrayList<POInode>();
-	private ArrayList<POInode> newFullPath = new ArrayList<POInode>();
-	private ArrayList<POInode> newLeftPath = new ArrayList<POInode>();
-	private ArrayList<POInode> newRightPath = new ArrayList<POInode>();
-	private int totalPois = -10;
-	private int myID;
+	public POInode myLastPoi = new POInode();
+	public POInode myNextPoi = new POInode();
+	public ArrayList<POInode> myCurrentPath = new ArrayList<POInode>();
+	public ArrayList<POInode> myOriginalPath = new ArrayList<POInode>();
+	public ArrayList<POInode> newFullPath = new ArrayList<POInode>();
+	public ArrayList<POInode> newLeftPath = new ArrayList<POInode>();
+	public ArrayList<POInode> newRightPath = new ArrayList<POInode>();
+	public int totalPois = -10;
+	public int myID;
 	public boolean amIrightUav;
 	public boolean amIleftUav;
-	private int myKnownRight = 0;
-	private int myKnownLeft = 0;
-	private msgKingImp otherUAVmsg;
-	private POInode poiTmp = new POInode();
+	public int myKnownRight = 0;
+	public int myKnownLeft = 0;
+	public int myKnownUAVs = 0 ;
+	public msgKingImp otherUAVmsg;
+	public POInode poiTmp = new POInode();
+	public int myPositionOnSwarm = 0;
+	public int myPathPortionSize = 0;
 
 	
 	
@@ -49,34 +52,42 @@ public class KingImpReplanner {
 			poiTmp = this.myOriginalPath.get(i);
 			if (poiTmp.ID == myLastPoi.ID){
 				posMyLastPoi = i;
-				//System.out.println("[UAV " + myID + "] posMyLastPoi=  " + posMyLastPoi);
+				System.out.println("[UAV " + myID + "] posMyLastPoi=  " + posMyLastPoi);
 			}
 			if (poiTmp.ID == otherUAVmsg.lastPoi.ID){
 				otherUavLastPoi = i;
-				//System.out.println("[UAV " + otherUAVmsg.fromID + "] otherUavLastPoi=  " + otherUavLastPoi);
+				System.out.println("[UAV " + otherUAVmsg.fromID + "] otherUavLastPoi=  " + otherUavLastPoi);
 			}
 		} 
-		if (posMyLastPoi > otherUavLastPoi) {
-			//System.out.println("[UAV " + myID + "] come from ");
+		if (posMyLastPoi > otherUavLastPoi) { 
+			System.out.println("[UAV " + myID + "] comes from right");
 			amIrightUav = true;
-			myKnownLeft++;
+			myKnownLeft = otherUAVmsg.knownUAVleft + 1;
 		} else {
-			//System.out.println("[UAV " + myID + "] Vem da esquerda ");
+			System.out.println("[UAV " + myID + "] comes from left ");
 			amIleftUav = true;
-			myKnownRight++;
+			myKnownRight = otherUAVmsg.knownUAVright + 1;
 		}
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
+		myKnownUAVs = myKnownRight + myKnownLeft +1 ; 
+		
+		myPositionOnSwarm = myKnownLeft +1 ; 
+		
+		myPathPortionSize = (int) Math.floor(myOriginalPath.size() / myKnownUAVs);
+
+		
 	}
 	
-	public void calculateNewPaths(){
+	public boolean shawIreverse(){
 		
-		mergePaths();
-		int swarmSize = myKnownLeft + myKnownRight + 1;
-		int nPois = newFullPath.size();
+		//mergePaths();
+		//int swarmSize = myKnownLeft + myKnownRight + 1;
+		//int nPois = newFullPath.size();
+		//int middle = swarmSize / 2;
 		
-		int middle = swarmSize / 2;
-		
+
+		return true;
 
 		
 	}

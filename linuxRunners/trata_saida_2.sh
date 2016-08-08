@@ -11,8 +11,8 @@ sed 's/projects.UAV_Surveillance.models.mobilityModels.//g' tmp2.txt > stat_em_t
 Strategy=">> error <<"
 tax10=2
 tax20=4
-tax40=6
-tax60=8
+tax40=8
+tax60=16
 
 Strategy_antTSP="AntiTSPbasedMobility"
 AntTSP_avg_tax_10=0
@@ -49,12 +49,21 @@ Random_avg_tax_40=0
 Random_avg_tax_60=0
 Random_counter=0
 
-Strategy_KingstonImproved="KingstonImprovedMobility"
-KingstonImproved_avg_tax_10=0
-KingstonImproved_avg_tax_20=0
-KingstonImproved_avg_tax_40=0
-KingstonImproved_avg_tax_60=0
-KingstonImproved_counter=0
+Strategy_ZigZagOverNSN="ZigZagOverNSNMobility"
+ZigZagOverNSN_avg_tax_10=0
+ZigZagOverNSN_avg_tax_20=0
+ZigZagOverNSN_avg_tax_40=0
+ZigZagOverNSN_avg_tax_60=0
+ZigZagOverNSN_counter=0
+
+Strategy_ZigZagOverNaive="ZigZagOverNaiveMobility"
+ZigZagOverNaive_avg_tax_10=0
+ZigZagOverNaive_avg_tax_20=0
+ZigZagOverNaive_avg_tax_40=0
+ZigZagOverNaive_avg_tax_60=0
+ZigZagOverNaive_counter=0
+
+
 
 while IFS=, read -ra arr; do
     
@@ -69,22 +78,22 @@ while IFS=, read -ra arr; do
 					AntTSP_counter=$(echo "$AntTSP_counter + 1" | bc -l )
 
 					case "$nUAV" in
-						$tax10)  #echo " 10% UAV na Strategy  KingstonImproved ...  " $SucessTax
+						$tax10)  #echo " 10% UAV na Strategy   ...  " $SucessTax
 							
 							AntTSP_avg_tax_10=$(echo "$AntTSP_avg_tax_10 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax20)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax20)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							AntTSP_avg_tax_20=$(echo "$AntTSP_avg_tax_10 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax40)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax40)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							AntTSP_avg_tax_40=$(echo "$AntTSP_avg_tax_10 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax60)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax60)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							AntTSP_avg_tax_60=$(echo "$AntTSP_avg_tax_10 + $SucessTax" | bc -l )
 
@@ -102,22 +111,22 @@ while IFS=, read -ra arr; do
 					TSP_counter=$(echo "$TSP_counter + 1" | bc -l )
 
 					case "$nUAV" in
-						$tax10)  #echo " 10% UAV na Strategy  KingstonImproved ...  " $SucessTax
+						$tax10)  #echo " 10% UAV na Strategy   ...  " $SucessTax
 							
 							TSP_avg_tax_10=$(echo "$TSP_avg_tax_10 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax20)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax20)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							TSP_avg_tax_20=$(echo "$TSP_avg_tax_20 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax40)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax40)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							TSP_avg_tax_40=$(echo "$TSP_avg_tax_40 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax60)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax60)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							TSP_avg_tax_60=$(echo "$TSP_avg_tax_60 + $SucessTax" | bc -l )
 
@@ -134,22 +143,22 @@ while IFS=, read -ra arr; do
 					Naive_counter=$(echo "$Naive_counter + 1" | bc -l )
 
 					case "$nUAV" in
-						$tax10)  #echo " 10% UAV na Strategy  KingstonImproved ...  " $SucessTax
+						$tax10)  #echo " 10% UAV na Strategy   ...  " $SucessTax
 							
 							Naive_avg_tax_10=$(echo "$Naive_avg_tax_10 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax20)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax20)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							Naive_avg_tax_20=$(echo "$Naive_avg_tax_20 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax40)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax40)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							Naive_avg_tax_40=$(echo "$Naive_avg_tax_40 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax60)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax60)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							Naive_avg_tax_60=$(echo "$Naive_avg_tax_60 + $SucessTax" | bc -l )
 
@@ -161,27 +170,27 @@ while IFS=, read -ra arr; do
 
 		    ;;
 	
-				$Strategy_NSNaive)  	#echo "Strategy Naive"
+				$Strategy_NSNaive)  	#echo "Strategy notSoNaive"
 
 					NSNaive_counter=$(echo "$NSNaive_counter + 1" | bc -l )
 
 					case "$nUAV" in
-						$tax10)  #echo " 10% UAV na Strategy  KingstonImproved ...  " $SucessTax
+						$tax10)  #echo " 10% UAV na Strategy   ...  " $SucessTax
 							
 							NSNaive_avg_tax_10=$(echo "$NSNaive_avg_tax_10 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax20)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax20)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							NSNaive_avg_tax_20=$(echo "$NSNaive_avg_tax_20 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax40)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax40)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							NSNaive_avg_tax_40=$(echo "$NSNaive_avg_tax_40 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax60)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax60)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							NSNaive_avg_tax_60=$(echo "$NSNaive_avg_tax_60 + $SucessTax" | bc -l )
 
@@ -198,22 +207,22 @@ while IFS=, read -ra arr; do
 					Random_counter=$(echo "$Random_counter + 1" | bc -l )
 
 					case "$nUAV" in
-						$tax10)  #echo " 10% UAV na Strategy  KingstonImproved ...  " $SucessTax
+						$tax10)  #echo " 10% UAV na Strategy   ...  " $SucessTax
 							
 							Random_avg_tax_10=$(echo "$Random_avg_tax_10 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax20)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax20)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							Random_avg_tax_20=$(echo "$Random_avg_tax_20 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax40)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax40)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							Random_avg_tax_40=$(echo "$Random_avg_tax_40 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax60)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax60)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
 
 							Random_avg_tax_60=$(echo "$Random_avg_tax_60 + $SucessTax" | bc -l )
 
@@ -225,29 +234,29 @@ while IFS=, read -ra arr; do
 
 		    ;;
 		    
-			$Strategy_KingstonImproved)  	#echo "Strategy KingstonImproved"
+			$Strategy_ZigZagOverNSN)  	#echo "Strategy ZigZagOverNSN"
 									
-					KingstonImproved_counter=$(echo "$KingstonImproved_counter + 1" | bc -l )
+					ZigZagOverNSN_counter=$(echo "$ZigZagOverNSN_counter + 1" | bc -l )
 
 					case "$nUAV" in
-						$tax10)  #echo " 10% UAV na Strategy  KingstonImproved ...  " $SucessTax
+						$tax10)  #echo " 10% UAV na Strategy  ZigZagOverNSN ...  " $SucessTax
 							
-							KingstonImproved_avg_tax_10=$(echo "$KingstonImproved_avg_tax_10 + $SucessTax" | bc -l )
+							ZigZagOverNSN_avg_tax_10=$(echo "$ZigZagOverNSN_avg_tax_10 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax20)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax20)  #echo " 10% UAV na Strategy ZigZagOverNSN ...  " $SucessTax 
 
-							KingstonImproved_avg_tax_20=$(echo "$KingstonImproved_avg_tax_20 + $SucessTax" | bc -l )
-
-						    ;;
-						$tax40)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
-
-							KingstonImproved_avg_tax_40=$(echo "$KingstonImproved_avg_tax_40 + $SucessTax" | bc -l )
+							ZigZagOverNSN_avg_tax_20=$(echo "$ZigZagOverNSN_avg_tax_20 + $SucessTax" | bc -l )
 
 						    ;;
-						$tax60)  #echo " 10% UAV na Strategy KingstonImproved ...  " $SucessTax 
+						$tax40)  #echo " 10% UAV na Strategy ZigZagOverNSN ...  " $SucessTax 
 
-							KingstonImproved_avg_tax_60=$(echo "$KingstonImproved_avg_tax_60 + $SucessTax" | bc -l )
+							ZigZagOverNSN_avg_tax_40=$(echo "$ZigZagOverNSN_avg_tax_40 + $SucessTax" | bc -l )
+
+						    ;;
+						$tax60)  #echo " 10% UAV na Strategy ZigZagOverNSN ...  " $SucessTax 
+
+							ZigZagOverNSN_avg_tax_60=$(echo "$ZigZagOverNSN_avg_tax_60 + $SucessTax" | bc -l )
 
 						    ;;
 						*) #echo "[error] nUAV " $nUAV " not recognized on Stragety " $Strategy
@@ -256,6 +265,39 @@ while IFS=, read -ra arr; do
 
 
 		    ;;
+		    
+			$Strategy_ZigZagOverNaive)  	#echo "Strategy Strategy_ZigZagOverNaive"
+									
+					ZigZagOverNaive_counter=$(echo "$ZigZagOverNaive_counter + 1" | bc -l )
+	
+					case "$nUAV" in
+						$tax10)  #echo " 10% UAV na Strategy   ...  " $SucessTax
+							
+							ZigZagOverNaive_avg_tax_10=$(echo "$ZigZagOverNaive_avg_tax_10 + $SucessTax" | bc -l )
+	
+						    ;;
+						$tax20)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
+	
+							ZigZagOverNaive_avg_tax_20=$(echo "$ZigZagOverNaive_avg_tax_20 + $SucessTax" | bc -l )
+	
+						    ;;
+						$tax40)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
+	
+							ZigZagOverNaive_avg_tax_40=$(echo "$ZigZagOverNaive_avg_tax_40 + $SucessTax" | bc -l )
+	
+						    ;;
+						$tax60)  #echo " 10% UAV na Strategy  ...  " $SucessTax 
+	
+							ZigZagOverNaive_avg_tax_60=$(echo "$ZigZagOverNaive_avg_tax_60 + $SucessTax" | bc -l )
+	
+						    ;;
+						*) #echo "[error] nUAV " $nUAV " not recognized on Stragety " $Strategy
+						   ;;
+					esac
+
+
+		    ;;
+		    
 
 		2)  #echo  "Sending SIGINT signal"
 		    #kill -SIGINT $2
@@ -277,11 +319,18 @@ while IFS=, read -ra arr; do
 done < stat_em_tratamento.txt
 
 
-KingstonImproved_counter=$(echo "$KingstonImproved_counter / 4" | bc -l )
-KingstonImproved_avg_tax_10=$(echo "$KingstonImproved_avg_tax_10 / $KingstonImproved_counter" | bc -l )
-KingstonImproved_avg_tax_20=$(echo "$KingstonImproved_avg_tax_20 / $KingstonImproved_counter" | bc -l )
-KingstonImproved_avg_tax_40=$(echo "$KingstonImproved_avg_tax_40 / $KingstonImproved_counter" | bc -l )
-KingstonImproved_avg_tax_60=$(echo "$KingstonImproved_avg_tax_60 / $KingstonImproved_counter" | bc -l )
+
+ZigZagOverNaive_counter=$(echo "$ZigZagOverNaive_counter / 4" | bc -l )
+ZigZagOverNaive_avg_tax_10=$(echo "$ZigZagOverNaive_avg_tax_10 / $ZigZagOverNaive_counter" | bc -l )
+ZigZagOverNaive_avg_tax_20=$(echo "$ZigZagOverNaive_avg_tax_20 / $ZigZagOverNaive_counter" | bc -l )
+ZigZagOverNaive_avg_tax_40=$(echo "$ZigZagOverNaive_avg_tax_40 / $ZigZagOverNaive_counter" | bc -l )
+ZigZagOverNaive_avg_tax_60=$(echo "$ZigZagOverNaive_avg_tax_60 / $ZigZagOverNaive_counter" | bc -l )
+
+ZigZagOverNSN_counter=$(echo "$ZigZagOverNSN_counter / 4" | bc -l )
+ZigZagOverNSN_avg_tax_10=$(echo "$ZigZagOverNSN_avg_tax_10 / $ZigZagOverNSN_counter" | bc -l )
+ZigZagOverNSN_avg_tax_20=$(echo "$ZigZagOverNSN_avg_tax_20 / $ZigZagOverNSN_counter" | bc -l )
+ZigZagOverNSN_avg_tax_40=$(echo "$ZigZagOverNSN_avg_tax_40 / $ZigZagOverNSN_counter" | bc -l )
+ZigZagOverNSN_avg_tax_60=$(echo "$ZigZagOverNSN_avg_tax_60 / $ZigZagOverNSN_counter" | bc -l )
 
 Random_counter=$(echo "$Random_counter / 4" | bc -l )
 Random_avg_tax_10=$(echo "$Random_avg_tax_10 / $Random_counter" | bc -l )
@@ -315,11 +364,11 @@ AntTSP_avg_tax_60=$(echo "$AntTSP_avg_tax_60 / $AntTSP_counter" | bc -l )
     
 
 
-echo $Strategy_KingstonImproved"; counter = "$KingstonImproved_counter
-echo $Strategy_KingstonImproved";"$tax10";"$KingstonImproved_avg_tax_10
-echo $Strategy_KingstonImproved";"$tax20";"$KingstonImproved_avg_tax_20
-echo $Strategy_KingstonImproved";"$tax40";"$KingstonImproved_avg_tax_40
-echo $Strategy_KingstonImproved";"$tax60";"$KingstonImproved_avg_tax_60
+echo $Strategy_ZigZagOverNSN"; counter = "$ZigZagOverNSN_counter
+echo $Strategy_ZigZagOverNSN";"$tax10";"$ZigZagOverNSN_avg_tax_10
+echo $Strategy_ZigZagOverNSN";"$tax20";"$ZigZagOverNSN_avg_tax_20
+echo $Strategy_ZigZagOverNSN";"$tax40";"$ZigZagOverNSN_avg_tax_40
+echo $Strategy_ZigZagOverNSN";"$tax60";"$ZigZagOverNSN_avg_tax_60
 
 echo $Strategy_Random"; counter = "$Random_counter
 echo $Strategy_Random";"$tax10";"$Random_avg_tax_10
@@ -351,6 +400,11 @@ echo $Strategy_NSNaive";"$tax20";"$NSNaive_avg_tax_20
 echo $Strategy_NSNaive";"$tax40";"$NSNaive_avg_tax_40
 echo $Strategy_NSNaive";"$tax60";"$NSNaive_avg_tax_60
 
+echo $Strategy_ZigZagOverNaive"; counter = "$ZigZagOverNaive_counter
+echo $Strategy_ZigZagOverNaive";"$tax10";"$ZigZagOverNaive_avg_tax_10
+echo $Strategy_ZigZagOverNaive";"$tax20";"$ZigZagOverNaive_avg_tax_20
+echo $Strategy_ZigZagOverNaive";"$tax40";"$ZigZagOverNaive_avg_tax_40
+echo $Strategy_ZigZagOverNaive";"$tax60";"$ZigZagOverNaive_avg_tax_60
 
 
 

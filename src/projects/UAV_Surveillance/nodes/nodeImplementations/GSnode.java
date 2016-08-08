@@ -339,8 +339,9 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			
 		}	
 		
-		//@Oli: Sent once to inform UAVs the visit order... Naive, TSP & Anti-TSP cases
+		//Sent once to inform UAVs the visit order... Naive, TSP & Anti-TSP cases
 		// Random Safe Strategy does not wait for this step, because does not have an order
+		
 		if ((!cmdsSent) && (!setOfUAVs.first().myMobilityModelName.endsWith("RandomSafeMobility"))){
 			//@Oli: ChocoSolver to TSP
 			if (setOfUAVs.first().myMobilityModelName.endsWith("TSPbasedMobility")){
@@ -351,12 +352,12 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				if ((setOfUAVs.first().myMobilityModelName.endsWith("NotSoNaiveOrderedMobility"))){
 					
 					System.out.print("[NotSoNaiveOrderedMobility] ");
-					createNaiveBestPath();// Does O(n2) path path and populates "msgPOIorder"		
+					createNotSoNaiveBestPath();// Does O(n2) path path and populates "msgPOIorder"		
 					
 				} else {
-					if ((setOfUAVs.first().myMobilityModelName.endsWith("NaivePlusKingstonImprovedMobility"))){
+					if ((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))){
 						
-						System.out.print("[NaivePlusKingstonImprovedMobility] ");
+						System.out.print("[ZigZagOverNaiveMobility] ");
 						msgPOIorder = new msgPOIordered(listOfPOIs);
 						
 					} else {
@@ -366,10 +367,16 @@ public class GSnode extends Node implements Comparable<GSnode> {
 							msgPOIorder = new msgPOIordered(listOfPOIs);
 							
 						} else {
-							if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedMobility"))){
-
-								System.out.print("[KingstonImprovedMobility] ");
-								createNaiveBestPath();// same as NotSoNaiveOrderedMobility
+							if ((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverNSNMobility"))){
+								System.out.print("[ZigZagOverNSNMobility] ");
+								createNotSoNaiveBestPath();// same as NotSoNaiveOrderedMobility
+								
+							} else {
+								
+								if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNSNMobility"))){
+									System.out.print("[KingstonImprovedOverNSNMobility] ");
+									createNotSoNaiveBestPath();// same as NotSoNaiveOrderedMobility
+								}
 							}
 							
 						}
@@ -432,7 +439,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	}
 	
 	// Creates a path by choosing the nearest POI to nearest POI
-	private void createNaiveBestPath() {
+	private void createNotSoNaiveBestPath() {
 		
 		System.out.println("[GS " + this.ID + "] invoked" );
 		

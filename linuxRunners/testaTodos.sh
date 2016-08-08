@@ -2,17 +2,17 @@
 
 cd ..
 
-LOOPS=30
+LOOPS=29
 ROUNDS=3750000 
 REFRESHRATE=3750000
 
 #N_UAV=5
-N_POI=15
+N_POI=30
 
-for SNAME in NaivePlusKingstonImprovedMobility NotSoNaiveOrderedMobility NaiveOrderedMobility KingstonImprovedMobility
+for SNAME in NaiveOrderedMobility NotSoNaiveOrderedMobility ZigZagOverNaiveMobility ZigZagOverNSNMobility
 do
 
-	#for N_UAV in 2 4 6 8
+	#for N_UAV in 2 4 8 16
 	#do
 
 	for ((i=1; i<=LOOPS; i++)); do
@@ -28,7 +28,7 @@ do
 		echo " "
 
 		echo "dispatching first test do background..."  
-        N_UAV=8
+        N_UAV=16
 		nohup java -cp binaries/bin/. sinalgo.Run -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:$SNAME R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery &
 
 		echo "dispatching second test do background..."  
@@ -40,7 +40,7 @@ do
 		nohup java -cp binaries/bin/. sinalgo.Run -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:$SNAME R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery &
 		
 		echo "dispatching fourth test do run here..."  
-		N_UAV=6		
+		N_UAV=8		
 		java -cp binaries/bin/. sinalgo.Run -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:$SNAME R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
 		
 		
@@ -49,6 +49,8 @@ do
 	#done
 
 done
+
+exit 1
 
 for SNAME in TSPbasedMobility
 do

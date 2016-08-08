@@ -99,6 +99,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public TreeSet<POInode> roundVisitedPOIs = new TreeSet<POInode>();
 	public boolean roundVisitedAllPOIs = false; 
 	public boolean shawResetMoviment = false;
+	public int posOnSwarm = 0;
 	
 	// To mark visits
 	private msgFOV msgPOIseen;
@@ -141,39 +142,66 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			}
 			
 			// Rendezvous to balance paths
-			
 			if (msg instanceof msgKingImp) {	
 				
-				if (kingImpAllowed){ // just to enable conditions to start changing, such as minimum visited POIs or UAVs				
+				if (kingImpAllowed){ // just to enable conditions to start changing, such as minimum visited POIs or UAVs (Originaly = 3)			
+						
 					msgKingImp tmpMsg = (msgKingImp)msg.clone();
 					
-					//System.out.println("[UAV " + this.ID + "] recebeu msg de " + tmpMsg.fromID);					
+					//System.out.println("[UAV " + this.ID + "] received msg from " + tmpMsg.fromID);
 					
-					if ((this.nextPoi.ID == tmpMsg.lastPoi.ID)&&(this.lastPoi.ID == tmpMsg.nextPoi.ID)){ // So, it is comming from where I am going... // Would be better if inserted in that class
+					if (((this.nextPoi.ID == tmpMsg.lastPoi.ID)&&(this.lastPoi.ID == tmpMsg.nextPoi.ID))
+							|| (tmpMsg.nextPoi.ID == this.pathOriginal.get(0).ID)
+							|| ((this.nextPoi.ID == tmpMsg.nextPoi.ID)&&(this.lastPoi.ID == tmpMsg.lastPoi.ID))
+							) { // So, it is comming from where I am going... // Would be better if inserted in that class
 					
-						//System.out.print("[UAV " + this.ID + "]\tdeveria haver balanceamento, newPath:");
-											
-						replanner.updateData(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID, knownUAVright, knownUAVleft);
-						replanner.calculateNewPaths();
-						
-						
-						// Just a test to check shortcut
-						Collections.reverse(this.pathPOIs);
-						for (int i=0; i< pathPOIs.size(); i++) {
-							poiTmp = pathPOIs.get(i);
-							//System.out.print( poiTmp.ID + " - " );
+						System.out.println("[UAV " + this.ID + "] should balance with " + tmpMsg.fromID);
+																						
+						// ZigZag
+						if ((this.myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))||(this.myMobilityModelName.endsWith("ZigZagOverNSNMobility"))){								
+							//System.out.println("[UAV " + this.ID + "] got in on zigzag   ");
+							Collections.reverse(pathPOIs);					
+							int tmpPathIdx = pathIdx;							
+							pathIdx = getIdxFromPoi(lastPoi, pathPOIs);
+							this.shawResetMoviment = true;
+							//System.out.println("[UAV " + this.ID + "] reseting path uppon rendezvous. Last pathIdx was " + tmpPathIdx + " and now is " + pathIdx);
+							// re-org roundVisitedStuff
+							//System.out.println("[UAV " + this.ID + "] setting as visited: " );					
+							roundVisitedPOIs.clear();							
+							for (int i=pathIdx-1; i>=0; i--) {
+								poiTmp = pathPOIs.get(i);
+								roundVisitedPOIs.add(poiTmp);
+								//System.out.print(" -> " + poiTmp.ID);
+							}
+							System.out.println();
+							
+						} else {
+							// Not ZigZag, but KingstonImproved At all! 
+							// KingstonImprovedOverNSNMobility
+							
+							System.out.println("[UAV " + this.ID + "] \n\n\n got in on KimImp  \n\n\n\n ");
+							replanner.updateData(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID, knownUAVright, knownUAVleft);
+							posOnSwarm = replanner.myPositionOnSwarm; 
+							
+							// If my next POI is not in my virtual range, I go back and the other comes with me, escorting me.
+							if (replanner.shawIreverse()){
+														
+
+								
+								
+							} else { // I am escorting until a virtual border at just once. Trigger throught Mobility Class
+								System.out.println("[UAV " + this.ID + "] should NOT replanner.shawIreverse() ");
+								
+							}
 						}
-						pathIdx = getIdxFromPoi(this.lastPoi, this.pathPOIs);
-						//System.out.println(" ||| pathIdx= " + pathIdx);
 						
-						this.shawResetMoviment = true;
+						
 															
-						
-						//System.out.println("\n\n");
-					} //else
-//						System.out.println("[" + this.ID + "]\t>>>Nao<<< deveria haver balanceamento");	
-//						System.out.print("[" + this.ID + "] next= " + this.nextPoi.ID + " & [" + tmpMsg.fromID + "] last = " + tmpMsg.lastPoi.ID);
-//						System.out.println("[" + this.ID + "] last= " + this.lastPoi.ID + " & [" + tmpMsg.fromID + "] next = " + tmpMsg.nextPoi.ID);
+					} else {//else not crossing paths
+
+						System.out.println("[UAV " + this.ID + "] should NOT balance with " + tmpMsg.fromID + " myNext= " + this.nextPoi.ID + " his last=" + tmpMsg.lastPoi.ID + " myLast= " + this.lastPoi.ID + " his next= " + tmpMsg.nextPoi.ID);
+
+						}
 				}
 			}
 		}
@@ -189,9 +217,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				return i;
 		}	
 		System.out.print("[UAV " + this.ID + "]\t ERROR from getIdxFromPoi() - Inexistent POI on path.");
-		return -10;
-		
-		
+		return 0;
 		
 	}
 
@@ -229,18 +255,25 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 					visitedPOIs.add((POInode) e.endNode); // only adds really new POIs
 					//System.out.println("[UAV " + this.ID + "] found POI " + e.endNode.ID);
 				}				
-				// This is for KingStonImproved
+				// This is for KingStonImproved & ZigZag
 				if (!roundVisitedPOIs.contains((POInode) e.endNode)){
 					roundVisitedPOIs.add((POInode) e.endNode); // only adds really new POIs
-					if (roundVisitedPOIs.size() >= 3)
+					//if (roundVisitedPOIs.size() >= 3) // Start these strategies just after known 3 POIs
 						kingImpAllowed = true;	
 				}
 			} 
 			
 			// that is other UAV, rendezvous
 			if (e.endNode instanceof UAVnode){		
-				msgKingImp msgKing2send = new msgKingImp(pathPOIs, this.ID, lastPoi, nextPoi, knownUAVright, knownUAVleft);
-				sendDirect(msgKing2send, e.endNode);
+				
+				if ((this.myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))||
+						(this.myMobilityModelName.endsWith("ZigZagOverNSNMobility"))||
+						(this.myMobilityModelName.endsWith("KingstonImprovedOverNSNMobility"))
+						){		
+
+					msgKingImp msgKing2send = new msgKingImp(pathPOIs, this.ID, lastPoi, nextPoi, knownUAVright, knownUAVleft);
+					sendDirect(msgKing2send, e.endNode);						
+				}
 			}
 		}
 	}
@@ -264,13 +297,16 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		} else {
 			visitedAllPOIs = false;
 		}	
-		
+			
 		if((roundVisitedPOIs.size() >= pathPOIs.size())  && (nKnownPOIs !=0) && canImove) { 
 			roundVisitedAllPOIs = true;
-			//System.out.println("[uav " + this.ID + "]\tsetando true ");
-		} else {
+			//System.out.println("[UAV " + this.ID + "] setting roundVisitedAllPOIs as TRUE inside PRESTEP method ");
+		} 
+		 else {
 			roundVisitedAllPOIs = false;
-		}			
+		}
+
+		
 	}
 
 	@Override
@@ -281,10 +317,10 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			if (rounds >= this.ID*20) { // This 20 could be better with SIZEOFPATH_DIVIDED_BY_ALL_UAV
 				justCountRoundsToMove = false;
 				canImove = true;
-			}
-			
+			}	
 		}
 		
+
 	}
 	
 	@Override
@@ -307,13 +343,13 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		}
 	
 		// default:
-		drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
+		//drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
 				
 		// debug: 
-//		this.setColor(Color.BLACK);
-//		String text = this.ID + "|" + Integer.toString(pathIdx);
-//		this.drawingSizeInPixels = 10 ; 
-//		super.drawNodeAsDiskWithText(g, pt, highlight, text, 12, Color.YELLOW);
+		this.setColor(Color.BLACK);
+		String text = this.ID + "|" + Integer.toString(posOnSwarm);
+		this.drawingSizeInPixels = 10 ; 
+		super.drawNodeAsDiskWithText(g, pt, highlight, text, 10, Color.YELLOW);
 	}
 	
 	/* (non-Javadoc)
