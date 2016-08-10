@@ -124,10 +124,10 @@ public class POInode extends Node implements Comparable<POInode> {
 //		super.drawNodeAsDiskWithText(g, pt, highlight, text, 10, Color.YELLOW);
 		
 		//debug
-		this.drawingSizeInPixels = 5 ; // (int) (fraction * pt.getZoomFactor() * this.defaultDrawingSizeInPixels);
+		this.drawingSizeInPixels = 15 ; // (int) (fraction * pt.getZoomFactor() * this.defaultDrawingSizeInPixels);
 		
 		String text = Integer.toString(this.ID) ; // + "|" + Integer.toString(roundsNeglected);// + "|" + msgSentInThisRound;
-		super.drawNodeAsDiskWithText(g, pt, highlight, text, 5, Color.YELLOW);
+		super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
 		
 		
 	}

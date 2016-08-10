@@ -24,6 +24,8 @@ public class KingImpReplanner {
 	public POInode poiTmp = new POInode();
 	public int myPositionOnSwarm = 0;
 	public int myPathPortionSize = 0;
+	public int myLastPoiOnMyPathPortion = 0;
+	public int myFirstPoiOnMyPathPortion = 0;
 
 	
 	
@@ -52,19 +54,19 @@ public class KingImpReplanner {
 			poiTmp = this.myOriginalPath.get(i);
 			if (poiTmp.ID == myLastPoi.ID){
 				posMyLastPoi = i;
-				System.out.println("[UAV " + myID + "] posMyLastPoi=  " + posMyLastPoi);
+				//System.out.println("[UAV " + myID + "] posMyLastPoi=  " + posMyLastPoi);
 			}
 			if (poiTmp.ID == otherUAVmsg.lastPoi.ID){
 				otherUavLastPoi = i;
-				System.out.println("[UAV " + otherUAVmsg.fromID + "] otherUavLastPoi=  " + otherUavLastPoi);
+				//System.out.println("[UAV " + otherUAVmsg.fromID + "] otherUavLastPoi=  " + otherUavLastPoi);
 			}
 		} 
 		if (posMyLastPoi > otherUavLastPoi) { 
-			System.out.println("[UAV " + myID + "] comes from right");
+			//System.out.println("[UAV " + myID + "] comes from right");
 			amIrightUav = true;
 			myKnownLeft = otherUAVmsg.knownUAVleft + 1;
 		} else {
-			System.out.println("[UAV " + myID + "] comes from left ");
+			//System.out.println("[UAV " + myID + "] comes from left ");
 			amIleftUav = true;
 			myKnownRight = otherUAVmsg.knownUAVright + 1;
 		}
@@ -75,17 +77,24 @@ public class KingImpReplanner {
 		myPositionOnSwarm = myKnownLeft +1 ; 
 		
 		myPathPortionSize = (int) Math.floor(myOriginalPath.size() / myKnownUAVs);
-
+		
+		myLastPoiOnMyPathPortion = myPositionOnSwarm * myPathPortionSize;
+		
+		myFirstPoiOnMyPathPortion = myLastPoiOnMyPathPortion - myPathPortionSize;
+				
+		if (myLastPoiOnMyPathPortion >= myOriginalPath.size()) {
+			myLastPoiOnMyPathPortion = myOriginalPath.size() -1;
+		}	
+		if (myFirstPoiOnMyPathPortion < 0 ) {
+			myFirstPoiOnMyPathPortion = 0;
+		}
+		
 		
 	}
 	
-	public boolean shawIreverse(){
+	public boolean rebalancePath(){
 		
-		//mergePaths();
-		//int swarmSize = myKnownLeft + myKnownRight + 1;
-		//int nPois = newFullPath.size();
-		//int middle = swarmSize / 2;
-		
+
 
 		return true;
 
@@ -141,5 +150,17 @@ public class KingImpReplanner {
 		return false;	
 	}
 	
+	private int getIdxFromPoi(POInode testPoi, ArrayList<POInode> pathPOIs) {
+		
+
+		for (int i=0; i< pathPOIs.size(); i++) {
+			poiTmp = pathPOIs.get(i);
+			if (poiTmp.ID == testPoi.ID)				
+				return i;
+		}	
+		System.out.print("[UAV " + myID + "]\t ERROR from getIdxFromPoi() - Inexistent POI on path.");
+		return 0;
+		
+	}
 
 }

@@ -63,6 +63,26 @@ ZigZagOverNaive_avg_tax_40=0
 ZigZagOverNaive_avg_tax_60=0
 ZigZagOverNaive_counter=0
 
+Strategy_KingOverNaive="KingstonImprovedOverNaiveMobility"
+KingOverNaive_avg_tax_10=0
+KingOverNaive_avg_tax_20=0
+KingOverNaive_avg_tax_40=0
+KingOverNaive_avg_tax_60=0
+KingOverNaive_counter=0
+
+Strategy_KingOverNSN="KingstonImprovedOverNSNMobility"
+KingOverNSN_avg_tax_10=0
+KingOverNSN_avg_tax_20=0
+KingOverNSN_avg_tax_40=0
+KingOverNSN_avg_tax_60=0
+KingOverNSN_counter=0
+
+
+
+
+
+
+
 
 
 while IFS=, read -ra arr; do
@@ -298,6 +318,70 @@ while IFS=, read -ra arr; do
 
 		    ;;
 		    
+		    
+			$Strategy_KingOverNaive)  	
+									
+					KingOverNaive_counter=$(echo "$KingOverNaive_counter + 1" | bc -l )
+	
+					case "$nUAV" in
+						$tax10) 
+							
+							KingOverNaive_avg_tax_10=$(echo "$KingOverNaive_avg_tax_10 + $SucessTax" | bc -l )
+	
+						    ;;
+						$tax20)  
+	
+							KingOverNaive_avg_tax_20=$(echo "$KingOverNaive_avg_tax_20 + $SucessTax" | bc -l )
+	
+						    ;;
+						$tax40) 
+	
+							KingOverNaive_avg_tax_40=$(echo "$KingOverNaive_avg_tax_40 + $SucessTax" | bc -l )
+	
+						    ;;
+						$tax60)  
+	
+							KingOverNaive_avg_tax_60=$(echo "$KingOverNaive_avg_tax_60 + $SucessTax" | bc -l )
+	
+						    ;;
+						*) #echo "[error] nUAV " $nUAV " not recognized on Stragety " $Strategy
+						   ;;
+					esac
+
+
+		    ;;
+
+			$Strategy_KingOverNSN)  	
+									
+					KingOverNSN_counter=$(echo "$KingOverNSN_counter + 1" | bc -l )
+	
+					case "$nUAV" in
+						$tax10) 
+							
+							KingOverNSN_avg_tax_10=$(echo "$KingOverNSN_avg_tax_10 + $SucessTax" | bc -l )
+	
+						    ;;
+						$tax20)  
+	
+							KingOverNSN_avg_tax_20=$(echo "$KingOverNSN_avg_tax_20 + $SucessTax" | bc -l )
+	
+						    ;;
+						$tax40) 
+	
+							KingOverNSN_avg_tax_40=$(echo "$KingOverNSN_avg_tax_40 + $SucessTax" | bc -l )
+	
+						    ;;
+						$tax60)  
+	
+							KingOverNSN_avg_tax_60=$(echo "$KingOverNSN_avg_tax_60 + $SucessTax" | bc -l )
+	
+						    ;;
+						*) #echo "[error] nUAV " $nUAV " not recognized on Strategy " $Strategy
+						   ;;
+					esac
+
+
+		    ;;
 
 		2)  #echo  "Sending SIGINT signal"
 		    #kill -SIGINT $2
@@ -360,8 +444,20 @@ AntTSP_counter=$(echo "$AntTSP_counter / 4" | bc -l )
 AntTSP_avg_tax_10=$(echo "$AntTSP_avg_tax_10 / $AntTSP_counter" | bc -l )
 AntTSP_avg_tax_20=$(echo "$AntTSP_avg_tax_20 / $AntTSP_counter" | bc -l )
 AntTSP_avg_tax_40=$(echo "$AntTSP_avg_tax_40 / $AntTSP_counter" | bc -l )
-AntTSP_avg_tax_60=$(echo "$AntTSP_avg_tax_60 / $AntTSP_counter" | bc -l )    
-    
+AntTSP_avg_tax_60=$(echo "$AntTSP_avg_tax_60 / $AntTSP_counter" | bc -l )     
+
+KingOverNaive_counter=$(echo "$KingOverNaive_counter / 4" | bc -l )
+KingOverNaive_avg_tax_10=$(echo "$KingOverNaive_avg_tax_10 / $KingOverNaive_counter" | bc -l )
+KingOverNaive_avg_tax_20=$(echo "$KingOverNaive_avg_tax_20 / $KingOverNaive_counter" | bc -l )
+KingOverNaive_avg_tax_40=$(echo "$KingOverNaive_avg_tax_40 / $KingOverNaive_counter" | bc -l )
+KingOverNaive_avg_tax_60=$(echo "$KingOverNaive_avg_tax_60 / $KingOverNaive_counter" | bc -l )    
+
+KingOverNSN_counter=$(echo "$KingOverNSN_counter / 4" | bc -l )
+KingOverNSN_avg_tax_10=$(echo "$KingOverNSN_avg_tax_10 / $KingOverNSN_counter" | bc -l )
+KingOverNSN_avg_tax_20=$(echo "$KingOverNSN_avg_tax_20 / $KingOverNSN_counter" | bc -l )
+KingOverNSN_avg_tax_40=$(echo "$KingOverNSN_avg_tax_40 / $KingOverNSN_counter" | bc -l )
+KingOverNSN_avg_tax_60=$(echo "$KingOverNSN_avg_tax_60 / $KingOverNSN_counter" | bc -l )    
+
 
 
 echo $Strategy_ZigZagOverNSN"; counter = "$ZigZagOverNSN_counter
@@ -405,6 +501,34 @@ echo $Strategy_ZigZagOverNaive";"$tax10";"$ZigZagOverNaive_avg_tax_10
 echo $Strategy_ZigZagOverNaive";"$tax20";"$ZigZagOverNaive_avg_tax_20
 echo $Strategy_ZigZagOverNaive";"$tax40";"$ZigZagOverNaive_avg_tax_40
 echo $Strategy_ZigZagOverNaive";"$tax60";"$ZigZagOverNaive_avg_tax_60
+
+echo $Strategy_KingOverNaive"; counter = "$KingOverNaive_counter
+echo $Strategy_KingOverNaive";"$tax10";"$KingOverNaive_avg_tax_10
+echo $Strategy_KingOverNaive";"$tax20";"$KingOverNaive_avg_tax_20
+echo $Strategy_KingOverNaive";"$tax40";"$KingOverNaive_avg_tax_40
+echo $Strategy_KingOverNaive";"$tax60";"$KingOverNaive_avg_tax_60
+
+echo $Strategy_KingOverNSN"; counter = "$KingOverNSN_counter
+echo $Strategy_KingOverNSN";"$tax10";"$KingOverNSN_avg_tax_10
+echo $Strategy_KingOverNSN";"$tax20";"$KingOverNSN_avg_tax_20
+echo $Strategy_KingOverNSN";"$tax40";"$KingOverNSN_avg_tax_40
+echo $Strategy_KingOverNSN";"$tax60";"$KingOverNSN_avg_tax_60
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

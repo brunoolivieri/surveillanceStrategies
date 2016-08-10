@@ -376,7 +376,14 @@ public class GSnode extends Node implements Comparable<GSnode> {
 								if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNSNMobility"))){
 									System.out.print("[KingstonImprovedOverNSNMobility] ");
 									createNotSoNaiveBestPath();// same as NotSoNaiveOrderedMobility
+								} else {
+									if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNaiveMobility"))){
+										System.out.print("[KingstonImprovedOverNaiveMobility] ");
+										msgPOIorder = new msgPOIordered(listOfPOIs);
+									}
+									
 								}
+								 
 							}
 							
 						}

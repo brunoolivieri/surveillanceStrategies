@@ -2,14 +2,16 @@
 
 cd ..
 
-LOOPS=29
+LOOPS=30
 ROUNDS=3750000 
 REFRESHRATE=3750000
 
 #N_UAV=5
-N_POI=30
+N_POI=25
 
-for SNAME in NaiveOrderedMobility NotSoNaiveOrderedMobility ZigZagOverNaiveMobility ZigZagOverNSNMobility
+# NaiveOrderedMobility NotSoNaiveOrderedMobility ZigZagOverNaiveMobility ZigZagOverNSNMobility KingstonImprovedOverNaiveMobility KingstonImprovedOverNSNMobility
+
+for SNAME in NaiveOrderedMobility NotSoNaiveOrderedMobility ZigZagOverNaiveMobility ZigZagOverNSNMobility KingstonImprovedOverNaiveMobility KingstonImprovedOverNSNMobility
 do
 
 	#for N_UAV in 2 4 8 16

@@ -1,240 +1,360 @@
-Fri Aug  5 12:25:11 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 1
-Fri Aug  5 12:26:55 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 1
-Fri Aug  5 12:28:48 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 1
-Fri Aug  5 12:30:40 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 1
-Fri Aug  5 12:42:44 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 1
-Fri Aug  5 12:44:29 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 2
-Fri Aug  5 12:46:17 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 3
-Fri Aug  5 12:48:05 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 4
-Fri Aug  5 12:49:53 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 5
-Fri Aug  5 12:51:43 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 6
-Fri Aug  5 12:53:34 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 7
-Fri Aug  5 12:55:22 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 8
-Fri Aug  5 12:57:07 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 9
-Fri Aug  5 12:58:55 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 10
-Fri Aug  5 13:00:45 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 11
-Fri Aug  5 13:02:32 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 12
-Fri Aug  5 13:04:21 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 13
-Fri Aug  5 13:06:08 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 14
-Fri Aug  5 13:07:57 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 15
-Fri Aug  5 13:09:43 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 16
-Fri Aug  5 13:11:32 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 17
-Fri Aug  5 13:13:17 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 18
-Fri Aug  5 13:15:04 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 19
-Fri Aug  5 13:16:58 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 20
-Fri Aug  5 13:18:49 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 21
-Fri Aug  5 13:20:39 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 22
-Fri Aug  5 13:22:28 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 23
-Fri Aug  5 13:24:17 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 24
-Fri Aug  5 13:26:09 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 25
-Fri Aug  5 13:28:01 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 26
-Fri Aug  5 13:29:54 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 27
-Fri Aug  5 13:31:43 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 28
-Fri Aug  5 13:33:34 BRT 2016
-nPOI = 30  strat = NaiveOrderedMobility  i = 29
-Fri Aug  5 13:35:23 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 1
-Fri Aug  5 13:37:16 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 2
-Fri Aug  5 13:39:09 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 3
-Fri Aug  5 13:41:02 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 4
-Fri Aug  5 13:42:56 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 5
-Fri Aug  5 13:44:49 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 6
-Fri Aug  5 13:46:43 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 7
-Fri Aug  5 15:24:39 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 8
-Fri Aug  5 17:13:13 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 9
-Fri Aug  5 19:55:57 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 10
-Fri Aug  5 20:08:49 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 11
-Fri Aug  5 20:10:38 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 12
-Fri Aug  5 20:12:31 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 13
-Fri Aug  5 20:14:23 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 14
-Fri Aug  5 20:16:15 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 15
-Fri Aug  5 20:18:06 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 16
-Fri Aug  5 20:19:53 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 17
-Fri Aug  5 20:21:42 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 18
-Fri Aug  5 20:23:34 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 19
-Fri Aug  5 20:25:24 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 20
-Fri Aug  5 20:27:13 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 21
-Fri Aug  5 20:29:03 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 22
-Fri Aug  5 20:30:54 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 23
-Fri Aug  5 20:32:45 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 24
-Fri Aug  5 20:34:39 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 25
-Fri Aug  5 20:36:29 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 26
-Fri Aug  5 20:38:20 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 27
-Fri Aug  5 20:40:16 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 28
-Fri Aug  5 20:42:09 BRT 2016
-nPOI = 30  strat = NotSoNaiveOrderedMobility  i = 29
-Fri Aug  5 20:44:02 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 1
-Fri Aug  5 20:45:53 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 2
-Fri Aug  5 20:47:45 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 3
-Fri Aug  5 20:49:36 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 4
-Fri Aug  5 20:51:24 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 5
-Fri Aug  5 20:53:21 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 6
-Fri Aug  5 20:55:28 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 7
-Fri Aug  5 20:57:19 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 8
-Fri Aug  5 20:59:15 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 9
-Fri Aug  5 21:01:07 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 10
-Fri Aug  5 21:03:00 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 11
-Fri Aug  5 21:04:53 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 12
-Fri Aug  5 21:06:42 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 13
-Fri Aug  5 21:08:34 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 14
-Fri Aug  5 21:10:25 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 15
-Fri Aug  5 21:12:19 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 16
-Fri Aug  5 21:14:11 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 17
-Fri Aug  5 21:16:07 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 18
-Fri Aug  5 21:18:02 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 19
-Fri Aug  5 21:19:52 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 20
-Fri Aug  5 21:21:43 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 21
-Fri Aug  5 21:23:34 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 22
-Fri Aug  5 21:25:27 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 23
-Fri Aug  5 21:27:17 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 24
-Fri Aug  5 21:29:24 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 25
-Fri Aug  5 21:31:22 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 26
-Fri Aug  5 21:33:14 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 27
-Fri Aug  5 21:35:08 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 28
-Fri Aug  5 21:37:05 BRT 2016
-nPOI = 30  strat = ZigZagOverNaiveMobility  i = 29
-Fri Aug  5 21:38:56 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 1
-Fri Aug  5 21:40:51 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 2
-Fri Aug  5 21:42:47 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 3
-Fri Aug  5 21:46:32 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 4
-Fri Aug  5 21:48:44 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 5
-Fri Aug  5 21:50:33 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 6
-Fri Aug  5 21:52:37 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 7
-Fri Aug  5 21:54:31 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 8
-Fri Aug  5 21:56:41 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 9
-Fri Aug  5 21:58:45 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 10
-Fri Aug  5 22:00:50 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 11
-Fri Aug  5 22:03:25 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 12
-Fri Aug  5 22:05:41 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 13
-Fri Aug  5 22:08:07 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 14
-Fri Aug  5 22:10:35 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 15
-Fri Aug  5 22:13:00 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 16
-Fri Aug  5 22:15:27 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 17
-Fri Aug  5 22:17:53 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 18
-Fri Aug  5 22:20:12 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 19
-Fri Aug  5 22:23:13 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 20
-Fri Aug  5 22:25:12 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 21
-Fri Aug  5 22:27:18 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 22
-Fri Aug  5 22:29:19 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 23
-Fri Aug  5 23:58:56 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 24
-Sat Aug  6 00:19:03 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 25
-Sat Aug  6 00:20:57 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 26
-Sat Aug  6 00:23:07 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 27
-Sat Aug  6 00:25:32 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 28
-Sat Aug  6 00:27:54 BRT 2016
-nPOI = 30  strat = ZigZagOverNSNMobility  i = 29
+Tue Aug  9 19:52:17 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 1
+Tue Aug  9 19:53:47 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 2
+Tue Aug  9 19:55:25 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 3
+Tue Aug  9 19:57:03 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 4
+Tue Aug  9 19:58:40 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 5
+Tue Aug  9 20:00:21 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 6
+Tue Aug  9 20:01:56 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 7
+Tue Aug  9 20:03:36 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 8
+Tue Aug  9 20:05:16 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 9
+Tue Aug  9 20:06:51 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 10
+Tue Aug  9 20:08:28 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 11
+Tue Aug  9 20:10:04 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 12
+Tue Aug  9 20:11:42 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 13
+Tue Aug  9 20:13:17 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 14
+Tue Aug  9 20:14:56 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 15
+Tue Aug  9 20:16:33 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 16
+Tue Aug  9 20:18:11 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 17
+Tue Aug  9 20:19:48 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 18
+Tue Aug  9 20:21:27 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 19
+Tue Aug  9 20:23:01 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 20
+Tue Aug  9 20:24:38 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 21
+Tue Aug  9 20:26:14 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 22
+Tue Aug  9 20:27:53 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 23
+Tue Aug  9 20:29:30 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 24
+Tue Aug  9 20:31:09 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 25
+Tue Aug  9 20:32:46 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 26
+Tue Aug  9 20:34:23 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 27
+Tue Aug  9 20:36:02 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 28
+Tue Aug  9 20:37:39 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 29
+Tue Aug  9 20:39:16 BRT 2016
+nPOI = 25  strat = NaiveOrderedMobility  i = 30
+Tue Aug  9 20:40:52 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 1
+Tue Aug  9 20:42:30 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 2
+Tue Aug  9 20:44:08 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 3
+Tue Aug  9 20:45:47 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 4
+Tue Aug  9 20:47:27 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 5
+Tue Aug  9 20:49:07 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 6
+Tue Aug  9 20:50:46 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 7
+Tue Aug  9 20:52:24 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 8
+Tue Aug  9 20:54:03 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 9
+Tue Aug  9 20:55:43 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 10
+Tue Aug  9 20:57:22 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 11
+Tue Aug  9 20:59:01 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 12
+Tue Aug  9 21:00:40 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 13
+Tue Aug  9 21:02:19 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 14
+Tue Aug  9 21:03:59 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 15
+Tue Aug  9 21:05:39 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 16
+Tue Aug  9 21:07:18 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 17
+Tue Aug  9 21:08:59 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 18
+Tue Aug  9 21:10:36 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 19
+Tue Aug  9 21:12:17 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 20
+Tue Aug  9 21:13:55 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 21
+Tue Aug  9 21:15:36 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 22
+Tue Aug  9 21:17:14 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 23
+Tue Aug  9 21:18:55 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 24
+Tue Aug  9 21:20:36 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 25
+Tue Aug  9 21:22:12 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 26
+Tue Aug  9 21:23:52 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 27
+Tue Aug  9 21:25:34 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 28
+Tue Aug  9 21:27:12 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 29
+Tue Aug  9 21:28:52 BRT 2016
+nPOI = 25  strat = NotSoNaiveOrderedMobility  i = 30
+Tue Aug  9 21:30:32 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 1
+Tue Aug  9 21:32:09 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 2
+Tue Aug  9 21:33:47 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 3
+Tue Aug  9 21:35:23 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 4
+Tue Aug  9 21:37:00 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 5
+Tue Aug  9 21:38:38 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 6
+Tue Aug  9 21:40:15 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 7
+Tue Aug  9 21:41:50 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 8
+Tue Aug  9 21:43:28 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 9
+Tue Aug  9 21:45:03 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 10
+Tue Aug  9 21:46:42 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 11
+Tue Aug  9 21:48:19 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 12
+Tue Aug  9 21:49:58 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 13
+Tue Aug  9 21:51:36 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 14
+Tue Aug  9 21:53:13 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 15
+Tue Aug  9 21:54:49 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 16
+Tue Aug  9 21:56:26 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 17
+Tue Aug  9 21:58:03 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 18
+Tue Aug  9 21:59:41 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 19
+Tue Aug  9 22:01:15 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 20
+Tue Aug  9 22:02:53 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 21
+Tue Aug  9 22:04:32 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 22
+Tue Aug  9 22:06:10 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 23
+Tue Aug  9 22:07:48 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 24
+Tue Aug  9 22:09:21 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 25
+Tue Aug  9 22:10:58 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 26
+Tue Aug  9 22:12:37 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 27
+Tue Aug  9 22:14:13 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 28
+Tue Aug  9 22:15:48 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 29
+Tue Aug  9 22:17:28 BRT 2016
+nPOI = 25  strat = ZigZagOverNaiveMobility  i = 30
+Tue Aug  9 22:19:03 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 1
+Tue Aug  9 22:20:39 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 2
+Tue Aug  9 22:22:19 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 3
+Tue Aug  9 22:23:57 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 4
+Tue Aug  9 22:25:37 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 5
+Tue Aug  9 22:27:17 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 6
+Tue Aug  9 22:28:55 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 7
+Tue Aug  9 22:30:35 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 8
+Tue Aug  9 22:32:14 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 9
+Tue Aug  9 22:33:53 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 10
+Tue Aug  9 22:35:35 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 11
+Tue Aug  9 22:37:16 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 12
+Tue Aug  9 22:38:52 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 13
+Tue Aug  9 22:40:29 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 14
+Tue Aug  9 22:42:09 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 15
+Tue Aug  9 22:43:46 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 16
+Tue Aug  9 22:45:26 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 17
+Tue Aug  9 22:47:04 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 18
+Tue Aug  9 22:48:44 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 19
+Tue Aug  9 22:50:22 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 20
+Tue Aug  9 22:52:04 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 21
+Tue Aug  9 22:53:40 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 22
+Tue Aug  9 22:55:18 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 23
+Tue Aug  9 22:56:56 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 24
+Tue Aug  9 22:58:36 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 25
+Tue Aug  9 23:00:14 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 26
+Tue Aug  9 23:01:51 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 27
+Tue Aug  9 23:03:26 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 28
+Tue Aug  9 23:05:07 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 29
+Tue Aug  9 23:06:46 BRT 2016
+nPOI = 25  strat = ZigZagOverNSNMobility  i = 30
+Tue Aug  9 23:08:25 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 1
+Tue Aug  9 23:10:06 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 2
+Tue Aug  9 23:11:48 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 3
+Tue Aug  9 23:13:29 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 4
+Tue Aug  9 23:15:09 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 5
+Tue Aug  9 23:16:48 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 6
+Tue Aug  9 23:18:31 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 7
+Tue Aug  9 23:20:11 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 8
+Tue Aug  9 23:21:51 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 9
+Tue Aug  9 23:23:34 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 10
+Tue Aug  9 23:25:15 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 11
+Tue Aug  9 23:27:01 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 12
+Tue Aug  9 23:28:43 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 13
+Tue Aug  9 23:30:24 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 14
+Tue Aug  9 23:32:04 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 15
+Tue Aug  9 23:33:48 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 16
+Tue Aug  9 23:35:28 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 17
+Tue Aug  9 23:37:10 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 18
+Tue Aug  9 23:38:49 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 19
+Tue Aug  9 23:40:30 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 20
+Tue Aug  9 23:42:10 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 21
+Tue Aug  9 23:43:53 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 22
+Tue Aug  9 23:45:34 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 23
+Tue Aug  9 23:47:18 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 24
+Tue Aug  9 23:48:59 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 25
+Tue Aug  9 23:50:42 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 26
+Tue Aug  9 23:52:25 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 27
+Tue Aug  9 23:54:09 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 28
+Tue Aug  9 23:55:50 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 29
+Tue Aug  9 23:57:34 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNaiveMobility  i = 30
+Tue Aug  9 23:59:17 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 1
+Wed Aug 10 00:01:02 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 2
+Wed Aug 10 00:02:47 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 3
+Wed Aug 10 00:04:33 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 4
+Wed Aug 10 00:06:16 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 5
+Wed Aug 10 00:08:05 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 6
+Wed Aug 10 00:09:49 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 7
+Wed Aug 10 00:11:39 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 8
+Wed Aug 10 00:13:22 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 9
+Wed Aug 10 00:15:09 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 10
+Wed Aug 10 00:16:55 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 11
+Wed Aug 10 00:18:42 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 12
+Wed Aug 10 00:20:26 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 13
+Wed Aug 10 00:22:11 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 14
+Wed Aug 10 00:23:54 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 15
+Wed Aug 10 00:25:36 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 16
+Wed Aug 10 00:27:25 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 17
+Wed Aug 10 00:29:08 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 18
+Wed Aug 10 00:30:53 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 19
+Wed Aug 10 00:32:37 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 20
+Wed Aug 10 00:34:23 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 21
+Wed Aug 10 00:36:06 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 22
+Wed Aug 10 00:37:51 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 23
+Wed Aug 10 00:39:37 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 24
+Wed Aug 10 00:41:18 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 25
+Wed Aug 10 00:43:04 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 26
+Wed Aug 10 00:44:47 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 27
+Wed Aug 10 00:46:34 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 28
+Wed Aug 10 00:48:16 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 29
+Wed Aug 10 00:50:04 BRT 2016
+nPOI = 25  strat = KingstonImprovedOverNSNMobility  i = 30

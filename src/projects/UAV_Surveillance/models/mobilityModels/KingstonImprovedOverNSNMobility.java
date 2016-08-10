@@ -20,12 +20,15 @@ public class KingstonImprovedOverNSNMobility extends NaiveOrderedMobility{
 
 	@Override
 	public Position getNextPos(Node n) {
-			
+	
+		// SAME AS ZIGZAG
 		// This simply makes Kingston (Almost)
 		// Overhide to reset position and recalc moviments 
 		if (((UAVnode) n).shawResetMoviment){
 			super.remaining_hops = 0;
 			((UAVnode) n).shawResetMoviment = false;
+			//System.out.println("[UAV " + ((UAVnode) n).ID + "] remaining_hops set to zero ");
+
 		};		
 		
 		return super.getNextPos(n);	
@@ -35,12 +38,16 @@ public class KingstonImprovedOverNSNMobility extends NaiveOrderedMobility{
 	//set target as next POI in each list from each UAV
 	@Override
 	public synchronized Position GetNextWayPoint(UAVnode v) {
-			
+
+		
 		if (!v.roundVisitedAllPOIs){
-					
+			
 			tmpPoi = v.pathPOIs.get(v.getPathIdx());
 		
-			v.nextPoi = tmpPoi; // where shaw it go			
+			v.nextPoi = tmpPoi; // where shaw it go		
+			
+			//System.out.println("[UAV " + v.ID + "] setting next POI to  " + tmpPoi.ID);
+
 			
 			if (v.getPathIdx() >= v.pathPOIs.size()-1 ){				
 				if  (v.getPathIdx() > 0) 
@@ -53,19 +60,34 @@ public class KingstonImprovedOverNSNMobility extends NaiveOrderedMobility{
 			// low level path planning
 			Position nextMapPoint = new Position(tmpPoi.getPosition().xCoord, tmpPoi.getPosition().yCoord, tmpPoi.getPosition().zCoord); 
 			
-			v.setPathIdx(v.getPathIdx() + 1); // = v.pathIdx + v.ID;
-	
-			if (v.getPathIdx() >= v.pathPOIs.size()){
-				v.roundVisitedAllPOIs  = true;		
-				v.shawResetMoviment = true;
-			}
+			v.setPathIdx(v.getPathIdx() + 1); 
+			
 			v.setPathIdx(v.getPathIdx() % v.pathPOIs.size()); // just in case...
+	
+			// reseting known UAVs right or left
+			if (tmpPoi.ID == v.pathOriginal.get(0).ID){
+				v.knownUAVleft = 0;
+			}
+			if (tmpPoi.ID == v.pathOriginal.get(v.pathOriginal.size()-1).ID){
+				v.knownUAVright = 0;
+			}
+//						
+//			// releasing UAV from Kingston adjustment
+//			if ((v.adjustingPath)&(v.lastPoi.ID == v.adjustingPoiTarget.ID)){
+//				v.adjustingPath = false;
+//				v.meiaVoltaVolver();
+//				v.roundVisitedPOIs.add(v.lastPoi);
+//				System.out.println("[UAV " + v.ID + "] released from adjustment and doing Meia-Volta-Voler & adjustingPath= " + v.adjustingPath);
+//			} else {
+//				//System.out.println("[UAV " + v.ID + "] NOT released from adjustment: last= " + v.lastPoi.ID + " adjustingPoiTarget= " + v.adjustingPoiTarget.ID + " & adjustingPath= " + v.adjustingPath);
+//
+//			}
+			
 
 			return nextMapPoint;
 			
-		} else {
-					
-		
+		} else 
+						
 			v.lastPoi = v.pathPOIs.get(v.pathPOIs.size()-1); 
 			v.nextPoi = v.pathPOIs.get(v.pathPOIs.size()-2);
 					
@@ -80,17 +102,18 @@ public class KingstonImprovedOverNSNMobility extends NaiveOrderedMobility{
 			v.setPathIdx(1); 
 			
 			Position nextMapPoint = new Position(tmpPoi.getPosition().xCoord, tmpPoi.getPosition().yCoord, tmpPoi.getPosition().zCoord); 
-	
-			// Reseting information about how many right or left UAVs I Know
-			if (tmpPoi.ID == v.pathOriginal.get(1).ID) {
+			
+			//System.out.println("[UAV " + v.ID + "] reverting hole path and going to " + tmpPoi.ID);
+			
+			// reseting known UAVs right or left
+			if (v.lastPoi.ID == v.pathOriginal.get(0).ID){
 				v.knownUAVleft = 0;
-			} else {
-				if (tmpPoi.ID == v.pathOriginal.get(v.pathOriginal.size()-2).ID) {
-					v.knownUAVright = 0;
-				}
+				v.adjustingPath = false;
 			}
-			v.posOnSwarm = v.knownUAVleft +1 ; 
-
+			if (v.lastPoi.ID == v.pathOriginal.get(v.pathOriginal.size()-1).ID){
+				v.knownUAVright = 0;
+				v.adjustingPath = false;
+			}
 			
 			return nextMapPoint;
 			
@@ -98,4 +121,5 @@ public class KingstonImprovedOverNSNMobility extends NaiveOrderedMobility{
 	}
 	
 	
-}
+
+

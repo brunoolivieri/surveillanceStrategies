@@ -88,18 +88,22 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public ArrayList<POInode> pathPOIs = new ArrayList<POInode>();
 	private  int pathIdx = 0 ; //this.ID -1;
 	
-	// [Kingston]To use with rendezvous and change paths
+	// [Kingston/ZigZag]To use with rendezvous and change paths
 	public boolean kingImpAllowed = false; // just to enable conditions to start changing, such as minimum visited POIs or UAVs
 	public POInode lastPoi = new POInode();
 	public POInode nextPoi = new POInode();
 	public int knownUAVright = 0;
 	public int knownUAVleft = 0;
 	public ArrayList<POInode> pathOriginal = new ArrayList<POInode>();
-	private KingImpReplanner replanner = new KingImpReplanner();
+	public KingImpReplanner replanner = new KingImpReplanner();
 	public TreeSet<POInode> roundVisitedPOIs = new TreeSet<POInode>();
 	public boolean roundVisitedAllPOIs = false; 
 	public boolean shawResetMoviment = false;
 	public int posOnSwarm = 0;
+	public boolean adjustingPath = false;
+	public POInode adjustingPoiTarget = new POInode(); 
+	public int lastPoiOnMyPathPortion=0;
+	public int firstPoiOnMyPathPortion=0;
 	
 	// To mark visits
 	private msgFOV msgPOIseen;
@@ -152,59 +156,97 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 					
 					if (((this.nextPoi.ID == tmpMsg.lastPoi.ID)&&(this.lastPoi.ID == tmpMsg.nextPoi.ID))
 							|| (tmpMsg.nextPoi.ID == this.pathOriginal.get(0).ID)
-							|| ((this.nextPoi.ID == tmpMsg.nextPoi.ID)&&(this.lastPoi.ID == tmpMsg.lastPoi.ID))
+							|| ((this.nextPoi.ID == tmpMsg.nextPoi.ID))// &&(this.lastPoi.ID == tmpMsg.lastPoi.ID))
 							) { // So, it is comming from where I am going... // Would be better if inserted in that class
 					
-						System.out.println("[UAV " + this.ID + "] should balance with " + tmpMsg.fromID);
+						//System.out.println("[UAV " + this.ID + "] could balance with " + tmpMsg.fromID);
 																						
 						// ZigZag
 						if ((this.myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))||(this.myMobilityModelName.endsWith("ZigZagOverNSNMobility"))){								
-							//System.out.println("[UAV " + this.ID + "] got in on zigzag   ");
-							Collections.reverse(pathPOIs);					
-							int tmpPathIdx = pathIdx;							
-							pathIdx = getIdxFromPoi(lastPoi, pathPOIs);
-							this.shawResetMoviment = true;
-							//System.out.println("[UAV " + this.ID + "] reseting path uppon rendezvous. Last pathIdx was " + tmpPathIdx + " and now is " + pathIdx);
-							// re-org roundVisitedStuff
-							//System.out.println("[UAV " + this.ID + "] setting as visited: " );					
-							roundVisitedPOIs.clear();							
-							for (int i=pathIdx-1; i>=0; i--) {
-								poiTmp = pathPOIs.get(i);
-								roundVisitedPOIs.add(poiTmp);
-								//System.out.print(" -> " + poiTmp.ID);
-							}
-							System.out.println();
+				
+							meiaVoltaVolver();
 							
 						} else {
 							// Not ZigZag, but KingstonImproved At all! 
 							// KingstonImprovedOverNSNMobility
 							
-							System.out.println("[UAV " + this.ID + "] \n\n\n got in on KimImp  \n\n\n\n ");
 							replanner.updateData(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID, knownUAVright, knownUAVleft);
-							posOnSwarm = replanner.myPositionOnSwarm; 
 							
-							// If my next POI is not in my virtual range, I go back and the other comes with me, escorting me.
-							if (replanner.shawIreverse()){
-														
-
-								
-								
-							} else { // I am escorting until a virtual border at just once. Trigger throught Mobility Class
-								System.out.println("[UAV " + this.ID + "] should NOT replanner.shawIreverse() ");
-								
-							}
-						}
-						
-						
+							// geting my theorical position and update other UAV counter.
+							posOnSwarm = replanner.myPositionOnSwarm; 
+							knownUAVleft = replanner.myKnownLeft;   // debug more?
+							knownUAVright = replanner.myKnownRight; // debug more?	
+							this.lastPoiOnMyPathPortion = replanner.myLastPoiOnMyPathPortion;
+							this.firstPoiOnMyPathPortion = replanner.myFirstPoiOnMyPathPortion;
+							
+							
+							if (!adjustingPath){
 															
+								this.adjustingPath = true;
+					
+								//	replanner.rebalancePath();
+																
+								if (replanner.amIleftUav){							
+									if (lastPoiOnMyPathPortion < getIdxFromPoi(nextPoi, pathOriginal)) {
+										adjustingPoiTarget = pathOriginal.get(firstPoiOnMyPathPortion);	
+										//System.out.println("\n[UAV " + this.ID + "] RIGHT MVV() and setting adjustingPoiTarget =  " + adjustingPoiTarget.ID  + " last= " + pathOriginal.get(lastPoiOnMyPathPortion).ID + " next= " + nextPoi.ID);
+										meiaVoltaVolver();
+									} else {
+										adjustingPoiTarget = pathOriginal.get(lastPoiOnMyPathPortion);	
+										//System.out.println("\n[UAV " + this.ID + "] RIGHT Just setting adjustingPoiTarget =  " + adjustingPoiTarget.ID);
+			     					}							
+								} else {									
+									if (replanner.amIrightUav){
+										if (firstPoiOnMyPathPortion > getIdxFromPoi(nextPoi, pathOriginal)) {
+											adjustingPoiTarget = pathOriginal.get(lastPoiOnMyPathPortion);	
+										//	System.out.println("\n[UAV " + this.ID + "] RIGHT MVV() and setting adjustingPoiTarget =  " + adjustingPoiTarget.ID + " first= " + pathOriginal.get(firstPoiOnMyPathPortion) + " next= " + nextPoi.ID);
+											meiaVoltaVolver();										
+										} else {
+											adjustingPoiTarget = pathOriginal.get(firstPoiOnMyPathPortion);	
+											//System.out.println("\n[UAV " + this.ID + "] RIGHT Just setting adjustingPoiTarget =  " + adjustingPoiTarget.ID);
+				     					}									
+									}  else {
+										//System.out.println("\n[UAV " + this.ID + "] I dont know how share paths in this rendezvous. Who am I? ");
+									}
+								}
+							} else { 
+								//System.out.println("\n[UAV " + this.ID + "] should NOT adjust because still adjusting...");	
+							}
+						}															
 					} else {//else not crossing paths
 
-						System.out.println("[UAV " + this.ID + "] should NOT balance with " + tmpMsg.fromID + " myNext= " + this.nextPoi.ID + " his last=" + tmpMsg.lastPoi.ID + " myLast= " + this.lastPoi.ID + " his next= " + tmpMsg.nextPoi.ID);
+						//System.out.println("[UAV " + this.ID + "] should NOT balance with " + tmpMsg.fromID + " myNext= " + this.nextPoi.ID + " his last=" + tmpMsg.lastPoi.ID + " myLast= " + this.lastPoi.ID + " his next= " + tmpMsg.nextPoi.ID);
 
 						}
 				}
 			}
 		}
+		
+	}
+	
+	// does 180 degrees on linear path, turn, do a zig-zag
+	public void meiaVoltaVolver() {
+
+		//System.out.println("[UAV " + this.ID + "] got in on meiaVoltaVolver()   ");
+		
+		Collections.reverse(pathPOIs);					
+		
+		int tmpPathIdx = pathIdx;							
+		pathIdx = getIdxFromPoi(lastPoi, pathPOIs);
+		this.shawResetMoviment = true;
+		
+		//System.out.println("[UAV " + this.ID + "] reseting path uppon rendezvous. Last pathIdx was " + tmpPathIdx + " and now is " + pathIdx);
+		
+		// re-org roundVisitedStuff
+		//System.out.println("[UAV " + this.ID + "] setting as visited: " );					
+		
+		roundVisitedPOIs.clear();							
+		for (int i=pathIdx-1; i>=0; i--) {
+			poiTmp = pathPOIs.get(i);
+			roundVisitedPOIs.add(poiTmp);
+			//System.out.print(" -> " + poiTmp.ID);
+		}
+		//System.out.println("      end of  meiaVoltaVolver()");
 		
 	}
 
@@ -266,10 +308,11 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			// that is other UAV, rendezvous
 			if (e.endNode instanceof UAVnode){		
 				
-				if ((this.myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))||
+				if (((this.myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))||
 						(this.myMobilityModelName.endsWith("ZigZagOverNSNMobility"))||
-						(this.myMobilityModelName.endsWith("KingstonImprovedOverNSNMobility"))
-						){		
+						(this.myMobilityModelName.endsWith("KingstonImprovedOverNSNMobility"))||
+						(this.myMobilityModelName.endsWith("KingstonImprovedOverNaiveMobility"))
+						)&&(!adjustingPath)){		
 
 					msgKingImp msgKing2send = new msgKingImp(pathPOIs, this.ID, lastPoi, nextPoi, knownUAVright, knownUAVleft);
 					sendDirect(msgKing2send, e.endNode);						
@@ -320,6 +363,17 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			}	
 		}
 		
+		
+//		// releasing UAV from Kingston adjustment
+		if ((adjustingPath)&(lastPoi.ID == adjustingPoiTarget.ID)){
+			adjustingPath = false;
+			meiaVoltaVolver();
+			roundVisitedPOIs.add(lastPoi);
+			//System.out.println("[UAV " + ID + "] released from adjustment and doing Meia-Volta-Voler & adjustingPath= " + adjustingPath);
+		} else {
+			//System.out.println("[UAV " + v.ID + "] NOT released from adjustment: last= " + v.lastPoi.ID + " adjustingPoiTarget= " + v.adjustingPoiTarget.ID + " & adjustingPath= " + v.adjustingPath);
+
+		}
 
 	}
 	
@@ -334,7 +388,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public void draw(Graphics g, PositionTransformation pt, boolean highlight) {
 		// Set the color of this node depending on its state
 		
-		this.drawingSizeInPixels = 5 ; 
+		this.drawingSizeInPixels = 15 ; 
 		
 		if(visitedAllPOIs) {
 			this.setColor(Color.GREEN);
@@ -343,13 +397,28 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		}
 	
 		// default:
-		//drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
+		drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
 				
+
+		
 		// debug: 
-		this.setColor(Color.BLACK);
-		String text = this.ID + "|" + Integer.toString(posOnSwarm);
-		this.drawingSizeInPixels = 10 ; 
-		super.drawNodeAsDiskWithText(g, pt, highlight, text, 10, Color.YELLOW);
+//		this.setColor(Color.BLACK);
+//		String text = this.ID + "-" + Integer.toString(posOnSwarm);
+//		
+//		if (replanner.amIleftUav) {
+//			text += " Left";
+//		} else {
+//			if (replanner.amIrightUav) {
+//				text += " Right";
+//
+//			} else {
+//				text += " ERROR @ Right/Left";
+//			}
+//		}
+//		
+//		//+ "-["+ Integer.toString(posOnSwarm)+ "/" + Integer.toString(posOnSwarm) + "[" + Integer.toString(firstPoiOnMyPathPortion) + ":" + Integer.toString(lastPoiOnMyPathPortion) +"]";
+//		this.drawingSizeInPixels = 10 ; 
+//		super.drawNodeAsDiskWithText(g, pt, highlight, text, 10, Color.YELLOW);
 	}
 	
 	/* (non-Javadoc)
