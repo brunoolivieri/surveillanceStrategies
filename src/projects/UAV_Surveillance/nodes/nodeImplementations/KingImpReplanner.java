@@ -76,7 +76,7 @@ public class KingImpReplanner {
 		
 		myPositionOnSwarm = myKnownLeft +1 ; 
 		
-		myPathPortionSize = (int) Math.floor(myOriginalPath.size() / myKnownUAVs);
+		myPathPortionSize = (int) Math.floor(myOriginalPath.size() / myKnownUAVs) -1; //!!!!!! THIS MINUS ONE IS JUST FOR TEST, MUST BE REMOVED BEFORE NEXT COMMIT!!!
 		
 		myLastPoiOnMyPathPortion = myPositionOnSwarm * myPathPortionSize;
 		
