@@ -230,8 +230,8 @@
 
 <MessageTransmission ConstantTime="1"/>
 
-<ThreadToRunWithTSP threads="1"/>
-<ThreadToRunWithTSPTimer maxduration="1800000"/>  		<!-- macQuadCore 5min 20 POIs easly  on 90% of cases-->
+<ThreadToRunWithTSP threads="2"/>
+<ThreadToRunWithTSPTimer maxduration="3600000"/>  		<!-- miliseconds to abort engine and get the best path so far. -->
 <ThreadToRunWithTSPTimeEnabler enabled="true"/>
 
 
