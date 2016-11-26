@@ -98,6 +98,11 @@ public class AppConfig {
 	
 	private static AppConfig singletonInstance = null; // the singleton instance
 	
+	
+	
+	
+	
+	
 	/**
 	 * @return The singleton instance of AppConfig.
 	 */

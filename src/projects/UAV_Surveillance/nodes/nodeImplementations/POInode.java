@@ -30,7 +30,7 @@ public class POInode extends Node implements Comparable<POInode> {
 	public int roundsNeglected = 0;
 	public int distToGS = 0;
 	private boolean init = false;
-	
+	public boolean amIphantom = false;
 	// The set of nodes this node has already seen
 	private TreeSet<UAVnode> neighbors = new TreeSet<UAVnode>();
 	public boolean drawAsNeighbor;
@@ -48,13 +48,13 @@ public class POInode extends Node implements Comparable<POInode> {
 	}
 
 	@Override
-	public void handleMessages(Inbox inbox) {
-		
-		while(inbox.hasNext()) {
-			Message msg = inbox.next();
-			if(msg instanceof msgFOV) {
-				//roundsNeglected--;
-				roundsNeglected -= 5;
+	public void handleMessages(Inbox inbox) {	
+		if (!amIphantom){
+			while(inbox.hasNext()) {
+				Message msg = inbox.next();
+				if(msg instanceof msgFOV) {
+					roundsNeglected -= 5;
+				}
 			}
 		}
 	}
@@ -127,7 +127,10 @@ public class POInode extends Node implements Comparable<POInode> {
 		this.drawingSizeInPixels = 15 ; // (int) (fraction * pt.getZoomFactor() * this.defaultDrawingSizeInPixels);
 		
 		String text = Integer.toString(this.ID) ; // + "|" + Integer.toString(roundsNeglected);// + "|" + msgSentInThisRound;
-		super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
+		
+		if (!amIphantom){
+			super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
+		}
 		
 		
 	}

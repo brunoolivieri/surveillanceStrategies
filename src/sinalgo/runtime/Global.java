@@ -141,6 +141,9 @@ public class Global {
 	 * The name of the actual Project. It is specified by the command line.
 	 */
 	public static String projectName = "";
+	
+	
+
 
 	/**
 	 * @return The base-directory of the source-files of the currently used project.

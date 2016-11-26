@@ -88,6 +88,12 @@ import sinalgo.tools.storage.SortableVector;
  */
 public abstract class Node implements DoublyLinkedListEntry{ 
 	
+	
+	
+	
+	// @Oli fixing node.ID
+	public int nodeCreationOrder = 0;
+	
 	/**
 	 * This annotation is used to mark methods that should be accessible
 	 * through a popup menu that pops up when the user right-clicks on this node.

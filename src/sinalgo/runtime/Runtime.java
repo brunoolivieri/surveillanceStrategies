@@ -105,6 +105,7 @@ public abstract class Runtime{
 	//at the start of the simulation when a -rounds parameter is provided.
 	protected int numberOfRounds = 0;
 	
+
 	public int getNumberOfRounds() {
 		return numberOfRounds;
 	}
@@ -122,8 +123,18 @@ public abstract class Runtime{
 	private Vector<Tuple<ModelType, Class<?>>> models;
 	private String[] modelParams = new String[4];
 	private String[] modelNames;
+
 	
 	protected boolean nodeCreationFinished = true;
+	
+	
+	
+	// @Oli fixing UAV node.ID
+	private int nodeCreationOrderLocal = 0;
+	public synchronized int getNodeOrder(){
+		return ++nodeCreationOrderLocal;	
+	}
+	
 	
 	/**
 	 * The constructor for the Runtime class. It initializes some basic variables. (like the map)
@@ -602,6 +613,10 @@ public abstract class Runtime{
 				Main.fatalError(e);
 			}
 			node.setPosition(nodeDistribution.getNextPosition());
+			
+			//@Oli
+			node.nodeCreationOrder = getNodeOrder();
+			//
 			
 			// set the models 
 			for(int k=0; k<numSpecifiedModels; k++) {

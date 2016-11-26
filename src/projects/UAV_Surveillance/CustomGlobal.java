@@ -191,6 +191,9 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		int ctPOI = 0;
 		int totalCost = 0;
 		String visitsStrategy = "error";
+		int maxDataInPois = Integer.MIN_VALUE;
+		int minDataInPois = Integer.MAX_VALUE;
+		int tmp = 0;
 		
 		for(Node n : Runtime.nodes) {			
 			if (n instanceof UAVnode){
@@ -199,7 +202,16 @@ public class CustomGlobal extends AbstractCustomGlobal{
 			}
 			if (n instanceof POInode){
 		    	ctPOI++;
-		    	totalCost += ((POInode) n).roundsNeglected;
+		    	tmp = ((POInode) n).roundsNeglected;
+		    	totalCost += tmp;
+		    	
+		    	if (tmp > maxDataInPois) {
+		    		maxDataInPois = tmp;
+		    	}
+		    	if (tmp < minDataInPois) {
+		    		minDataInPois = tmp;
+		    	}
+		    	
 			}
 		}
 		
@@ -209,7 +221,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		double surveillanceTax = 1 - ((double)(totalCost)/(ctRounds*ctPOI));
 		surveillanceTax = surveillanceTax*100;
 			
-		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threads";
+		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData";
 			
 		double V2Vrange = Configuration.getDoubleParameter("GeometricNodeCollection/rMax");
 		
@@ -221,7 +233,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		String logline = visitsStrategy + ";" + ctPOI + ";" +  ctUAV + ";" + 
 				String.format("%.5f", surveillanceTax) + "%;" + (int)V2Vrange + 
 				";" + ctRounds + ";" + sinalgo.configuration.Configuration.dimX + ";" + 
-				(simumationTime/1000) +"segs;" + nThreads + "_TSP_thread";
+				(simumationTime/1000) +"segs;" + nThreads + "_TSP_thread;" + maxDataInPois + ";" + minDataInPois ;
 		
 		
 		System.out.println(header);
@@ -237,6 +249,8 @@ public class CustomGlobal extends AbstractCustomGlobal{
 				Tools.appendToOutput("\nV2Vrange = " + (int)V2Vrange);
 				Tools.appendToOutput("\nRounds = " + ctRounds);
 				Tools.appendToOutput("\nResult = " + String.format("%.3f", surveillanceTax) +"%");
+				Tools.appendToOutput("\nmaxData = " + maxDataInPois);
+				Tools.appendToOutput("\nminData = " + minDataInPois);
 			}
 			else{
 				JOptionPane.showMessageDialog(((GUIRuntime)Main.getRuntime()).getGUI(), "There is no node.");

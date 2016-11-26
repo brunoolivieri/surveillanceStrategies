@@ -323,6 +323,15 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				if (n instanceof UAVnode){
 					setOfUAVs.add((UAVnode) n);
 				}
+				if (n instanceof GSnode) {
+					POInode phantom = new POInode();
+					phantom.setPosition(n.getPosition());
+					phantom.amIphantom = true;
+					listOfPOIs.add((POInode) phantom);
+				}
+				
+				
+				
 			}					
 			mappedPOIs = true;			
 			
@@ -573,7 +582,10 @@ public class GSnode extends Node implements Comparable<GSnode> {
 
 		this.drawingSizeInPixels = 10 ; 
 
-		super.drawNodeAsDiskWithText(g, pt, highlight, "GS", 10, Color.RED);
+		//super.drawNodeAsDiskWithText(g, pt, highlight, "GS", 10, Color.RED);
+		
+		String text = Integer.toString(this.ID) + ":GS"; 
+		super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
 	}
 	
 	/* (non-Javadoc)

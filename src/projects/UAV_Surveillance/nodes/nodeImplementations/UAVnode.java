@@ -55,6 +55,7 @@ import sinalgo.io.eps.EPSOutputPrintStream;
 import sinalgo.nodes.Node;
 import sinalgo.nodes.edges.Edge;
 import sinalgo.nodes.messages.Inbox;
+import sinalgo.runtime.Global;
 import sinalgo.runtime.Runtime;
 import sinalgo.tools.Tools;
 import sinalgo.tools.logging.Logging;
@@ -69,6 +70,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public POInode tmpPOI = new POInode(); 
 	public long rounds = 0;
 	POInode poiTmp = new POInode();
+	public int UAVnodeOrder = 0;
 
 	
 	// To control execution flow 
@@ -87,6 +89,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	// To control path
 	public ArrayList<POInode> pathPOIs = new ArrayList<POInode>();
 	private  int pathIdx = 0 ; //this.ID -1;
+	private int pathSize = 0;
 	
 	// [Kingston/ZigZag]To use with rendezvous and change paths
 	public boolean kingImpAllowed = false; // just to enable conditions to start changing, such as minimum visited POIs or UAVs
@@ -136,8 +139,11 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			if(msg instanceof msgPOIordered) {		
 				justCountRoundsToMove = true; // releasing the trigger on legacyGetNextPos()
 				msgPOIordered pathMsg = (msgPOIordered)msg;				
-				pathPOIs = (ArrayList<POInode>) pathMsg.data.clone();	// THIS KEEP ME SOMETIME!  missing ansiC			
+				pathPOIs = (ArrayList<POInode>) pathMsg.data.clone();	// .clone() THIS KEEP ME SOMETIME!  missing ansiC			
 				pathOriginal = (ArrayList<POInode>)pathMsg.data.clone();
+				
+				pathSize = getPathSize(pathOriginal);
+				
 				System.out.print("[UAV " + this.ID + "] Good to go with original Path: ");
 				for (int i = 0; i<pathPOIs.size(); i++){
 					System.out.print(pathPOIs.get(i).ID + " - ");
@@ -224,6 +230,23 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		
 	}
 	
+	private int getPathSize(ArrayList<POInode> path) {
+		
+		POInode thisPOI;
+		POInode lastPOI;
+		int size = 0;
+	
+		for (int i = 1; i< path.size(); i++){
+			thisPOI = (POInode)path.get(i);
+			lastPOI = (POInode)path.get(i-1);
+			size += (int) Math.sqrt(
+				             (thisPOI.getPosition().xCoord - lastPOI.getPosition().xCoord) *  (thisPOI.getPosition().xCoord - lastPOI.getPosition().xCoord) + 
+				             (thisPOI.getPosition().yCoord - lastPOI.getPosition().yCoord) *  (thisPOI.getPosition().yCoord - lastPOI.getPosition().yCoord)
+				              );
+		}
+		return size;
+	}
+
 	// does 180 degrees on linear path, turn, do a zig-zag
 	public void meiaVoltaVolver() {
 
@@ -331,6 +354,8 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			for(Node n : Runtime.nodes) {
 				if (n instanceof POInode)
 					nKnownPOIs++;
+				if (n instanceof UAVnode)
+					nKnownUAVs++;
 			}						
 			mappedPOIs = true;
 		}
@@ -357,14 +382,13 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		
 		if (justCountRoundsToMove){ 
 			rounds++;
-			if (rounds >= this.ID*20) { // This 20 could be better with SIZEOFPATH_DIVIDED_BY_ALL_UAV
+			if (rounds >= (this.nodeCreationOrder-1)*((int)(this.pathSize/nKnownUAVs)) ) { // This 20 could be better with SIZEOFPATH_DIVIDED_BY_ALL_UAV
 				justCountRoundsToMove = false;
 				canImove = true;
 			}	
 		}
 		
-		
-//		// releasing UAV from Kingston adjustment
+		// releasing UAV from Kingston adjustment
 		if ((adjustingPath)&(lastPoi.ID == adjustingPoiTarget.ID)){
 			adjustingPath = false;
 			meiaVoltaVolver();
@@ -372,9 +396,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			//System.out.println("[UAV " + ID + "] released from adjustment and doing Meia-Volta-Voler & adjustingPath= " + adjustingPath);
 		} else {
 			//System.out.println("[UAV " + v.ID + "] NOT released from adjustment: last= " + v.lastPoi.ID + " adjustingPoiTarget= " + v.adjustingPoiTarget.ID + " & adjustingPath= " + v.adjustingPath);
-
 		}
-
 	}
 	
 	@Override
@@ -397,9 +419,10 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		}
 	
 		// default:
-		drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
+		//drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
 				
-
+		String text = Integer.toString(this.ID) ; 
+		super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
 		
 		// debug: 
 //		this.setColor(Color.BLACK);
