@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# THIS IS A TEMPORARY AND NAIVE TEST!!!
+# THIS IS A TEMPORARY AND NAIVE (lazy) TEST!!!
 
 # data header: "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX";
 

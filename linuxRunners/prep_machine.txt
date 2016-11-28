@@ -8,6 +8,8 @@ sudo apt-get update
 
 sudo apt-get install oracle-java8-installer
 
+sudo apt-get upgrade
+
 git clone https://github.com/brunoolivieri/surveillanceStrategies.git
 
 cd ~/surveillanceStrategies/linuxRunners/
