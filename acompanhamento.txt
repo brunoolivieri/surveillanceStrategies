@@ -478,3 +478,1123 @@ Tue Nov 29 04:17:19 BRST 2016
 nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 30
 Tue Nov 29 04:18:11 BRST 2016
 nPOI = 20  strat = ZigZagOverNSNMobility  i = 30
+Thu Dec  1 11:29:52 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 1
+Thu Dec  1 11:30:41 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 1
+Thu Dec  1 11:31:36 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 1
+Thu Dec  1 11:32:28 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 1
+Thu Dec  1 11:33:21 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 1
+Thu Dec  1 11:34:12 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 1
+Thu Dec  1 11:35:05 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 1
+Thu Dec  1 11:35:58 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 1
+Thu Dec  1 11:36:51 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 2
+Thu Dec  1 11:37:44 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 2
+Thu Dec  1 11:38:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 2
+Thu Dec  1 11:39:30 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 2
+Thu Dec  1 11:40:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 2
+Thu Dec  1 11:41:17 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 2
+Thu Dec  1 11:42:10 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 2
+Thu Dec  1 11:43:01 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 2
+Thu Dec  1 11:43:55 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 3
+Thu Dec  1 11:44:53 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 3
+Thu Dec  1 11:45:44 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 3
+Thu Dec  1 11:46:37 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 3
+Thu Dec  1 11:47:29 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 3
+Thu Dec  1 11:48:21 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 3
+Thu Dec  1 11:49:13 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 3
+Thu Dec  1 11:50:07 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 3
+Thu Dec  1 11:51:00 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 4
+Thu Dec  1 11:51:51 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 4
+Thu Dec  1 11:52:46 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 4
+Thu Dec  1 11:53:37 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 4
+Thu Dec  1 11:54:29 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 4
+Thu Dec  1 11:55:21 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 4
+Thu Dec  1 11:56:13 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 4
+Thu Dec  1 11:57:05 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 4
+Thu Dec  1 11:57:57 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 5
+Thu Dec  1 11:58:49 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 5
+Thu Dec  1 11:59:42 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 5
+Thu Dec  1 12:00:35 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 5
+Thu Dec  1 12:01:27 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 5
+Thu Dec  1 12:02:19 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 5
+Thu Dec  1 12:03:12 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 5
+Thu Dec  1 12:04:04 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 5
+Thu Dec  1 12:04:58 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 6
+Thu Dec  1 12:05:50 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 6
+Thu Dec  1 12:06:42 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 6
+Thu Dec  1 12:07:32 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 6
+Thu Dec  1 12:08:26 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 6
+Thu Dec  1 12:09:19 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 6
+Thu Dec  1 12:10:10 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 6
+Thu Dec  1 12:11:02 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 6
+Thu Dec  1 12:11:55 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 7
+Thu Dec  1 12:12:47 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 7
+Thu Dec  1 12:13:41 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 7
+Thu Dec  1 12:14:33 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 7
+Thu Dec  1 12:15:25 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 7
+Thu Dec  1 12:16:18 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 7
+Thu Dec  1 12:17:11 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 7
+Thu Dec  1 12:18:04 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 7
+Thu Dec  1 12:18:56 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 8
+Thu Dec  1 12:19:47 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 8
+Thu Dec  1 12:20:42 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 8
+Thu Dec  1 12:21:33 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 8
+Thu Dec  1 12:22:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 8
+Thu Dec  1 12:23:14 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 8
+Thu Dec  1 12:24:10 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 8
+Thu Dec  1 12:25:02 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 8
+Thu Dec  1 12:25:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 9
+Thu Dec  1 12:26:48 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 9
+Thu Dec  1 12:27:40 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 9
+Thu Dec  1 12:28:32 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 9
+Thu Dec  1 12:29:26 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 9
+Thu Dec  1 12:30:18 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 9
+Thu Dec  1 12:31:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 9
+Thu Dec  1 12:32:01 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 9
+Thu Dec  1 12:32:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 10
+Thu Dec  1 12:33:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 10
+Thu Dec  1 12:34:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 10
+Thu Dec  1 12:35:29 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 10
+Thu Dec  1 12:36:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 10
+Thu Dec  1 12:37:15 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 10
+Thu Dec  1 12:38:08 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 10
+Thu Dec  1 12:39:01 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 10
+Thu Dec  1 12:39:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 11
+Thu Dec  1 12:40:46 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 11
+Thu Dec  1 12:41:38 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 11
+Thu Dec  1 12:42:29 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 11
+Thu Dec  1 12:43:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 11
+Thu Dec  1 12:44:14 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 11
+Thu Dec  1 12:45:10 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 11
+Thu Dec  1 12:46:00 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 11
+Thu Dec  1 12:46:52 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 12
+Thu Dec  1 12:47:46 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 12
+Thu Dec  1 12:48:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 12
+Thu Dec  1 12:49:28 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 12
+Thu Dec  1 12:50:21 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 12
+Thu Dec  1 12:51:14 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 12
+Thu Dec  1 12:52:06 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 12
+Thu Dec  1 12:52:58 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 12
+Thu Dec  1 12:53:53 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 13
+Thu Dec  1 12:54:44 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 13
+Thu Dec  1 12:55:39 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 13
+Thu Dec  1 12:56:31 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 13
+Thu Dec  1 12:57:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 13
+Thu Dec  1 12:58:16 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 13
+Thu Dec  1 12:59:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 13
+Thu Dec  1 13:00:02 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 13
+Thu Dec  1 13:00:56 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 14
+Thu Dec  1 13:01:50 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 14
+Thu Dec  1 13:02:43 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 14
+Thu Dec  1 13:03:33 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 14
+Thu Dec  1 13:04:28 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 14
+Thu Dec  1 13:05:18 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 14
+Thu Dec  1 13:06:10 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 14
+Thu Dec  1 13:07:04 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 14
+Thu Dec  1 13:07:57 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 15
+Thu Dec  1 13:08:48 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 15
+Thu Dec  1 13:09:45 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 15
+Thu Dec  1 13:10:35 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 15
+Thu Dec  1 13:11:27 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 15
+Thu Dec  1 13:12:19 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 15
+Thu Dec  1 13:13:13 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 15
+Thu Dec  1 13:14:04 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 15
+Thu Dec  1 13:14:56 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 16
+Thu Dec  1 13:15:49 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 16
+Thu Dec  1 13:16:43 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 16
+Thu Dec  1 13:17:35 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 16
+Thu Dec  1 13:18:28 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 16
+Thu Dec  1 13:19:19 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 16
+Thu Dec  1 13:20:12 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 16
+Thu Dec  1 13:21:02 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 16
+Thu Dec  1 13:21:55 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 17
+Thu Dec  1 13:22:47 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 17
+Thu Dec  1 13:23:40 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 17
+Thu Dec  1 13:24:31 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 17
+Thu Dec  1 13:25:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 17
+Thu Dec  1 13:26:15 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 17
+Thu Dec  1 13:27:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 17
+Thu Dec  1 13:28:01 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 17
+Thu Dec  1 13:28:53 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 18
+Thu Dec  1 13:29:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 18
+Thu Dec  1 13:30:38 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 18
+Thu Dec  1 13:31:30 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 18
+Thu Dec  1 13:32:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 18
+Thu Dec  1 13:33:14 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 18
+Thu Dec  1 13:34:07 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 18
+Thu Dec  1 13:34:58 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 18
+Thu Dec  1 13:35:53 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 19
+Thu Dec  1 13:36:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 19
+Thu Dec  1 13:37:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 19
+Thu Dec  1 13:38:31 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 19
+Thu Dec  1 13:39:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 19
+Thu Dec  1 13:40:16 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 19
+Thu Dec  1 13:41:07 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 19
+Thu Dec  1 13:42:00 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 19
+Thu Dec  1 13:42:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 20
+Thu Dec  1 13:43:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 20
+Thu Dec  1 13:44:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 20
+Thu Dec  1 13:45:29 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 20
+Thu Dec  1 13:46:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 20
+Thu Dec  1 13:47:16 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 20
+Thu Dec  1 13:48:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 20
+Thu Dec  1 13:49:03 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 20
+Thu Dec  1 13:49:55 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 21
+Thu Dec  1 13:50:47 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 21
+Thu Dec  1 13:51:44 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 21
+Thu Dec  1 13:52:33 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 21
+Thu Dec  1 13:53:25 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 21
+Thu Dec  1 13:54:18 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 21
+Thu Dec  1 13:55:13 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 21
+Thu Dec  1 13:56:05 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 21
+Thu Dec  1 13:56:58 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 22
+Thu Dec  1 13:57:49 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 22
+Thu Dec  1 13:58:44 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 22
+Thu Dec  1 13:59:35 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 22
+Thu Dec  1 14:00:28 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 22
+Thu Dec  1 14:01:20 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 22
+Thu Dec  1 14:02:15 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 22
+Thu Dec  1 14:03:06 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 22
+Thu Dec  1 14:03:58 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 23
+Thu Dec  1 14:04:50 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 23
+Thu Dec  1 14:05:41 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 23
+Thu Dec  1 14:06:33 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 23
+Thu Dec  1 14:07:25 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 23
+Thu Dec  1 14:08:16 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 23
+Thu Dec  1 14:09:08 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 23
+Thu Dec  1 14:10:00 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 23
+Thu Dec  1 14:10:52 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 24
+Thu Dec  1 14:11:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 24
+Thu Dec  1 14:12:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 24
+Thu Dec  1 14:13:31 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 24
+Thu Dec  1 14:14:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 24
+Thu Dec  1 14:15:16 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 24
+Thu Dec  1 14:16:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 24
+Thu Dec  1 14:17:02 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 24
+Thu Dec  1 14:17:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 25
+Thu Dec  1 14:18:46 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 25
+Thu Dec  1 14:19:38 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 25
+Thu Dec  1 14:20:30 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 25
+Thu Dec  1 14:21:22 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 25
+Thu Dec  1 14:22:14 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 25
+Thu Dec  1 14:23:05 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 25
+Thu Dec  1 14:23:56 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 25
+Thu Dec  1 14:24:51 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 26
+Thu Dec  1 14:25:44 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 26
+Thu Dec  1 14:26:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 26
+Thu Dec  1 14:27:29 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 26
+Thu Dec  1 14:28:22 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 26
+Thu Dec  1 14:29:13 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 26
+Thu Dec  1 14:30:07 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 26
+Thu Dec  1 14:31:00 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 26
+Thu Dec  1 14:31:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 27
+Thu Dec  1 14:32:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 27
+Thu Dec  1 14:33:38 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 27
+Thu Dec  1 14:34:29 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 27
+Thu Dec  1 14:35:20 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 27
+Thu Dec  1 14:36:11 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 27
+Thu Dec  1 14:37:03 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 27
+Thu Dec  1 14:37:55 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 27
+Thu Dec  1 14:38:49 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 28
+Thu Dec  1 14:39:41 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 28
+Thu Dec  1 14:40:33 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 28
+Thu Dec  1 14:41:26 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 28
+Thu Dec  1 14:42:18 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 28
+Thu Dec  1 14:43:11 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 28
+Thu Dec  1 14:44:01 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 28
+Thu Dec  1 14:44:55 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 28
+Thu Dec  1 14:45:48 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 29
+Thu Dec  1 14:46:40 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 29
+Thu Dec  1 14:47:33 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 29
+Thu Dec  1 14:48:28 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 29
+Thu Dec  1 14:49:19 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 29
+Thu Dec  1 14:50:13 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 29
+Thu Dec  1 14:51:04 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 29
+Thu Dec  1 14:51:58 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 29
+Thu Dec  1 14:52:50 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 30
+Thu Dec  1 14:53:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 30
+Thu Dec  1 14:54:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 30
+Thu Dec  1 14:55:30 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 30
+Thu Dec  1 14:56:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 30
+Thu Dec  1 14:57:14 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 30
+Thu Dec  1 14:58:08 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 30
+Thu Dec  1 14:59:00 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 30
+Thu Dec  1 14:59:53 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 31
+Thu Dec  1 15:00:44 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 31
+Thu Dec  1 15:01:39 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 31
+Thu Dec  1 15:02:31 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 31
+Thu Dec  1 15:03:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 31
+Thu Dec  1 15:04:15 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 31
+Thu Dec  1 15:05:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 31
+Thu Dec  1 15:06:01 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 31
+Thu Dec  1 15:06:56 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 32
+Thu Dec  1 15:07:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 32
+Thu Dec  1 15:08:39 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 32
+Thu Dec  1 15:09:31 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 32
+Thu Dec  1 15:10:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 32
+Thu Dec  1 15:11:17 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 32
+Thu Dec  1 15:12:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 32
+Thu Dec  1 15:13:02 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 32
+Thu Dec  1 15:13:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 33
+Thu Dec  1 15:14:46 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 33
+Thu Dec  1 15:15:41 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 33
+Thu Dec  1 15:16:33 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 33
+Thu Dec  1 15:17:26 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 33
+Thu Dec  1 15:18:18 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 33
+Thu Dec  1 15:19:10 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 33
+Thu Dec  1 15:20:03 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 33
+Thu Dec  1 15:20:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 34
+Thu Dec  1 15:21:48 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 34
+Thu Dec  1 15:22:40 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 34
+Thu Dec  1 15:23:31 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 34
+Thu Dec  1 15:24:22 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 34
+Thu Dec  1 15:25:16 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 34
+Thu Dec  1 15:26:07 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 34
+Thu Dec  1 15:27:00 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 34
+Thu Dec  1 15:27:51 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 35
+Thu Dec  1 15:28:44 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 35
+Thu Dec  1 15:29:36 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 35
+Thu Dec  1 15:30:29 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 35
+Thu Dec  1 15:31:18 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 35
+Thu Dec  1 15:32:09 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 35
+Thu Dec  1 15:33:01 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 35
+Thu Dec  1 15:33:53 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 35
+Thu Dec  1 15:34:49 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 36
+Thu Dec  1 15:35:41 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 36
+Thu Dec  1 15:36:33 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 36
+Thu Dec  1 15:37:25 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 36
+Thu Dec  1 15:38:20 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 36
+Thu Dec  1 15:39:12 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 36
+Thu Dec  1 15:40:05 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 36
+Thu Dec  1 15:40:55 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 36
+Thu Dec  1 15:41:48 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 37
+Thu Dec  1 15:42:41 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 37
+Thu Dec  1 15:43:35 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 37
+Thu Dec  1 15:44:25 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 37
+Thu Dec  1 15:45:18 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 37
+Thu Dec  1 15:46:11 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 37
+Thu Dec  1 15:47:03 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 37
+Thu Dec  1 15:47:56 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 37
+Thu Dec  1 15:48:51 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 38
+Thu Dec  1 15:49:44 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 38
+Thu Dec  1 15:50:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 38
+Thu Dec  1 15:51:30 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 38
+Thu Dec  1 15:52:22 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 38
+Thu Dec  1 15:53:18 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 38
+Thu Dec  1 15:54:10 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 38
+Thu Dec  1 15:55:00 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 38
+Thu Dec  1 15:55:55 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 39
+Thu Dec  1 15:56:49 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 39
+Thu Dec  1 15:57:40 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 39
+Thu Dec  1 15:58:36 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 39
+Thu Dec  1 15:59:27 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 39
+Thu Dec  1 16:00:18 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 39
+Thu Dec  1 16:01:15 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 39
+Thu Dec  1 16:02:06 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 39
+Thu Dec  1 16:02:58 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 40
+Thu Dec  1 16:03:51 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 40
+Thu Dec  1 16:04:44 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 40
+Thu Dec  1 16:05:35 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 40
+Thu Dec  1 16:06:29 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 40
+Thu Dec  1 16:07:19 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 40
+Thu Dec  1 16:08:12 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 40
+Thu Dec  1 16:09:05 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 40
+Thu Dec  1 16:09:57 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 41
+Thu Dec  1 16:10:49 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 41
+Thu Dec  1 16:11:44 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 41
+Thu Dec  1 16:12:34 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 41
+Thu Dec  1 16:13:26 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 41
+Thu Dec  1 16:14:18 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 41
+Thu Dec  1 16:15:10 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 41
+Thu Dec  1 16:16:03 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 41
+Thu Dec  1 16:16:56 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 42
+Thu Dec  1 16:17:49 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 42
+Thu Dec  1 16:18:42 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 42
+Thu Dec  1 16:19:36 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 42
+Thu Dec  1 16:20:28 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 42
+Thu Dec  1 16:21:20 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 42
+Thu Dec  1 16:22:14 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 42
+Thu Dec  1 16:23:05 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 42
+Thu Dec  1 16:23:58 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 43
+Thu Dec  1 16:24:48 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 43
+Thu Dec  1 16:25:40 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 43
+Thu Dec  1 16:26:32 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 43
+Thu Dec  1 16:27:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 43
+Thu Dec  1 16:28:16 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 43
+Thu Dec  1 16:29:08 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 43
+Thu Dec  1 16:30:01 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 43
+Thu Dec  1 16:30:56 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 44
+Thu Dec  1 16:31:47 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 44
+Thu Dec  1 16:32:41 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 44
+Thu Dec  1 16:33:33 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 44
+Thu Dec  1 16:34:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 44
+Thu Dec  1 16:35:17 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 44
+Thu Dec  1 16:36:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 44
+Thu Dec  1 16:37:00 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 44
+Thu Dec  1 16:37:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 45
+Thu Dec  1 16:38:46 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 45
+Thu Dec  1 16:39:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 45
+Thu Dec  1 16:40:29 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 45
+Thu Dec  1 16:41:21 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 45
+Thu Dec  1 16:42:12 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 45
+Thu Dec  1 16:43:06 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 45
+Thu Dec  1 16:43:57 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 45
+Thu Dec  1 16:44:52 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 46
+Thu Dec  1 16:45:43 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 46
+Thu Dec  1 16:46:36 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 46
+Thu Dec  1 16:47:28 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 46
+Thu Dec  1 16:48:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 46
+Thu Dec  1 16:49:16 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 46
+Thu Dec  1 16:50:10 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 46
+Thu Dec  1 16:51:03 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 46
+Thu Dec  1 16:51:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 47
+Thu Dec  1 16:52:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 47
+Thu Dec  1 16:53:38 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 47
+Thu Dec  1 16:54:29 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 47
+Thu Dec  1 16:55:22 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 47
+Thu Dec  1 16:56:14 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 47
+Thu Dec  1 16:57:04 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 47
+Thu Dec  1 16:57:57 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 47
+Thu Dec  1 16:58:53 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 48
+Thu Dec  1 16:59:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 48
+Thu Dec  1 17:00:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 48
+Thu Dec  1 17:01:31 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 48
+Thu Dec  1 17:02:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 48
+Thu Dec  1 17:03:14 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 48
+Thu Dec  1 17:04:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 48
+Thu Dec  1 17:04:59 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 48
+Thu Dec  1 17:05:53 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 49
+Thu Dec  1 17:06:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 49
+Thu Dec  1 17:07:39 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 49
+Thu Dec  1 17:08:32 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 49
+Thu Dec  1 17:09:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 49
+Thu Dec  1 17:10:15 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 49
+Thu Dec  1 17:11:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 49
+Thu Dec  1 17:12:02 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 49
+Thu Dec  1 17:12:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 50
+Thu Dec  1 17:13:51 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 50
+Thu Dec  1 17:14:42 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 50
+Thu Dec  1 17:15:36 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 50
+Thu Dec  1 17:16:29 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 50
+Thu Dec  1 17:17:20 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 50
+Thu Dec  1 17:18:13 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 50
+Thu Dec  1 17:19:06 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 50
+Thu Dec  1 17:19:57 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 51
+Thu Dec  1 17:20:49 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 51
+Thu Dec  1 17:21:42 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 51
+Thu Dec  1 17:22:36 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 51
+Thu Dec  1 17:23:29 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 51
+Thu Dec  1 17:24:22 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 51
+Thu Dec  1 17:25:13 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 51
+Thu Dec  1 17:26:05 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 51
+Thu Dec  1 17:26:58 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 52
+Thu Dec  1 17:27:48 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 52
+Thu Dec  1 17:28:41 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 52
+Thu Dec  1 17:29:34 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 52
+Thu Dec  1 17:30:27 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 52
+Thu Dec  1 17:31:18 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 52
+Thu Dec  1 17:32:11 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 52
+Thu Dec  1 17:33:02 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 52
+Thu Dec  1 17:33:58 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 53
+Thu Dec  1 17:34:51 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 53
+Thu Dec  1 17:35:44 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 53
+Thu Dec  1 17:36:36 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 53
+Thu Dec  1 17:37:28 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 53
+Thu Dec  1 17:38:22 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 53
+Thu Dec  1 17:39:13 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 53
+Thu Dec  1 17:40:06 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 53
+Thu Dec  1 17:40:58 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 54
+Thu Dec  1 17:41:51 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 54
+Thu Dec  1 17:42:46 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 54
+Thu Dec  1 17:43:38 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 54
+Thu Dec  1 17:44:28 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 54
+Thu Dec  1 17:45:19 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 54
+Thu Dec  1 17:46:11 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 54
+Thu Dec  1 17:47:04 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 54
+Thu Dec  1 17:47:56 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 55
+Thu Dec  1 17:48:47 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 55
+Thu Dec  1 17:49:41 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 55
+Thu Dec  1 17:50:29 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 55
+Thu Dec  1 17:51:21 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 55
+Thu Dec  1 17:52:13 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 55
+Thu Dec  1 17:53:08 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 55
+Thu Dec  1 17:53:59 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 55
+Thu Dec  1 17:54:52 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 56
+Thu Dec  1 17:55:43 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 56
+Thu Dec  1 17:56:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 56
+Thu Dec  1 17:57:30 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 56
+Thu Dec  1 17:58:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 56
+Thu Dec  1 17:59:15 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 56
+Thu Dec  1 18:00:08 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 56
+Thu Dec  1 18:01:03 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 56
+Thu Dec  1 18:01:53 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 57
+Thu Dec  1 18:02:44 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 57
+Thu Dec  1 18:03:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 57
+Thu Dec  1 18:04:30 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 57
+Thu Dec  1 18:05:22 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 57
+Thu Dec  1 18:06:15 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 57
+Thu Dec  1 18:07:06 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 57
+Thu Dec  1 18:08:00 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 57
+Thu Dec  1 18:08:54 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 58
+Thu Dec  1 18:09:44 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 58
+Thu Dec  1 18:10:40 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 58
+Thu Dec  1 18:11:30 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 58
+Thu Dec  1 18:12:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 58
+Thu Dec  1 18:13:13 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 58
+Thu Dec  1 18:14:07 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 58
+Thu Dec  1 18:14:58 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 58
+Thu Dec  1 18:15:52 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 59
+Thu Dec  1 18:16:44 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 59
+Thu Dec  1 18:17:38 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 59
+Thu Dec  1 18:18:31 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 59
+Thu Dec  1 18:19:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 59
+Thu Dec  1 18:20:17 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 59
+Thu Dec  1 18:21:09 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 59
+Thu Dec  1 18:22:01 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 59
+Thu Dec  1 18:22:55 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 60
+Thu Dec  1 18:23:46 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 60
+Thu Dec  1 18:24:38 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 60
+Thu Dec  1 18:25:29 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 60
+Thu Dec  1 18:26:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 60
+Thu Dec  1 18:27:13 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 60
+Thu Dec  1 18:28:06 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 60
+Thu Dec  1 18:28:59 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 60
+Thu Dec  1 18:29:49 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 61
+Thu Dec  1 18:30:41 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 61
+Thu Dec  1 18:31:34 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 61
+Thu Dec  1 18:32:27 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 61
+Thu Dec  1 18:33:20 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 61
+Thu Dec  1 18:34:12 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 61
+Thu Dec  1 18:35:05 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 61
+Thu Dec  1 18:35:58 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 61
+Thu Dec  1 18:36:51 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 62
+Thu Dec  1 18:37:46 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 62
+Thu Dec  1 18:38:38 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 62
+Thu Dec  1 18:39:28 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 62
+Thu Dec  1 18:40:23 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 62
+Thu Dec  1 18:41:15 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 62
+Thu Dec  1 18:42:08 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 62
+Thu Dec  1 18:43:01 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 62
+Thu Dec  1 18:43:53 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 63
+Thu Dec  1 18:44:42 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 63
+Thu Dec  1 18:45:36 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 63
+Thu Dec  1 18:46:31 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 63
+Thu Dec  1 18:47:24 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 63
+Thu Dec  1 18:48:16 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 63
+Thu Dec  1 18:49:11 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 63
+Thu Dec  1 18:50:04 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 63
+Thu Dec  1 18:50:57 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 64
+Thu Dec  1 18:51:50 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 64
+Thu Dec  1 18:52:42 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 64
+Thu Dec  1 18:53:35 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 64
+Thu Dec  1 18:54:27 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 64
+Thu Dec  1 18:55:18 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 64
+Thu Dec  1 18:56:11 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 64
+Thu Dec  1 18:57:04 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 64
+Thu Dec  1 18:57:58 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 65
+Thu Dec  1 18:58:49 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 65
+Thu Dec  1 18:59:42 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 65
+Thu Dec  1 19:00:32 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 65
+Thu Dec  1 19:01:25 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 65
+Thu Dec  1 19:02:21 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 65
+Thu Dec  1 19:03:12 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 65
+Thu Dec  1 19:04:02 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 65
+Thu Dec  1 19:04:57 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 66
+Thu Dec  1 19:05:51 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 66
+Thu Dec  1 19:06:43 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 66
+Thu Dec  1 19:07:35 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 66
+Thu Dec  1 19:08:26 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 66
+Thu Dec  1 19:09:21 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 66
+Thu Dec  1 19:10:14 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 66
+Thu Dec  1 19:11:05 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 66
+Thu Dec  1 19:11:58 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 67
+Thu Dec  1 19:12:48 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 67
+Thu Dec  1 19:13:43 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 67
+Thu Dec  1 19:14:33 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 67
+Thu Dec  1 19:15:26 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 67
+Thu Dec  1 19:16:17 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 67
+Thu Dec  1 19:17:08 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 67
+Thu Dec  1 19:18:00 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 67
+Thu Dec  1 19:18:53 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 68
+Thu Dec  1 19:19:45 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 68
+Thu Dec  1 19:20:37 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 68
+Thu Dec  1 19:21:28 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 68
+Thu Dec  1 19:22:20 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 68
+Thu Dec  1 19:23:13 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 68
+Thu Dec  1 19:24:06 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 68
+Thu Dec  1 19:24:57 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 68
+Thu Dec  1 19:25:50 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 69
+Thu Dec  1 19:26:41 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 69
+Thu Dec  1 19:27:33 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 69
+Thu Dec  1 19:28:27 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 69
+Thu Dec  1 19:29:20 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 69
+Thu Dec  1 19:30:12 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 69
+Thu Dec  1 19:31:05 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 69
+Thu Dec  1 19:31:57 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 69
+Thu Dec  1 19:32:50 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 70
+Thu Dec  1 19:33:43 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 70
+Thu Dec  1 19:34:38 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 70
+Thu Dec  1 19:35:28 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 70
+Thu Dec  1 19:36:22 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 70
+Thu Dec  1 19:37:13 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 70
+Thu Dec  1 19:38:06 BRST 2016
+nPOI = 20  strat = NotSoNaiveOrderedMobility  i = 70
+Thu Dec  1 19:38:57 BRST 2016
+nPOI = 20  strat = ZigZagOverNSNMobility  i = 70
