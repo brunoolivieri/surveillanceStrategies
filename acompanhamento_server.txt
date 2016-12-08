@@ -1,800 +1,800 @@
-Mon Nov 28 18:37:39 BRST 2016
+Tue Dec  6 22:18:01 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 1
-Mon Nov 28 18:38:25 BRST 2016
+Tue Dec  6 22:19:08 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 2
-Mon Nov 28 18:40:05 BRST 2016
+Tue Dec  6 22:23:32 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 3
-Mon Nov 28 18:40:54 BRST 2016
+Tue Dec  6 22:23:54 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 4
-Mon Nov 28 18:42:55 BRST 2016
+Tue Dec  6 22:24:55 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 5
-Mon Nov 28 18:43:49 BRST 2016
+Tue Dec  6 22:25:52 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 6
-Mon Nov 28 18:46:16 BRST 2016
+Tue Dec  6 22:26:08 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 7
-Mon Nov 28 18:50:31 BRST 2016
+Tue Dec  6 22:26:36 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 8
-Mon Nov 28 18:51:39 BRST 2016
+Tue Dec  6 22:29:05 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 9
-Mon Nov 28 18:53:14 BRST 2016
+Tue Dec  6 22:29:25 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 10
-Mon Nov 28 18:55:09 BRST 2016
+Tue Dec  6 22:29:46 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 11
-Mon Nov 28 18:57:33 BRST 2016
+Tue Dec  6 22:32:28 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 12
-Mon Nov 28 18:58:29 BRST 2016
+Tue Dec  6 22:33:03 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 13
-Mon Nov 28 19:06:28 BRST 2016
+Tue Dec  6 22:33:43 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 14
-Mon Nov 28 19:08:04 BRST 2016
+Tue Dec  6 22:42:47 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 15
-Mon Nov 28 19:08:47 BRST 2016
+Tue Dec  6 22:43:44 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 16
-Mon Nov 28 19:17:06 BRST 2016
+Tue Dec  6 22:44:13 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 17
-Mon Nov 28 19:17:55 BRST 2016
+Tue Dec  6 22:45:00 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 18
-Mon Nov 28 19:19:09 BRST 2016
+Tue Dec  6 22:46:32 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 19
-Mon Nov 28 19:20:01 BRST 2016
+Tue Dec  6 22:53:33 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 20
-Mon Nov 28 19:20:48 BRST 2016
+Tue Dec  6 22:55:52 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 21
-Mon Nov 28 19:21:33 BRST 2016
+Tue Dec  6 22:56:23 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 22
-Mon Nov 28 19:23:29 BRST 2016
+Tue Dec  6 23:01:05 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 23
-Mon Nov 28 19:49:44 BRST 2016
+Tue Dec  6 23:03:57 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 24
-Mon Nov 28 19:52:59 BRST 2016
+Tue Dec  6 23:04:46 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 25
-Mon Nov 28 19:54:00 BRST 2016
+Tue Dec  6 23:06:43 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 26
-Mon Nov 28 19:55:19 BRST 2016
+Tue Dec  6 23:07:56 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 27
-Mon Nov 28 19:59:34 BRST 2016
+Tue Dec  6 23:08:16 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 28
-Mon Nov 28 20:06:08 BRST 2016
+Tue Dec  6 23:08:35 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 29
-Mon Nov 28 20:07:19 BRST 2016
+Tue Dec  6 23:09:11 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 30
-Mon Nov 28 20:08:31 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 1
-Mon Nov 28 20:26:11 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 2
-Mon Nov 28 20:27:02 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 3
-Mon Nov 28 20:27:48 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 4
-Mon Nov 28 20:29:13 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 5
-Mon Nov 28 20:34:27 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 6
-Mon Nov 28 20:36:57 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 7
-Mon Nov 28 20:38:42 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 8
-Mon Nov 28 20:39:58 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 9
-Mon Nov 28 20:52:12 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 10
-Mon Nov 28 20:53:03 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 11
-Mon Nov 28 20:53:57 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 12
-Mon Nov 28 20:55:12 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 13
-Mon Nov 28 20:56:58 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 14
-Mon Nov 28 20:57:39 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 15
-Mon Nov 28 20:59:28 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 16
-Mon Nov 28 21:00:18 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 17
-Mon Nov 28 21:02:40 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 18
-Mon Nov 28 21:04:09 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 19
-Mon Nov 28 21:05:02 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 20
-Mon Nov 28 21:06:43 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 21
-Mon Nov 28 21:08:08 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 22
-Mon Nov 28 21:14:54 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 23
-Mon Nov 28 21:15:44 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 24
-Mon Nov 28 21:21:51 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 25
-Mon Nov 28 21:26:33 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 26
-Mon Nov 28 21:27:26 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 27
-Mon Nov 28 21:28:22 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 28
-Mon Nov 28 21:35:47 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 29
-Mon Nov 28 21:37:00 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 30
-Mon Nov 28 21:37:48 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 1
-Mon Nov 28 21:39:43 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 2
-Mon Nov 28 21:42:02 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 3
-Mon Nov 28 21:43:19 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 4
-Mon Nov 28 21:44:12 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 5
-Mon Nov 28 21:49:53 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 6
-Mon Nov 28 21:50:48 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 7
-Mon Nov 28 21:57:05 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 8
-Mon Nov 28 22:10:13 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 9
-Mon Nov 28 22:14:30 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 10
-Mon Nov 28 22:15:51 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 11
-Mon Nov 28 22:18:22 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 12
-Mon Nov 28 22:19:42 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 13
-Mon Nov 28 22:20:39 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 14
-Mon Nov 28 22:21:37 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 15
-Mon Nov 28 22:24:21 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 16
-Mon Nov 28 22:25:35 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 17
-Mon Nov 28 22:27:26 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 18
-Mon Nov 28 22:28:58 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 19
-Mon Nov 28 22:30:05 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 20
-Mon Nov 28 22:37:07 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 21
-Mon Nov 28 22:39:00 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 22
-Mon Nov 28 22:39:58 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 23
-Mon Nov 28 22:41:08 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 24
-Mon Nov 28 22:44:10 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 25
-Mon Nov 28 22:45:20 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 26
-Mon Nov 28 22:46:29 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 27
-Mon Nov 28 22:47:41 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 28
-Mon Nov 28 22:49:10 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 29
-Mon Nov 28 22:50:22 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 30
-Mon Nov 28 22:51:43 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 1
-Mon Nov 28 22:53:19 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 2
-Mon Nov 28 22:55:22 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 3
-Mon Nov 28 22:59:56 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 4
-Mon Nov 28 23:01:18 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 5
-Mon Nov 28 23:03:23 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 6
-Mon Nov 28 23:05:35 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 7
-Mon Nov 28 23:13:26 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 8
-Mon Nov 28 23:15:09 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 9
-Mon Nov 28 23:16:34 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 10
-Mon Nov 28 23:18:09 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 11
-Mon Nov 28 23:19:36 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 12
-Mon Nov 28 23:20:56 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 13
-Mon Nov 28 23:22:56 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 14
-Mon Nov 28 23:24:05 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 15
-Mon Nov 28 23:28:16 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 16
-Mon Nov 28 23:32:33 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 17
-Mon Nov 28 23:33:41 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 18
-Mon Nov 28 23:36:17 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 19
-Mon Nov 28 23:37:45 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 20
-Mon Nov 28 23:39:33 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 21
-Mon Nov 28 23:42:43 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 22
-Mon Nov 28 23:45:56 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 23
-Mon Nov 28 23:50:31 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 24
-Tue Nov 29 00:38:39 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 25
-Tue Nov 29 00:40:46 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 26
-Tue Nov 29 00:41:55 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 27
-Tue Nov 29 00:44:26 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 28
-Tue Nov 29 00:45:52 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 29
-Tue Nov 29 00:47:00 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 30
-Wed Nov 30 20:21:47 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 1
-Wed Nov 30 20:22:33 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 2
-Wed Nov 30 20:25:20 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 3
-Wed Nov 30 20:30:39 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 4
-Wed Nov 30 20:31:58 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 5
-Wed Nov 30 20:32:45 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 6
-Wed Nov 30 20:37:55 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 7
-Wed Nov 30 20:39:32 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 8
-Wed Nov 30 20:41:32 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 9
-Wed Nov 30 20:42:35 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 10
-Wed Nov 30 20:44:08 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 11
-Wed Nov 30 20:44:57 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 12
-Wed Nov 30 20:48:53 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 13
-Wed Nov 30 20:49:39 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 14
-Wed Nov 30 20:51:43 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 15
-Wed Nov 30 20:52:35 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 16
-Wed Nov 30 20:54:46 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 17
-Wed Nov 30 20:55:46 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 18
-Wed Nov 30 20:58:20 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 19
-Wed Nov 30 20:59:44 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 20
-Wed Nov 30 21:15:17 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 21
-Wed Nov 30 21:17:28 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 22
-Wed Nov 30 21:19:38 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 23
-Wed Nov 30 21:21:56 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 24
-Wed Nov 30 21:22:35 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 25
-Wed Nov 30 21:23:20 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 26
-Wed Nov 30 21:24:05 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 27
-Wed Nov 30 21:27:06 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 28
-Wed Nov 30 21:32:41 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 29
-Wed Nov 30 21:34:05 BRST 2016
-nPOI = 20  strat = TSPbasedMobility  loop = 30
-Wed Nov 30 21:38:08 BRST 2016
+Tue Dec  6 23:10:16 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 31
-Wed Nov 30 21:39:13 BRST 2016
+Tue Dec  6 23:11:13 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 32
-Wed Nov 30 21:40:14 BRST 2016
+Tue Dec  6 23:11:33 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 33
-Wed Nov 30 21:41:55 BRST 2016
+Tue Dec  6 23:13:28 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 34
-Wed Nov 30 21:42:47 BRST 2016
+Tue Dec  6 23:38:03 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 35
-Wed Nov 30 21:44:24 BRST 2016
+Tue Dec  6 23:38:20 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 36
-Wed Nov 30 21:46:05 BRST 2016
+Tue Dec  6 23:38:54 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 37
-Wed Nov 30 21:49:35 BRST 2016
+Tue Dec  6 23:39:30 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 38
-Wed Nov 30 21:54:31 BRST 2016
+Tue Dec  6 23:39:46 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 39
-Wed Nov 30 21:55:32 BRST 2016
+Tue Dec  6 23:40:07 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 40
-Wed Nov 30 21:56:14 BRST 2016
+Tue Dec  6 23:40:40 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 41
-Wed Nov 30 21:58:37 BRST 2016
+Tue Dec  6 23:41:25 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 42
-Wed Nov 30 21:59:44 BRST 2016
+Tue Dec  6 23:43:06 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 43
-Wed Nov 30 22:00:39 BRST 2016
+Tue Dec  6 23:44:40 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 44
-Wed Nov 30 22:01:31 BRST 2016
+Tue Dec  6 23:45:04 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 45
-Wed Nov 30 22:02:23 BRST 2016
+Tue Dec  6 23:46:23 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 46
-Wed Nov 30 22:03:39 BRST 2016
+Tue Dec  6 23:48:25 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 47
-Wed Nov 30 22:04:44 BRST 2016
+Tue Dec  6 23:49:05 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 48
-Wed Nov 30 22:05:41 BRST 2016
+Tue Dec  6 23:49:37 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 49
-Wed Nov 30 22:11:51 BRST 2016
+Tue Dec  6 23:49:55 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 50
-Wed Nov 30 22:14:19 BRST 2016
+Tue Dec  6 23:50:59 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 51
-Wed Nov 30 22:15:59 BRST 2016
+Tue Dec  6 23:51:43 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 52
-Wed Nov 30 22:24:39 BRST 2016
+Tue Dec  6 23:52:20 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 53
-Wed Nov 30 22:25:26 BRST 2016
+Tue Dec  6 23:52:38 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 54
-Wed Nov 30 22:26:09 BRST 2016
+Tue Dec  6 23:52:57 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 55
-Wed Nov 30 22:29:18 BRST 2016
+Tue Dec  6 23:53:30 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 56
-Wed Nov 30 22:30:19 BRST 2016
+Tue Dec  6 23:54:15 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 57
-Wed Nov 30 22:31:02 BRST 2016
+Tue Dec  6 23:54:38 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 58
-Wed Nov 30 22:32:03 BRST 2016
+Tue Dec  6 23:59:59 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 59
-Wed Nov 30 22:33:16 BRST 2016
+Wed Dec  7 00:00:56 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 60
-Wed Nov 30 22:34:36 BRST 2016
+Wed Dec  7 00:07:15 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 61
-Wed Nov 30 22:40:47 BRST 2016
+Wed Dec  7 00:08:48 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 62
-Wed Nov 30 22:43:01 BRST 2016
+Wed Dec  7 00:10:13 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 63
-Wed Nov 30 22:45:00 BRST 2016
+Wed Dec  7 00:13:58 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 64
-Wed Nov 30 22:50:31 BRST 2016
+Wed Dec  7 00:14:53 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 65
-Wed Nov 30 22:51:33 BRST 2016
+Wed Dec  7 00:15:09 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 66
-Wed Nov 30 22:53:20 BRST 2016
+Wed Dec  7 00:16:40 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 67
-Wed Nov 30 22:57:10 BRST 2016
+Wed Dec  7 00:17:57 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 68
-Wed Nov 30 22:57:51 BRST 2016
+Wed Dec  7 00:19:04 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 69
-Wed Nov 30 22:59:23 BRST 2016
+Wed Dec  7 00:19:22 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 70
-Wed Nov 30 23:00:30 BRST 2016
+Wed Dec  7 00:20:19 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 71
+Wed Dec  7 00:22:37 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 72
+Wed Dec  7 00:23:06 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 73
+Wed Dec  7 00:23:30 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 74
+Wed Dec  7 00:25:42 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 75
+Wed Dec  7 00:26:19 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 76
+Wed Dec  7 00:26:43 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 77
+Wed Dec  7 00:26:57 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 78
+Wed Dec  7 00:27:36 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 79
+Wed Dec  7 00:29:01 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 80
+Wed Dec  7 00:30:24 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 81
+Wed Dec  7 00:30:38 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 82
+Wed Dec  7 00:31:19 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 83
+Wed Dec  7 00:31:38 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 84
+Wed Dec  7 00:33:21 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 85
+Wed Dec  7 00:33:42 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 86
+Wed Dec  7 00:34:06 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 87
+Wed Dec  7 00:38:13 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 88
+Wed Dec  7 00:38:49 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 89
+Wed Dec  7 00:39:20 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 90
+Wed Dec  7 00:39:59 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 91
+Wed Dec  7 00:40:21 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 92
+Wed Dec  7 00:48:47 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 93
+Wed Dec  7 00:49:08 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 94
+Wed Dec  7 00:51:28 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 95
+Wed Dec  7 00:51:50 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 96
+Wed Dec  7 00:54:30 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 97
+Wed Dec  7 00:55:02 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 98
+Wed Dec  7 00:56:18 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 99
+Wed Dec  7 00:59:15 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 100
+Wed Dec  7 01:00:47 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 1
-Wed Nov 30 23:03:37 BRST 2016
+Wed Dec  7 01:01:52 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 2
-Wed Nov 30 23:04:24 BRST 2016
+Wed Dec  7 01:02:41 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 3
-Wed Nov 30 23:09:38 BRST 2016
+Wed Dec  7 01:02:57 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 4
-Wed Nov 30 23:10:27 BRST 2016
+Wed Dec  7 01:03:40 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 5
-Wed Nov 30 23:12:28 BRST 2016
+Wed Dec  7 01:05:35 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 6
-Wed Nov 30 23:13:49 BRST 2016
+Wed Dec  7 01:07:30 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 7
-Wed Nov 30 23:15:26 BRST 2016
+Wed Dec  7 01:08:28 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 8
-Wed Nov 30 23:16:17 BRST 2016
+Wed Dec  7 01:08:59 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 9
-Wed Nov 30 23:17:07 BRST 2016
+Wed Dec  7 01:09:21 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 10
-Wed Nov 30 23:26:36 BRST 2016
+Wed Dec  7 01:10:48 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 11
-Wed Nov 30 23:27:55 BRST 2016
+Wed Dec  7 01:12:42 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 12
-Wed Nov 30 23:45:14 BRST 2016
+Wed Dec  7 01:14:14 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 13
-Wed Nov 30 23:46:13 BRST 2016
+Wed Dec  7 01:15:58 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 14
-Wed Nov 30 23:47:25 BRST 2016
+Wed Dec  7 01:19:04 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 15
-Wed Nov 30 23:49:13 BRST 2016
+Wed Dec  7 01:20:10 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 16
-Wed Nov 30 23:52:52 BRST 2016
+Wed Dec  7 01:20:27 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 17
-Wed Nov 30 23:55:43 BRST 2016
+Wed Dec  7 01:22:04 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 18
-Wed Nov 30 23:57:41 BRST 2016
+Wed Dec  7 01:22:59 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 19
-Thu Dec  1 00:02:21 BRST 2016
+Wed Dec  7 01:23:25 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 20
-Thu Dec  1 00:03:28 BRST 2016
+Wed Dec  7 01:25:35 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 21
-Thu Dec  1 00:05:09 BRST 2016
+Wed Dec  7 01:32:15 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 22
-Thu Dec  1 00:06:15 BRST 2016
+Wed Dec  7 01:34:44 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 23
-Thu Dec  1 00:07:19 BRST 2016
+Wed Dec  7 01:37:09 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 24
-Thu Dec  1 00:09:10 BRST 2016
+Wed Dec  7 01:38:18 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 25
-Thu Dec  1 00:09:59 BRST 2016
+Wed Dec  7 01:41:09 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 26
-Thu Dec  1 00:10:58 BRST 2016
+Wed Dec  7 01:42:31 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 27
-Thu Dec  1 00:13:26 BRST 2016
+Wed Dec  7 01:49:09 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 28
-Thu Dec  1 00:16:18 BRST 2016
+Wed Dec  7 01:50:02 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 29
-Thu Dec  1 00:17:31 BRST 2016
+Wed Dec  7 01:51:19 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 30
-Thu Dec  1 00:21:21 BRST 2016
+Wed Dec  7 01:52:26 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 31
-Thu Dec  1 00:22:55 BRST 2016
+Wed Dec  7 01:52:44 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 32
-Thu Dec  1 00:25:49 BRST 2016
+Wed Dec  7 01:53:33 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 33
-Thu Dec  1 00:27:00 BRST 2016
+Wed Dec  7 01:54:02 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 34
-Thu Dec  1 00:29:21 BRST 2016
+Wed Dec  7 02:00:47 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 35
-Thu Dec  1 00:30:24 BRST 2016
+Wed Dec  7 02:01:41 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 36
-Thu Dec  1 00:32:46 BRST 2016
+Wed Dec  7 02:02:00 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 37
-Thu Dec  1 00:38:41 BRST 2016
+Wed Dec  7 02:03:37 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 38
-Thu Dec  1 00:39:57 BRST 2016
+Wed Dec  7 02:06:04 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 39
-Thu Dec  1 00:43:49 BRST 2016
+Wed Dec  7 02:06:32 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 40
-Thu Dec  1 00:44:37 BRST 2016
+Wed Dec  7 02:09:02 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 41
-Thu Dec  1 00:47:40 BRST 2016
+Wed Dec  7 02:09:37 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 42
-Thu Dec  1 00:49:31 BRST 2016
+Wed Dec  7 02:10:38 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 43
-Thu Dec  1 00:50:19 BRST 2016
+Wed Dec  7 02:11:49 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 44
-Thu Dec  1 00:52:17 BRST 2016
+Wed Dec  7 02:13:17 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 45
-Thu Dec  1 00:54:09 BRST 2016
+Wed Dec  7 02:13:38 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 46
-Thu Dec  1 00:55:28 BRST 2016
+Wed Dec  7 02:21:06 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 47
-Thu Dec  1 00:56:51 BRST 2016
+Wed Dec  7 02:21:30 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 48
-Thu Dec  1 00:57:50 BRST 2016
+Wed Dec  7 02:23:48 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 49
-Thu Dec  1 00:59:28 BRST 2016
+Wed Dec  7 02:27:19 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 50
-Thu Dec  1 01:05:23 BRST 2016
+Wed Dec  7 02:27:41 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 51
-Thu Dec  1 01:09:48 BRST 2016
+Wed Dec  7 02:29:13 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 52
-Thu Dec  1 01:10:46 BRST 2016
+Wed Dec  7 02:29:34 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 53
-Thu Dec  1 01:11:41 BRST 2016
+Wed Dec  7 02:29:59 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 54
-Thu Dec  1 01:16:17 BRST 2016
+Wed Dec  7 02:30:45 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 55
-Thu Dec  1 01:20:38 BRST 2016
+Wed Dec  7 02:31:24 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 56
-Thu Dec  1 01:21:28 BRST 2016
+Wed Dec  7 02:32:10 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 57
-Thu Dec  1 01:23:13 BRST 2016
+Wed Dec  7 02:32:27 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 58
-Thu Dec  1 01:24:55 BRST 2016
+Wed Dec  7 02:34:07 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 59
-Thu Dec  1 01:25:46 BRST 2016
+Wed Dec  7 02:35:28 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 60
-Thu Dec  1 01:27:38 BRST 2016
+Wed Dec  7 02:36:31 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 61
-Thu Dec  1 01:32:48 BRST 2016
+Wed Dec  7 02:36:51 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 62
-Thu Dec  1 01:34:37 BRST 2016
+Wed Dec  7 02:37:16 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 63
-Thu Dec  1 01:36:04 BRST 2016
+Wed Dec  7 02:37:43 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 64
-Thu Dec  1 01:38:29 BRST 2016
+Wed Dec  7 02:38:16 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 65
-Thu Dec  1 01:39:19 BRST 2016
+Wed Dec  7 02:38:58 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 66
-Thu Dec  1 01:42:22 BRST 2016
+Wed Dec  7 02:39:14 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 67
-Thu Dec  1 01:46:48 BRST 2016
+Wed Dec  7 02:41:13 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 68
-Thu Dec  1 01:49:23 BRST 2016
+Wed Dec  7 02:41:44 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 69
-Thu Dec  1 01:51:09 BRST 2016
+Wed Dec  7 02:42:28 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 70
-Thu Dec  1 01:53:00 BRST 2016
+Wed Dec  7 02:46:54 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 71
+Wed Dec  7 02:47:14 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 72
+Wed Dec  7 02:48:21 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 73
+Wed Dec  7 02:51:11 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 74
+Wed Dec  7 02:51:40 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 75
+Wed Dec  7 02:51:59 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 76
+Wed Dec  7 02:52:34 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 77
+Wed Dec  7 02:54:51 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 78
+Wed Dec  7 02:56:31 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 79
+Wed Dec  7 03:00:17 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 80
+Wed Dec  7 03:01:16 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 81
+Wed Dec  7 03:03:25 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 82
+Wed Dec  7 03:04:44 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 83
+Wed Dec  7 03:05:30 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 84
+Wed Dec  7 03:06:09 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 85
+Wed Dec  7 03:06:40 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 86
+Wed Dec  7 03:07:07 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 87
+Wed Dec  7 03:07:27 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 88
+Wed Dec  7 03:07:51 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 89
+Wed Dec  7 03:08:30 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 90
+Wed Dec  7 03:10:11 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 91
+Wed Dec  7 03:11:42 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 92
+Wed Dec  7 03:12:52 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 93
+Wed Dec  7 03:14:27 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 94
+Wed Dec  7 03:14:58 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 95
+Wed Dec  7 03:16:27 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 96
+Wed Dec  7 03:16:55 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 97
+Wed Dec  7 03:20:27 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 98
+Wed Dec  7 03:21:07 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 99
+Wed Dec  7 03:22:21 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 100
+Wed Dec  7 03:23:06 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 1
-Thu Dec  1 01:54:46 BRST 2016
+Wed Dec  7 03:23:43 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 2
-Thu Dec  1 01:57:50 BRST 2016
+Wed Dec  7 03:24:02 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 3
-Thu Dec  1 02:00:13 BRST 2016
+Wed Dec  7 03:24:35 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 4
-Thu Dec  1 02:01:23 BRST 2016
+Wed Dec  7 03:25:25 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 5
-Thu Dec  1 02:02:42 BRST 2016
+Wed Dec  7 03:26:11 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 6
-Thu Dec  1 02:03:54 BRST 2016
+Wed Dec  7 03:27:04 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 7
-Thu Dec  1 02:39:34 BRST 2016
+Wed Dec  7 03:28:42 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 8
-Thu Dec  1 02:41:40 BRST 2016
+Wed Dec  7 03:29:01 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 9
-Thu Dec  1 02:42:50 BRST 2016
+Wed Dec  7 03:29:27 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 10
-Thu Dec  1 02:59:18 BRST 2016
+Wed Dec  7 03:29:55 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 11
-Thu Dec  1 03:00:26 BRST 2016
+Wed Dec  7 03:30:39 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 12
-Thu Dec  1 03:01:56 BRST 2016
+Wed Dec  7 03:31:29 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 13
-Thu Dec  1 03:03:14 BRST 2016
+Wed Dec  7 03:31:52 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 14
-Thu Dec  1 03:06:08 BRST 2016
+Wed Dec  7 03:32:53 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 15
-Thu Dec  1 03:14:09 BRST 2016
+Wed Dec  7 03:33:20 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 16
-Thu Dec  1 03:15:30 BRST 2016
+Wed Dec  7 03:33:58 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 17
-Thu Dec  1 03:26:14 BRST 2016
+Wed Dec  7 03:34:33 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 18
-Thu Dec  1 03:27:45 BRST 2016
+Wed Dec  7 03:35:21 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 19
-Thu Dec  1 03:29:46 BRST 2016
+Wed Dec  7 03:36:22 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 20
-Thu Dec  1 05:30:33 BRST 2016
+Wed Dec  7 03:36:58 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 21
-Thu Dec  1 05:32:42 BRST 2016
+Wed Dec  7 03:37:44 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 22
-Thu Dec  1 05:34:24 BRST 2016
+Wed Dec  7 03:38:54 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 23
-Thu Dec  1 05:35:37 BRST 2016
+Wed Dec  7 03:39:18 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 24
-Thu Dec  1 05:37:04 BRST 2016
+Wed Dec  7 03:39:51 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 25
-Thu Dec  1 05:38:32 BRST 2016
+Wed Dec  7 03:40:14 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 26
-Thu Dec  1 05:47:52 BRST 2016
+Wed Dec  7 03:40:53 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 27
-Thu Dec  1 05:48:50 BRST 2016
+Wed Dec  7 03:41:11 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 28
-Thu Dec  1 05:49:58 BRST 2016
+Wed Dec  7 03:41:50 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 29
-Thu Dec  1 05:52:40 BRST 2016
+Wed Dec  7 03:42:18 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 30
-Thu Dec  1 05:54:24 BRST 2016
+Wed Dec  7 03:43:15 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 31
-Thu Dec  1 05:55:40 BRST 2016
+Wed Dec  7 03:43:48 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 32
-Thu Dec  1 05:56:46 BRST 2016
+Wed Dec  7 03:45:18 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 33
-Thu Dec  1 05:58:07 BRST 2016
+Wed Dec  7 03:47:38 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 34
-Thu Dec  1 05:59:06 BRST 2016
+Wed Dec  7 03:48:04 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 35
-Thu Dec  1 06:00:06 BRST 2016
+Wed Dec  7 03:48:22 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 36
-Thu Dec  1 06:00:59 BRST 2016
+Wed Dec  7 03:50:10 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 37
-Thu Dec  1 06:02:52 BRST 2016
+Wed Dec  7 03:51:46 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 38
-Thu Dec  1 06:04:10 BRST 2016
+Wed Dec  7 03:53:40 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 39
-Thu Dec  1 06:11:42 BRST 2016
+Wed Dec  7 03:55:52 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 40
-Thu Dec  1 06:13:15 BRST 2016
+Wed Dec  7 03:57:52 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 41
-Thu Dec  1 06:14:09 BRST 2016
+Wed Dec  7 03:58:19 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 42
-Thu Dec  1 06:15:14 BRST 2016
+Wed Dec  7 04:01:38 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 43
-Thu Dec  1 06:16:41 BRST 2016
+Wed Dec  7 04:03:12 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 44
-Thu Dec  1 06:17:51 BRST 2016
+Wed Dec  7 04:03:35 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 45
-Thu Dec  1 06:19:12 BRST 2016
+Wed Dec  7 04:17:47 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 46
-Thu Dec  1 06:20:14 BRST 2016
+Wed Dec  7 04:18:39 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 47
-Thu Dec  1 06:21:58 BRST 2016
+Wed Dec  7 04:24:40 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 48
-Thu Dec  1 06:22:54 BRST 2016
+Wed Dec  7 04:28:24 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 49
-Thu Dec  1 06:23:57 BRST 2016
+Wed Dec  7 04:29:08 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 50
-Thu Dec  1 06:24:55 BRST 2016
+Wed Dec  7 04:29:54 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 51
-Thu Dec  1 06:45:18 BRST 2016
+Wed Dec  7 04:30:14 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 52
-Thu Dec  1 06:46:34 BRST 2016
+Wed Dec  7 04:30:47 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 53
-Thu Dec  1 06:48:41 BRST 2016
+Wed Dec  7 04:36:01 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 54
-Thu Dec  1 06:49:44 BRST 2016
+Wed Dec  7 04:36:22 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 55
-Thu Dec  1 06:51:01 BRST 2016
+Wed Dec  7 04:37:26 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 56
-Thu Dec  1 06:52:03 BRST 2016
+Wed Dec  7 04:38:03 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 57
-Thu Dec  1 06:53:45 BRST 2016
+Wed Dec  7 04:38:21 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 58
-Thu Dec  1 06:55:23 BRST 2016
+Wed Dec  7 04:38:48 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 59
-Thu Dec  1 06:57:29 BRST 2016
+Wed Dec  7 04:39:43 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 60
-Thu Dec  1 07:04:43 BRST 2016
+Wed Dec  7 04:40:42 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 61
-Thu Dec  1 07:05:58 BRST 2016
+Wed Dec  7 04:43:33 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 62
-Thu Dec  1 07:07:28 BRST 2016
+Wed Dec  7 04:46:27 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 63
-Thu Dec  1 07:09:37 BRST 2016
+Wed Dec  7 05:09:34 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 64
-Thu Dec  1 07:11:05 BRST 2016
+Wed Dec  7 05:11:03 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 65
-Thu Dec  1 07:12:04 BRST 2016
+Wed Dec  7 05:35:01 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 66
-Thu Dec  1 07:15:47 BRST 2016
+Wed Dec  7 05:36:02 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 67
-Thu Dec  1 07:16:52 BRST 2016
+Wed Dec  7 05:36:34 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 68
-Thu Dec  1 07:19:29 BRST 2016
+Wed Dec  7 05:38:05 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 69
-Thu Dec  1 07:21:00 BRST 2016
+Wed Dec  7 05:41:47 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 70
-Thu Dec  1 07:24:17 BRST 2016
+Wed Dec  7 05:44:05 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 71
+Wed Dec  7 05:45:03 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 72
+Wed Dec  7 05:45:25 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 73
+Wed Dec  7 05:46:36 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 74
+Wed Dec  7 05:49:46 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 75
+Wed Dec  7 05:50:43 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 76
+Wed Dec  7 05:51:11 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 77
+Wed Dec  7 05:51:50 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 78
+Wed Dec  7 05:59:47 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 79
+Wed Dec  7 06:02:16 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 80
+Wed Dec  7 06:07:36 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 81
+Wed Dec  7 06:08:17 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 82
+Wed Dec  7 06:09:00 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 83
+Wed Dec  7 06:11:01 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 84
+Wed Dec  7 06:11:19 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 85
+Wed Dec  7 06:11:48 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 86
+Wed Dec  7 06:13:27 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 87
+Wed Dec  7 06:15:17 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 88
+Wed Dec  7 06:17:51 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 89
+Wed Dec  7 06:18:09 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 90
+Wed Dec  7 06:18:52 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 91
+Wed Dec  7 06:19:22 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 92
+Wed Dec  7 06:20:53 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 93
+Wed Dec  7 06:21:19 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 94
+Wed Dec  7 06:21:41 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 95
+Wed Dec  7 06:22:27 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 96
+Wed Dec  7 06:34:05 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 97
+Wed Dec  7 06:35:00 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 98
+Wed Dec  7 06:35:32 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 99
+Wed Dec  7 06:37:25 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 100
+Wed Dec  7 06:38:39 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 1
-Thu Dec  1 07:25:37 BRST 2016
+Wed Dec  7 06:39:16 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 2
-Thu Dec  1 07:26:45 BRST 2016
+Wed Dec  7 06:40:35 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 3
-Thu Dec  1 07:28:10 BRST 2016
+Wed Dec  7 06:41:05 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 4
-Thu Dec  1 07:29:26 BRST 2016
+Wed Dec  7 06:41:58 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 5
-Thu Dec  1 07:30:37 BRST 2016
+Wed Dec  7 06:42:27 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 6
-Thu Dec  1 07:32:52 BRST 2016
+Wed Dec  7 06:42:58 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 7
-Thu Dec  1 07:34:45 BRST 2016
+Wed Dec  7 06:43:42 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 8
-Thu Dec  1 08:04:27 BRST 2016
+Wed Dec  7 06:44:45 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 9
-Thu Dec  1 08:06:07 BRST 2016
+Wed Dec  7 06:45:54 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 10
-Thu Dec  1 08:11:00 BRST 2016
+Wed Dec  7 06:46:50 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 11
-Thu Dec  1 08:12:14 BRST 2016
+Wed Dec  7 06:47:15 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 12
-Thu Dec  1 08:14:04 BRST 2016
+Wed Dec  7 06:47:39 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 13
-Thu Dec  1 08:15:53 BRST 2016
+Wed Dec  7 06:48:07 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 14
-Thu Dec  1 08:18:12 BRST 2016
+Wed Dec  7 06:51:34 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 15
-Thu Dec  1 08:27:37 BRST 2016
+Wed Dec  7 06:53:47 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 16
-Thu Dec  1 08:28:47 BRST 2016
+Wed Dec  7 06:54:30 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 17
-Thu Dec  1 08:30:06 BRST 2016
+Wed Dec  7 06:55:30 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 18
-Thu Dec  1 08:33:38 BRST 2016
+Wed Dec  7 06:56:57 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 19
-Thu Dec  1 08:42:18 BRST 2016
+Wed Dec  7 07:01:07 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 20
-Thu Dec  1 08:47:28 BRST 2016
+Wed Dec  7 07:04:30 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 21
-Thu Dec  1 08:48:56 BRST 2016
+Wed Dec  7 07:05:21 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 22
-Thu Dec  1 08:50:36 BRST 2016
+Wed Dec  7 07:06:03 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 23
-Thu Dec  1 08:52:50 BRST 2016
+Wed Dec  7 07:13:53 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 24
-Thu Dec  1 08:56:13 BRST 2016
+Wed Dec  7 07:14:37 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 25
-Thu Dec  1 08:57:28 BRST 2016
+Wed Dec  7 07:15:30 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 26
-Thu Dec  1 08:59:04 BRST 2016
+Wed Dec  7 07:16:27 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 27
-Thu Dec  1 09:00:22 BRST 2016
+Wed Dec  7 07:17:15 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 28
-Thu Dec  1 09:07:10 BRST 2016
+Wed Dec  7 07:18:19 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 29
-Thu Dec  1 09:08:17 BRST 2016
+Wed Dec  7 07:18:59 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 30
-Thu Dec  1 09:09:46 BRST 2016
+Wed Dec  7 07:20:21 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 31
-Thu Dec  1 09:10:54 BRST 2016
+Wed Dec  7 07:23:59 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 32
-Thu Dec  1 09:12:46 BRST 2016
+Wed Dec  7 07:27:10 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 33
-Thu Dec  1 09:14:01 BRST 2016
+Wed Dec  7 07:28:17 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 34
-Thu Dec  1 09:15:46 BRST 2016
+Wed Dec  7 07:29:18 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 35
-Thu Dec  1 09:17:10 BRST 2016
+Wed Dec  7 07:29:48 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 36
-Thu Dec  1 09:18:19 BRST 2016
+Wed Dec  7 07:30:12 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 37
-Thu Dec  1 09:20:56 BRST 2016
+Wed Dec  7 07:33:42 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 38
-Thu Dec  1 09:22:41 BRST 2016
+Wed Dec  7 07:36:00 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 39
-Thu Dec  1 09:24:10 BRST 2016
+Wed Dec  7 07:37:16 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 40
-Thu Dec  1 09:26:05 BRST 2016
+Wed Dec  7 07:38:08 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 41
-Thu Dec  1 09:27:43 BRST 2016
+Wed Dec  7 07:40:03 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 42
-Thu Dec  1 09:29:06 BRST 2016
+Wed Dec  7 07:40:46 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 43
-Thu Dec  1 09:32:23 BRST 2016
+Wed Dec  7 07:41:59 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 44
-Thu Dec  1 09:33:55 BRST 2016
+Wed Dec  7 07:42:33 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 45
-Thu Dec  1 09:35:07 BRST 2016
+Wed Dec  7 07:43:05 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 46
-Thu Dec  1 09:38:08 BRST 2016
+Wed Dec  7 07:43:31 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 47
-Thu Dec  1 09:40:51 BRST 2016
+Wed Dec  7 07:44:10 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 48
-Thu Dec  1 09:43:44 BRST 2016
+Wed Dec  7 07:45:06 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 49
-Thu Dec  1 09:49:57 BRST 2016
+Wed Dec  7 07:48:46 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 50
-Thu Dec  1 10:39:46 BRST 2016
+Wed Dec  7 07:55:28 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 51
-Thu Dec  1 10:41:22 BRST 2016
+Wed Dec  7 07:56:07 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 52
-Thu Dec  1 10:42:39 BRST 2016
+Wed Dec  7 07:56:41 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 53
-Thu Dec  1 10:44:38 BRST 2016
+Wed Dec  7 07:57:07 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 54
-Thu Dec  1 10:46:08 BRST 2016
+Wed Dec  7 07:58:20 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 55
-Thu Dec  1 10:47:22 BRST 2016
+Wed Dec  7 08:01:13 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 56
-Thu Dec  1 10:49:08 BRST 2016
+Wed Dec  7 08:02:22 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 57
-Thu Dec  1 11:03:54 BRST 2016
+Wed Dec  7 08:03:20 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 58
-Thu Dec  1 11:05:07 BRST 2016
+Wed Dec  7 08:11:14 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 59
-Thu Dec  1 11:06:20 BRST 2016
+Wed Dec  7 08:12:19 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 60
-Thu Dec  1 11:08:16 BRST 2016
+Wed Dec  7 08:12:43 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 61
-Thu Dec  1 11:10:24 BRST 2016
+Wed Dec  7 08:13:34 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 62
-Thu Dec  1 11:11:40 BRST 2016
+Wed Dec  7 08:13:56 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 63
-Thu Dec  1 11:14:45 BRST 2016
+Wed Dec  7 08:14:41 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 64
-Thu Dec  1 11:15:51 BRST 2016
+Wed Dec  7 08:15:41 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 65
-Thu Dec  1 11:18:25 BRST 2016
+Wed Dec  7 08:18:56 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 66
-Thu Dec  1 11:22:21 BRST 2016
+Wed Dec  7 08:19:45 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 67
-Thu Dec  1 11:25:00 BRST 2016
+Wed Dec  7 08:21:28 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 68
-Thu Dec  1 11:26:25 BRST 2016
+Wed Dec  7 08:21:58 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 69
-Thu Dec  1 11:28:29 BRST 2016
+Wed Dec  7 08:23:49 BRST 2016
 nPOI = 20  strat = TSPbasedMobility  loop = 70
+Wed Dec  7 08:25:44 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 71
+Wed Dec  7 08:27:47 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 72
+Wed Dec  7 08:29:37 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 73
+Wed Dec  7 08:31:39 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 74
+Wed Dec  7 08:47:55 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 75
+Wed Dec  7 08:48:51 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 76
+Wed Dec  7 08:50:09 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 77
+Wed Dec  7 08:50:39 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 78
+Wed Dec  7 08:53:14 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 79
+Wed Dec  7 08:53:43 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 80
+Wed Dec  7 08:56:11 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 81
+Wed Dec  7 08:57:00 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 82
+Wed Dec  7 08:57:40 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 83
+Wed Dec  7 08:58:57 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 84
+Wed Dec  7 09:03:48 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 85
+Wed Dec  7 09:04:11 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 86
+Wed Dec  7 09:04:42 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 87
+Wed Dec  7 09:06:01 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 88
+Wed Dec  7 09:06:24 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 89
+Wed Dec  7 09:07:02 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 90
+Wed Dec  7 09:16:32 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 91
+Wed Dec  7 09:19:32 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 92
+Wed Dec  7 09:20:05 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 93
+Wed Dec  7 09:20:36 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 94
+Wed Dec  7 09:21:16 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 95
+Wed Dec  7 09:21:52 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 96
+Wed Dec  7 09:22:43 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 97
+Wed Dec  7 09:24:50 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 98
+Wed Dec  7 09:27:09 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 99
+Wed Dec  7 09:29:25 BRST 2016
+nPOI = 20  strat = TSPbasedMobility  loop = 100
