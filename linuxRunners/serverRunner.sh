@@ -2,11 +2,11 @@
 
 cd ..
 
-LOOPS=100
+LOOPS=5
 #ROUNDS=3 750 000 
-ROUNDS=1000000
+ROUNDS=3750000
 #REFRESHRATE=3750000
-REFRESHRATE=1000000
+REFRESHRATE=3750000
 
 
 #N_UAV=5
@@ -25,8 +25,8 @@ echo " "
 echo " ----------------------------------------------------------------------------"
 echo " "
 echo "nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i
-date >> acompanhamento_server.txt
-echo "nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i >> acompanhamento_server.txt
+date >> acompanhamento.txt
+echo "nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i >> acompanhamento.txt
 echo " "
 echo " ----------------------------------------------------------------------------"
 echo " "
