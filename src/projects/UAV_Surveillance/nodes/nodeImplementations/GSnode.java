@@ -324,15 +324,23 @@ public class GSnode extends Node implements Comparable<GSnode> {
 					setOfUAVs.add((UAVnode) n);
 				}
 				if (n instanceof GSnode) {
-					POInode phantom = new POInode();
-					phantom.setPosition(n.getPosition());
-					phantom.amIphantom = true;
-					listOfPOIs.add((POInode) phantom);
+					// We pass thought GS on V2V schenarios do leave information
+//					POInode phantom = new POInode();
+//					phantom.setPosition(n.getPosition());
+//					phantom.amIphantom = true;
+//					listOfPOIs.add((POInode) phantom);
 				}
 				
 				
 				
 			}					
+			// if (V2V instead of V2I) // so, UAVs need to go to GS to return data
+			POInode gsPOI = new POInode();
+			gsPOI.setPosition(this.getPosition());
+			listOfPOIs.add((POInode) gsPOI);
+
+			
+			
 			mappedPOIs = true;			
 			
 			// Choose your flavor ... z does not matter. sort() helps debug operations

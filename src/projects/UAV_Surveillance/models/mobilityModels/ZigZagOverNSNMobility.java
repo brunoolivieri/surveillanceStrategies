@@ -72,6 +72,8 @@ public class ZigZagOverNSNMobility extends NaiveOrderedMobility{
 			
 		} else {
 						
+			System.out.println("\n\n\n  HORA DO RETORNO \n\n\n");
+			
 			v.lastPoi = v.pathPOIs.get(v.pathPOIs.size()-1); 
 			v.nextPoi = v.pathPOIs.get(v.pathPOIs.size()-2);
 					

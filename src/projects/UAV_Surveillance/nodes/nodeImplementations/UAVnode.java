@@ -92,6 +92,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	private int pathSize = 0;
 	
 	// [Kingston/ZigZag]To use with rendezvous and change paths
+	public GSnode myGS = new GSnode();
 	public boolean kingImpAllowed = false; // just to enable conditions to start changing, such as minimum visited POIs or UAVs
 	public POInode lastPoi = new POInode();
 	public POInode nextPoi = new POInode();
@@ -325,8 +326,28 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 					roundVisitedPOIs.add((POInode) e.endNode); // only adds really new POIs
 					//if (roundVisitedPOIs.size() >= 3) // Start these strategies just after known 3 POIs
 						kingImpAllowed = true;	
+				}				
+			} if (e.endNode instanceof GSnode){ // && (V2Venable instead V2I) 
+								
+				myGS = (GSnode) e.endNode;
+				
+				POInode fakePOI = new POInode();
+				fakePOI.setPosition(((GSnode) myGS).getPosition());
+				
+				if (!roundVisitedPOIs.contains((POInode) fakePOI)){
+					roundVisitedPOIs.add((POInode) fakePOI); // only adds really new POIs
+					if (roundVisitedPOIs.size() > 3)
+						kingImpAllowed = true;	
 				}
-			} 
+				
+				
+			}
+
+			
+			
+			
+			
+			
 			
 			// that is other UAV, rendezvous
 			if (e.endNode instanceof UAVnode){		
@@ -358,6 +379,10 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 					nKnownUAVs++;
 			}						
 			mappedPOIs = true;
+			
+			// IF V2V do that: (because GS is in the list to be visited.
+			nKnownPOIs++;
+
 		}
 		
 		if((visitedPOIs.size() >= nKnownPOIs)  && (nKnownPOIs !=0) ) { 
@@ -368,7 +393,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			
 		if((roundVisitedPOIs.size() >= pathPOIs.size())  && (nKnownPOIs !=0) && canImove) { 
 			roundVisitedAllPOIs = true;
-			//System.out.println("[UAV " + this.ID + "] setting roundVisitedAllPOIs as TRUE inside PRESTEP method ");
+			System.out.println("\n\n CHEGUEI em todos ainda");
 		} 
 		 else {
 			roundVisitedAllPOIs = false;

@@ -8,10 +8,10 @@
 		<dimensions value="2" />
 
 		<!--Length of the deployment field along the x-axis.-->
-		<dimX value="3000" />
+		<dimX value="1000" />
 
 		<!--Length of the deployment field along the y-axis.-->
-		<dimY value="1250" />
+		<dimY value="1000" />
 
 		<!--Length of the deployment field along the z-axis.-->
 		<dimZ value="1" />
@@ -230,8 +230,8 @@
 
 <MessageTransmission ConstantTime="1"/>
 
-<ThreadToRunWithTSP threads="2"/>
-<ThreadToRunWithTSPTimer maxduration="3600000"/>  		<!-- miliseconds to abort engine and get the best path so far. -->
+<ThreadToRunWithTSP threads="4"/>
+<ThreadToRunWithTSPTimer maxduration="7200000"/>  		<!-- miliseconds to abort engine and get the best path so far. -->
 <ThreadToRunWithTSPTimeEnabler enabled="true"/>
 
 
