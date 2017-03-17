@@ -393,7 +393,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			
 		if((roundVisitedPOIs.size() >= pathPOIs.size())  && (nKnownPOIs !=0) && canImove) { 
 			roundVisitedAllPOIs = true;
-			System.out.println("\n\n CHEGUEI em todos ainda");
+			//System.out.println("\n\n CHEGUEI em todos ainda");
 		} 
 		 else {
 			roundVisitedAllPOIs = false;
