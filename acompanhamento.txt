@@ -1,0 +1,50 @@
+Sat Mar 18 13:49:20 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 1
+Sat Mar 18 13:53:13 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 1
+Sat Mar 18 13:54:25 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 1
+Sat Mar 18 13:57:01 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 1
+Sat Mar 18 13:58:22 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 1
+Sat Mar 18 14:01:19 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 1
+Sat Mar 18 14:03:53 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 1
+Sat Mar 18 14:07:18 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 1
+Sat Mar 18 14:09:06 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 2
+Sat Mar 18 14:11:51 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 2
+Sat Mar 18 14:13:09 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 2
+Sat Mar 18 14:15:37 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 2
+Sat Mar 18 14:17:25 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 2
+Sat Mar 18 14:19:50 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 2
+Sat Mar 18 14:21:46 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 2
+Sat Mar 18 14:26:47 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 2
+Sat Mar 18 14:27:46 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 3
+Sat Mar 18 14:30:36 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 3
+Sat Mar 18 14:39:56 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 1
+Sat Mar 18 14:44:14 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 1
+Sat Mar 18 14:45:54 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 1
+Sat Mar 18 14:51:22 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 1
+Sat Mar 18 14:53:55 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 1
+Sat Mar 18 15:09:18 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  i = 1
+Sat Mar 18 15:10:15 BRT 2017
+nPOI = 20  strat = TSPbasedMobility  i = 1

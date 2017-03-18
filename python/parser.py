@@ -4,5 +4,7 @@ df = pd.read_csv("dadosBrutos.txt",sep=';', index_col =["Strategy", "nUAV", "nPO
 
 # print(df.groupby(level=["Strategy","nUAV"]).median()) 
 
-print(df.groupby(level=["Strategy","nUAV","nPOIs"]).median()) 
+# print(df.groupby(level=["Strategy","nUAV","nPOIs"]).median()) 
 
+
+df.groupby(level=["Strategy","nUAV","nPOIs"]).median().to_csv("results.txt", sep=';', encoding='utf-8')
