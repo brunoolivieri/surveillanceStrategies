@@ -273,6 +273,24 @@ public class Run {
 			}
 		}
 		
+		// Wrong place.
+//		// @oli
+//		// Seting the GS communication model. UAV as a direct relay (V2I) or indirect (V2V)
+//		for(int i = 0; i < args.length; i++){
+//			if(args[i].equals("-V2I")) { // V2V or V2I messages delivery to GS method.
+//				Global.isV2I2GS = true;
+//				Global.isV2V2GS = false;
+//				System.out.println("\n\n\n  é V2I \n\n\n");
+//			} 			
+//			if(args[i].equals("-V2V")) { // V2V or V2I messages delivery to GS method.
+//				Global.isV2I2GS = false;
+//				Global.isV2V2GS = true;
+//				System.out.println("\n\n\n  é V2V \n\n\n");
+//
+//			}
+//		}
+//		
+		
 		// start the project selector GUI if no project was selected.
 		if(!Global.useProject){
 			if(guiBatch == 2) { // in batch mode
@@ -297,6 +315,15 @@ public class Run {
 		} else {
 			return null; // already specified
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	private static Process mainProcess = null; // the simulation process, may be null

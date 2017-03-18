@@ -210,6 +210,26 @@ public abstract class Runtime{
 		}
 		
 		int numberOfParameters = args.length;
+		
+		
+		// @oli
+		// Correct place, intead of Run.jan
+		// Seting the GS communication model. UAV as a direct relay (V2I) or indirect (V2V)
+		for(int i = 0; i < args.length; i++){
+			if(args[i].equals("-V2I")) { // V2V or V2I messages delivery to GS method.
+				Global.isV2I2GS = true;
+				Global.isV2V2GS = false;
+				System.out.println("\n\n\n  é V2I \n\n\n");
+			} 			
+			if(args[i].equals("-V2V")) { // V2V or V2I messages delivery to GS method.
+				Global.isV2I2GS = false;
+				Global.isV2V2GS = true;
+				System.out.println("\n\n\n  é V2V \n\n\n");
+
+			}
+		}
+		
+		// Original one
 		for(int i = 0; i < numberOfParameters; i++) { 
 
 			if(args[i].equals("-rounds")){
@@ -377,6 +397,12 @@ public abstract class Runtime{
 			}
 			else if(args[i].equals("-overwrite")){
 				// omitting -overwrite as is was already used in the main class.
+			}
+			else if(args[i].equals("-V2I")){ //@Oli
+				// UAV deliver msg as a direct relay
+			}
+			else if(args[i].equals("-V2V")){
+				//  UAV deliver msg to near GS or left UAV on KIMP
 			}
 			else if(args[i].startsWith("-")){
 				Main.fatalError("Unknown modifier " + args[i]);

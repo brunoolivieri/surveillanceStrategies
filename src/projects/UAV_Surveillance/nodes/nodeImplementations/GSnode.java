@@ -27,6 +27,7 @@ import sinalgo.io.eps.EPSOutputPrintStream;
 import sinalgo.nodes.Node;
 import sinalgo.nodes.messages.Inbox;
 import sinalgo.nodes.messages.Message;
+import sinalgo.runtime.Global;
 import sinalgo.runtime.Runtime;
 import sinalgo.tools.logging.Logging;
 
@@ -332,9 +333,13 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				}		
 			}					
 			// if (V2V instead of V2I) // so, UAVs need to go to GS to return data
-			POInode gsPOI = new POInode();
-			gsPOI.setPosition(this.getPosition());
-			listOfPOIs.add((POInode) gsPOI);
+			if (Global.isV2V2GS){
+				POInode gsPOI = new POInode();
+				gsPOI.setPosition(this.getPosition());
+				gsPOI.ID = this.ID; // this is necessary because is a fake POI | and it is used to (re)mount TSP best tour
+				listOfPOIs.add((POInode) gsPOI);
+			}
+			
 			
 			mappedPOIs = true;			
 			

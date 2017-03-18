@@ -204,10 +204,11 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 															
 								this.adjustingPath = true;
 					
-								// If I am from right, give my data to left uav deliver/ hand on
-								if (replanner.amIrightUav){
+								// If I am from right, give my data to left uav deliver/ hand on. IFF is V2V case and not V2I
+								if ((replanner.amIrightUav)&&(Global.isV2V2GS)){
 									sendDataToLeftPal(tmpMsg.fromID);
 								}
+								
 								
 								//	replanner.rebalancePath();
 																
@@ -360,7 +361,10 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				
 				
 				// delivery accumulated data
-				sendDataToGS(myGS);
+				if (Global.isV2V2GS){
+					sendDataToGS(myGS);			
+				}
+				
 				
 			}
 

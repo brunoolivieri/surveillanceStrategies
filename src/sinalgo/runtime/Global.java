@@ -57,6 +57,16 @@ import sinalgo.tools.logging.Logging;
  */
 public class Global {
 	
+	
+	/**
+	 * @Oli
+	 * Used to delivery msg from POI to GS by straight UAV radio (V2I) or passing through each left UAVs (V2V)
+	 */
+	public static boolean isV2V2GS = true;
+	public static boolean isV2I2GS = false;
+
+	
+	
 	/**
 	 * A boolean flag indicating whether the simulation is runing or not. This flag is used to block mouse input (like tooltip...) and 
 	 * zooming during the simulation.
