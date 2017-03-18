@@ -47,6 +47,7 @@ import java.util.List;
 import java.util.TreeSet;
 
 import projects.UAV_Surveillance.nodes.messages.msgFOV;
+import projects.UAV_Surveillance.nodes.messages.msgFromPOI;
 import projects.UAV_Surveillance.nodes.messages.msgKingImp;
 import projects.UAV_Surveillance.nodes.messages.msgPOIordered;
 import sinalgo.configuration.WrongConfigurationException;
@@ -112,6 +113,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	// To mark visits
 	private msgFOV msgPOIseen;
 	
+	private ArrayList<msgFromPOI> poiMessages = new ArrayList<msgFromPOI>();
 
 
 	//Logging uav_log = Logging.getLogger("UAV_id_" + this.ID + ".txt");
@@ -137,6 +139,17 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		//@Oli: msg with path arrived.
 		while(inbox.hasNext()) {
 			Message msg = inbox.next();
+			
+			// saving msg from POIs
+			if(msg instanceof msgFromPOI) {		
+				msgFromPOI dataReceived = (msgFromPOI)msg;
+				if (dataReceived.recipient == this.ID) {  // because POI sends a broadcast
+					poiMessages.add((msgFromPOI) dataReceived.clone());
+				}				
+			}
+			
+			
+			
 			if(msg instanceof msgPOIordered) {		
 				justCountRoundsToMove = true; // releasing the trigger on legacyGetNextPos()
 				msgPOIordered pathMsg = (msgPOIordered)msg;				
@@ -191,6 +204,11 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 															
 								this.adjustingPath = true;
 					
+								// If I am from right, give my data to left uav deliver/ hand on
+								if (replanner.amIrightUav){
+									sendDataToLeftPal(tmpMsg.fromID);
+								}
+								
 								//	replanner.rebalancePath();
 																
 								if (replanner.amIleftUav){							
@@ -319,14 +337,14 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				// This is for all bases
 				if (!visitedPOIs.contains((POInode) e.endNode)){
 					visitedPOIs.add((POInode) e.endNode); // only adds really new POIs
-					//System.out.println("[UAV " + this.ID + "] found POI " + e.endNode.ID);
 				}				
 				// This is for KingStonImproved & ZigZag
 				if (!roundVisitedPOIs.contains((POInode) e.endNode)){
 					roundVisitedPOIs.add((POInode) e.endNode); // only adds really new POIs
-					//if (roundVisitedPOIs.size() >= 3) // Start these strategies just after known 3 POIs
 						kingImpAllowed = true;	
-				}				
+				}		
+				
+				
 			} if (e.endNode instanceof GSnode){ // && (V2Venable instead V2I) 
 								
 				myGS = (GSnode) e.endNode;
@@ -341,13 +359,11 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				}
 				
 				
+				// delivery accumulated data
+				sendDataToGS(myGS);
+				
 			}
 
-			
-			
-			
-			
-			
 			
 			// that is other UAV, rendezvous
 			if (e.endNode instanceof UAVnode){		
@@ -365,6 +381,29 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		}
 	}
 
+	private void sendDataToGS(GSnode myGS){
+
+		// quick setting each msg recipient from the UAV to the GS
+		poiMessages.forEach((a)->a.recipient=myGS.ID);
+		// quick sending all of them to the GS
+		poiMessages.forEach((a)->broadcast(a));
+		// erasing the UAV stored message
+		poiMessages.clear();
+	}
+	
+	private void sendDataToLeftPal(int leftPal){
+
+		// quick setting each msg recipient from the UAV to the GS
+		poiMessages.forEach((a)->a.recipient=leftPal);
+		// quick sending all of them to the GS
+		poiMessages.forEach((a)->broadcast(a));
+		// erasing the UAV stored message
+		poiMessages.clear();
+	}
+	
+	
+	
+	
 	@Override
 	public void preStep() {			
 			
@@ -446,7 +485,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		// default:
 		//drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
 				
-		String text = Integer.toString(this.ID) ; 
+		String text = Integer.toString(this.ID) + "|" + poiMessages.size() ; 
 		super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
 		
 		// debug: 

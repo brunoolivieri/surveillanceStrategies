@@ -17,6 +17,7 @@ import sinalgo.nodes.messages.Inbox;
 import sinalgo.runtime.Runtime;
 import sinalgo.tools.Tools;
 import sinalgo.nodes.messages.Message;
+import projects.UAV_Surveillance.nodes.messages.msgFromPOI;
 
 
 
@@ -28,12 +29,18 @@ public class POInode extends Node implements Comparable<POInode> {
 	//private boolean drawAsNeighbor = false; // flag set by a neighbor to color specially
 	
 	public int roundsNeglected = 0;
+	public int roundsRunning = 0;
+	//public int lastUAVvisit = 0;
+
 	public int distToGS = 0;
 	private boolean init = false;
 	public boolean amIphantom = false;
 	// The set of nodes this node has already seen
 	private TreeSet<UAVnode> neighbors = new TreeSet<UAVnode>();
 	public boolean drawAsNeighbor;
+	
+	// To mark visits
+	private msgFromPOI msgToUAV;
 	
 	/**
 	 * Reset the list of neighbors of this node.
@@ -53,10 +60,19 @@ public class POInode extends Node implements Comparable<POInode> {
 			while(inbox.hasNext()) {
 				Message msg = inbox.next();
 				if(msg instanceof msgFOV) {
-					roundsNeglected -= 5;
+					sendDataToUAV(msg);
 				}
 			}
 		}
+	}
+	
+	private void sendDataToUAV(Message msg){
+		//System.out.println("[POI " + this.ID + "] received msg from " + ((msgFOV) msg).data);
+
+		// manda dados pro UAV
+		roundsNeglected -= 5; // upload tax			
+		msgToUAV = new msgFromPOI(5, roundsRunning, ((msgFOV) msg).data);
+		broadcast(msgToUAV);	// to POIs discover if they are under visit
 	}
 
 	@Override
@@ -70,11 +86,7 @@ public class POInode extends Node implements Comparable<POInode> {
 			init = true;
 			System.out.println("[POI " + this.ID + "] " + "dist to GS = " + this.distToGS);
 		}
-		
-//		if (this.ID % 2 != 0){
-//		 this.ID = this.ID * 2;	
-//		}
-		
+			
 	}
 
 	@Override
@@ -90,9 +102,7 @@ public class POInode extends Node implements Comparable<POInode> {
 	@Override
 	public void preStep() {
 		roundsNeglected++;
-		
-	
-		
+		roundsRunning++;		
 	}
 
 	@Override
@@ -117,12 +127,6 @@ public class POInode extends Node implements Comparable<POInode> {
 		
 		this.setColor(Color.BLACK);
 
-		//default
-//		this.drawingSizeInPixels = 10 ; // (int) (fraction * pt.getZoomFactor() * this.defaultDrawingSizeInPixels);
-//		
-//		String text = this.ID + "|" + Integer.toString(roundsNeglected);// + "|" + msgSentInThisRound;
-//		super.drawNodeAsDiskWithText(g, pt, highlight, text, 10, Color.YELLOW);
-		
 		//debug
 		this.drawingSizeInPixels = 15 ; // (int) (fraction * pt.getZoomFactor() * this.defaultDrawingSizeInPixels);
 		

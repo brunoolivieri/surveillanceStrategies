@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TreeSet;
 
-
+import projects.UAV_Surveillance.nodes.messages.msgFromPOI;
 //import projects.UAV_Surveillance.TSP_BB_mono.TSP;
 //import projects.UAV_Surveillance.TSPtools.TabuSearch;
 import projects.UAV_Surveillance.nodes.messages.msgPOIordered;
@@ -26,6 +26,7 @@ import sinalgo.gui.transformation.PositionTransformation;
 import sinalgo.io.eps.EPSOutputPrintStream;
 import sinalgo.nodes.Node;
 import sinalgo.nodes.messages.Inbox;
+import sinalgo.nodes.messages.Message;
 import sinalgo.runtime.Runtime;
 import sinalgo.tools.logging.Logging;
 
@@ -53,6 +54,15 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	public double distToGS = 0;
 	public boolean init =false;
 	
+	public int roundsRunning = 0;	
+	
+	public int globalAvgDelay = 0 ;
+
+	
+	
+	private ArrayList<msgFromPOI> poiMessages = new ArrayList<msgFromPOI>();
+
+	
 	public void reset() {
 	
 	}
@@ -64,6 +74,22 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	@Override
 	public void handleMessages(Inbox inbox) {
 		
+		//@Oli: msg with path arrived.
+		while(inbox.hasNext()) {
+			Message msg = inbox.next();
+
+			// saving msg from POIs
+			if(msg instanceof msgFromPOI) {		
+				msgFromPOI dataReceived = (msgFromPOI)msg;
+				if (dataReceived.recipient == this.ID) {  // because POI sends a broadcast
+					poiMessages.add((msgFromPOI) dataReceived.clone());
+					
+					int msgDelay = 	roundsRunning - dataReceived.timeStamp;
+					globalAvgDelay = (globalAvgDelay + msgDelay) / 2;
+				}				
+			}
+		}
+					
 	}
 
 	@Override
@@ -243,39 +269,15 @@ public class GSnode extends Node implements Comparable<GSnode> {
 		p = listOfPOIs.get(lastPoi);
 		TSPlistOfPOIs.add(p);
 		
-//		System.out.print("[GS " + this.ID + "]\t");
-//		System.out.print("TSPlistOfPOIs.size= " + TSPlistOfPOIs.size() + "\t");
-//		System.out.print("p= " + p.ID + "\t");
-//		System.out.print("listOfPOIs.size= " + listOfPOIs.size() + "\t");
-//		System.out.print("idx= " + idx + "\t");
-//		System.out.print("VS_bestTour.size= " + VS_bestTour.length + "\n");
-//	
-//		System.out.print("\nlistOfPois " + listOfPOIs.size() + " => ");
-//		for (int i =0 ; i< listOfPOIs.size(); i++){
-//			System.out.print( (listOfPOIs.get(i).ID) + " -> ");
-//		}
-//		System.out.println("\n");
-		
 		while (TSPlistOfPOIs.size() < listOfPOIs.size()){
 			for (int i=0; i< listOfPOIs.size() ;i++){	// listOfPois instead VS_bestTour because there may have garbage inside. 		
 			
-//				System.out.print("[GS " + this.ID + "]\t");
-//				System.out.print(" comparando i+idx " + (i +idx) + "\t");
-//				System.out.print(" com " + TSPlistOfPOIs.get(lastPoi).ID  + "\t");
-//				System.out.print("\n");
-
 				if ( ( i + idx) ==  TSPlistOfPOIs.get(lastPoi).ID ){
-//					System.out.println("\nENTROU NO IF ");	// por algum motivo parou de funcionar aqu... erro no ID?
 					
 					for (int j = 0; j < (listOfPOIs.size()); j++) {		
 						p = listOfPOIs.get(j);		
-//						System.out.print(" comparando poi " + p.ID + " com " +  ( VS_bestTour[i].getValue() + idx )     + "\n");
-
 						if ( p.ID == ( VS_bestTour[i].getValue() + idx )    ){									
 							TSPlistOfPOIs.add(p);
-//							System.out.println("adicionou " + p.ID);					
-							//lastPoi++;
-							//break;
 						}							
 					}
 					System.out.println();
@@ -313,6 +315,8 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	
 	@Override
 	public void preStep() {
+		roundsRunning++;		
+
 		
 		//@Oli: we can not do it on Init() because does not works... BUG?
 		if (!mappedPOIs){
@@ -324,22 +328,13 @@ public class GSnode extends Node implements Comparable<GSnode> {
 					setOfUAVs.add((UAVnode) n);
 				}
 				if (n instanceof GSnode) {
-					// We pass thought GS on V2V schenarios do leave information
-//					POInode phantom = new POInode();
-//					phantom.setPosition(n.getPosition());
-//					phantom.amIphantom = true;
-//					listOfPOIs.add((POInode) phantom);
-				}
-				
-				
-				
+					// bellow
+				}		
 			}					
 			// if (V2V instead of V2I) // so, UAVs need to go to GS to return data
 			POInode gsPOI = new POInode();
 			gsPOI.setPosition(this.getPosition());
 			listOfPOIs.add((POInode) gsPOI);
-
-			
 			
 			mappedPOIs = true;			
 			
@@ -352,9 +347,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				System.out.print(n.ID + " - ");
 			}
 			System.out.println("\n");
-
-			
-		}	
+	}	
 		
 		//Sent once to inform UAVs the visit order... Naive, TSP & Anti-TSP cases
 		// Random Safe Strategy does not wait for this step, because does not have an order
@@ -586,13 +579,15 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	 */
 	public void draw(Graphics g, PositionTransformation pt, boolean highlight) {
 		
-		this.setColor(Color.BLACK);
+		this.setColor(Color.DARK_GRAY);
 
 		this.drawingSizeInPixels = 10 ; 
 
 		//super.drawNodeAsDiskWithText(g, pt, highlight, "GS", 10, Color.RED);
 		
-		String text = Integer.toString(this.ID) + ":GS"; 
+		//String text = Integer.toString(this.ID) + ":GS"; 
+		String text = Integer.toString(this.ID) + "|" + poiMessages.size() ; 
+		
 		super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
 	}
 	

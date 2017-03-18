@@ -46,6 +46,7 @@ import java.util.TreeSet;
 
 import javax.swing.JOptionPane;
 
+import projects.UAV_Surveillance.nodes.nodeImplementations.GSnode;
 import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
 import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode;
 import projects.sample1.nodes.nodeImplementations.S1Node;
@@ -194,6 +195,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		int maxDataInPois = Integer.MIN_VALUE;
 		int minDataInPois = Integer.MAX_VALUE;
 		int tmp = 0;
+		int globalAvgDelay = 0;
 		
 		for(Node n : Runtime.nodes) {			
 			if (n instanceof UAVnode){
@@ -213,6 +215,11 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		    	}
 		    	
 			}
+			
+			if (n instanceof GSnode){
+				globalAvgDelay = ((GSnode) n).globalAvgDelay;
+			}
+			
 		}
 		
 		
@@ -221,7 +228,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		double surveillanceTax = 1 - ((double)(totalCost)/(ctRounds*ctPOI));
 		surveillanceTax = surveillanceTax*100;
 			
-		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData";
+		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay";
 			
 		double V2Vrange = Configuration.getDoubleParameter("GeometricNodeCollection/rMax");
 		
@@ -233,7 +240,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		String logline = visitsStrategy + ";" + ctPOI + ";" +  ctUAV + ";" + 
 				String.format("%.5f", surveillanceTax) + "%;" + (int)V2Vrange + 
 				";" + ctRounds + ";" + sinalgo.configuration.Configuration.dimX + ";" + 
-				(simumationTime/1000) +"segs;" + nThreads + "_TSP_thread;" + maxDataInPois + ";" + minDataInPois ;
+				(simumationTime/1000) +"segs;" + nThreads + "_TSP_thread;" + maxDataInPois + ";" + minDataInPois + ";" + globalAvgDelay;
 		
 		
 		System.out.println(header);
@@ -251,6 +258,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 				Tools.appendToOutput("\nResult = " + String.format("%.3f", surveillanceTax) +"%");
 				Tools.appendToOutput("\nmaxData = " + maxDataInPois);
 				Tools.appendToOutput("\nminData = " + minDataInPois);
+				Tools.appendToOutput("\nglobalAvgDelay = " + globalAvgDelay);	
 			}
 			else{
 				JOptionPane.showMessageDialog(((GUIRuntime)Main.getRuntime()).getGUI(), "There is no node.");
