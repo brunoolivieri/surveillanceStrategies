@@ -4,6 +4,10 @@ package projects.UAV_Surveillance.nodes.messages;
 import sinalgo.nodes.messages.Message;
 
 
+import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
+import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode;
+
+
 public class msgFromPOI  extends Message {
 
 	public int data = 0;
