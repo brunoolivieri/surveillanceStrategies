@@ -41,7 +41,7 @@ for ((i=1; i<=LOOPS; i++)); do
 			echo " "
 
 			echo "dispatching first test do background..."  
-			N_UAV= $(echo "$N_POI / 2" | bc -l )  		
+			N_UAV=$(echo "$N_POI / 2" | bc -l )  		
 			echo "" 
 			echo "     despachando POI= $N_POI e UAV= $N_UAV "
 			echo ""
@@ -62,7 +62,7 @@ for ((i=1; i<=LOOPS; i++)); do
 			nohup java -cp binaries/bin/. sinalgo.Run -$V2X -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:$SNAME R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery &
 			
 			echo "dispatching fourth test do run here..."  
-			N_UAV= $(echo "$N_POI /20" | bc -l )  
+			N_UAV=$(echo "$N_POI /20" | bc -l )  
 			echo "" 
 			echo "     despachando POI= $N_POI e UAV= $N_UAV "
 			echo ""
