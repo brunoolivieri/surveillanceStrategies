@@ -59,7 +59,7 @@
 		<javaCmd value="java" />
 
 		<!--Maximum memory the Java VM is allowed to use (in MB)-->
-		<javaVMmaxMem value="8192" />
+		<javaVMmaxMem value="2048" />
 
 		<!--***********************************************************************-->
 		<!--  Random number generators                                             -->

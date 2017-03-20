@@ -1,0 +1,138 @@
+Sun Mar 19 15:38:22 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 15:39:39 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 15:41:40 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 15:44:13 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 15:47:31 BRT 2017
+nPOI = 100  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 16:05:59 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 16:06:58 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 16:08:36 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 16:11:00 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 16:14:49 BRT 2017
+nPOI = 100  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 17:00:45 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:01:21 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:02:42 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:05:08 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:08:22 BRT 2017
+nPOI = 100  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:13:38 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 17:16:05 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 17:21:53 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 17:22:22 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 17:24:00 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:25:03 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:27:17 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:28:49 BRT 2017
+nPOI = 100  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 17:31:38 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:40:38 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:41:38 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:43:44 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:47:07 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:47:46 BRT 2017
+nPOI = 100  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 17:55:27 BRT 2017
+nPOI = 100  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 19:21:34 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 19:22:39 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 19:24:44 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 19:28:44 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 19:33:25 BRT 2017
+nPOI = 100  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 19:39:42 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 19:40:42 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 19:42:50 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 20:28:36 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 20:29:37 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 20:31:55 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 20:35:18 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 1
+Sun Mar 19 20:40:58 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 20:42:01 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 20:44:04 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 20:47:29 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 2
+Sun Mar 19 20:52:19 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 3
+Sun Mar 19 20:53:23 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 3
+Sun Mar 19 20:55:29 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 3
+Sun Mar 19 20:59:11 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 3
+Sun Mar 19 21:04:55 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 4
+Sun Mar 19 21:06:00 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 4
+Sun Mar 19 21:08:16 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 4
+Sun Mar 19 21:11:57 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 4
+Sun Mar 19 21:16:35 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 5
+Sun Mar 19 21:17:34 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 5
+Sun Mar 19 21:19:39 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 5
+Sun Mar 19 21:23:03 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 5
+Sun Mar 19 21:28:09 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 6
+Sun Mar 19 21:29:06 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 6
+Sun Mar 19 21:31:13 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 6
+Sun Mar 19 21:34:49 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 6
+Sun Mar 19 21:39:33 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 7
+Sun Mar 19 21:40:33 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 7
+Sun Mar 19 21:42:48 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 7
+Sun Mar 19 21:47:20 BRT 2017
+nPOI = 80  strat = KingstonImprovedOverNSNMobility  loop = 7
+Sun Mar 19 21:52:36 BRT 2017
+nPOI = 20  strat = KingstonImprovedOverNSNMobility  loop = 8
+Sun Mar 19 21:53:37 BRT 2017
+nPOI = 40  strat = KingstonImprovedOverNSNMobility  loop = 8
+Sun Mar 19 21:55:54 BRT 2017
+nPOI = 60  strat = KingstonImprovedOverNSNMobility  loop = 8
