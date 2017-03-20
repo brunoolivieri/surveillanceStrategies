@@ -64,6 +64,8 @@ public class Global {
 	 */
 	public static boolean isV2V2GS = true;
 	public static boolean isV2I2GS = false;
+	public static boolean shouldSavePoiDistribution = false;
+	public static String distributionFile = "";
 
 	
 	

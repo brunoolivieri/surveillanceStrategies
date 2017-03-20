@@ -39,6 +39,7 @@ package sinalgo.runtime;
 
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Enumeration;
@@ -162,8 +163,9 @@ public abstract class Runtime{
 	
 	/**
 	 * Called exactly once just before the <code>run</code> is called the first time.
+	 * @throws IOException 
 	 */
-	public void preRun() {
+	public void preRun() throws IOException {
 		// call the preRun() method of the CustomGlobal, if there was a project specified.
 		Global.customGlobal.preRun();
 	}
@@ -228,6 +230,26 @@ public abstract class Runtime{
 
 			}
 		}
+		// @oli
+		// setting to save some POI distribution to a file to reuse
+		for(int i = 0; i < numberOfParameters; i++) { 
+			if(args[i].equals("-SAVEDISTRIBUTION")){
+				if(i+1 >= args.length) {
+					Main.fatalError("Missing parameter: The command-line flag '-SAVEDISTRIBUTION' must " +
+					"be followed by the filename to save POI distribution"); 
+				}
+				try {
+					Global.distributionFile = (args[i+1]);
+					Global.shouldSavePoiDistribution = true;
+					i++; // don't have to look at args[i+1] anymore
+				} catch(NumberFormatException e) {
+					Main.fatalError("Cannot convert the number of rounds to execute (" + args[i+1] + ") " +
+					                "to an integer: The '-SAVEDISTRIBUTION' flag must be followed by a filename.\n " + e);
+				}
+			}
+		}
+		
+		
 		
 		// Original one
 		for(int i = 0; i < numberOfParameters; i++) { 
@@ -402,6 +424,9 @@ public abstract class Runtime{
 				// UAV deliver msg as a direct relay
 			}
 			else if(args[i].equals("-V2V")){
+				//  UAV deliver msg to near GS or left UAV on KIMP
+			}
+			else if(args[i].equals("-SAVEDISTRIBUTION")){
 				//  UAV deliver msg to near GS or left UAV on KIMP
 			}
 			else if(args[i].startsWith("-")){

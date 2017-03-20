@@ -4,6 +4,7 @@ package projects.UAV_Surveillance.nodes.nodeImplementations;
 import java.awt.Color;
 
 import java.awt.Graphics;
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.TreeSet;
 
@@ -21,7 +22,7 @@ import projects.UAV_Surveillance.nodes.messages.msgFromPOI;
 
 
 
-public class POInode extends Node implements Comparable<POInode> {
+public class POInode extends Node implements Comparable<POInode>, Serializable {
 
 	//private static int maxNeighbors = 0; // global field containing the max number of neighbors any node ever had
 	

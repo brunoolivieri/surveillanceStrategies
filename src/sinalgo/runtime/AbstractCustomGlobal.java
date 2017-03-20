@@ -38,6 +38,7 @@ package sinalgo.runtime;
 
 
 import java.awt.Graphics;
+import java.io.IOException;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -186,8 +187,9 @@ public abstract class AbstractCustomGlobal {
 	 * before the simulation starts, e.g. initialize some datastructures.
 	 * <p>
 	 * By default, this method does nothing.
+	 * @throws IOException 
 	 */
-	public void preRun() {
+	public void preRun() throws IOException {
 		// No implementation here! Add your code to the CustomGlobal.java 
 		// file in your project. 
 	}

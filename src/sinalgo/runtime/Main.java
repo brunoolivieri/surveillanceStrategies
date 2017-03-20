@@ -38,6 +38,7 @@ package sinalgo.runtime;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.lang.reflect.Constructor;
@@ -73,8 +74,9 @@ public class Main{
 	 * This method is the one to start with. It starts the whole simulation.
 	 *
 	 * @param args The parameters to start the simulation with.
+	 * @throws IOException 
 	 */
-	public static void main(String[] args){		
+	public static void main(String[] args) throws IOException{		
 		cmdLineArgs = args; // store for later use
 		Run.addJDOMtoClassPath(); // add the jdom library to the classpath, if it's not already there.
 		Main main = new Main();
@@ -82,7 +84,7 @@ public class Main{
 	}
 	
 	//just an internal method to not have it static...
-	private void go(String[] args){
+	private void go(String[] args) throws IOException{
 		UncaughtExceptionHandler mUEH = new MyUncaughtExceptionHandler();
 		Thread.setDefaultUncaughtExceptionHandler(mUEH);
 		

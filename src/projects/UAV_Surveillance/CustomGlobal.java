@@ -40,6 +40,7 @@ import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.TreeSet;
@@ -147,8 +148,28 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	}
 	
 	
-	public void preRun() {
+	public void preRun() throws IOException {
 		// A method called at startup, before the first round is executed.
+		// Lets test save distribution
+		
+		if (Global.shouldSavePoiDistribution){
+			
+			ArrayList<POInode> listOfPOIs = new ArrayList<POInode>();
+			for(Node n : Runtime.nodes) {	
+				if (n instanceof POInode){
+					listOfPOIs.add((POInode) n);
+				}
+			}	
+			
+			// chama a classe e manda!
+			sinalgo.runtime.GlobalSaveListDistribution saver = new sinalgo.runtime.GlobalSaveListDistribution(Global.distributionFile, listOfPOIs);
+			saver.run();
+			
+		}
+		
+	
+		
+		
 				
 	}
 	
