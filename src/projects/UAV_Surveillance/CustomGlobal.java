@@ -43,6 +43,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.TreeSet;
 
 import javax.swing.JOptionPane;
@@ -59,6 +60,7 @@ import sinalgo.nodes.edges.Edge;
 import sinalgo.runtime.AbstractCustomGlobal;
 import sinalgo.runtime.GUIRuntime;
 import sinalgo.runtime.Global;
+import sinalgo.runtime.GlobalWriteAndLoadPositions;
 import sinalgo.runtime.Main;
 import sinalgo.runtime.Runtime;
 import sinalgo.runtime.AbstractCustomGlobal.CustomButton;
@@ -163,9 +165,9 @@ public class CustomGlobal extends AbstractCustomGlobal{
 			}
 			
 			// chama a classe e manda!
-			sinalgo.runtime.GlobalSaveListDistribution saver = new sinalgo.runtime.GlobalSaveListDistribution(Global.distributionFolder,listOfPOIs);
-			saver.run();
-
+			sinalgo.runtime.GlobalWriteAndLoadPositions saver = new sinalgo.runtime.GlobalWriteAndLoadPositions();
+			//saver.write(Global.distributionFolder,listOfPOIs);
+			GlobalWriteAndLoadPositions.savePatternJson(listOfPOIs, Global.distributionFolder);
 		}
 		
 		// lets load a distribution IFF asked to
@@ -173,8 +175,13 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		if (Global.shouldLoadPoiDistribution){
 
 			Global.lastPOIloaded = 0;
-			sinalgo.runtime.GlobalLoadListDistribution loader = new sinalgo.runtime.GlobalLoadListDistribution(Global.distributionFile);
-			Global.listOfLoadedPOIs = loader.run();
+			sinalgo.runtime.GlobalWriteAndLoadPositions loader = new sinalgo.runtime.GlobalWriteAndLoadPositions();
+			try {
+				Global.listOfLoadedPOIs = loader.load(Global.distributionFile);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 
 		}

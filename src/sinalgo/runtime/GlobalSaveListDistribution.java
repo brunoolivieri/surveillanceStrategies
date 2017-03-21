@@ -6,21 +6,24 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
 
 public class GlobalSaveListDistribution {
 	
 	String folder = "";
-	ArrayList<POInode> POI = new ArrayList<POInode>();
+	//ArrayList<POInode> POI = new ArrayList<POInode>();
+	List<POInode> POIlist = new ArrayList<POInode>();
 
 	
-	public GlobalSaveListDistribution(String folder, ArrayList<POInode> POIlist) {
+	public GlobalSaveListDistribution(String folder, List<POInode> POIlist) {
 		
 		this.folder = folder;
-		this.POI = (ArrayList<POInode>) POIlist;
+		this.POIlist = (List<POInode>) POIlist;
 			
 	}
 	
@@ -37,10 +40,11 @@ public class GlobalSaveListDistribution {
 
 		
 		ObjectOutputStream oos = new ObjectOutputStream(fout);		
-		oos.writeObject(POI);
+		oos.writeObject(POIlist);
+		oos.close();
 		fout.close();
 		
-		POI.forEach((a)->System.out.print("POI " + a.ID + " @ (" + a.getPosition().xCoord +" , " + a.getPosition().yCoord + ") | " ));
+		POIlist.forEach((a)->System.out.print("POI " + a.ID + " @ (" + a.getPosition().xCoord +" , " + a.getPosition().yCoord + ") | " ));
 		
 		System.out.println("\n");
 

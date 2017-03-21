@@ -32,3 +32,10 @@ projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;
 projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;10;2;0,00000%;10;1;3000;1segs;4_TSP_thread;1;1;0
 projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;10;2;0,00000%;10;1;3000;1segs;4_TSP_thread;1;1;0
 projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;10;2;0,00000%;10;1;3000;1segs;4_TSP_thread;1;1;0
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;10;2;0,00000%;10;1;3000;1segs;4_TSP_thread;1;1;0
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;10;2;0,00000%;10;1;3000;1segs;4_TSP_thread;1;1;0
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;10;2;0,00000%;10;1;3000;1segs;4_TSP_thread;1;1;0
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;10;2;0,00000%;10;1;3000;4segs;4_TSP_thread;1;1;0
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;10;2;0,00000%;10;1;3000;3segs;4_TSP_thread;1;1;0
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;10;2;0,00000%;10;1;3000;2segs;4_TSP_thread;1;1;0
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;10;2;0,00000%;10;1;3000;12segs;4_TSP_thread;1;1;0

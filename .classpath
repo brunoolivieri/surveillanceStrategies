@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="chocosolver/choco-solver-3.3.3-j7-sources.jar"/>
 	<classpathentry kind="lib" path="chocosolver/choco-solver-3.3.3-j7-with-dependencies.jar"/>
 	<classpathentry kind="lib" path="chocosolver/choco-solver-3.3.3-j7.jar"/>
+	<classpathentry exported="true" kind="lib" path="chocosolver/gson-2.6.2.jar"/>
 	<classpathentry kind="output" path="binaries/bin"/>
 </classpath>
