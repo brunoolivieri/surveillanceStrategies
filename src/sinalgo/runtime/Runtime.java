@@ -230,16 +230,17 @@ public abstract class Runtime{
 
 			}
 		}
+		
 		// @oli
-		// setting to save some POI distribution to a file to reuse
+		// setting to save some POI distribution to a FOLDER to reuse
 		for(int i = 0; i < numberOfParameters; i++) { 
-			if(args[i].equals("-SAVEDISTRIBUTION")){
+			if(args[i].equals("-SAVEFOLDER")){
 				if(i+1 >= args.length) {
 					Main.fatalError("Missing parameter: The command-line flag '-SAVEDISTRIBUTION' must " +
 					"be followed by the filename to save POI distribution"); 
 				}
 				try {
-					Global.distributionFile = (args[i+1]);
+					Global.distributionFolder = (args[i+1]);
 					Global.shouldSavePoiDistribution = true;
 					i++; // don't have to look at args[i+1] anymore
 				} catch(NumberFormatException e) {
@@ -249,6 +250,24 @@ public abstract class Runtime{
 			}
 		}
 		
+		// @oli
+		// setting to save some POI distribution to a FOLDER to reuse
+		for(int i = 0; i < numberOfParameters; i++) { 
+			if(args[i].equals("-LOADFILE")){
+				if(i+1 >= args.length) {
+					Main.fatalError("Missing parameter: The command-line flag '-SAVEDISTRIBUTION' must " +
+					"be followed by the filename to save POI distribution"); 
+				}
+				try {
+					Global.distributionFile = (args[i+1]);
+					Global.shouldLoadPoiDistribution = true;
+					i++; // don't have to look at args[i+1] anymore
+				} catch(NumberFormatException e) {
+					Main.fatalError("Cannot convert the number of rounds to execute (" + args[i+1] + ") " +
+					                "to an integer: The '-LOADFILE' flag must be followed by a filename.\n " + e);
+				}
+			}
+		}
 		
 		
 		// Original one
@@ -426,7 +445,10 @@ public abstract class Runtime{
 			else if(args[i].equals("-V2V")){
 				//  UAV deliver msg to near GS or left UAV on KIMP
 			}
-			else if(args[i].equals("-SAVEDISTRIBUTION")){
+			else if(args[i].equals("-SAVEFOLDER")){
+				//  UAV deliver msg to near GS or left UAV on KIMP
+			}
+			else if(args[i].equals("-LOADFILE")){
 				//  UAV deliver msg to near GS or left UAV on KIMP
 			}
 			else if(args[i].startsWith("-")){

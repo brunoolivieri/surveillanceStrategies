@@ -38,9 +38,11 @@ package sinalgo.runtime;
 
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
 
+import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
 import sinalgo.configuration.Configuration;
 import sinalgo.gui.ProjectSelector;
 import sinalgo.models.MessageTransmissionModel;
@@ -62,10 +64,20 @@ public class Global {
 	 * @Oli
 	 * Used to delivery msg from POI to GS by straight UAV radio (V2I) or passing through each left UAVs (V2V)
 	 */
+	//@oli
+	
+	//comm stuff
 	public static boolean isV2V2GS = true;
 	public static boolean isV2I2GS = false;
+	
+	//save and load POI distribution stuff
 	public static boolean shouldSavePoiDistribution = false;
+	public static boolean shouldLoadPoiDistribution = false;
 	public static String distributionFile = "";
+	public static String distributionFolder = "";
+	public static int lastPOIloaded = 0;
+	public static ArrayList<POInode> listOfLoadedPOIs = new ArrayList<POInode>();
+
 
 	
 	

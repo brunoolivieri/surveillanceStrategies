@@ -281,7 +281,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 							TSPlistOfPOIs.add(p);
 						}							
 					}
-					System.out.println();
+					//System.out.println();
 					lastPoi ++;							
 					break;
 				}

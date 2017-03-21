@@ -150,26 +150,34 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	
 	public void preRun() throws IOException {
 		// A method called at startup, before the first round is executed.
-		// Lets test save distribution
 		
+		// Lets save distribution IFF asked to
 		if (Global.shouldSavePoiDistribution){
-			
+
 			ArrayList<POInode> listOfPOIs = new ArrayList<POInode>();
 			for(Node n : Runtime.nodes) {	
 				if (n instanceof POInode){
 					listOfPOIs.add((POInode) n);
+					
 				}
-			}	
+			}
 			
 			// chama a classe e manda!
-			sinalgo.runtime.GlobalSaveListDistribution saver = new sinalgo.runtime.GlobalSaveListDistribution(Global.distributionFile, listOfPOIs);
+			sinalgo.runtime.GlobalSaveListDistribution saver = new sinalgo.runtime.GlobalSaveListDistribution(Global.distributionFolder,listOfPOIs);
 			saver.run();
-			
+
 		}
 		
-	
+		// lets load a distribution IFF asked to
+		// criar uma classe que faça tudo e retorne a lista para tacarmos nas variáveis (iterador e lista lida)
+		if (Global.shouldLoadPoiDistribution){
+
+			Global.lastPOIloaded = 0;
+			sinalgo.runtime.GlobalLoadListDistribution loader = new sinalgo.runtime.GlobalLoadListDistribution(Global.distributionFile);
+			Global.listOfLoadedPOIs = loader.run();
 		
-		
+
+		}
 				
 	}
 	
