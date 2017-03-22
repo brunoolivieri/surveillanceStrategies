@@ -36,11 +36,13 @@
 */
 package sinalgo.nodes;
 
+import java.io.Serializable;
+
 /**
  * A simple vector implementation that describes the position of the nodes 
  * on the deployment area.  
  */
-public class Position {
+public class Position implements Serializable{
 
 	/**
 	 * A tiny amount that may be added or substracted from a node's position 

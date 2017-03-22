@@ -153,10 +153,14 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	public void preRun() throws IOException {
 		// A method called at startup, before the first round is executed.
 		
+		
+	
+		
+		
 		// Lets save distribution IFF asked to
 		if (Global.shouldSavePoiDistribution){
 
-			ArrayList<POInode> listOfPOIs = new ArrayList<POInode>();
+			List<POInode> listOfPOIs = new ArrayList<POInode>();
 			for(Node n : Runtime.nodes) {	
 				if (n instanceof POInode){
 					listOfPOIs.add((POInode) n);
@@ -166,22 +170,26 @@ public class CustomGlobal extends AbstractCustomGlobal{
 			
 			// chama a classe e manda!
 			sinalgo.runtime.GlobalWriteAndLoadPositions saver = new sinalgo.runtime.GlobalWriteAndLoadPositions();
-			//saver.write(Global.distributionFolder,listOfPOIs);
-			GlobalWriteAndLoadPositions.savePatternJson(listOfPOIs, Global.distributionFolder);
+			saver.write(Global.distributionFolder,listOfPOIs);
+			//GlobalWriteAndLoadPositions.savePatternJson(listOfPOIs, Global.distributionFolder);
 		}
 		
 		// lets load a distribution IFF asked to
 		// criar uma classe que faça tudo e retorne a lista para tacarmos nas variáveis (iterador e lista lida)
 		if (Global.shouldLoadPoiDistribution){
 
+			
+			
+			// EVERYTHING REGADING READING WAS MIGRATED TO RUNTIME.JAVA just after parameter reading.
+			
 			Global.lastPOIloaded = 0;
-			sinalgo.runtime.GlobalWriteAndLoadPositions loader = new sinalgo.runtime.GlobalWriteAndLoadPositions();
-			try {
-				Global.listOfLoadedPOIs = loader.load(Global.distributionFile);
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			sinalgo.runtime.GlobalWriteAndLoadPositions loader = new sinalgo.runtime.GlobalWriteAndLoadPositions();
+//			try {
+//				Global.listOfLoadedPOIs = loader.load(Global.distributionFile);
+//			} catch (ClassNotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		
 
 		}

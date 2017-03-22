@@ -39,6 +39,7 @@ package sinalgo.tools;
 
 import javax.swing.JOptionPane;
 
+import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.configuration.WrongConfigurationException;
 import sinalgo.gui.GUI;
 import sinalgo.gui.GraphPanel;
@@ -432,11 +433,12 @@ public class Tools {
 	 * @param distributionModelName Name of the distribution model (as on the cmd-line with the -gen flag)
 	 * @param strings optional strings to define the remaining models (as on the cmd-line with the -gen flag)
 	 * each model is in a new string, the optional model parameters in parentheses as well.
+	 * @throws CorruptConfigurationEntryException 
 	 */
 	public static void generateNodes(int numNodes, 
 	                                 String nodeTypeName, 
 	                                 String distributionModelName, 
-	                                 String...strings) {
+	                                 String...strings) throws CorruptConfigurationEntryException {
 		
 		Vector<Tuple<ModelType, Class<?>>> models;
 		String[] modelParams = new String[4]; // the optional parameter-strings to the optional models.

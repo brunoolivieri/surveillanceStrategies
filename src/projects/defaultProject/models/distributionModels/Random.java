@@ -37,6 +37,7 @@
 package projects.defaultProject.models.distributionModels;
 
 import sinalgo.configuration.Configuration;
+import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.models.DistributionModel;
 import sinalgo.nodes.Position;
 import sinalgo.runtime.Main;
@@ -53,7 +54,7 @@ public class Random extends DistributionModel {
 	/* (non-Javadoc)
 	 * @see distributionModels.DistributionModelInterface#getOnePosition()
 	 */
-	public Position getNextPosition() {
+	public Position getNextPosition() throws CorruptConfigurationEntryException {
 		double randomPosX = rand.nextDouble() * Configuration.dimX;
 		double randomPosY = rand.nextDouble() * Configuration.dimY;
 		double randomPosZ = 0;

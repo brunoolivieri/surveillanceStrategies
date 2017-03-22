@@ -47,6 +47,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
+import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.gui.GuiHelper;
 
 /**
@@ -177,7 +178,12 @@ public class PercentualProgressDialog extends JDialog{
 	
 	private class UpdateThread extends Thread{
 		public void run(){
-			pBU.performMethod();
+			try {
+				pBU.performMethod();
+			} catch (CorruptConfigurationEntryException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }

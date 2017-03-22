@@ -46,6 +46,7 @@ import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
 import sinalgo.configuration.Configuration;
 import sinalgo.gui.ProjectSelector;
 import sinalgo.models.MessageTransmissionModel;
+import sinalgo.nodes.Position;
 import sinalgo.runtime.AbstractCustomGlobal.GlobalMethod;
 import sinalgo.tools.Tools;
 import sinalgo.tools.logging.Logging;
@@ -77,6 +78,9 @@ public class Global {
 	public static String distributionFolder = "";
 	public static int lastPOIloaded = 0;
 	public static ArrayList<POInode> listOfLoadedPOIs = new ArrayList<POInode>();
+	
+	// array of used positions and PoiDistributionNN NotNearby POI to POI
+	public static ArrayList<Position> insertedPositions = new ArrayList<Position>();
 
 
 	

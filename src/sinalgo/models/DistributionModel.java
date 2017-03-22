@@ -36,6 +36,7 @@
 */
 package sinalgo.models;
 
+import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.nodes.Position;
 
 /**
@@ -78,8 +79,9 @@ public abstract class DistributionModel extends Model {
 	 * You may precalculate all positions and store them in a datastructure. Then, return one after the other
 	 * of these positions when this method is called.  
 	 * @return The next position where a node is placed.
+	 * @throws CorruptConfigurationEntryException 
 	 */
-	public abstract Position getNextPosition(); 
+	public abstract Position getNextPosition() throws CorruptConfigurationEntryException; 
 
 	/* (non-Javadoc)
 	 * @see models.Model#getType()

@@ -13,6 +13,7 @@ import sinalgo.configuration.WrongConfigurationException;
 import sinalgo.gui.transformation.PositionTransformation;
 import sinalgo.io.eps.EPSOutputPrintStream;
 import sinalgo.nodes.Node;
+import sinalgo.nodes.Position;
 import sinalgo.nodes.edges.Edge;
 import sinalgo.nodes.messages.Inbox;
 import sinalgo.runtime.Runtime;
@@ -42,6 +43,11 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 	
 	// To mark visits
 	private msgFromPOI msgToUAV;
+	
+	
+	// duplicate fields because it is Serializable but NODE doesnt. These field belong to NODE.
+	public int myID;
+	public Position myPos;
 	
 	/**
 	 * Reset the list of neighbors of this node.
@@ -80,6 +86,11 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 	public void init() {
 		// calcs distance to GS in order to be sorted
 		if (!init){
+			
+			myID = this.ID;
+			myPos = this.getPosition();
+			
+			
 			distToGS = (int) Math.sqrt(
 		            (this.getPosition().xCoord - 0) *  (this.getPosition().xCoord - 0) + 
 		            (this.getPosition().yCoord - 0) *  (this.getPosition().yCoord - 0)

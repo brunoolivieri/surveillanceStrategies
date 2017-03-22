@@ -262,6 +262,26 @@ public abstract class Runtime{
 					Global.distributionFile = (args[i+1]);
 					Global.shouldLoadPoiDistribution = true;
 					i++; // don't have to look at args[i+1] anymore
+					
+					
+					// originally on RUNTIME.JAVA but brougth here
+					Global.lastPOIloaded = 0;
+					sinalgo.runtime.GlobalWriteAndLoadPositions loader = new sinalgo.runtime.GlobalWriteAndLoadPositions();
+					try {
+						try {
+							Global.listOfLoadedPOIs = loader.load(Global.distributionFile);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					} catch (ClassNotFoundException f) {
+						// TODO Auto-generated catch block
+						f.printStackTrace();
+					}
+					////////////////////////////////////////
+					
+					
+					
 				} catch(NumberFormatException e) {
 					Main.fatalError("Cannot convert the number of rounds to execute (" + args[i+1] + ") " +
 					                "to an integer: The '-LOADFILE' flag must be followed by a filename.\n " + e);
@@ -685,7 +705,12 @@ public abstract class Runtime{
 			catch(WrongConfigurationException e){
 				Main.fatalError(e);
 			}
-			node.setPosition(nodeDistribution.getNextPosition());
+			try {
+				node.setPosition(nodeDistribution.getNextPosition());
+			} catch (CorruptConfigurationEntryException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 			//@Oli
 			node.nodeCreationOrder = getNodeOrder();

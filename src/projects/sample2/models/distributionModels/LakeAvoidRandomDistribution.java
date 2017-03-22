@@ -38,6 +38,7 @@ package projects.sample2.models.distributionModels;
 
 import projects.defaultProject.models.distributionModels.Random;
 import sinalgo.configuration.Configuration;
+import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.nodes.Position;
 import sinalgo.tools.Tools;
 
@@ -49,7 +50,7 @@ import sinalgo.tools.Tools;
 public class LakeAvoidRandomDistribution extends Random {
 
 	@Override
-	public Position getNextPosition() {
+	public Position getNextPosition() throws CorruptConfigurationEntryException {
 		Position pos = super.getNextPosition();
 		if(Configuration.useMap){
 			// anything else than white is considered an obstacle

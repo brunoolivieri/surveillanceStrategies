@@ -36,6 +36,8 @@
 */
 package sinalgo.gui.dialogs;
 
+import sinalgo.configuration.CorruptConfigurationEntryException;
+
 /**
  * This is the interface for all the users of the ProgressBar.
  */
@@ -48,6 +50,7 @@ public interface ProgressBarUser {
 	/**
 	 * This method gets invoked by the ProgressBar to generate the process shown by the progressbar. Somewhere in this method you should
 	 * execute the progressBar.setPercentage() method to reset the value of the progressbar.
+	 * @throws CorruptConfigurationEntryException 
 	 */
-	public void performMethod();
+	public void performMethod() throws CorruptConfigurationEntryException;
 }

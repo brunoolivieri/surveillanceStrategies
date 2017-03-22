@@ -59,6 +59,7 @@ import javax.swing.event.ChangeListener;
 
 import sinalgo.configuration.AppConfig;
 import sinalgo.configuration.Configuration;
+import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.configuration.WrongConfigurationException;
 import sinalgo.gui.GUI;
 import sinalgo.gui.GuiHelper;
@@ -412,7 +413,7 @@ public class GenerateNodesDialog extends JDialog implements ActionListener, Prog
 	/* (non-Javadoc)
 	 * @see sinalgo.gui.dialogs.ProgressBarUser#performMethod()
 	 */
-	public void performMethod() {
+	public void performMethod() throws CorruptConfigurationEntryException {
 		readSelection();
 		try{
 			DistributionModel distribution = Model.getDistributionModelInstance(distributionSel);
