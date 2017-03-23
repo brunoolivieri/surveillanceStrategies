@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-sed 's/%//g' stats_summary.txt > tmp.txt
+sed 's/%//g' $1 > tmp.txt
 sed 's/segs//g' tmp.txt > tmp2.txt
 sed 's/_TSP_thread//g' tmp2.txt > tmp3.txt
 
@@ -13,4 +13,4 @@ rm tmp.txt
 rm tmp2.txt
 rm tmp3.txt
 
-#python parser.py
+python parser.py
