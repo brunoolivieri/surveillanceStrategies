@@ -19,9 +19,9 @@ public class PoiDistributionFromFile  extends Random{
 	@Override
 	public Position getNextPosition()  {
 		
-		System.out.println("[PoiDistributionFromFile] ENTROOUUUUU");
-		System.out.print("[PoiDistributionFromFile] lastPOIloaded = " + Global.lastPOIloaded  + "  ");
-		System.out.println("[PoiDistributionFromFile] Global.listOfLoadedPOIs.size() = " + Global.listOfLoadedPOIs.size());
+		//System.out.println("[PoiDistributionFromFile] ENTROOUUUUU");
+		//System.out.print("[PoiDistributionFromFile] lastPOIloaded = " + Global.lastPOIloaded  + "  ");
+		//System.out.println("[PoiDistributionFromFile] Global.listOfLoadedPOIs.size() = " + Global.listOfLoadedPOIs.size());
 
 		Position pos = Global.listOfLoadedPOIs.get(Global.lastPOIloaded).myPos;
 		//pos = (Position) Global.listOfLoadedPOIs.get(Global.lastPOIloaded).getPosition();
