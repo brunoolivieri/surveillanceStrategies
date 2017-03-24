@@ -1,0 +1,8 @@
+Fri Mar 24 20:00:58 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 20:00:59 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 20:01:00 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 20:01:01 BRT 2017
+nPOI = 20  strat =   i = 1
