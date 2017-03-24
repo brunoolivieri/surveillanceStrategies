@@ -1,0 +1,166 @@
+You may have an invalid Java version: 25#121-b13. The application requires version 1.5 or more recent.
+> Starting SINALGO in BATCH-Mode for project UAV_Surveillance.
+
+
+  é V2V 
+
+
+
+
+[Global] Trying LOAD a distribution: savedDistributions/3000x1250x20POIs/1.txt ||>  POI 24 @ (743.6628524496073 , 924.7433929202491) | POI 25 @ (1953.0318115393948 , 834.2148412494189) | POI 26 @ (2310.391988230114 , 859.5898383326894) | POI 27 @ (2720.094763626388 , 187.12128291767036) | POI 28 @ (152.92545552296332 , 460.6845826592512) | POI 29 @ (2574.2429605124726 , 769.7424811641655) | POI 30 @ (2210.765930268798 , 824.2183063608629) | POI 31 @ (2690.1024633821476 , 595.3022550738605) | POI 32 @ (2194.7529547697404 , 1092.2305988396288) | POI 33 @ (1704.5920104268598 , 328.4172997871475) | POI 34 @ (243.7220483622361 , 873.0233282955418) | POI 35 @ (993.416312727452 , 1063.317913776735) | POI 36 @ (1736.3523438261454 , 818.8713546320269) | POI 37 @ (2021.5564190204957 , 935.730790367388) | POI 38 @ (2206.902713538114 , 229.9347965554599) | POI 39 @ (278.4677519105885 , 587.8411911296431) | POI 40 @ (1554.7475519985944 , 481.25536021412523) | POI 41 @ (2659.284482193049 , 968.8854572304374) | POI 42 @ (1947.5833113309357 , 380.5105503884798) | POI 43 @ (972.6625925093604 , 924.8732681941146) | 
+
+[UAV 21] dist to zero = 0.0
+[UAV 42] dist to zero = 0.0
+[GS 63] dist to zero = 7.0
+
+----------------------------------------------
+sinalgo.configuration.WrongConfigurationException: Cannot generate class for the distributionModels. The class UAV_Surveillance:PoiDistributionFromFile cannot be found. (projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile)
+----------------------------------------------
+Message:
+Cannot generate class for the distributionModels. The class UAV_Surveillance:PoiDistributionFromFile cannot be found. (projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile)
+----------------------------------------------
+Cause:
+----------------------------------------------
+java.lang.ClassNotFoundException: projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile
+----------------------------------------------
+
+
+sinalgo.runtime.Main.fatalError(Main.java:306)
+sinalgo.runtime.Main.fatalError(Main.java:424)
+sinalgo.runtime.Main.go(Main.java:247)
+sinalgo.runtime.Main.main(Main.java:83)
+
+
+The simulation terminated with exit value 1
+
+Command: java -Xmx2048m -cp binaries/bin:binaries/jdom.jar:binaries/bin:binaries/choco-solver-3.3.3-j7-with-dependencies.jar sinalgo.runtime.Main -V2V -LOADFILE savedDistributions/3000x1250x20POIs/1.txt -project UAV_Surveillance -rounds 10 -refreshRate 3750000 -batch exitAfter=true exitAfter/Rounds=10 exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen 2 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:KingstonImprovedOverNSNMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen 20 UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=UDG I=NoInterference M=NoMobility R=ReliableDelivery 
+You may have an invalid Java version: 25#121-b13. The application requires version 1.5 or more recent.
+> Starting SINALGO in BATCH-Mode for project UAV_Surveillance.
+
+
+  é V2V 
+
+
+
+
+[Global] Trying LOAD a distribution: savedDistributions/3000x1250x20POIs/1.txt ||>  POI 24 @ (743.6628524496073 , 924.7433929202491) | POI 25 @ (1953.0318115393948 , 834.2148412494189) | POI 26 @ (2310.391988230114 , 859.5898383326894) | POI 27 @ (2720.094763626388 , 187.12128291767036) | POI 28 @ (152.92545552296332 , 460.6845826592512) | POI 29 @ (2574.2429605124726 , 769.7424811641655) | POI 30 @ (2210.765930268798 , 824.2183063608629) | POI 31 @ (2690.1024633821476 , 595.3022550738605) | POI 32 @ (2194.7529547697404 , 1092.2305988396288) | POI 33 @ (1704.5920104268598 , 328.4172997871475) | POI 34 @ (243.7220483622361 , 873.0233282955418) | POI 35 @ (993.416312727452 , 1063.317913776735) | POI 36 @ (1736.3523438261454 , 818.8713546320269) | POI 37 @ (2021.5564190204957 , 935.730790367388) | POI 38 @ (2206.902713538114 , 229.9347965554599) | POI 39 @ (278.4677519105885 , 587.8411911296431) | POI 40 @ (1554.7475519985944 , 481.25536021412523) | POI 41 @ (2659.284482193049 , 968.8854572304374) | POI 42 @ (1947.5833113309357 , 380.5105503884798) | POI 43 @ (972.6625925093604 , 924.8732681941146) | 
+
+[UAV 21] dist to zero = 0.0
+[UAV 42] dist to zero = 0.0
+[UAV 63] dist to zero = 0.0
+[UAV 84] dist to zero = 0.0
+[GS 105] dist to zero = 7.0
+
+----------------------------------------------
+sinalgo.configuration.WrongConfigurationException: Cannot generate class for the distributionModels. The class UAV_Surveillance:PoiDistributionFromFile cannot be found. (projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile)
+----------------------------------------------
+Message:
+Cannot generate class for the distributionModels. The class UAV_Surveillance:PoiDistributionFromFile cannot be found. (projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile)
+----------------------------------------------
+Cause:
+----------------------------------------------
+java.lang.ClassNotFoundException: projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile
+----------------------------------------------
+
+
+sinalgo.runtime.Main.fatalError(Main.java:306)
+sinalgo.runtime.Main.fatalError(Main.java:424)
+sinalgo.runtime.Main.go(Main.java:247)
+sinalgo.runtime.Main.main(Main.java:83)
+
+
+The simulation terminated with exit value 1
+
+Command: java -Xmx2048m -cp binaries/bin:binaries/jdom.jar:binaries/bin:binaries/choco-solver-3.3.3-j7-with-dependencies.jar sinalgo.runtime.Main -V2V -LOADFILE savedDistributions/3000x1250x20POIs/1.txt -project UAV_Surveillance -rounds 10 -refreshRate 3750000 -batch exitAfter=true exitAfter/Rounds=10 exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen 4 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:KingstonImprovedOverNSNMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen 20 UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=UDG I=NoInterference M=NoMobility R=ReliableDelivery 
+You may have an invalid Java version: 25#121-b13. The application requires version 1.5 or more recent.
+> Starting SINALGO in BATCH-Mode for project UAV_Surveillance.
+
+
+  é V2V 
+
+
+
+
+[Global] Trying LOAD a distribution: savedDistributions/3000x1250x20POIs/1.txt ||>  POI 24 @ (743.6628524496073 , 924.7433929202491) | POI 25 @ (1953.0318115393948 , 834.2148412494189) | POI 26 @ (2310.391988230114 , 859.5898383326894) | POI 27 @ (2720.094763626388 , 187.12128291767036) | POI 28 @ (152.92545552296332 , 460.6845826592512) | POI 29 @ (2574.2429605124726 , 769.7424811641655) | POI 30 @ (2210.765930268798 , 824.2183063608629) | POI 31 @ (2690.1024633821476 , 595.3022550738605) | POI 32 @ (2194.7529547697404 , 1092.2305988396288) | POI 33 @ (1704.5920104268598 , 328.4172997871475) | POI 34 @ (243.7220483622361 , 873.0233282955418) | POI 35 @ (993.416312727452 , 1063.317913776735) | POI 36 @ (1736.3523438261454 , 818.8713546320269) | POI 37 @ (2021.5564190204957 , 935.730790367388) | POI 38 @ (2206.902713538114 , 229.9347965554599) | POI 39 @ (278.4677519105885 , 587.8411911296431) | POI 40 @ (1554.7475519985944 , 481.25536021412523) | POI 41 @ (2659.284482193049 , 968.8854572304374) | POI 42 @ (1947.5833113309357 , 380.5105503884798) | POI 43 @ (972.6625925093604 , 924.8732681941146) | 
+
+[UAV 21] dist to zero = 0.0
+[UAV 42] dist to zero = 0.0
+[UAV 63] dist to zero = 0.0
+[UAV 84] dist to zero = 0.0
+[UAV 105] dist to zero = 0.0
+[UAV 126] dist to zero = 0.0
+[UAV 147] dist to zero = 0.0
+[UAV 168] dist to zero = 0.0
+[GS 189] dist to zero = 7.0
+
+----------------------------------------------
+sinalgo.configuration.WrongConfigurationException: Cannot generate class for the distributionModels. The class UAV_Surveillance:PoiDistributionFromFile cannot be found. (projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile)
+----------------------------------------------
+Message:
+Cannot generate class for the distributionModels. The class UAV_Surveillance:PoiDistributionFromFile cannot be found. (projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile)
+----------------------------------------------
+Cause:
+----------------------------------------------
+java.lang.ClassNotFoundException: projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile
+----------------------------------------------
+
+
+sinalgo.runtime.Main.fatalError(Main.java:306)
+sinalgo.runtime.Main.fatalError(Main.java:424)
+sinalgo.runtime.Main.go(Main.java:247)
+sinalgo.runtime.Main.main(Main.java:83)
+
+
+The simulation terminated with exit value 1
+
+Command: java -Xmx2048m -cp binaries/bin:binaries/jdom.jar:binaries/bin:binaries/choco-solver-3.3.3-j7-with-dependencies.jar sinalgo.runtime.Main -V2V -LOADFILE savedDistributions/3000x1250x20POIs/1.txt -project UAV_Surveillance -rounds 10 -refreshRate 3750000 -batch exitAfter=true exitAfter/Rounds=10 exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen 8 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:KingstonImprovedOverNSNMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen 20 UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=UDG I=NoInterference M=NoMobility R=ReliableDelivery 
+You may have an invalid Java version: 25#121-b13. The application requires version 1.5 or more recent.
+> Starting SINALGO in BATCH-Mode for project UAV_Surveillance.
+
+
+  é V2V 
+
+
+
+
+[Global] Trying LOAD a distribution: savedDistributions/3000x1250x20POIs/1.txt ||>  POI 24 @ (743.6628524496073 , 924.7433929202491) | POI 25 @ (1953.0318115393948 , 834.2148412494189) | POI 26 @ (2310.391988230114 , 859.5898383326894) | POI 27 @ (2720.094763626388 , 187.12128291767036) | POI 28 @ (152.92545552296332 , 460.6845826592512) | POI 29 @ (2574.2429605124726 , 769.7424811641655) | POI 30 @ (2210.765930268798 , 824.2183063608629) | POI 31 @ (2690.1024633821476 , 595.3022550738605) | POI 32 @ (2194.7529547697404 , 1092.2305988396288) | POI 33 @ (1704.5920104268598 , 328.4172997871475) | POI 34 @ (243.7220483622361 , 873.0233282955418) | POI 35 @ (993.416312727452 , 1063.317913776735) | POI 36 @ (1736.3523438261454 , 818.8713546320269) | POI 37 @ (2021.5564190204957 , 935.730790367388) | POI 38 @ (2206.902713538114 , 229.9347965554599) | POI 39 @ (278.4677519105885 , 587.8411911296431) | POI 40 @ (1554.7475519985944 , 481.25536021412523) | POI 41 @ (2659.284482193049 , 968.8854572304374) | POI 42 @ (1947.5833113309357 , 380.5105503884798) | POI 43 @ (972.6625925093604 , 924.8732681941146) | 
+
+[UAV 21] dist to zero = 0.0
+[UAV 42] dist to zero = 0.0
+[UAV 63] dist to zero = 0.0
+[UAV 84] dist to zero = 0.0
+[UAV 105] dist to zero = 0.0
+[UAV 126] dist to zero = 0.0
+[UAV 147] dist to zero = 0.0
+[UAV 168] dist to zero = 0.0
+[UAV 189] dist to zero = 0.0
+[UAV 210] dist to zero = 0.0
+[UAV 231] dist to zero = 0.0
+[UAV 252] dist to zero = 0.0
+[UAV 273] dist to zero = 0.0
+[UAV 294] dist to zero = 0.0
+[UAV 315] dist to zero = 0.0
+[UAV 336] dist to zero = 0.0
+[GS 357] dist to zero = 7.0
+
+----------------------------------------------
+sinalgo.configuration.WrongConfigurationException: Cannot generate class for the distributionModels. The class UAV_Surveillance:PoiDistributionFromFile cannot be found. (projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile)
+----------------------------------------------
+Message:
+Cannot generate class for the distributionModels. The class UAV_Surveillance:PoiDistributionFromFile cannot be found. (projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile)
+----------------------------------------------
+Cause:
+----------------------------------------------
+java.lang.ClassNotFoundException: projects.UAV_Surveillance.models.distributionModels.PoiDistributionFromFile
+----------------------------------------------
+
+
+sinalgo.runtime.Main.fatalError(Main.java:306)
+sinalgo.runtime.Main.fatalError(Main.java:424)
+sinalgo.runtime.Main.go(Main.java:247)
+sinalgo.runtime.Main.main(Main.java:83)
+
+
+The simulation terminated with exit value 1
+
+Command: java -Xmx2048m -cp binaries/bin:binaries/jdom.jar:binaries/bin:binaries/choco-solver-3.3.3-j7-with-dependencies.jar sinalgo.runtime.Main -V2V -LOADFILE savedDistributions/3000x1250x20POIs/1.txt -project UAV_Surveillance -rounds 10 -refreshRate 3750000 -batch exitAfter=true exitAfter/Rounds=10 exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen 16 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:KingstonImprovedOverNSNMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen 20 UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=UDG I=NoInterference M=NoMobility R=ReliableDelivery 
