@@ -1,0 +1,9 @@
+Strategy;nUAV;nPOIs;V2V_range;nRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;msgAVGDelayOnGS
+KingstonImprovedOverNSNMobility;10;200;10.0;375000.0;3000.0;46.5;4.0;370987.5;310020.0;105.5
+KingstonImprovedOverNSNMobility;20;200;10.0;375000.0;3000.0;55.5;4.0;366712.5;260080.0;108.5
+KingstonImprovedOverNSNMobility;25;500;10.0;375000.0;3000.0;121.0;4.0;365062.5;280137.5;55.5
+KingstonImprovedOverNSNMobility;50;200;10.0;375000.0;3000.0;86.0;4.0;343332.5;91020.0;98.0
+KingstonImprovedOverNSNMobility;50;500;10.0;375000.0;3000.0;159.0;4.0;354685.0;202655.0;34.0
+KingstonImprovedOverNSNMobility;100;200;10.0;375000.0;3000.0;181.0;4.0;283277.5;-260520.0;99.5
+KingstonImprovedOverNSNMobility;125;500;10.0;375000.0;3000.0;409.5;4.0;305360.0;-43962.5;76.5
+KingstonImprovedOverNSNMobility;250;500;10.0;375000.0;3000.0;1396.0;4.0;212860.0;-678155.0;55.0
