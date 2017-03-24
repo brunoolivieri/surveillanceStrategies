@@ -15,7 +15,7 @@ V2X=V2V
 
 for ((i=1; i<=LOOPS; i++)); do
 
-	for N_POI in 20 40 60 80
+	for N_POI in 20
 	do
 
 		#full: NaiveOrderedMobility NotSoNaiveOrderedMobility ZigZagOverNaiveMobility ZigZagOverNSNMobility KingstonImprovedOverNaiveMobility KingstonImprovedOverNSNMobility
@@ -26,7 +26,7 @@ for ((i=1; i<=LOOPS; i++)); do
 
 
 
-		for SNAME in KingstonImprovedOverNSNMobility
+		for SNAME in KingstonImprovedOverNSNMobility ZigZagOverNSNMobility
 		do
 
 
