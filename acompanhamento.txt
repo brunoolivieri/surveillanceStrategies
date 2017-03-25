@@ -1,8 +1,150 @@
-Fri Mar 24 20:00:58 BRT 2017
+Fri Mar 24 21:20:19 BRT 2017
 nPOI = 20  strat =   i = 1
-Fri Mar 24 20:00:59 BRT 2017
+Fri Mar 24 21:21:43 BRT 2017
 nPOI = 20  strat =   i = 1
-Fri Mar 24 20:01:00 BRT 2017
+Fri Mar 24 21:35:48 BRT 2017
 nPOI = 20  strat =   i = 1
-Fri Mar 24 20:01:01 BRT 2017
+Fri Mar 24 21:36:18 BRT 2017
 nPOI = 20  strat =   i = 1
+Fri Mar 24 21:36:56 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 21:37:32 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 21:38:11 BRT 2017
+nPOI = 20  strat =   i = 2
+Fri Mar 24 21:38:53 BRT 2017
+nPOI = 20  strat =   i = 2
+Fri Mar 24 21:39:38 BRT 2017
+nPOI = 20  strat =   i = 2
+Fri Mar 24 21:40:26 BRT 2017
+nPOI = 20  strat =   i = 2
+Fri Mar 24 21:41:14 BRT 2017
+nPOI = 20  strat =   i = 3
+Fri Mar 24 21:41:37 BRT 2017
+nPOI = 20  strat =   i = 3
+Fri Mar 24 21:42:00 BRT 2017
+nPOI = 20  strat =   i = 3
+Fri Mar 24 21:42:26 BRT 2017
+nPOI = 20  strat =   i = 3
+Fri Mar 24 21:42:56 BRT 2017
+nPOI = 20  strat =   i = 4
+Fri Mar 24 21:43:40 BRT 2017
+nPOI = 20  strat =   i = 4
+Fri Mar 24 21:44:33 BRT 2017
+nPOI = 20  strat =   i = 4
+Fri Mar 24 21:45:21 BRT 2017
+nPOI = 20  strat =   i = 4
+Fri Mar 24 21:46:21 BRT 2017
+nPOI = 20  strat =   i = 5
+Fri Mar 24 21:46:35 BRT 2017
+nPOI = 20  strat =   i = 5
+Fri Mar 24 21:46:50 BRT 2017
+nPOI = 20  strat =   i = 5
+Fri Mar 24 21:47:06 BRT 2017
+nPOI = 20  strat =   i = 5
+Fri Mar 24 21:47:27 BRT 2017
+nPOI = 20  strat =   i = 6
+Fri Mar 24 21:47:48 BRT 2017
+nPOI = 20  strat =   i = 6
+Fri Mar 24 21:48:10 BRT 2017
+nPOI = 20  strat =   i = 6
+Fri Mar 24 21:48:35 BRT 2017
+nPOI = 20  strat =   i = 6
+Fri Mar 24 21:49:02 BRT 2017
+nPOI = 20  strat =   i = 7
+Fri Mar 24 21:49:17 BRT 2017
+nPOI = 20  strat =   i = 7
+Fri Mar 24 21:49:19 BRT 2017
+nPOI = 20  strat =   i = 7
+Fri Mar 24 21:50:04 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 21:51:29 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 21:53:13 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 21:54:11 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 21:54:11 BRT 2017
+nPOI = 20  strat =   i = 2
+Fri Mar 24 21:57:54 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 22:00:27 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 22:02:27 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 22:02:40 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 22:04:01 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 22:06:38 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 22:08:28 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 22:10:02 BRT 2017
+nPOI = 20  strat =   i = 1
+Fri Mar 24 22:11:31 BRT 2017
+nPOI = 20  strat =   i = 2
+Fri Mar 24 22:14:16 BRT 2017
+nPOI = 20  strat =   i = 2
+Fri Mar 24 22:16:28 BRT 2017
+nPOI = 20  strat =   i = 2
+Fri Mar 24 22:18:21 BRT 2017
+nPOI = 20  strat =   i = 2
+Fri Mar 24 22:20:06 BRT 2017
+nPOI = 20  strat =   i = 3
+Fri Mar 24 22:22:27 BRT 2017
+nPOI = 20  strat =   i = 3
+Fri Mar 24 22:24:15 BRT 2017
+nPOI = 20  strat =   i = 3
+Fri Mar 24 22:25:47 BRT 2017
+nPOI = 20  strat =   i = 3
+Fri Mar 24 22:27:10 BRT 2017
+nPOI = 20  strat =   i = 4
+Fri Mar 24 22:29:58 BRT 2017
+nPOI = 20  strat =   i = 4
+Fri Mar 24 22:32:13 BRT 2017
+nPOI = 20  strat =   i = 4
+Fri Mar 24 22:34:09 BRT 2017
+nPOI = 20  strat =   i = 4
+Fri Mar 24 22:35:54 BRT 2017
+nPOI = 20  strat =   i = 5
+Fri Mar 24 22:38:08 BRT 2017
+nPOI = 20  strat =   i = 5
+Fri Mar 24 22:39:51 BRT 2017
+nPOI = 20  strat =   i = 5
+Fri Mar 24 22:41:13 BRT 2017
+nPOI = 20  strat =   i = 5
+Fri Mar 24 22:42:29 BRT 2017
+nPOI = 20  strat =   i = 6
+Fri Mar 24 22:44:52 BRT 2017
+nPOI = 20  strat =   i = 6
+Fri Mar 24 22:46:41 BRT 2017
+nPOI = 20  strat =   i = 6
+Fri Mar 24 22:48:14 BRT 2017
+nPOI = 20  strat =   i = 6
+Fri Mar 24 22:49:35 BRT 2017
+nPOI = 20  strat =   i = 7
+Fri Mar 24 22:52:53 BRT 2017
+nPOI = 20  strat =   i = 7
+Fri Mar 24 22:55:34 BRT 2017
+nPOI = 20  strat =   i = 7
+Fri Mar 24 22:57:59 BRT 2017
+nPOI = 20  strat =   i = 7
+Fri Mar 24 23:00:11 BRT 2017
+nPOI = 20  strat =   i = 8
+Fri Mar 24 23:03:04 BRT 2017
+nPOI = 20  strat =   i = 8
+Fri Mar 24 23:05:18 BRT 2017
+nPOI = 20  strat =   i = 8
+Fri Mar 24 23:07:16 BRT 2017
+nPOI = 20  strat =   i = 8
+Fri Mar 24 23:09:09 BRT 2017
+nPOI = 20  strat =   i = 9
+Fri Mar 24 23:11:33 BRT 2017
+nPOI = 20  strat =   i = 9
+Fri Mar 24 23:13:31 BRT 2017
+nPOI = 20  strat =   i = 9
+Fri Mar 24 23:15:07 BRT 2017
+nPOI = 20  strat =   i = 9
+Fri Mar 24 23:16:34 BRT 2017
+nPOI = 20  strat =   i = 10
