@@ -2,16 +2,19 @@
 
 cd ..
 
-LOOPS=100
+LOOPS=20
 #ROUNDS=3 750 000 
-ROUNDS=3750000
+ROUNDS=375000
 REFRESHRATE=3750000
 N_POI=20
 
 # TSPbasedMobility NaiveOrderedMobility NotSoNaiveOrderedMobility ZigZagOverNaiveMobility ZigZagOverNSNMobility KingstonImprovedOverNaiveMobility KingstonImprovedOverNSNMobility
 
-for ((i=1; i<=LOOPS; i++)); 
+#for ((i=1; i<=LOOPS; i++)); 
+for i in $(seq 82 100);
 do
+
+        
 
 	for N_UAV in 16 8 4 2
 	do

@@ -7,4 +7,14 @@ df = pd.read_csv("dadosBrutos.txt",sep=';', index_col =["Strategy", "nUAV", "nPO
 # print(df.groupby(level=["Strategy","nUAV","nPOIs"]).median()) 
 
 
-df.groupby(level=["Strategy","nUAV","nPOIs"]).median().to_csv("results.txt", sep=';', encoding='utf-8')
+df.groupby(level=["Strategy","nUAV","nPOIs"]).median().to_csv("resultsMEDIAN.txt", sep=';', encoding='utf-8')
+
+df.groupby(level=["Strategy","nUAV","nPOIs"]).mean().to_csv("resultsMEAN.txt", sep=';', encoding='utf-8')
+
+df.groupby(level=["Strategy","nUAV","nPOIs"]).describe().to_csv("resultsDESCRIBE.txt", sep=';', encoding='utf-8')
+
+print(df.groupby(level=["Strategy","nUAV","nPOIs"]).describe())
+
+#f = open("resultsDescribeScreen.txt", 'r+')
+#f.write(df.groupby(level=["Strategy","nUAV","nPOIs"]).describe())
+#f.close
