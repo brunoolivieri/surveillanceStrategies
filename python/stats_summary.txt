@@ -211,8 +211,8 @@ projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;20;8;10.80246%;
 projects.UAV_Surveillance.models.mobilityModels.ZigZagOverNSNMobility;20;4;6.46277%;10;3750000;3000;39segs;4_TSP_thread;3624380;3457685;342
 projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;20;4;7.16954%;10;3750000;3000;41segs;4_TSP_thread;3688290;3158640;342
 projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;20;4;6.43943%;10;3750000;3000;720segs;4_TSP_thread;3515140;3504505;342
-projects.UAV_Surveillance.models.mobilityModels.ZigZagOverNSNMobility;20;2;3.24671%;10;3750000;3000;34segs;4_TSP_thread;3687895;3604410;342projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;20;2;3.28861%;10;3750000;3000;34segs;4_TSP_thread;3704965;3568700;342
-
+projects.UAV_Surveillance.models.mobilityModels.ZigZagOverNSNMobility;20;2;3.24671%;10;3750000;3000;34segs;4_TSP_thread;3687895;3604410;342
+projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;20;2;3.28861%;10;3750000;3000;34segs;4_TSP_thread;3704965;3568700;342
 projects.UAV_Surveillance.models.mobilityModels.TSPbasedMobility;20;2;3.21825%;10;3750000;3000;685segs;4_TSP_thread;3632635;3627180;342
 projects.UAV_Surveillance.models.mobilityModels.ZigZagOverNSNMobility;20;16;29.19105%;10;3750000;3000;61segs;4_TSP_thread;3193510;2524385;148
 projects.UAV_Surveillance.models.mobilityModels.KingstonImprovedOverNSNMobility;20;16;29.48257%;10;3750000;3000;76segs;4_TSP_thread;3382165;2195560;148
