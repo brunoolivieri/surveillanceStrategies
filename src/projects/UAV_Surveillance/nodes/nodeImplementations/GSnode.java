@@ -58,11 +58,10 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	public int roundsRunning = 0;	
 	
 	public int globalAvgDelay = 0 ;
-
-	
-	
+	public ArrayList<Integer> msgDelays = new ArrayList<Integer>();	
 	private ArrayList<msgFromPOI> poiMessages = new ArrayList<msgFromPOI>();
 
+	public String strategyRunning;
 	
 	public void reset() {
 	
@@ -83,10 +82,13 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			if(msg instanceof msgFromPOI) {		
 				msgFromPOI dataReceived = (msgFromPOI)msg;
 				if (dataReceived.recipient == this.ID) {  // because POI sends a broadcast
-					poiMessages.add((msgFromPOI) dataReceived.clone());
 					
+					poiMessages.add((msgFromPOI) dataReceived.clone());				
 					int msgDelay = 	roundsRunning - dataReceived.timeStamp;
 					globalAvgDelay = (globalAvgDelay + msgDelay) / 2;
+					
+					msgDelays.add(msgDelay);
+					
 				}				
 			}
 		}
@@ -362,39 +364,51 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			if (setOfUAVs.first().myMobilityModelName.endsWith("TSPbasedMobility")){
 				
 				createTSPbasedPaths(); // Does (ant)TSP path and populates "msgPOIorder"
+				strategyRunning = "TSPbased";
 			}
 			else {
 				if ((setOfUAVs.first().myMobilityModelName.endsWith("NotSoNaiveOrderedMobility"))){
 					
 					System.out.print("[NotSoNaiveOrderedMobility] ");
-					createNotSoNaiveBestPath();// Does O(n2) path path and populates "msgPOIorder"		
+					createNotSoNaiveBestPath();// Does O(n2) path path and populates "msgPOIorder"	
+					strategyRunning = "NSNOrdered";
+
 					
 				} else {
 					if ((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))){
 						
 						System.out.print("[ZigZagOverNaiveMobility] ");
 						msgPOIorder = new msgPOIordered(listOfPOIs);
+						strategyRunning = "ZigZagOverNaive";
+
 						
 					} else {
 						if ((setOfUAVs.first().myMobilityModelName.endsWith("NaiveOrderedMobility"))&&(!setOfUAVs.first().myMobilityModelName.endsWith("NotSoNaiveOrderedMobility"))){
 							
 							System.out.print("[NaiveOrderedMobility] ");
 							msgPOIorder = new msgPOIordered(listOfPOIs);
+							strategyRunning = "Naive";
+
 							
 						} else {
 							if ((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverNSNMobility"))){
 								System.out.print("[ZigZagOverNSNMobility] ");
 								createNotSoNaiveBestPath();// same as NotSoNaiveOrderedMobility
-								
+								strategyRunning = "ZigZagOverNSN";
+
 							} else {
 								
 								if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNSNMobility"))){
 									System.out.print("[KingstonImprovedOverNSNMobility] ");
 									createNotSoNaiveBestPath();// same as NotSoNaiveOrderedMobility
+									strategyRunning = "KIMPOverNSN";
+
 								} else {
 									if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNaiveMobility"))){
 										System.out.print("[KingstonImprovedOverNaiveMobility] ");
 										msgPOIorder = new msgPOIordered(listOfPOIs);
+										strategyRunning = "KIMPOverNaive";
+
 									}
 									
 								}

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="chocosolver/jfreechart-1.0.19-demo.jar"/>
 	<classpathentry kind="lib" path="binaries/jdom.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="chocosolver/apidocs-3.3.3-j7.zip"/>
@@ -9,5 +10,6 @@
 	<classpathentry kind="lib" path="chocosolver/choco-solver-3.3.3-j7-with-dependencies.jar"/>
 	<classpathentry kind="lib" path="chocosolver/choco-solver-3.3.3-j7.jar"/>
 	<classpathentry exported="true" kind="lib" path="chocosolver/gson-2.6.2.jar"/>
+	<classpathentry kind="lib" path="chocosolver"/>
 	<classpathentry kind="output" path="binaries/bin"/>
 </classpath>

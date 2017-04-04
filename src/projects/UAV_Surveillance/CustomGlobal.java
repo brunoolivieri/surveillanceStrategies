@@ -35,6 +35,8 @@
 */
 package projects.UAV_Surveillance;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
@@ -44,29 +46,22 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.TreeSet;
 
 import javax.swing.JOptionPane;
 
 import projects.UAV_Surveillance.nodes.nodeImplementations.GSnode;
 import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
 import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode;
-import projects.sample1.nodes.nodeImplementations.S1Node;
-import projects.sample2.nodes.nodeImplementations.S2Node;
 import sinalgo.configuration.Configuration;
 import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.nodes.Node;
-import sinalgo.nodes.edges.Edge;
 import sinalgo.runtime.AbstractCustomGlobal;
 import sinalgo.runtime.GUIRuntime;
 import sinalgo.runtime.Global;
-import sinalgo.runtime.GlobalWriteAndLoadPositions;
 import sinalgo.runtime.Main;
 import sinalgo.runtime.Runtime;
-import sinalgo.runtime.AbstractCustomGlobal.CustomButton;
-import sinalgo.tools.Tools;
-import sinalgo.tools.logging.Logging;
-import sinalgo.configuration.Configuration;
+import sinalgo.tools.Tools; 
+
 
 
 /**
@@ -228,6 +223,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	
 	
 	//@Oli: Results button with statistics
+	@SuppressWarnings("unchecked")
 	@CustomButton(buttonText="OKButton", imageName="OK.gif", toolTipText="Prints out stats")
 	public void summary() throws CorruptConfigurationEntryException{
 		
@@ -240,6 +236,8 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		int minDataInPois = Integer.MAX_VALUE;
 		int tmp = 0;
 		int globalAvgDelay = 0;
+		ArrayList<Integer> msgDelays = new ArrayList<Integer>();	
+		String strategyRunning = "";
 		
 		for(Node n : Runtime.nodes) {			
 			if (n instanceof UAVnode){
@@ -262,6 +260,8 @@ public class CustomGlobal extends AbstractCustomGlobal{
 			
 			if (n instanceof GSnode){
 				globalAvgDelay = ((GSnode) n).globalAvgDelay;
+				msgDelays = (ArrayList<Integer>) ((GSnode) n).msgDelays.clone();
+				strategyRunning = ((GSnode)n).strategyRunning;
 			}
 			
 		}
@@ -320,6 +320,32 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		}catch (IOException e) {
 		    System.out.println("[Summary] ERRO: " + e);
 		}
+		
+		
+		
+		// saving msg delays on by one in a file for each strategy
+		String filename = "stats_delays_" + strategyRunning + ".txt";		
+		BufferedWriter outputWriter = null;
+		try {
+			outputWriter = new BufferedWriter(new FileWriter(filename));
+			for (int i = 0; i < msgDelays.size(); i++) {
+			    // Maybe:
+			    //outputWriter.write(msgDelays.get(i)+"");
+			    // Or:
+			    outputWriter.write(Integer.toString(msgDelays.get(i)));
+			    outputWriter.newLine();
+			}
+			outputWriter.flush();  
+			outputWriter.close(); 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// saving a single line with stats from the list:
+		//BoxAndWhiskerCalculator teste;
+		
+ 		
 		
 		
 	}
