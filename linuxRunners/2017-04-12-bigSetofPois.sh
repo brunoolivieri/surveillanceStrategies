@@ -2,7 +2,7 @@
 
 cd ..
 
-LOOPS=1
+LOOPS=100
 ROUNDS=3
 REFRESHRATE=3750000
 
@@ -42,6 +42,7 @@ for ((i=1; i<=LOOPS; i++)); do
 
 			echo "dispatching first test do background..."  
 			N_UAV=$(echo "($N_POI / 20)/1" | bc )  		
+			N_UAV=1
 			echo "" 
 			echo "     despachando POI= $N_POI e UAV= $N_UAV "
 			echo ""
@@ -49,6 +50,7 @@ for ((i=1; i<=LOOPS; i++)); do
 
 			echo "dispatching second test do background..."  
 			N_UAV=$(echo "($N_POI / 10)/1" | bc  ) 
+			N_UAV=1
 			echo "" 
 			echo "     despachando POI= $N_POI e UAV= $N_UAV "
 			echo ""
@@ -56,6 +58,7 @@ for ((i=1; i<=LOOPS; i++)); do
 			
 			echo "dispatching third test do background..."  		
 			N_UAV=$(echo "($N_POI / 4)/1" | bc  ) 
+			N_UAV=1
 			echo "" 
 			echo "     despachando POI= $N_POI e UAV= $N_UAV "
 			echo ""
@@ -63,6 +66,7 @@ for ((i=1; i<=LOOPS; i++)); do
 			
 			echo "dispatching fourth test do run here..."  
 			N_UAV=$(echo "($N_POI /2)/1" | bc  )  
+			N_UAV=1
 			echo "" 
 			echo "     despachando POI= $N_POI e UAV= $N_UAV "
 			echo ""
