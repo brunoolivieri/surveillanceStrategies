@@ -84,7 +84,7 @@ LOOPS=3
 
 for ((i=1; i<=LOOPS; i++)); do
 
-	for N_POI in 2 4 6 8 10 12 14 16 18 20 22 24 26
+	for N_POI in 2 3 5 7 9 11 13 17 17 19 21 23 25
 	do
 
 		#forcing TSP run
