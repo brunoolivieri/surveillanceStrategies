@@ -307,7 +307,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		String logline = strategyRunning + ";" + ctPOI + ";" +  ctUAV + ";" + 
 				String.format("%.5f", surveillanceTax) + "%;" + (int)V2Vrange + 
 				";" + ctRounds + ";" + sinalgo.configuration.Configuration.dimX + ";" + 
-				(simumationTime/1000) +"segs;" + nThreads + "_TSP_thread;" + maxDataInPois + ";" + minDataInPois + ";" + globalAvgDelay;
+				(simumationTime) +"MiliSegs;" + nThreads + "_TSP_thread;" + maxDataInPois + ";" + minDataInPois + ";" + globalAvgDelay;
 		
 		System.out.println("\n[CustomGlobal] Final!\n");
 		System.out.println(header);
