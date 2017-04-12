@@ -77,9 +77,16 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 		//System.out.println("[POI " + this.ID + "] received msg from " + ((msgFOV) msg).data);
 
 		// manda dados pro UAV
-		roundsNeglected -= 5; // upload tax			
-		msgToUAV = new msgFromPOI(5, roundsRunning, ((msgFOV) msg).data);
-		broadcast(msgToUAV);	// to POIs discover if they are under visit
+		
+		// por agora só mando SSS encher uma msg inteira, se não.. nem vai.
+		if (roundsNeglected>=5) {			
+			roundsNeglected -= 5; // upload tax			
+			msgToUAV = new msgFromPOI(5, roundsRunning, ((msgFOV) msg).data);	
+			broadcast(msgToUAV);	// to POIs discover if they are under visit
+		} 	
+		
+		
+		
 	}
 
 	@Override

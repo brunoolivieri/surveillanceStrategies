@@ -63,6 +63,9 @@ import sinalgo.runtime.Runtime;
 import sinalgo.tools.Tools; 
 
 
+//import org.jfree.data.statistics.BoxAndWhiskerCategoryDataset;
+
+
 
 /**
  * This class holds customized global state and methods for the framework. 
@@ -231,18 +234,18 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		int ctUAV = 0;
 		int ctPOI = 0;
 		int totalCost = 0;
-		String visitsStrategy = "error";
+		//String visitsStrategy = "error";
 		int maxDataInPois = Integer.MIN_VALUE;
 		int minDataInPois = Integer.MAX_VALUE;
 		int tmp = 0;
-		int globalAvgDelay = 0;
-		ArrayList<Integer> msgDelays = new ArrayList<Integer>();	
-		String strategyRunning = "";
+		long globalAvgDelay = 0;
+		//ArrayList<Integer> localMsgDelays = new ArrayList<Integer>();	
+		String strategyRunning = "error";
 		
 		for(Node n : Runtime.nodes) {			
 			if (n instanceof UAVnode){
 		    	ctUAV++;
-		    	visitsStrategy = (String)(((UAVnode)n).getMobilityModel().toString());
+		    	//visitsStrategy = (String)(((UAVnode)n).getMobilityModel().toString());
 			}
 			if (n instanceof POInode){
 		    	ctPOI++;
@@ -259,9 +262,29 @@ public class CustomGlobal extends AbstractCustomGlobal{
 			}
 			
 			if (n instanceof GSnode){
-				globalAvgDelay = ((GSnode) n).globalAvgDelay;
-				msgDelays = (ArrayList<Integer>) ((GSnode) n).msgDelays.clone();
 				strategyRunning = ((GSnode)n).strategyRunning;
+				//localMsgDelays = (ArrayList<Integer>) ((GSnode) n).msgDelays;
+			
+				globalAvgDelay =0;		
+				for (int i = 0; i < ((GSnode) n).msgDelays.size(); i++) {
+					
+					if (((GSnode) n).msgDelays.get(i)<=0)
+						System.out.println("\n\n\n\n[CustomGlobal] ERROR IN MSG DELAY: " + i +  "\n\n\n\n\n");
+					
+					//System.out.print(":"+ ((GSnode) n).msgDelays.get(i) +":");
+
+					globalAvgDelay = globalAvgDelay + ((GSnode) n).msgDelays.get(i);
+					
+					
+				}
+
+				System.out.println("\n\n\n[CustomGlobal] globalAvgDelay = " + globalAvgDelay + " n msg = " + ((GSnode) n).msgDelays.size());
+				
+				globalAvgDelay = globalAvgDelay / ((GSnode) n).msgDelays.size();		
+
+				System.out.println("[CustomGlobal] globalAvgDelay calculated = " + globalAvgDelay);
+
+				
 			}
 			
 		}
@@ -281,12 +304,12 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 		int nThreads = (int) Configuration.getDoubleParameter("ThreadToRunWithTSP/threads");
 		
-		String logline = visitsStrategy + ";" + ctPOI + ";" +  ctUAV + ";" + 
+		String logline = strategyRunning + ";" + ctPOI + ";" +  ctUAV + ";" + 
 				String.format("%.5f", surveillanceTax) + "%;" + (int)V2Vrange + 
 				";" + ctRounds + ";" + sinalgo.configuration.Configuration.dimX + ";" + 
 				(simumationTime/1000) +"segs;" + nThreads + "_TSP_thread;" + maxDataInPois + ";" + minDataInPois + ";" + globalAvgDelay;
 		
-		
+		System.out.println("\n[CustomGlobal] Final!\n");
 		System.out.println(header);
 		System.out.println(logline);
 		//customGlobal_log.log(header);
@@ -294,7 +317,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 		if(Global.isGuiMode){
 			if((ctUAV!=0)||(ctPOI!=0)){
-				Tools.appendToOutput(visitsStrategy);
+				Tools.appendToOutput(strategyRunning);
 				Tools.appendToOutput("\n\nPOIs = " + ctPOI);
 				Tools.appendToOutput("\nUAVs = " + ctUAV);
 				Tools.appendToOutput("\nV2Vrange = " + (int)V2Vrange);
@@ -324,23 +347,23 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 		
 		// saving msg delays on by one in a file for each strategy
-		String filename = "stats_delays_" + strategyRunning + ".txt";		
-		BufferedWriter outputWriter = null;
-		try {
-			outputWriter = new BufferedWriter(new FileWriter(filename));
-			for (int i = 0; i < msgDelays.size(); i++) {
-			    // Maybe:
-			    //outputWriter.write(msgDelays.get(i)+"");
-			    // Or:
-			    outputWriter.write(Integer.toString(msgDelays.get(i)));
-			    outputWriter.newLine();
-			}
-			outputWriter.flush();  
-			outputWriter.close(); 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		String filename = "stats_delays_" + strategyRunning + ".txt";		
+//		BufferedWriter outputWriter = null;
+//		try {
+//			outputWriter = new BufferedWriter(new FileWriter(filename));
+//			for (int i = 0; i < msgDelays.size(); i++) {
+//			    // Maybe:
+//			    //outputWriter.write(msgDelays.get(i)+"");
+//			    // Or:
+//			    outputWriter.write(Integer.toString(msgDelays.get(i)));
+//			    outputWriter.newLine();
+//			}
+//			outputWriter.flush();  
+//			outputWriter.close(); 
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		// saving a single line with stats from the list:
 		//BoxAndWhiskerCalculator teste;

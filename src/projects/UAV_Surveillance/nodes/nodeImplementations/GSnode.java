@@ -83,12 +83,16 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				msgFromPOI dataReceived = (msgFromPOI)msg;
 				if (dataReceived.recipient == this.ID) {  // because POI sends a broadcast
 					
-					poiMessages.add((msgFromPOI) dataReceived.clone());				
-					int msgDelay = 	roundsRunning - dataReceived.timeStamp;
-					globalAvgDelay = (globalAvgDelay + msgDelay) / 2;
+					poiMessages.add((msgFromPOI) dataReceived.clone());		
 					
-					msgDelays.add(msgDelay);
+					int delay = this.roundsRunning - poiMessages.get(poiMessages.size()-1).timeStamp; //dataReceived.timeStamp;
 					
+					if (delay<=0) {
+						System.out.println("\n\n\n\n[GS] ERROR IN MSG DELAY\n\n\n\n\n");
+					} else {
+						//System.out.print(":"+ delay +":");
+						msgDelays.add(delay);
+					}
 				}				
 			}
 		}
