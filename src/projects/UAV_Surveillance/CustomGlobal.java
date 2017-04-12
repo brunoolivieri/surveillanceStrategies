@@ -266,21 +266,21 @@ public class CustomGlobal extends AbstractCustomGlobal{
 				//localMsgDelays = (ArrayList<Integer>) ((GSnode) n).msgDelays;
 			
 				globalAvgDelay =0;		
-				for (int i = 0; i < ((GSnode) n).msgDelays.size(); i++) {
-					
-					if (((GSnode) n).msgDelays.get(i)<=0)
-						System.out.println("\n\n\n\n[CustomGlobal] ERROR IN MSG DELAY: " + i +  "\n\n\n\n\n");
-					
-					//System.out.print(":"+ ((GSnode) n).msgDelays.get(i) +":");
-
-					globalAvgDelay = globalAvgDelay + ((GSnode) n).msgDelays.get(i);
-					
-					
-				}
+//				for (int i = 0; i < ((GSnode) n).msgDelays.size(); i++) {
+//					
+//					if (((GSnode) n).msgDelays.get(i)<=0)
+//						System.out.println("\n\n\n\n[CustomGlobal] ERROR IN MSG DELAY: " + i +  "\n\n\n\n\n");
+//					
+//					//System.out.print(":"+ ((GSnode) n).msgDelays.get(i) +":");
+//
+//					globalAvgDelay = globalAvgDelay + ((GSnode) n).msgDelays.get(i);
+//					
+//					
+//				}
 
 				System.out.println("\n\n\n[CustomGlobal] globalAvgDelay = " + globalAvgDelay + " n msg = " + ((GSnode) n).msgDelays.size());
 				
-				globalAvgDelay = globalAvgDelay / ((GSnode) n).msgDelays.size();		
+				//globalAvgDelay = globalAvgDelay / ((GSnode) n).msgDelays.size();		
 
 				System.out.println("[CustomGlobal] globalAvgDelay calculated = " + globalAvgDelay);
 
