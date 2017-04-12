@@ -2,7 +2,7 @@
 
 cd ..
 
-LOOPS=100
+LOOPS=10
 ROUNDS=3
 REFRESHRATE=3750000
 
@@ -15,7 +15,7 @@ V2X=V2V
 
 for ((i=1; i<=LOOPS; i++)); do
 
-	for N_POI in 20 40 60 80 100 200
+	for N_POI in 120 140 160 180
 	do
 
 		#full: NaiveOrderedMobility NotSoNaiveOrderedMobility ZigZagOverNaiveMobility ZigZagOverNSNMobility KingstonImprovedOverNaiveMobility KingstonImprovedOverNSNMobility
@@ -80,4 +80,21 @@ for ((i=1; i<=LOOPS; i++)); do
 done
 
 
-echo "terminou legal"
+LOOPS=3
+
+for ((i=1; i<=LOOPS; i++)); do
+
+	for N_POI in 2 4 6 8 10 12 14 16 18 20 22 24 26
+	do
+
+		#forcing TSP run
+		java -cp binaries/bin/. sinalgo.Run -$V2X -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:TSPbasedMobility  R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionNN C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
+			
+
+	done
+
+done
+
+
+
+echo "O script de execução terminou legal"
