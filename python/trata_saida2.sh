@@ -15,6 +15,8 @@ rm tmp.txt
 rm tmp2.txt
 rm tmp3.txt
 
+echo "Arquivo original limpo e enviado para o parser ..."
+
 python parser.py
 
 

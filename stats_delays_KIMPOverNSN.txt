@@ -1,9 +1,4 @@
-166.0;592.0;832.0;1200.0;1860.0;880.6487505893447
-
-
-
-
-min; q1 ; median ; q3; max; mean
+min;q1;median;q3;max;mean
 
 
 
