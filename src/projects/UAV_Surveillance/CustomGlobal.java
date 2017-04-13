@@ -331,7 +331,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		try {
 		    Files.write(Paths.get("stats_summary.txt"), logline.getBytes(), StandardOpenOption.APPEND);
 		    Files.write(Paths.get("stats_summary.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
-		    System.out.println("\n\n[Summary] Saiving file: " + Paths.get("~/stats_summary.txt"));
+		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("~/stats_summary.txt"));
 			
 		}catch (IOException e) {
 		    System.out.println("[Summary] ERRO: " + e);
@@ -341,6 +341,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 		BoxAndWhiskerCalculator statistics = null;  
 		BoxAndWhiskerItem stats = statistics.calculateBoxAndWhiskerStatistics(localMsgDelays);
+		logline = "";
 		logline = stats.getMinRegularValue().toString() + ";" +
 				  stats.getQ1().toString() + ";" +
 				  stats.getMedian() + ";" +
@@ -351,11 +352,14 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		// saving msg delays on by one in a file for each strategy
 		String filename = "stats_delays_" + strategyRunning + ".txt";		
 		try {
-		    Files.write(Paths.get(filename), logline.getBytes(), StandardOpenOption.APPEND);
-		    Files.write(Paths.get(filename), "\n".getBytes(), StandardOpenOption.APPEND);
-		    System.out.println("\n\n[Summary] Saiving file: " + Paths.get(filename));			
+		    Files.write(Paths.get("stats_delays_" + strategyRunning + ".txt"), logline.getBytes(), StandardOpenOption.APPEND);
+		    Files.write(Paths.get("stats_delays_" + strategyRunning + ".txt"), "\n".getBytes(), StandardOpenOption.APPEND);
+		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_" + strategyRunning + ".txt"));		
+		    System.out.println("\n\n[Summary] Saved: " + logline);		
+
 		} catch (IOException e) {
-			System.out.println("[Summary] ERRO nas estatísticas: \n\n" + e);
+			System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
+			
 		}
 			
 		

@@ -1,1 +1,0 @@
-projects.UAV_Surveillance.models.mobilityModels.ZigZagOverNSNMobility;25;16;0.00000%;10;119;3000;5segs;2_TSP_thread
