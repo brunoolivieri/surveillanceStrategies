@@ -165,7 +165,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				System.out.println(" \n\n\n");
 			}
 			
-			// Rendezvous to balance paths
+			// Rendezvous to balance paths // or ZZ rendezvous
 			if (msg instanceof msgKingImp) {	
 				
 				if (kingImpAllowed){ // just to enable conditions to start changing, such as minimum visited POIs or UAVs (Originaly = 3)			
@@ -185,6 +185,13 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 						if ((this.myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))||(this.myMobilityModelName.endsWith("ZigZagOverNSNMobility"))){								
 				
 							meiaVoltaVolver();
+							
+							// just clonning from KIMP to test...
+							replanner.updateData(this.pathPOIs, tmpMsg, this.lastPoi, this.nextPoi, pathOriginal, this.ID, knownUAVright, knownUAVleft);
+							if ((replanner.amIrightUav)&&(Global.isV2V2GS)){
+								sendDataToLeftPal(tmpMsg.fromID);
+							}
+							
 							
 						} else {
 							// Not ZigZag, but KingstonImproved At all! 
@@ -269,33 +276,22 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 
 	// does 180 degrees on linear path, turn, do a zig-zag
 	public void meiaVoltaVolver() {
-
-		//System.out.println("[UAV " + this.ID + "] got in on meiaVoltaVolver()   ");
-		
+	
 		Collections.reverse(pathPOIs);					
 		
 		int tmpPathIdx = pathIdx;							
 		pathIdx = getIdxFromPoi(lastPoi, pathPOIs);
 		this.shawResetMoviment = true;
-		
-		//System.out.println("[UAV " + this.ID + "] reseting path uppon rendezvous. Last pathIdx was " + tmpPathIdx + " and now is " + pathIdx);
-		
-		// re-org roundVisitedStuff
-		//System.out.println("[UAV " + this.ID + "] setting as visited: " );					
-		
+	
 		roundVisitedPOIs.clear();							
 		for (int i=pathIdx-1; i>=0; i--) {
 			poiTmp = pathPOIs.get(i);
 			roundVisitedPOIs.add(poiTmp);
-			//System.out.print(" -> " + poiTmp.ID);
-		}
-		//System.out.println("      end of  meiaVoltaVolver()");
-		
+		}		
 	}
 
 	private int getIdxFromPoi(POInode testPoi, ArrayList<POInode> pathPOIs) {
 		
-
 		for (int i=0; i< pathPOIs.size(); i++) {
 			poiTmp = pathPOIs.get(i);
 			if (poiTmp.ID == testPoi.ID)				
@@ -317,8 +313,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			if (!myMobilityModelName.endsWith("RandomSafeMobility")){
 				canImove = false;
 			}
-		}
-		
+		}		
 		if (!init){
 			distToGS = (int) Math.sqrt(
 		            (this.getPosition().xCoord - 0) *  (this.getPosition().xCoord - 0) + 
@@ -326,9 +321,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		        );
 			init = true;
 			System.out.println("[UAV " + this.ID + "] dist to zero = " + this.distToGS);
-		}
-		
-		
+		}		
 	}
 
 	@Override
@@ -343,9 +336,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 				if (!roundVisitedPOIs.contains((POInode) e.endNode)){
 					roundVisitedPOIs.add((POInode) e.endNode); // only adds really new POIs
 						kingImpAllowed = true;	
-				}		
-				
-				
+				}					
 			} if (e.endNode instanceof GSnode){ // && (V2Venable instead V2I) 
 								
 				myGS = (GSnode) e.endNode;
@@ -358,17 +349,11 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 					if (roundVisitedPOIs.size() > 3)
 						kingImpAllowed = true;	
 				}
-				
-				
 				// delivery accumulated data
 				if (Global.isV2V2GS){
 					sendDataToGS(myGS);			
-				}
-				
-				
+				}				
 			}
-
-			
 			// that is other UAV, rendezvous
 			if (e.endNode instanceof UAVnode){		
 				
@@ -447,15 +432,13 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 
 	@Override
 	public void postStep() {
-		
 		if (justCountRoundsToMove){ 
 			rounds++;
 			if (rounds >= (this.nodeCreationOrder-1)*((int)(this.pathSize/nKnownUAVs)) ) { // This 20 could be better with SIZEOFPATH_DIVIDED_BY_ALL_UAV
 				justCountRoundsToMove = false;
 				canImove = true;
 			}	
-		}
-		
+		}	
 		// releasing UAV from Kingston adjustment
 		if ((adjustingPath)&(lastPoi.ID == adjustingPoiTarget.ID)){
 			adjustingPath = false;

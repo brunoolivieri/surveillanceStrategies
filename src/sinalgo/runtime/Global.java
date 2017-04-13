@@ -70,6 +70,7 @@ public class Global {
 	//comm stuff
 	public static boolean isV2V2GS = true;
 	public static boolean isV2I2GS = false;
+	public static int originalPathSize = -1;
 	
 	//save and load POI distribution stuff
 	public static boolean shouldSavePoiDistribution = false;

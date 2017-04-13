@@ -63,8 +63,13 @@ import sinalgo.runtime.Runtime;
 import sinalgo.tools.Tools; 
 
 
-//import org.jfree.data.statistics.BoxAndWhiskerCategoryDataset;
-
+import org.jfree.data.statistics.BoxAndWhiskerCategoryDataset;
+import org.jfree.data.statistics.BoxAndWhiskerItem;
+import org.jfree.data.statistics.BoxAndWhiskerCalculator;
+import org.jfree.data.statistics.BoxAndWhiskerXYDataset;
+import org.jfree.data.statistics.DefaultBoxAndWhiskerXYDataset;
+import org.jfree.data.time.Day;
+import org.jfree.data.time.RegularTimePeriod;
 
 
 /**
@@ -151,10 +156,6 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	public void preRun() throws IOException {
 		// A method called at startup, before the first round is executed.
 		
-		
-	
-		
-		
 		// Lets save distribution IFF asked to
 		if (Global.shouldSavePoiDistribution){
 
@@ -226,11 +227,10 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	
 	
 	//@Oli: Results button with statistics
-	@SuppressWarnings("unchecked")
 	@CustomButton(buttonText="OKButton", imageName="OK.gif", toolTipText="Prints out stats")
 	public void summary() throws CorruptConfigurationEntryException{
 		
-		Enumeration<?> nodeEnumer = Tools.getNodeList().getNodeEnumeration();
+		//Enumeration<?> nodeEnumer = Tools.getNodeList().getNodeEnumeration();
 		int ctUAV = 0;
 		int ctPOI = 0;
 		int totalCost = 0;
@@ -239,8 +239,9 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		int minDataInPois = Integer.MAX_VALUE;
 		int tmp = 0;
 		long globalAvgDelay = 0;
-		//ArrayList<Integer> localMsgDelays = new ArrayList<Integer>();	
+		ArrayList<Long> localMsgDelays = new ArrayList<Long>();	
 		String strategyRunning = "error";
+		long nMsgs = 0;
 		
 		for(Node n : Runtime.nodes) {			
 			if (n instanceof UAVnode){
@@ -257,36 +258,33 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		    	}
 		    	if (tmp < minDataInPois) {
 		    		minDataInPois = tmp;
-		    	}
-		    	
+		    	}		    	
 			}
 			
 			if (n instanceof GSnode){
 				strategyRunning = ((GSnode)n).strategyRunning;
-				//localMsgDelays = (ArrayList<Integer>) ((GSnode) n).msgDelays;
-			
+				localMsgDelays = (ArrayList<Long>) ((GSnode) n).msgDelays;			
 				globalAvgDelay =0;		
-//				for (int i = 0; i < ((GSnode) n).msgDelays.size(); i++) {
-//					
-//					if (((GSnode) n).msgDelays.get(i)<=0)
-//						System.out.println("\n\n\n\n[CustomGlobal] ERROR IN MSG DELAY: " + i +  "\n\n\n\n\n");
-//					
-//					//System.out.print(":"+ ((GSnode) n).msgDelays.get(i) +":");
-//
-//					globalAvgDelay = globalAvgDelay + ((GSnode) n).msgDelays.get(i);
-//					
-//					
-//				}
+				
+				for (int i = 0; i < localMsgDelays.size(); i++) {
+					
+					if (localMsgDelays.get(i)<=0)
+						System.out.println("\n\n\n\n[CustomGlobal] ERROR IN MSG DELAY: " + i +  "\n\n\n\n\n");
+					
+					nMsgs++;
+
+					globalAvgDelay = globalAvgDelay + localMsgDelays.get(i);					
+				}
 
 				System.out.println("\n\n\n[CustomGlobal] globalAvgDelay = " + globalAvgDelay + " n msg = " + ((GSnode) n).msgDelays.size());
 				
-				//globalAvgDelay = globalAvgDelay / ((GSnode) n).msgDelays.size();		
-
-				System.out.println("[CustomGlobal] globalAvgDelay calculated = " + globalAvgDelay);
-
-				
-			}
-			
+				if (localMsgDelays.size()>0){
+				  globalAvgDelay = globalAvgDelay / localMsgDelays.size();		
+				} else {
+					globalAvgDelay = -1;
+				}				  
+				System.out.println("[CustomGlobal] globalAvgDelay calculated = " + globalAvgDelay);				
+			}			
 		}
 		
 		
@@ -295,7 +293,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		double surveillanceTax = 1 - ((double)(totalCost)/(ctRounds*ctPOI));
 		surveillanceTax = surveillanceTax*100;
 			
-		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay";
+		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;nMsgs;tourSize";
 			
 		double V2Vrange = Configuration.getDoubleParameter("GeometricNodeCollection/rMax");
 		
@@ -307,13 +305,11 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		String logline = strategyRunning + ";" + ctPOI + ";" +  ctUAV + ";" + 
 				String.format("%.5f", surveillanceTax) + "%;" + (int)V2Vrange + 
 				";" + ctRounds + ";" + sinalgo.configuration.Configuration.dimX + ";" + 
-				(simumationTime) +"MiliSegs;" + nThreads + "_TSP_thread;" + maxDataInPois + ";" + minDataInPois + ";" + globalAvgDelay;
+				(simumationTime) +"MiliSegs;" + nThreads + "_TSP_thread;" + maxDataInPois + ";" + minDataInPois + ";" + globalAvgDelay + ";" + nMsgs + ";" +  Global.originalPathSize;
 		
 		System.out.println("\n[CustomGlobal] Final!\n");
 		System.out.println(header);
 		System.out.println(logline);
-		//customGlobal_log.log(header);
-		//customGlobal_log.log(logline);
 		
 		if(Global.isGuiMode){
 			if((ctUAV!=0)||(ctPOI!=0)){
@@ -326,16 +322,13 @@ public class CustomGlobal extends AbstractCustomGlobal{
 				Tools.appendToOutput("\nmaxData = " + maxDataInPois);
 				Tools.appendToOutput("\nminData = " + minDataInPois);
 				Tools.appendToOutput("\nglobalAvgDelay = " + globalAvgDelay);	
+				Tools.appendToOutput("\ntourSize = " + Global.originalPathSize);	
 			}
 			else{
 				JOptionPane.showMessageDialog(((GUIRuntime)Main.getRuntime()).getGUI(), "There is no node.");
 			}
 		}
-		
-		
 		try {
-		    //Files.write(Paths.get("c:\\stats_summary.txt"), logline.getBytes(), StandardOpenOption.APPEND);
-		    //Files.write(Paths.get("c:\\stats_summary.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
 		    Files.write(Paths.get("stats_summary.txt"), logline.getBytes(), StandardOpenOption.APPEND);
 		    Files.write(Paths.get("stats_summary.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
 		    System.out.println("\n\n[Summary] Saiving file: " + Paths.get("~/stats_summary.txt"));
@@ -346,30 +339,25 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 		
 		
+		BoxAndWhiskerCalculator statistics = null;  
+		BoxAndWhiskerItem stats = statistics.calculateBoxAndWhiskerStatistics(localMsgDelays);
+		logline = stats.getMinRegularValue().toString() + ";" +
+				  stats.getQ1().toString() + ";" +
+				  stats.getMedian() + ";" +
+				  stats.getQ3() + ";" +
+				  stats.getMaxRegularValue() + ";" +
+				  stats.getMean();
+		
 		// saving msg delays on by one in a file for each strategy
-//		String filename = "stats_delays_" + strategyRunning + ".txt";		
-//		BufferedWriter outputWriter = null;
-//		try {
-//			outputWriter = new BufferedWriter(new FileWriter(filename));
-//			for (int i = 0; i < msgDelays.size(); i++) {
-//			    // Maybe:
-//			    //outputWriter.write(msgDelays.get(i)+"");
-//			    // Or:
-//			    outputWriter.write(Integer.toString(msgDelays.get(i)));
-//			    outputWriter.newLine();
-//			}
-//			outputWriter.flush();  
-//			outputWriter.close(); 
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-		// saving a single line with stats from the list:
-		//BoxAndWhiskerCalculator teste;
-		
- 		
-		
+		String filename = "stats_delays_" + strategyRunning + ".txt";		
+		try {
+		    Files.write(Paths.get(filename), logline.getBytes(), StandardOpenOption.APPEND);
+		    Files.write(Paths.get(filename), "\n".getBytes(), StandardOpenOption.APPEND);
+		    System.out.println("\n\n[Summary] Saiving file: " + Paths.get(filename));			
+		} catch (IOException e) {
+			System.out.println("[Summary] ERRO nas estatísticas: \n\n" + e);
+		}
+			
 		
 	}
 	

@@ -67,7 +67,8 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 			while(inbox.hasNext()) {
 				Message msg = inbox.next();
 				if(msg instanceof msgFOV) {
-					sendDataToUAV(msg);
+					if (!this.amIphantom)
+						sendDataToUAV(msg);
 				}
 			}
 		}
@@ -84,8 +85,6 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 			msgToUAV = new msgFromPOI(5, roundsRunning, ((msgFOV) msg).data);	
 			broadcast(msgToUAV);	// to POIs discover if they are under visit
 		} 	
-		
-		
 		
 	}
 

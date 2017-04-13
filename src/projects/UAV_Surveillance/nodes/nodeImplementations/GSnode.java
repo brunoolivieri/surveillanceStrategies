@@ -58,7 +58,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	public int roundsRunning = 0;	
 	
 	public int globalAvgDelay = 0 ;
-	public ArrayList<Integer> msgDelays = new ArrayList<Integer>();	
+	public ArrayList<Long> msgDelays = new ArrayList<Long>();	
 	private ArrayList<msgFromPOI> poiMessages = new ArrayList<msgFromPOI>();
 
 	public String strategyRunning;
@@ -85,7 +85,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 					
 					poiMessages.add((msgFromPOI) dataReceived.clone());		
 					
-					int delay = this.roundsRunning - poiMessages.get(poiMessages.size()-1).timeStamp; //dataReceived.timeStamp;
+					long delay = this.roundsRunning - poiMessages.get(poiMessages.size()-1).timeStamp; //dataReceived.timeStamp;
 					
 					if (delay<=0) {
 						System.out.println("\n\n\n\n[GS] ERROR IN MSG DELAY\n\n\n\n\n");
@@ -426,7 +426,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			}		
 			
 			broadcast(msgPOIorder);			
-			
+			Global.originalPathSize = getPathSize(msgPOIorder.data);
 			cmdsSent = true;	
 		}
 		
@@ -636,6 +636,22 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				return 1;
 			}
 		}
+	}
+	private int getPathSize(ArrayList<POInode> path) {
+		
+		POInode thisPOI;
+		POInode lastPOI;
+		int size = 0;
+	
+		for (int i = 1; i< path.size(); i++){
+			thisPOI = (POInode)path.get(i);
+			lastPOI = (POInode)path.get(i-1);
+			size += (int) Math.sqrt(
+				             (thisPOI.getPosition().xCoord - lastPOI.getPosition().xCoord) *  (thisPOI.getPosition().xCoord - lastPOI.getPosition().xCoord) + 
+				             (thisPOI.getPosition().yCoord - lastPOI.getPosition().yCoord) *  (thisPOI.getPosition().yCoord - lastPOI.getPosition().yCoord)
+				              );
+		}
+		return size;
 	}
 
 }
