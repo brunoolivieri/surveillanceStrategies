@@ -342,7 +342,10 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		BoxAndWhiskerCalculator statistics = null;  
 		BoxAndWhiskerItem stats = statistics.calculateBoxAndWhiskerStatistics(localMsgDelays);
 		logline = "";
-		logline = stats.getMinRegularValue().toString() + ";" +
+		logline = strategyRunning + ";" +
+				  ctPOI		+ ";" +
+				  ctUAV		+ ";" +
+				  stats.getMinRegularValue().toString() + ";" +
 				  stats.getQ1().toString() + ";" +
 				  stats.getMedian() + ";" +
 				  stats.getQ3() + ";" +
@@ -350,11 +353,11 @@ public class CustomGlobal extends AbstractCustomGlobal{
 				  stats.getMean();
 		
 		// saving msg delays on by one in a file for each strategy
-		String filename = "stats_delays_" + strategyRunning + ".txt";		
+		//String filename = "stats_delays_" + strategyRunning + ".txt";		
 		try {
-		    Files.write(Paths.get("stats_delays_" + strategyRunning + ".txt"), logline.getBytes(), StandardOpenOption.APPEND);
-		    Files.write(Paths.get("stats_delays_" + strategyRunning + ".txt"), "\n".getBytes(), StandardOpenOption.APPEND);
-		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_" + strategyRunning + ".txt"));		
+		    Files.write(Paths.get("stats_delays_.txt"), logline.getBytes(), StandardOpenOption.APPEND);
+		    Files.write(Paths.get("stats_delays_.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
+		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_.txt"));		
 		    System.out.println("\n\n[Summary] Saved: " + logline);		
 
 		} catch (IOException e) {
