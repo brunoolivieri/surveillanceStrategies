@@ -1,8 +1,1 @@
 min;q1;median;q3;max;mean
-
-
-
-
-
-
-
