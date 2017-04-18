@@ -19,5 +19,7 @@ echo "Arquivo original limpo e enviado para o parser ..."
 
 python parser.py
 
+python parser_delays.py
+
 
 
