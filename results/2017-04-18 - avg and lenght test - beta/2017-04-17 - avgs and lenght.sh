@@ -13,14 +13,58 @@ V2X=V2V
 
 
 for ((i=1; i<=LOOPS; i++)); do
+	for N_POI in 20
+	do
+		for N_UAV in 2 4 8 16
+		do
+			for SNAME in TSPbasedMobility
+			do
+			
+				echo " "
+				echo " ----------------------------------------------------------------------------"
+				echo " "
+				echo "nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i" N_POI = "$N_POI
+				date >> acompanhamento.txt
+				echo "nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i" N_POI = "$N_POI >> acompanhamento.txt
+				echo " "
+				echo " ----------------------------------------------------------------------------"
+				echo " "
+			
+				#forcing TSP run
+				java -cp binaries/bin/. sinalgo.Run -V2V -LOADFILE savedDistributions/3000x1250x20POIs/$i.txt -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:$SNAME R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
+			done
+		done
+	done
+done
+
+
+for ((i=1; i<=LOOPS; i++)); do
 
 	for N_POI in 20
 	do
-		for SNAME in ZigZagOverNSNMobility
+
+		#full: NaiveOrderedMobility NotSoNaiveOrderedMobility ZigZagOverNaiveMobility ZigZagOverNSNMobility KingstonImprovedOverNaiveMobility KingstonImprovedOverNSNMobility
+
+
+		#forcing TSP run
+		#java -cp binaries/bin/. sinalgo.Run -$V2X -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:TSPbasedMobility  R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
+
+
+
+		for SNAME in KingstonImprovedOverNSNMobility ZigZagOverNaiveMobility
 		do
+
+
+			echo " "
+			echo " ----------------------------------------------------------------------------"
+			echo " "
+			echo "nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i" N_POI = "$N_POI
 			date >> acompanhamento.txt
 			echo "nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i" N_POI = "$N_POI >> acompanhamento.txt
-			
+			echo " "
+			echo " ----------------------------------------------------------------------------"
+			echo " "
+
 			echo "dispatching first test do background..."  
 			N_UAV=$(echo "($N_POI / 20)/1" | bc )  		
 			N_UAV=4
