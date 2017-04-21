@@ -302,10 +302,20 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 		int nThreads = (int) Configuration.getDoubleParameter("ThreadToRunWithTSP/threads");
 		
-		String logline = strategyRunning + ";" + ctPOI + ";" +  ctUAV + ";" + 
-				String.format("%.5f", surveillanceTax) + "%;" + (int)V2Vrange + 
-				";" + ctRounds + ";" + sinalgo.configuration.Configuration.dimX + ";" + 
-				(simumationTime) +"MiliSegs;" + nThreads + "_TSP_thread;" + maxDataInPois + ";" + minDataInPois + ";" + globalAvgDelay + ";" + nMsgs + ";" +  Global.originalPathSize;
+		String logline = strategyRunning + ";" + 
+						ctPOI + ";" +  
+						ctUAV + ";" + 
+						String.format("%.5f", surveillanceTax) + "%;" 
+						+ (int)V2Vrange + ";" + 
+						ctRounds + ";" + 
+						sinalgo.configuration.Configuration.dimX + ";" + 
+						(simumationTime) + "MiliSegs;" + 
+						nThreads + "_TSP_thread;" + 
+						maxDataInPois + ";" + 
+						minDataInPois + ";" + 
+						globalAvgDelay + ";" + 
+						nMsgs + ";" +  
+						Global.originalPathSize;
 		
 		System.out.println("\n[CustomGlobal] Final!\n");
 		System.out.println(header);

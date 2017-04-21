@@ -1,5 +1,5 @@
-/org/
 /projects/
+/org/
 /sinalgo/
 /ChangeLog
 /NEWS
@@ -7,12 +7,12 @@
 /ant/
 /checkstyle/
 /docfiles/
+/overview.html
 /jfreechart-1.0.19-demo.jar
 /lib/
+/experimental/
 /licence-LGPL.txt
-/overview.html
 /pom.xml
 /source/
 /swt/
-/experimental/
 /tests/
