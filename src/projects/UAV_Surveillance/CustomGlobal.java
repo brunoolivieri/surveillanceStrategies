@@ -35,16 +35,17 @@
 */
 package projects.UAV_Surveillance;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.awt.Color;
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
-import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -63,13 +64,22 @@ import sinalgo.runtime.Runtime;
 import sinalgo.tools.Tools; 
 
 
-import org.jfree.data.statistics.BoxAndWhiskerCategoryDataset;
 import org.jfree.data.statistics.BoxAndWhiskerItem;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.labels.BoxAndWhiskerToolTipGenerator;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BoxAndWhiskerRenderer;
 import org.jfree.data.statistics.BoxAndWhiskerCalculator;
-import org.jfree.data.statistics.BoxAndWhiskerXYDataset;
-import org.jfree.data.statistics.DefaultBoxAndWhiskerXYDataset;
-import org.jfree.data.time.Day;
-import org.jfree.data.time.RegularTimePeriod;
+import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
+import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.statistics.HistogramType;
+import org.jfree.data.xy.IntervalXYDataset;
 
 
 /**
@@ -143,7 +153,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 	}
 	
-	public void onExit() {
+	public void onExit() throws Exception {
 		try {
 			this.summary();
 		} catch (CorruptConfigurationEntryException e) {
@@ -228,13 +238,11 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	
 	//@Oli: Results button with statistics
 	@CustomButton(buttonText="OKButton", imageName="OK.gif", toolTipText="Prints out stats")
-	public void summary() throws CorruptConfigurationEntryException{
+	public void summary() throws CorruptConfigurationEntryException,Exception {
 		
-		//Enumeration<?> nodeEnumer = Tools.getNodeList().getNodeEnumeration();
 		int ctUAV = 0;
 		int ctPOI = 0;
 		int totalCost = 0;
-		//String visitsStrategy = "error";
 		int maxDataInPois = Integer.MIN_VALUE;
 		int minDataInPois = Integer.MAX_VALUE;
 		int tmp = 0;
@@ -242,7 +250,8 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		ArrayList<Long> localMsgDelays = new ArrayList<Long>();	
 		String strategyRunning = "error";
 		long nMsgs = 0;
-		
+
+		// Getting data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		for(Node n : Runtime.nodes) {			
 			if (n instanceof UAVnode){
 		    	ctUAV++;
@@ -293,7 +302,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		double surveillanceTax = 1 - ((double)(totalCost)/(ctRounds*ctPOI));
 		surveillanceTax = surveillanceTax*100;
 			
-		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;nMsgs;tourSize";
+		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;nMsgs;tourSize;mapName";
 			
 		double V2Vrange = Configuration.getDoubleParameter("GeometricNodeCollection/rMax");
 		
@@ -301,6 +310,10 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		long simumationTime = tem.getTime() - Global.startTime.getTime();
 		
 		int nThreads = (int) Configuration.getDoubleParameter("ThreadToRunWithTSP/threads");
+		
+		String mapName = "map_" + Global.distributionFile.substring(Global.distributionFile.lastIndexOf("/")+1) ;  //cleanning folder and getting only file name
+		// putting data together /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 		
 		String logline = strategyRunning + ";" + 
 						ctPOI + ";" +  
@@ -315,7 +328,8 @@ public class CustomGlobal extends AbstractCustomGlobal{
 						minDataInPois + ";" + 
 						globalAvgDelay + ";" + 
 						nMsgs + ";" +  
-						Global.originalPathSize;
+						Global.originalPathSize + ";" +
+						mapName;
 		
 		System.out.println("\n[CustomGlobal] Final!\n");
 		System.out.println(header);
@@ -349,6 +363,34 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 		
 		
+
+		// Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Save all delays
+		//
+		logline = "";
+		logline = mapName + ";" + strategyRunning + ";" + ctPOI	+ ";" + ctUAV;
+		for (int i = 0 ; i < localMsgDelays.size(); i++){
+			logline+= ";" + localMsgDelays.get(i).toString();
+		}
+        
+		try {
+		    Files.write(Paths.get("stats_delays_full.txt"), logline.getBytes(), StandardOpenOption.APPEND);
+		    Files.write(Paths.get("stats_delays_full.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
+		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_full.txt"));		
+		    //System.out.println("\n\n[Summary] Saved: " + logline);		
+
+		} catch (IOException e) {
+			System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
+			
+		}		
+		
+		
+		
+		
+		
+		// Working Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Save boxplot values to file
+		//
 		BoxAndWhiskerCalculator statistics = null;  
 		BoxAndWhiskerItem stats = statistics.calculateBoxAndWhiskerStatistics(localMsgDelays);
 		logline = "";
@@ -365,16 +407,94 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		// saving msg delays on by one in a file for each strategy
 		//String filename = "stats_delays_" + strategyRunning + ".txt";		
 		try {
-		    Files.write(Paths.get("stats_delays_.txt"), logline.getBytes(), StandardOpenOption.APPEND);
-		    Files.write(Paths.get("stats_delays_.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
-		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_.txt"));		
+		    Files.write(Paths.get("stats_delays_boxplot.txt"), logline.getBytes(), StandardOpenOption.APPEND);
+		    Files.write(Paths.get("stats_delays_boxplot.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
+		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_boxplot.txt"));		
 		    System.out.println("\n\n[Summary] Saved: " + logline);		
 
 		} catch (IOException e) {
 			System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
 			
 		}
-			
+		
+		
+		
+		
+		
+		
+		// trying save a boxplot Image to file
+		String file2saveGraph = "visualResults/boxplots/" + mapName + " - delay BoxPlot - " + ctUAV + " UAVs" + " - " + strategyRunning + ".png";
+		ArrayList<Double> doubleArrayDelays = new ArrayList<Double>();
+		for (int i = 0 ; i < localMsgDelays.size(); i++){
+			if (localMsgDelays.get(i) < Double.MAX_VALUE) {
+				doubleArrayDelays.add((double) localMsgDelays.get(i));	
+			} else{
+				doubleArrayDelays.add(Double.MAX_VALUE);
+			}			
+		}
+		
+		
+		DefaultBoxAndWhiskerCategoryDataset dataset = new DefaultBoxAndWhiskerCategoryDataset();
+	    HashMap<String, ArrayList<Double>> test = new HashMap<String, ArrayList<Double>>();
+	    test.put(strategyRunning,doubleArrayDelays);
+
+	    for (String k : test.keySet()){
+	        /* change to 
+	         *     String xAxisLabel = "";
+	         * to get wide plot
+	         */
+	        String xAxisLabel = k;
+	        dataset.add(test.get(k), xAxisLabel, k);// + beta of interactionterm");
+	    }
+	    final CategoryAxis xAxis = new CategoryAxis("x-axis: Series");
+	    final NumberAxis yAxis = new NumberAxis("y-axis: Delays");
+	    yAxis.setAutoRangeIncludesZero(false);
+	    final BoxAndWhiskerRenderer renderer = new BoxAndWhiskerRenderer();
+	    renderer.setFillBox(false);
+	    renderer.setSeriesToolTipGenerator(1, new BoxAndWhiskerToolTipGenerator());
+	    renderer.setMeanVisible(false);
+	    final CategoryPlot plot = new CategoryPlot(dataset, xAxis, yAxis, renderer);
+
+	    final JFreeChart chartBoxPlot = new JFreeChart("BoxPlot of Delays",plot);
+	    
+	    final ChartPanel chartPanel = new ChartPanel(chartBoxPlot);
+	    chartPanel.setPreferredSize(new java.awt.Dimension(3000,1800));
+	    ChartUtilities.saveChartAsPNG(new File(file2saveGraph), chartBoxPlot, 200, 600);
+		// box plot saved/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	    
+	    
+	    // Histogram trial /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	    //	    
+	    double[] dataHistogram = new double[doubleArrayDelays.size()];
+	    for (int i = 0; i < dataHistogram.length; i++) {
+	    	dataHistogram[i] = doubleArrayDelays.get(i); 
+	     }
+	    
+        HistogramDataset datasetHistogram = new HistogramDataset();
+        datasetHistogram.setType(HistogramType.RELATIVE_FREQUENCY);
+                        
+        datasetHistogram.addSeries("Hist",dataHistogram,10); // Number of bins is 50
+        String plotTitle = "Histogram of Delays";
+        String xAxisX = "Frequency";
+        String yAxisY = "Delays";
+        PlotOrientation orientation = PlotOrientation.VERTICAL;
+
+        boolean show = false;
+        boolean toolTips = false;
+        boolean urls = false;
+        JFreeChart chartHistogram = ChartFactory.createHistogram(plotTitle, xAxisX, yAxisY,
+        		(IntervalXYDataset) datasetHistogram, orientation, show, toolTips, urls);
+
+        chartHistogram.setBackgroundPaint(Color.white);
+
+        file2saveGraph = "visualResults/histograms/" + mapName + " - delay Histogram - " + ctUAV + " UAVs" + " - " + strategyRunning + ".png";
+
+        ChartUtilities.saveChartAsPNG(new File(file2saveGraph), chartHistogram, 1000, 600);
+
+	    
+	    // Histrogram saved/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	    
+
 		
 	}
 	

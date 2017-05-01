@@ -162,8 +162,9 @@ public abstract class AbstractCustomGlobal {
 	 * <p>  
 	 * Override this method in the project specific CustomGlobal class to perform 
 	 * some cleanup operations, if needed. 
+	 * @throws Exception 
 	 */
-	public void onExit() {
+	public void onExit() throws Exception {
 		// No implementation here! Add your code to the CustomGlobal.java 
 		// file in your project. 
 	}

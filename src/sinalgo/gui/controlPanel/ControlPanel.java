@@ -423,7 +423,12 @@ public abstract class ControlPanel extends JPanel implements ActionListener, Mou
 	 */
 	public void actionPerformed(ActionEvent e){
 		if(e.getActionCommand().equals(exit.getActionCommand())) {
-			Main.exitApplication();
+			try {
+				Main.exitApplication();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		else if(e.getActionCommand().equals(start.getActionCommand())){
 			startSimulation();

@@ -287,7 +287,12 @@ public class GUI extends JFrame implements ActionListener{
 		WindowAdapter listener = new WindowAdapter(){
 			// Catch the close events
 			public void windowClosing(WindowEvent event){
-				Main.exitApplication();
+				try {
+					Main.exitApplication();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		};
 		addWindowListener(listener);
@@ -852,7 +857,12 @@ public class GUI extends JFrame implements ActionListener{
 			HelpDialog.showHelp(this); // start in a new thread
 		}
 		else if(e.getActionCommand().equals(exitMenuItem.getActionCommand())) {
-			Main.exitApplication();
+			try {
+				Main.exitApplication();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		else if(e.getActionCommand().equals(viewFullScreenMenuItem.getActionCommand())) {
 			toggleFullScreen();

@@ -109,6 +109,8 @@ public class Run {
 			// Modification for enabling other JARs in the Main Command Line
 			String classPATH = "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jdom.jar" + classPathSeparator
 							 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jfreechart-1.0.19.jar" + classPathSeparator
+							 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jcommon-1.0.23.jar" + classPathSeparator
+							 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jcommon-xml-1.0.23.jar" + classPathSeparator
 			                 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"choco-solver-3.3.3-j7-with-dependencies.jar";
 			
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////

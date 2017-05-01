@@ -556,8 +556,9 @@ public class Main{
 	 * To quit the application, call this method. It may perform some 
 	 * cleanup operations before exiting, as specified in the current 
 	 * instance of the customGlobal, in the method onExit().
+	 * @throws Exception 
 	 */
-	public static void exitApplication() {
+	public static void exitApplication() throws Exception {
 		cleanup();
 		Global.customGlobal.onExit(); // may perform some cleanup ops
 		System.exit(0);

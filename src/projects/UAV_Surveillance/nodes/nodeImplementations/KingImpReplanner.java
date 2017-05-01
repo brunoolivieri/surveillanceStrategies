@@ -158,7 +158,7 @@ public class KingImpReplanner {
 			if (poiTmp.ID == testPoi.ID)				
 				return i;
 		}	
-		System.out.print("[UAV " + myID + "]\t ERROR from getIdxFromPoi() - Inexistent POI on path.");
+		System.out.print("[KimpReplanner " + myID + "]\t ERROR from getIdxFromPoi() - Inexistent POI on path.\n\n");
 		return 0;
 		
 	}

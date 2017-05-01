@@ -297,7 +297,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			if (poiTmp.ID == testPoi.ID)				
 				return i;
 		}	
-		System.out.print("[UAV " + this.ID + "]\t ERROR from getIdxFromPoi() - Inexistent POI on path.");
+		System.out.print("[UAV " + this.ID + "]\t ERROR from getIdxFromPoi() - Inexistent POI on path.\n\n");
 		return 0;
 		
 	}

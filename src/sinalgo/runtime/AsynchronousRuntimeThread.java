@@ -129,7 +129,12 @@ public class AsynchronousRuntimeThread extends Thread{
 				if(Global.isGuiMode){
 					break;
 				}	else {
-					Main.exitApplication(); // we're in batch mode and there are no more events -> exit 
+					try {
+						Main.exitApplication();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} // we're in batch mode and there are no more events -> exit 
 				}
 			}
 			
@@ -174,7 +179,12 @@ public class AsynchronousRuntimeThread extends Thread{
 			runtime.getGUI().redrawGUINow();
 			runtime.getGUI().setStartButtonEnabled(true);
 		} else { // Batch mode 
-			Main.exitApplication(); // we're in batch mode and the required number of events have been handled -> exit			
+			try {
+				Main.exitApplication();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} // we're in batch mode and the required number of events have been handled -> exit			
 		}
 		if(event != null) {
 			event.free();

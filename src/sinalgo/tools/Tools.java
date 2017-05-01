@@ -273,7 +273,12 @@ public class Tools {
 		if(Global.isGuiMode) {
 			Main.getRuntime().abort();
 		} else {
-			Main.exitApplication();
+			try {
+				Main.exitApplication();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -281,7 +286,12 @@ public class Tools {
 	 * Exits the simulation and closes the application. 
 	 */
 	public static void exit() {
-		Main.exitApplication();
+		try {
+			Main.exitApplication();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**

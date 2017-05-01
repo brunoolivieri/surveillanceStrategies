@@ -163,7 +163,12 @@ public class SynchronousRuntimeThread extends Thread {
 					Global.log.logln("Termination criteria fulfilled at round "+Global.currentTime+" after "+time+" ms");
 					Global.log.logln("Hint: Sinalgo terminated because the function 'hasTerminated()' in CustomGlobal returned true.\n");
 				}
-				Main.exitApplication(); // exit the application
+				try {
+					Main.exitApplication();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} // exit the application
 			}
 			
 			Global.numberOfMessagesOverAll += Global.numberOfMessagesInThisRound;
@@ -185,7 +190,12 @@ public class SynchronousRuntimeThread extends Thread {
 				Global.log.logln("Simulation stopped regularly after "+Global.currentTime+" rounds during "+time+" ms");
 				Global.log.logln("Which makes "+(time/Global.currentTime)+" ms per round.\n");
 			}
-			Main.exitApplication(); // exit explicitely, s.t. CustomGlobal.onExit() is called
+			try {
+				Main.exitApplication();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} // exit explicitely, s.t. CustomGlobal.onExit() is called
 		}
 		Global.isRunning = false;
 	}
