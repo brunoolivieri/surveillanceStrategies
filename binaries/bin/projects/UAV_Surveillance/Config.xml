@@ -98,7 +98,7 @@
 		<extendedControl value="true" />
 
 		<!--If true, the graph edges are drawn as directed arrows,  otherwise simple lines.-->
-		<drawArrows value="false" />
+		<drawArrows value="true" />
 
 		<!--Fraction of the old and new zoom values for a zoom step.-->
 		<zoomStep value="1.2" />
@@ -185,7 +185,7 @@
 		<!--  Animation Settings                                                   -->
 		<!--***********************************************************************-->
 		<!--Draw an envelope for each message that is being sent-->
-		<showMessageAnimations value="false" />
+		<showMessageAnimations value="true" />
 
 		<!--Width of the envelope (when the message animation is enabled)-->
 		<messageAnimationEnvelopeWidth value="30.0" />
@@ -237,6 +237,11 @@
 
 <GeometricNodeCollection rMax="71"/>
 <UDG rMax="71"/>
+
+<QUDG rMin="64" rMax="71" ProbabilityType="constant" connectionProbability="0.9"/>
+
+<SINR alpha="2" beta="0.7" noise="0.1"/>
+
 
 <!-- @Oli: DO NOT TOUCH THAT UNLESS YOU REALLY KNOW ABOUT CUSTOM MOVEMENT CODE!!! -->
 <RandomWayPoint>

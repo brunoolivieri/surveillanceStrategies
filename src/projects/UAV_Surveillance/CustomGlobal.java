@@ -37,6 +37,8 @@ package projects.UAV_Surveillance;
 
 import java.awt.Color;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
@@ -109,6 +111,9 @@ public class CustomGlobal extends AbstractCustomGlobal{
 
 	//@Oli: Our vars
 	public int ctRounds = 0;
+	
+	private static String OS = System.getProperty("os.name").toLowerCase();
+
 	
 	//@Oli: not used yet
 	public boolean hasTerminated() {
@@ -424,6 +429,29 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 		// trying save a boxplot Image to file
 		String file2saveGraph = "visualResults/boxplots/" + mapName + " - delay BoxPlot - " + ctUAV + " UAVs" + " - " + strategyRunning + ".png";
+
+		if ((OS.indexOf("nux") >= 0)){ // creates a foo file...rsrs
+		
+			try {
+				File directory = new File (".");
+			    //directory.getCanonicalPath() 
+			    //directory.getAbsolutePath()
+			    long timestamp = System.currentTimeMillis();
+			    if (!directory.exists()) {
+			        new FileOutputStream(directory.getAbsolutePath() + file2saveGraph).close();
+			     }
+
+			    directory.setLastModified(timestamp);
+			    
+			}catch(Exception e) {
+			    System.out.println("Exceptione is ="+e.getMessage());
+			}
+			
+			
+	    } else {// it the windows machine
+	    	// works transparently
+	    } 
+		
 		ArrayList<Double> doubleArrayDelays = new ArrayList<Double>();
 		for (int i = 0 ; i < localMsgDelays.size(); i++){
 			if (localMsgDelays.get(i) < Double.MAX_VALUE) {

@@ -43,6 +43,8 @@ public class GlobalWriteAndLoadPositions {
 	public ArrayList<POInode> load(String file)  throws IOException, ClassNotFoundException{
 		System.out.print("\n[Global] Trying LOAD a distribution: " + Global.distributionFile + " ||>  ");
 		
+		
+		
 		FileInputStream fin = new FileInputStream(file);
 		ObjectInputStream ois = new ObjectInputStream(fin);
 		List<POInode> listOfLoadedPOIs = new ArrayList<POInode>();

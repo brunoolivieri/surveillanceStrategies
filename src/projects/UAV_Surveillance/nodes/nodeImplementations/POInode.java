@@ -25,6 +25,8 @@ import projects.UAV_Surveillance.nodes.messages.msgFromPOI;
 
 public class POInode extends Node implements Comparable<POInode>, Serializable {
 
+    private static final long serialVersionUID = -4012494570376706631L; // trick: No idea why: After first version of FPPWR  its had problems regarding serialization and read from file...
+
 	//private static int maxNeighbors = 0; // global field containing the max number of neighbors any node ever had
 	
 	//private boolean isMaxNode = false; // flag set to true when this node has most neighbors
@@ -48,6 +50,8 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 	// duplicate fields because it is Serializable but NODE doesnt. These field belong to NODE.
 	public int myID;
 	public Position myPos;
+	public boolean flagFPPWR = false;
+	
 	
 	/**
 	 * Reset the list of neighbors of this node.
@@ -149,6 +153,8 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 		this.drawingSizeInPixels = 15 ; // (int) (fraction * pt.getZoomFactor() * this.defaultDrawingSizeInPixels);
 		
 		String text = Integer.toString(this.ID) ; // + "|" + Integer.toString(roundsNeglected);// + "|" + msgSentInThisRound;
+		
+		//String text = Integer.toString(this.nodeCreationOrder) ; // + "|" + Integer.toString(roundsNeglected);// + "|" + msgSentInThisRound;
 		
 		if (!amIphantom){
 			super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);

@@ -472,7 +472,11 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		// default:
 		//drawAsDisk(g, pt, highlight, this.drawingSizeInPixels);
 				
-		String text = Integer.toString(this.ID) + "|" + poiMessages.size() ; 
+		//String text = Integer.toString(this.ID) + "|" + poiMessages.size() ; 
+		
+		String text = Integer.toString(this.nodeCreationOrder) + "|" + poiMessages.size() ; 
+
+		
 		super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
 		
 		// debug: 

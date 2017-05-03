@@ -9,10 +9,13 @@ echo "Formating results ..."
 sed 's/%//g' $1 
 sed 's/MiliSegs//g' $1
 sed 's/_TSP_thread//g' $1
+sed 's/map_//g' $1
+sed 's/.txt//g' $1
+
 
 echo "Creating clean data file ..."
 
-echo "Strategy;nPOIs;nUAV;SucessTax;V2V_range;nRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;nMsgs;tourSize" > cleanDataFile.txt
+echo "Strategy;nPOIs;nUAV;SucessTax;V2V_range;nRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;nMsgs;tourSize;mapa" > cleanDataFile.txt
 sed 's/projects.UAV_Surveillance.models.mobilityModels.//g' $1 >> cleanDataFile.txt
 
 

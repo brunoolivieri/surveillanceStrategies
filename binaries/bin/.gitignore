@@ -1,3 +1,4 @@
+/projects/
 /LICENSE
 /README.md
 /ant/
@@ -5,8 +6,8 @@
 /jcommon-1.0.23.jar
 /jcommon-xml-1.0.23.jar
 /lib/
+/org/
 /pom.xml
-/projects/
 /sinalgo/
 /src/
 /ChangeLog
@@ -14,7 +15,6 @@
 /README.txt
 /docfiles/
 /jfreechart-1.0.19-demo.jar
-/org/
 /overview.html
 /experimental/
 /licence-LGPL.txt

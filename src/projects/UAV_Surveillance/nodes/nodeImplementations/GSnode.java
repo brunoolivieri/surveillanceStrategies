@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 import projects.UAV_Surveillance.nodes.messages.msgFromPOI;
@@ -122,6 +123,481 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	}
 
 	
+	
+	
+	@Override
+	public void preStep() {
+		roundsRunning++;		
+
+		
+		//@Oli: we can not do it on Init() because does not works... BUG?
+		if (!mappedPOIs){
+			for(Node n : Runtime.nodes) {	
+				if (n instanceof POInode){
+					listOfPOIs.add((POInode) n);
+				}
+				if (n instanceof UAVnode){
+					setOfUAVs.add((UAVnode) n);
+				}
+				if (n instanceof GSnode) {
+					// bellow
+				}		
+			}					
+			// if (V2V instead of V2I) // so, UAVs need to go to GS to return data
+			// this is a kind of phantom, but set as phantom. Why? <-- just added
+			if (Global.isV2V2GS){
+				POInode gsPOI = new POInode();
+				gsPOI.setPosition(this.getPosition());
+				gsPOI.ID = this.ID; // this is necessary because is a fake POI | and it is used to (re)mount TSP best tour
+				//gsPOI.amIphantom = true;
+				listOfPOIs.add((POInode) gsPOI); 
+			}
+			mappedPOIs = true;			
+			
+			// Choose your flavor ... z does not matter. sort() helps debug operations
+			Collections.sort(listOfPOIs); 
+			//Collections.shuffle(listOfPOIs);
+			
+			System.out.print("[GSnode] Default route: ");
+			for (POInode n: listOfPOIs){
+				System.out.print(n.ID + " - ");
+			}
+			System.out.println("\n");
+		}	
+		
+		if (!cmdsSent)
+			prepareMessageWithPathToUAVs(); // prepare and send the msg
+		
+		
+	
+	}
+	
+	
+	private void prepareMessageWithPathToUAVs(){
+		
+		System.out.println("[GS " + this.ID + "] invoked to dispatch process paths/tours and dispatch UAVs" );
+
+		// Sent once to inform UAVs the visit order... Naive, TSP & Anti-TSP cases
+		// Random Safe Strategy does not wait for this step, because does not have an order
+				
+		if ((!cmdsSent) && (!setOfUAVs.first().myMobilityModelName.endsWith("RandomSafeMobility"))){		
+			if (setOfUAVs.first().myMobilityModelName.endsWith("TSPbasedMobility")){
+				System.out.print("[TSPbasedMobility] ");
+				msgPOIorder = new msgPOIordered(createTSPbasedPaths());		//@Oli: ChocoSolver to TSP		
+				strategyRunning = "TSPbased";
+			}
+			else if ((setOfUAVs.first().myMobilityModelName.endsWith("NotSoNaiveOrderedMobility"))){			
+					System.out.print("[NotSoNaiveOrderedMobility] ");
+					// Does O(n2) path path and populates "msgPOIorder"	
+					msgPOIorder = new msgPOIordered(createNotSoNaiveBestPath());
+					strategyRunning = "NSNOrdered";
+			} 
+			else if ((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))){
+					System.out.print("[ZigZagOverNaiveMobility] ");
+					msgPOIorder = new msgPOIordered(listOfPOIs);
+					strategyRunning = "ZigZagOverNaive";
+			} 
+			else if ((setOfUAVs.first().myMobilityModelName.endsWith("NaiveOrderedMobility"))&&(!setOfUAVs.first().myMobilityModelName.endsWith("NotSoNaiveOrderedMobility"))){				
+					System.out.print("[NaiveOrderedMobility] ");
+					msgPOIorder = new msgPOIordered(listOfPOIs);
+					strategyRunning = "Naive";
+			} 
+			else if ((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverNSNMobility"))){
+					System.out.print("[ZigZagOverNSNMobility] ");
+					msgPOIorder = new msgPOIordered(createNotSoNaiveBestPath());// same as NotSoNaiveOrderedMobility
+					strategyRunning = "ZigZagOverNSN";
+			} 
+			else if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNSNMobility"))){
+					System.out.print("[KingstonImprovedOverNSNMobility] ");
+					msgPOIorder = new msgPOIordered(createNotSoNaiveBestPath());// same as NotSoNaiveOrderedMobility
+					strategyRunning = "KIMPOverNSN";
+			} 
+			else if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNaiveMobility"))){
+					System.out.print("[KingstonImprovedOverNaiveMobility] ");
+					msgPOIorder = new msgPOIordered(listOfPOIs);
+					strategyRunning = "KIMPOverNaive";
+			}							
+			else if (((setOfUAVs.first().myMobilityModelName.endsWith("FPPWRMobility")))) {
+				System.out.print("[FPPWRMobility] ");
+				strategyRunning = "FPPWRMobility";
+				msgPOIorder = new msgPOIordered(createFPPWRPath());				
+			}
+			
+			broadcast(msgPOIorder);			
+			Global.originalPathSize = getPathSize(msgPOIorder.data);
+			cmdsSent = true;	
+		}
+		
+		
+	}
+	
+	@Override
+	public void postStep() {
+	}
+		
+	@Override
+	public String toString() {
+		return "GS";
+	}
+	
+	/* (non-Javadoc)
+	 * @see sinalgo.nodes.Node#draw(java.awt.Graphics, sinalgo.gui.transformation.PositionTransformation, boolean)
+	 */
+	public void draw(Graphics g, PositionTransformation pt, boolean highlight) {
+		
+		this.setColor(Color.DARK_GRAY);
+
+		this.drawingSizeInPixels = 10 ; 
+
+		//super.drawNodeAsDiskWithText(g, pt, highlight, "GS", 10, Color.RED);
+		
+		//String text = Integer.toString(this.ID) + ":GS"; 
+		
+		//String text = Integer.toString(this.ID) + "|" + poiMessages.size() ; 
+		
+		String text = Integer.toString(nodeCreationOrder) + "|" + poiMessages.size() ; 
+	
+		
+		super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
+	}
+	
+	/* (non-Javadoc)
+	 * @see sinalgo.nodes.Node#drawToPostScript(sinalgo.io.eps.EPSOutputPrintStream, sinalgo.gui.transformation.PositionTransformation)
+	 */
+	public void drawToPostScript(EPSOutputPrintStream pw, PositionTransformation pt) {
+		// the size and color should still be set from the GUI draw method
+		drawToPostScriptAsDisk(pw, pt, drawingSizeInPixels/2, getColor());
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	@Override
+	public int compareTo(GSnode tmp) {
+		if(this.ID < tmp.ID) {
+			return -1;
+		} else {
+			if(this.ID == tmp.ID) {
+				return 0;
+			} else {
+				return 1;
+			}
+		}
+	}
+	
+	
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Tools
+	
+	private int getPathSize(ArrayList<POInode> path) {
+		
+		POInode thisPOI;
+		POInode lastPOI;
+		int size = 0;
+	
+		for (int i = 1; i< path.size(); i++){
+			thisPOI = (POInode)path.get(i);
+			lastPOI = (POInode)path.get(i-1);
+			size += (int) Math.sqrt(
+				             (thisPOI.getPosition().xCoord - lastPOI.getPosition().xCoord) *  (thisPOI.getPosition().xCoord - lastPOI.getPosition().xCoord) + 
+				             (thisPOI.getPosition().yCoord - lastPOI.getPosition().yCoord) *  (thisPOI.getPosition().yCoord - lastPOI.getPosition().yCoord)
+				              );
+		}
+		return size;
+	}
+	
+	private boolean isPoiInList(POInode poiFrom, ArrayList<POInode> poiList){
+		POInode poiInList = new POInode();
+		for (int i=0; i<poiList.size(); i++){
+			poiInList = poiList.get(i);
+			if (poiInList.ID == poiFrom.ID)
+				return true;
+		}		
+		return false;	
+	}
+	
+	
+	private void removePoiFromList(POInode poiFrom, ArrayList<POInode> poiList){
+		POInode poiA = new POInode();
+		for (int i = 0; i< poiList.size(); i++) {		
+			poiA = poiList.get(i);
+			if (poiA.ID == poiFrom.ID){
+				poiList.remove(i);
+				//break;
+			}
+		}
+	}
+	
+	
+
+	private POInode getNearestPoi(POInode poiFrom, ArrayList<POInode> poiList){
+		int dist2Last = Integer.MAX_VALUE;
+		int i = 0;
+		POInode poiA = new POInode();
+		POInode poiTo = new POInode();
+		
+		// looking for the nearest POI from the GS
+		for (i=0; i< poiList.size(); i++){			
+			poiA = poiList.get(i);	
+			if (poiA.ID != poiFrom.ID) {	
+				// need to change it to use distance matrix created to TSP
+				double distance = Math.hypot(poiFrom.getPosition().xCoord - poiA.getPosition().xCoord, poiFrom.getPosition().yCoord - poiA.getPosition().yCoord);
+				if (distance <= dist2Last){
+					dist2Last = (int) distance;
+					poiTo = poiA;
+				}
+			}
+		}		
+		return poiTo;
+		
+	}
+	
+	
+	
+	
+
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// FPPWR path planning
+
+private ArrayList<POInode> createFPPWRPath() {
+				
+		// Get the horizontal radio range by the minimum range ////////////////////////
+	    int radioRange = -1;
+		try {
+			radioRange = (int) Configuration.getDoubleParameter("QUDG/rMax");
+		} catch (CorruptConfigurationEntryException e) {
+			e.printStackTrace();
+		} 
+		int squareSize = 2 * radioRange;
+		System.out.println("\n[GS " + this.ID + "] Radio range: " + radioRange);
+		System.out.println("[GS " + this.ID + "] SquareSize: " + squareSize);
+
+		///////////////////////////////////////////////////////////////////////////////
+		
+		// Getting the number os Squares //////////////////////////////////////////////
+		int xMapSize = sinalgo.configuration.Configuration.dimX;
+		int yMapSize = sinalgo.configuration.Configuration.dimY;
+	
+		System.out.println("[GS " + this.ID + "] xMapSize: " + xMapSize);
+		System.out.println("[GS " + this.ID + "] yMapSize: " + yMapSize);		
+	
+		int nVerticalSquares = (int) (xMapSize / squareSize);
+		if ((xMapSize % radioRange) !=0) // Iff there is a waste
+			nVerticalSquares++;
+		
+		int nHorizontalSquares = (int) (yMapSize / squareSize);
+		if ((yMapSize % radioRange) !=0) // Iff there is a waste
+			nHorizontalSquares++;
+		
+		System.out.println("[GS " + this.ID + "] nVerticalSquares: " + nVerticalSquares);
+		System.out.println("[GS " + this.ID + "] nHorizontalSquares: " + nHorizontalSquares);		
+		
+		///////////////////////////////////////////////////////////////////////////////
+
+		
+		// create array of squares ////////////////////////////////////////////////////
+		int numSquares = nVerticalSquares * nHorizontalSquares;
+		System.out.println("[GS " + this.ID + "] numSquares: " + numSquares);		
+		
+		ArrayList<fppwrSQUARE> squares = new ArrayList<fppwrSQUARE>();
+
+		// Creates and classify each square ///////////////////////////////////////////
+		int ctSquares = 0;
+		int ctVertical = 0;
+		int ctHorizontal = 0;
+		int lastUPDOWN = 0;
+		while (ctSquares < numSquares) {
+			
+			fppwrSQUARE squareTMP = new fppwrSQUARE(); // this should be in the class BUT is here just to test the first prototype
+			squareTMP.jID = ctSquares;
+
+			// setting square limits /////////////////////////////////////////////////////////////
+			if ((ctHorizontal % 2) == 0){ // it means it is going from left to right
+				
+				squareTMP.xMin = ctVertical * squareSize;
+				
+				squareTMP.yMin = ctHorizontal * squareSize;				
+				
+				squareTMP.xMax = squareTMP.xMin + squareSize;
+				squareTMP.yMax = squareTMP.yMin + squareSize;
+				
+				//squareTMP.anchor.assign(xMin, yMin + (squareSize/2), 0);
+				
+			} else { // it is going from right to left
+				
+				squareTMP.xMin = (nVerticalSquares - ctVertical) * squareSize - squareSize;	 // tricky
+				squareTMP.yMin = ctHorizontal * squareSize; 						// easy				
+				
+				squareTMP.xMax = squareTMP.xMin + squareSize; 	// easy
+				squareTMP.yMax = squareTMP.yMin + squareSize; 	// easy
+				
+				//squareTMP.anchor.assign(xMax, yMin + (squareSize/2), 0);
+			} 
+			///////////////////////////////////////////////////////////////////////////
+			
+			
+			// Classifying the Square /////////////////////////////////////////////////
+			if (ctSquares == 0) {
+				squareTMP.relation = fppwrSQUARE.RelationType.BEGINNER;	
+				ctVertical = ++ctVertical % nVerticalSquares;
+			} else if (ctSquares == (numSquares -1)) {
+				squareTMP.relation = fppwrSQUARE.RelationType.FINISHER; // would be faster put it in the end
+			} else if (((ctSquares - nVerticalSquares) == lastUPDOWN)||(ctSquares == (nVerticalSquares-1))) {
+				squareTMP.relation = fppwrSQUARE.RelationType.UPDOWN; // extremes but not beginner neither finisher
+				lastUPDOWN = ctSquares;
+				ctHorizontal++;	
+				ctVertical = ++ctVertical % nVerticalSquares;
+			} else {
+				squareTMP.relation = fppwrSQUARE.RelationType.LEFTRIGHT; // none of up cases, so it is horizontal.
+				ctVertical = ++ctVertical % nVerticalSquares;
+			}
+			////////////////////////////////////////////////////////////////////////////	
+			
+
+			// fitting POIs in Squares /////////////////////////////////////////////////
+			ArrayList<POInode> squarePOIs = new ArrayList<POInode>();
+
+			for (int k=0; k < listOfPOIs.size(); k++) { 
+				POInode poiTMP = listOfPOIs.get(k);
+			
+				if (!poiTMP.flagFPPWR) {				
+//					System.out.println("[GS " + this.ID + "] POI " + poiTMP.ID + " x = " + poiTMP.getPosition().xCoord 
+//							+ " y = " + poiTMP.getPosition().yCoord 
+//							+ " against " + "Min (" + squareTMP.xMin + "," + squareTMP.yMin + ")" 
+//							+ " ... Max (" + squareTMP.xMax + "," + squareTMP.yMax + ")" );
+	
+					if ((poiTMP.getPosition().xCoord >= squareTMP.xMin)&&(squareTMP.xMax >= poiTMP.getPosition().xCoord)&&
+							(poiTMP.getPosition().yCoord >= squareTMP.yMin)&&(squareTMP.yMax >= poiTMP.getPosition().yCoord)){
+						squarePOIs.add(poiTMP);	
+						listOfPOIs.get(k).flagFPPWR = true;
+						//System.out.println("[GS " + this.ID + "] POI " + poiTMP.ID + " added on J_" + squareTMP.jID);
+					}	
+				}
+			}
+			////////////////////////////////////////////////////////////////////////////
+			
+			squareTMP.innerSquarePOIs = (ArrayList<POInode>) squarePOIs.clone();
+			squares.add(squareTMP);				
+			ctSquares++;
+
+		}
+		
+		// inner lists ////////////////////////////////////////////////////////////////////
+		System.out.println("\n[GS " + this.ID + "] FPPWR buquet path: ");
+		POInode poiTMP = null;
+		fppwrSQUARE jota = null;	
+		
+		ArrayList<POInode> resultPath = new ArrayList<POInode>();
+
+		for(int m=0; m < squares.size(); m++ ){
+			
+			jota = squares.get(m);
+			
+			//if (jota.innerSquarePOIs.size() >0 ){
+			//	System.out.print("\n[GS " + this.ID + "] J_" + jota.jID + " flagged as " + jota.relation.toString() 
+			//	+ " at (" + jota.xMin + ", " + jota.yMin + ") to (" + jota.xMax + ", " + jota.yMax + ") :"   );
+
+				for(int l=0; l < jota.innerSquarePOIs.size(); l++){
+					poiTMP = jota.innerSquarePOIs.get(l);
+					//System.out.print(poiTMP.ID + " - >");
+					resultPath.add(poiTMP);
+				}
+			//}
+		}
+		System.out.print("\n\n");
+		///////////////////////////////////////////////////////////////////////////////////
+
+		// not optimized path yet /////////////////////////////////////////////////////////
+		System.out.print("\n[GS " + this.ID + "] FPPWR raw path: ");
+		for(int l=0; l < resultPath.size(); l++){
+			poiTMP = resultPath.get(l);
+			System.out.print(poiTMP.ID + " - >");
+		}
+		System.out.print("\n\n");
+		///////////////////////////////////////////////////////////////////////////////////
+		
+		// looking for non coverd POI /////////////////////////////////////////////////////
+		System.out.print("\n[GS " + this.ID + "] Orfans POIs: ");
+		for(int l=0; l < resultPath.size(); l++){
+			poiTMP = resultPath.get(l);
+			
+			if (!poiTMP.flagFPPWR)
+				System.out.print(poiTMP.ID + " - >");
+		}
+		System.out.print("\n\n");
+		///////////////////////////////////////////////////////////////////////////////////
+
+
+		
+		return resultPath;
+			
+}
+	
+	
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	
+	
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	// NSN path planning
+	
+	// Creates a path by choosing the nearest POI to nearest POI
+private ArrayList<POInode> createNotSoNaiveBestPath() {
+			
+			System.out.println("[GS " + this.ID + "] invoked" );
+			
+			// getting first and nearest
+			POInode poiFrom = new POInode();		
+			poiFrom.setPosition(this.getPosition()); // GroundStation
+			POInode poiA = new POInode();
+			poiA = getNearestPoi(poiFrom, listOfPOIs);
+			poiFrom = poiA;
+			
+			// create the answerList
+			ArrayList<POInode> poiOrder = new ArrayList<POInode>();
+			poiOrder.add(poiFrom);
+
+			ArrayList<POInode> poiListTemp = new ArrayList<POInode>();
+			//poiListTemp = listOfPOIs;
+			poiListTemp = (ArrayList<POInode>)listOfPOIs.clone();
+
+			//removing the first one from the list
+			removePoiFromList(poiFrom, poiListTemp);
+		
+			//creating the chain of nearest POI to prosecute
+			while (poiOrder.size() < listOfPOIs.size()){
+				poiA = getNearestPoi((poiFrom), poiListTemp);
+				poiOrder.add(poiA);
+				poiFrom = poiA;
+				removePoiFromList(poiFrom, poiListTemp);
+			}
+			
+			
+			for (int i =0; i< poiOrder.size(); i++){
+				poiA = poiOrder.get(i);
+				System.out.print(poiA.ID + " - ");
+			}
+			System.out.println();
+			
+			//msgPOIorder = new msgPOIordered(poiOrder);
+			return poiOrder;
+				
+}
+		
+		
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+	
+	
+	////////////////// CHOCOSOLVER MESSY & OLD PART  /////////////////////////
+	
+
 	public int[][] prepareDistMatrix(ArrayList<POInode> pointsList, boolean toPrint){
 
 		POInode poiA = new POInode();
@@ -161,8 +637,38 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	}
 	
 	
+	private void prepareSolver(Solver solver,  int[][] myDistMatrix){
+		
+		IntVar[] VS = VF.enumeratedArray("VS", listOfPOIs.size(), 0, listOfPOIs.size()-1, solver);		        		  
+		IntVar totalCost = VF.enumerated("obj", 0, 99999999, solver);	
+		solver.post(ICF.tsp(VS, totalCost, myDistMatrix)); 				
+		solver.setObjectives(totalCost);		
+			
+		String useTimer = "false";
+		
+		try {
+			useTimer = Configuration.getStringParameter("ThreadToRunWithTSPTimeEnabler/enabled");
+			if (useTimer.equals("true")){			
+				long maxTimeMs = Integer.MAX_VALUE;
+				System.out.println("[TSP] [" + solver.getName() + "] timeout created as " + (maxTimeMs/1000) + " seconds..." );
+				try {
+					maxTimeMs = (int) Configuration.getIntegerParameter("ThreadToRunWithTSPTimer/maxduration");
+					SMF.limitTime(solver, maxTimeMs);
+					System.out.println("[TSP] [" + solver.getName() + "] timeout changed for  " + (maxTimeMs/1000) + "seconds..." );
+
+				} catch (CorruptConfigurationEntryException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}			
+			}			
+		} catch (CorruptConfigurationEntryException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
 	
-	private void createTSPbasedPaths(){
+	
+	private ArrayList<POInode> createTSPbasedPaths(){
 		
 		
 		/*
@@ -294,9 +800,9 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			}			
 		}//////////////////////////
 	    
-		System.out.println("[GS " + this.ID + "]\tFilling msg to UAVs with best path");
+		//System.out.println("[GS " + this.ID + "]\tFilling msg to UAVs with best path");
 						    
-		msgPOIorder = new msgPOIordered(TSPlistOfPOIs);		
+		//msgPOIorder = new msgPOIordered(TSPlistOfPOIs);		
 		
 		System.out.print("\n[TSP] Original path:");
 		for (int k = 0; k < (listOfPOIs.size()); k++) {						
@@ -314,211 +820,11 @@ public class GSnode extends Node implements Comparable<GSnode> {
 		
 		System.out.println("\n");
 		
+		return TSPlistOfPOIs;
+		
 		
 	}
 	
-	
-	
-	
-	@Override
-	public void preStep() {
-		roundsRunning++;		
-
-		
-		//@Oli: we can not do it on Init() because does not works... BUG?
-		if (!mappedPOIs){
-			for(Node n : Runtime.nodes) {	
-				if (n instanceof POInode){
-					listOfPOIs.add((POInode) n);
-				}
-				if (n instanceof UAVnode){
-					setOfUAVs.add((UAVnode) n);
-				}
-				if (n instanceof GSnode) {
-					// bellow
-				}		
-			}					
-			// if (V2V instead of V2I) // so, UAVs need to go to GS to return data
-			if (Global.isV2V2GS){
-				POInode gsPOI = new POInode();
-				gsPOI.setPosition(this.getPosition());
-				gsPOI.ID = this.ID; // this is necessary because is a fake POI | and it is used to (re)mount TSP best tour
-				listOfPOIs.add((POInode) gsPOI);
-			}
-			
-			
-			mappedPOIs = true;			
-			
-			// Choose your flavor ... z does not matter. sort() helps debug operations
-			Collections.sort(listOfPOIs); 
-			//Collections.shuffle(listOfPOIs);
-			
-			System.out.print("[GSnode] Default route: ");
-			for (POInode n: listOfPOIs){
-				System.out.print(n.ID + " - ");
-			}
-			System.out.println("\n");
-	}	
-		
-		//Sent once to inform UAVs the visit order... Naive, TSP & Anti-TSP cases
-		// Random Safe Strategy does not wait for this step, because does not have an order
-		
-		if ((!cmdsSent) && (!setOfUAVs.first().myMobilityModelName.endsWith("RandomSafeMobility"))){
-			//@Oli: ChocoSolver to TSP
-			if (setOfUAVs.first().myMobilityModelName.endsWith("TSPbasedMobility")){
-				
-				createTSPbasedPaths(); // Does (ant)TSP path and populates "msgPOIorder"
-				strategyRunning = "TSPbased";
-			}
-			else {
-				if ((setOfUAVs.first().myMobilityModelName.endsWith("NotSoNaiveOrderedMobility"))){
-					
-					System.out.print("[NotSoNaiveOrderedMobility] ");
-					createNotSoNaiveBestPath();// Does O(n2) path path and populates "msgPOIorder"	
-					strategyRunning = "NSNOrdered";
-
-					
-				} else {
-					if ((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))){
-						
-						System.out.print("[ZigZagOverNaiveMobility] ");
-						msgPOIorder = new msgPOIordered(listOfPOIs);
-						strategyRunning = "ZigZagOverNaive";
-
-						
-					} else {
-						if ((setOfUAVs.first().myMobilityModelName.endsWith("NaiveOrderedMobility"))&&(!setOfUAVs.first().myMobilityModelName.endsWith("NotSoNaiveOrderedMobility"))){
-							
-							System.out.print("[NaiveOrderedMobility] ");
-							msgPOIorder = new msgPOIordered(listOfPOIs);
-							strategyRunning = "Naive";
-
-							
-						} else {
-							if ((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverNSNMobility"))){
-								System.out.print("[ZigZagOverNSNMobility] ");
-								createNotSoNaiveBestPath();// same as NotSoNaiveOrderedMobility
-								strategyRunning = "ZigZagOverNSN";
-
-							} else {
-								
-								if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNSNMobility"))){
-									System.out.print("[KingstonImprovedOverNSNMobility] ");
-									createNotSoNaiveBestPath();// same as NotSoNaiveOrderedMobility
-									strategyRunning = "KIMPOverNSN";
-
-								} else {
-									if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNaiveMobility"))){
-										System.out.print("[KingstonImprovedOverNaiveMobility] ");
-										msgPOIorder = new msgPOIordered(listOfPOIs);
-										strategyRunning = "KIMPOverNaive";
-
-									}
-									
-								}
-								 
-							}
-							
-						}
-						
-					}
-				}
-			}		
-			
-			broadcast(msgPOIorder);			
-			Global.originalPathSize = getPathSize(msgPOIorder.data);
-			cmdsSent = true;	
-		}
-		
-	
-	}
-
-	
-	private POInode getNearestPoi(POInode poiFrom, ArrayList<POInode> poiList){
-		int dist2Last = Integer.MAX_VALUE;
-		int i = 0;
-		POInode poiA = new POInode();
-		POInode poiTo = new POInode();
-		
-		// looking for the nearest POI from the GS
-		for (i=0; i< poiList.size(); i++){			
-			poiA = poiList.get(i);	
-			if (poiA.ID != poiFrom.ID) {	
-				// need to change it to use distance matrix created to TSP
-				double distance = Math.hypot(poiFrom.getPosition().xCoord - poiA.getPosition().xCoord, poiFrom.getPosition().yCoord - poiA.getPosition().yCoord);
-				if (distance <= dist2Last){
-					dist2Last = (int) distance;
-					poiTo = poiA;
-				}
-			}
-		}		
-		return poiTo;
-		
-	}
-	
-	private boolean isPoiInList(POInode poiFrom, ArrayList<POInode> poiList){
-		POInode poiInList = new POInode();
-		for (int i=0; i<poiList.size(); i++){
-			poiInList = poiList.get(i);
-			if (poiInList.ID == poiFrom.ID)
-				return true;
-		}		
-		return false;	
-	}
-	
-	
-	private void removePoiFromList(POInode poiFrom, ArrayList<POInode> poiList){
-		POInode poiA = new POInode();
-		for (int i = 0; i< poiList.size(); i++) {		
-			poiA = poiList.get(i);
-			if (poiA.ID == poiFrom.ID){
-				poiList.remove(i);
-				//break;
-			}
-		}
-	}
-	
-	// Creates a path by choosing the nearest POI to nearest POI
-	private void createNotSoNaiveBestPath() {
-		
-		System.out.println("[GS " + this.ID + "] invoked" );
-		
-		// getting first and nearest
-		POInode poiFrom = new POInode();		
-		poiFrom.setPosition(this.getPosition()); // GroundStation
-		POInode poiA = new POInode();
-		poiA = getNearestPoi(poiFrom, listOfPOIs);
-		poiFrom = poiA;
-		
-		// create the answerList
-		ArrayList<POInode> poiOrder = new ArrayList<POInode>();
-		poiOrder.add(poiFrom);
-
-		ArrayList<POInode> poiListTemp = new ArrayList<POInode>();
-		//poiListTemp = listOfPOIs;
-		poiListTemp = (ArrayList<POInode>)listOfPOIs.clone();
-
-		//removing the first one from the list
-		removePoiFromList(poiFrom, poiListTemp);
-	
-		//creating the chain of nearest POI to prosecute
-		while (poiOrder.size() < listOfPOIs.size()){
-			poiA = getNearestPoi((poiFrom), poiListTemp);
-			poiOrder.add(poiA);
-			poiFrom = poiA;
-			removePoiFromList(poiFrom, poiListTemp);
-		}
-		
-		
-		for (int i =0; i< poiOrder.size(); i++){
-			poiA = poiOrder.get(i);
-			System.out.print(poiA.ID + " - ");
-		}
-		System.out.println();
-		msgPOIorder = new msgPOIordered(poiOrder);
-		
-			
-	}
 
 	private synchronized void syncSolutions(Solver s, String policy){
 		// This method choose the best result from each thread. 
@@ -554,104 +860,10 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	    System.out.println("\n[TSP] syncSolutions() done\n");
 	}
 	
-	
-	private void prepareSolver(Solver solver,  int[][] myDistMatrix){
-		
-		IntVar[] VS = VF.enumeratedArray("VS", listOfPOIs.size(), 0, listOfPOIs.size()-1, solver);		        		  
-		IntVar totalCost = VF.enumerated("obj", 0, 99999999, solver);	
-		solver.post(ICF.tsp(VS, totalCost, myDistMatrix)); 				
-		solver.setObjectives(totalCost);		
-			
-		String useTimer = "false";
-		
-		try {
-			useTimer = Configuration.getStringParameter("ThreadToRunWithTSPTimeEnabler/enabled");
-			if (useTimer.equals("true")){			
-				long maxTimeMs = Integer.MAX_VALUE;
-				System.out.println("[TSP] [" + solver.getName() + "] timeout created as " + (maxTimeMs/1000) + " seconds..." );
-				try {
-					maxTimeMs = (int) Configuration.getIntegerParameter("ThreadToRunWithTSPTimer/maxduration");
-					SMF.limitTime(solver, maxTimeMs);
-					System.out.println("[TSP] [" + solver.getName() + "] timeout changed for  " + (maxTimeMs/1000) + "seconds..." );
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-				} catch (CorruptConfigurationEntryException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}			
-			}			
-		} catch (CorruptConfigurationEntryException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
 	
 	
 	
-	@Override
-	public void postStep() {
-	}
-	
-	
-	@Override
-	public String toString() {
-		return "GS";
-	}
-	
-	/* (non-Javadoc)
-	 * @see sinalgo.nodes.Node#draw(java.awt.Graphics, sinalgo.gui.transformation.PositionTransformation, boolean)
-	 */
-	public void draw(Graphics g, PositionTransformation pt, boolean highlight) {
-		
-		this.setColor(Color.DARK_GRAY);
-
-		this.drawingSizeInPixels = 10 ; 
-
-		//super.drawNodeAsDiskWithText(g, pt, highlight, "GS", 10, Color.RED);
-		
-		//String text = Integer.toString(this.ID) + ":GS"; 
-		String text = Integer.toString(this.ID) + "|" + poiMessages.size() ; 
-		
-		super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
-	}
-	
-	/* (non-Javadoc)
-	 * @see sinalgo.nodes.Node#drawToPostScript(sinalgo.io.eps.EPSOutputPrintStream, sinalgo.gui.transformation.PositionTransformation)
-	 */
-	public void drawToPostScript(EPSOutputPrintStream pw, PositionTransformation pt) {
-		// the size and color should still be set from the GUI draw method
-		drawToPostScriptAsDisk(pw, pt, drawingSizeInPixels/2, getColor());
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-	@Override
-	public int compareTo(GSnode tmp) {
-		if(this.ID < tmp.ID) {
-			return -1;
-		} else {
-			if(this.ID == tmp.ID) {
-				return 0;
-			} else {
-				return 1;
-			}
-		}
-	}
-	private int getPathSize(ArrayList<POInode> path) {
-		
-		POInode thisPOI;
-		POInode lastPOI;
-		int size = 0;
-	
-		for (int i = 1; i< path.size(); i++){
-			thisPOI = (POInode)path.get(i);
-			lastPOI = (POInode)path.get(i-1);
-			size += (int) Math.sqrt(
-				             (thisPOI.getPosition().xCoord - lastPOI.getPosition().xCoord) *  (thisPOI.getPosition().xCoord - lastPOI.getPosition().xCoord) + 
-				             (thisPOI.getPosition().yCoord - lastPOI.getPosition().yCoord) *  (thisPOI.getPosition().yCoord - lastPOI.getPosition().yCoord)
-				              );
-		}
-		return size;
-	}
 
 }
