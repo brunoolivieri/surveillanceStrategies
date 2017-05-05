@@ -4,6 +4,17 @@ echo "Backuping results ..."
 
 cp $1 $1.RAW-bckp.txt
 
+
+echo "Ziping big files..."
+zip stats_delays_full.zip  stats_delays_full.txt
+rm stats_delays_full.txt
+
+echo "Erasing nohup.out..."
+rm ../nohup.out
+
+echo "Backuping Config.xml"
+cp ../src/projects/UAV_Surveillance/Config.xml ./
+
 echo "Formating results ..."
 
 sed -i.bak 's/%//g' $1 
@@ -21,7 +32,7 @@ cat $1 >> cleanDataFile.txt
 
 
 echo "First file to parser ..."
-# python parser_results.py
+python parser_results.py
 
 echo " "
 echo " "
