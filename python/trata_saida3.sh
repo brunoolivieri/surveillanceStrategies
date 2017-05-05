@@ -2,31 +2,32 @@
 
 echo "Backuping results ..."
 
-cp $1 $1.bckp
+cp $1 $1.RAW-bckp.txt
 
 echo "Formating results ..."
 
-sed 's/%//g' $1 
-sed 's/MiliSegs//g' $1
-sed 's/_TSP_thread//g' $1
-sed 's/map_//g' $1
-sed 's/.txt//g' $1
-
+sed -i.bak 's/%//g' $1 
+sed -i.bak 's/MiliSegs//g' $1
+sed -i.bak 's/_TSP_thread//g' $1
+sed -i.bak 's/map_//g' $1
+sed -i.bak 's/.txt//g' $1
+sed -i.bak 's/projects.UAV_Surveillance.models.mobilityModels.//g' $1 
 
 echo "Creating clean data file ..."
 
 echo "Strategy;nPOIs;nUAV;SucessTax;V2V_range;nRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;nMsgs;tourSize;mapa" > cleanDataFile.txt
-sed 's/projects.UAV_Surveillance.models.mobilityModels.//g' $1 >> cleanDataFile.txt
+
+cat $1 >> cleanDataFile.txt
 
 
 echo "First file to parser ..."
-python parser_results.py
+# python parser_results.py
 
 echo " "
 echo " "
 
 echo "Second file to parser ..."
-python parser_delays.py
+# python parser_delays.py
 
 echo " "
 echo " "
