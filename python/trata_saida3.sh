@@ -10,7 +10,8 @@ echo "Ziping big files..."
 zip stats_delays_full.zip  stats_delays_full.txt
 export GZIP=-9
 tar cvzf stats_delays_full.tar.gz stats_delays_full.txt
-rm stats_delays_full.txt
+tar cvzf stats_delays_full.txt | split --bytes=200MB - delays.bckp.tar.gz
+# rm stats_delays_full.txt
 
 echo 
 
@@ -47,7 +48,7 @@ python parser_results.py
 echo
 
 echo "Second file to parser..."
-# python parser_delays.py
+python parser_delays.py
 
 echo
 
