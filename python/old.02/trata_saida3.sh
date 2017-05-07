@@ -48,18 +48,18 @@ python parser_results.py
 echo
 
 echo "Second file to parser..."
-#python parser_delays.py
+python parser_delays.py
 
 echo
 
-#echo "Creating parsed files to excel/BR ..."
+echo "Creating parsed files to excel/BR ..."
 
-#sed 's/./,/g' resultsMEDIAN.txt > resultsMEDIAN-excel-BR.txt
-#sed 's/./,/g' resultsMEAN.txt > resultsMEAN-excel-BR.txt
-#sed 's/./,/g' resultsDESCRIBE.txt > resultsDESCRIBE-excel-BR.txt
-#sed 's/./,/g' delays_MEDIAN.txt > delays_MEDIAN-excel-BR.txt
-#sed 's/./,/g' delays_MEAN.txt > delays_MEAN-excel-BR.txt
-#sed 's/./,/g' delays_DESCRIBE.txt > delays_DESCRIBE-excel-BR.txt
+sed 's/./,/g' resultsMEDIAN.txt > resultsMEDIAN-excel-BR.txt
+sed 's/./,/g' resultsMEAN.txt > resultsMEAN-excel-BR.txt
+sed 's/./,/g' resultsDESCRIBE.txt > resultsDESCRIBE-excel-BR.txt
+sed 's/./,/g' delays_MEDIAN.txt > delays_MEDIAN-excel-BR.txt
+sed 's/./,/g' delays_MEAN.txt > delays_MEAN-excel-BR.txt
+sed 's/./,/g' delays_DESCRIBE.txt > delays_DESCRIBE-excel-BR.txt
 
 echo 
 echo "End of shell script!"

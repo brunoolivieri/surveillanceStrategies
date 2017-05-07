@@ -1,15 +1,15 @@
 /projects/
 /LICENSE
+/sinalgo/
 /README.md
 /ant/
 /checkstyle/
 /jcommon-1.0.23.jar
 /jcommon-xml-1.0.23.jar
 /lib/
-/org/
 /pom.xml
-/sinalgo/
 /src/
+/org/
 /ChangeLog
 /NEWS
 /README.txt
