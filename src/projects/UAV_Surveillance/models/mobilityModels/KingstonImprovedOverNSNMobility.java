@@ -4,6 +4,7 @@ import java.util.Collections;
 
 import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
 import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode;
+import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode.STATUS;
 import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.nodes.Node;
 import sinalgo.nodes.Position;
@@ -40,7 +41,11 @@ public class KingstonImprovedOverNSNMobility extends NaiveOrderedMobility{
 	public synchronized Position GetNextWayPoint(UAVnode v) {
 
 		
-		if (!v.roundVisitedAllPOIs){
+		if (v.myStatus == STATUS.REFUELPROCESS){ // going to refuel
+			
+			return v.myGS.getPosition();
+			
+		} else if (!v.roundVisitedAllPOIs){
 			
 			tmpPoi = v.pathPOIs.get(v.getPathIdx());
 		

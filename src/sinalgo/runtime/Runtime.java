@@ -221,14 +221,25 @@ public abstract class Runtime{
 			if(args[i].equals("-V2I")) { // V2V or V2I messages delivery to GS method.
 				Global.isV2I2GS = true;
 				Global.isV2V2GS = false;
-				System.out.println("\n\n\n  é V2I \n\n\n");
+				System.out.println("\n Communication is V2I, so GS is NOT added\n\n");
 			} 			
 			if(args[i].equals("-V2V")) { // V2V or V2I messages delivery to GS method.
 				Global.isV2I2GS = false;
 				Global.isV2V2GS = true;
-				System.out.println("\n\n\n  é V2V \n\n\n");
+				System.out.println("\n Communication is V2V, so GS is added\n\n");
 
 			}
+			if(args[i].equals("-RECHARGE")) { // V2V or V2I messages delivery to GS method.
+				Global.UAVneedsRecharges = true;
+				System.out.println("\n A UAV needs recharge! RECHARGE ENABLED\n\n");
+			}
+			if(args[i].equals("-CASUATIES")) { // V2V or V2I messages delivery to GS method.
+				Global.UAVsShouldBreak = true;
+				System.out.println("\n A UAV should Break! ACCIDENTS ENABLED\n\n");
+			}			
+			
+			
+			
 		}
 		
 		// @oli
@@ -470,6 +481,12 @@ public abstract class Runtime{
 			}
 			else if(args[i].equals("-LOADFILE")){
 				//  UAV deliver msg to near GS or left UAV on KIMP
+			}
+			else if(args[i].equals("-CASUATIES")){
+				//  UAV breaks... 
+			}
+			else if(args[i].equals("-RECHARGE")){
+				//  UAV needs recharges
 			}
 			else if(args[i].startsWith("-")){
 				Main.fatalError("Unknown modifier " + args[i]);

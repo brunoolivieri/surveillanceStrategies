@@ -8,10 +8,10 @@
 		<dimensions value="2" />
 
 		<!--Length of the deployment field along the x-axis.-->
-		<dimX value="30000" />
+		<dimX value="12649" />
 
 		<!--Length of the deployment field along the y-axis.-->
-		<dimY value="20000" />
+		<dimY value="12649" />
 
 		<!--Length of the deployment field along the z-axis.-->
 		<dimZ value="1" />
@@ -220,7 +220,7 @@
 		<!--The width of the arrows. This width is multiplied by the current zoomLevel.-->
 		<arrowWidth value="1" />
 
-		<!--The dsfault value of the rounds field.-->
+		<!--The default value of the rounds field.-->
 		<defaultRoundNumber value="1" />
 
 	</Framework>

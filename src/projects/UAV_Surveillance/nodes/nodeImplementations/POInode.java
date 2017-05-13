@@ -51,6 +51,7 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 	public int myID;
 	public Position myPos;
 	public boolean flagFPPWR = false;
+	public int fppwrDistToSquareRoot = -1;
 	
 	
 	/**

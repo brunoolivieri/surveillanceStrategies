@@ -92,7 +92,10 @@ public class GSnode extends Node implements Comparable<GSnode> {
 						System.out.println("\n\n\n\n[GS] ERROR IN MSG DELAY\n\n\n\n\n");
 					} else {
 						//System.out.print(":"+ delay +":");
-						msgDelays.add(delay);
+						msgDelays.add(delay);  // TO SAVE ALL DELAYS
+						
+						//simpler avg:
+						globalAvgDelay = (int) ((globalAvgDelay + delay) / 2) ;
 					}
 				}				
 			}
@@ -220,7 +223,8 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			else if (((setOfUAVs.first().myMobilityModelName.endsWith("FPPWRMobility")))) {
 				System.out.print("[FPPWRMobility] ");
 				strategyRunning = "FPPWRMobility";
-				msgPOIorder = new msgPOIordered(createFPPWRPath());				
+				fppwrPlanner planner = new fppwrPlanner();
+				msgPOIorder = new msgPOIordered(planner.fppwrPlathPlanner(listOfPOIs));				
 			}
 			
 			broadcast(msgPOIorder);			
@@ -359,188 +363,6 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	
 
 	
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// FPPWR path planning
-
-private ArrayList<POInode> createFPPWRPath() {
-				
-		// Get the horizontal radio range by the minimum range ////////////////////////
-	    int radioRange = -1;
-		try {
-			radioRange = (int) Configuration.getDoubleParameter("QUDG/rMax");
-		} catch (CorruptConfigurationEntryException e) {
-			e.printStackTrace();
-		} 
-		int squareSize = 2 * radioRange;
-		System.out.println("\n[GS " + this.ID + "] Radio range: " + radioRange);
-		System.out.println("[GS " + this.ID + "] SquareSize: " + squareSize);
-
-		///////////////////////////////////////////////////////////////////////////////
-		
-		// Getting the number os Squares //////////////////////////////////////////////
-		int xMapSize = sinalgo.configuration.Configuration.dimX;
-		int yMapSize = sinalgo.configuration.Configuration.dimY;
-	
-		System.out.println("[GS " + this.ID + "] xMapSize: " + xMapSize);
-		System.out.println("[GS " + this.ID + "] yMapSize: " + yMapSize);		
-	
-		int nVerticalSquares = (int) (xMapSize / squareSize);
-		if ((xMapSize % radioRange) !=0) // Iff there is a waste
-			nVerticalSquares++;
-		
-		int nHorizontalSquares = (int) (yMapSize / squareSize);
-		if ((yMapSize % radioRange) !=0) // Iff there is a waste
-			nHorizontalSquares++;
-		
-		System.out.println("[GS " + this.ID + "] nVerticalSquares: " + nVerticalSquares);
-		System.out.println("[GS " + this.ID + "] nHorizontalSquares: " + nHorizontalSquares);		
-		
-		///////////////////////////////////////////////////////////////////////////////
-
-		
-		// create array of squares ////////////////////////////////////////////////////
-		int numSquares = nVerticalSquares * nHorizontalSquares;
-		System.out.println("[GS " + this.ID + "] numSquares: " + numSquares);		
-		
-		ArrayList<fppwrSQUARE> squares = new ArrayList<fppwrSQUARE>();
-
-		// Creates and classify each square ///////////////////////////////////////////
-		int ctSquares = 0;
-		int ctVertical = 0;
-		int ctHorizontal = 0;
-		int lastUPDOWN = 0;
-		while (ctSquares < numSquares) {
-			
-			fppwrSQUARE squareTMP = new fppwrSQUARE(); // this should be in the class BUT is here just to test the first prototype
-			squareTMP.jID = ctSquares;
-
-			// setting square limits /////////////////////////////////////////////////////////////
-			if ((ctHorizontal % 2) == 0){ // it means it is going from left to right
-				
-				squareTMP.xMin = ctVertical * squareSize;
-				
-				squareTMP.yMin = ctHorizontal * squareSize;				
-				
-				squareTMP.xMax = squareTMP.xMin + squareSize;
-				squareTMP.yMax = squareTMP.yMin + squareSize;
-				
-				//squareTMP.anchor.assign(xMin, yMin + (squareSize/2), 0);
-				
-			} else { // it is going from right to left
-				
-				squareTMP.xMin = (nVerticalSquares - ctVertical) * squareSize - squareSize;	 // tricky
-				squareTMP.yMin = ctHorizontal * squareSize; 						// easy				
-				
-				squareTMP.xMax = squareTMP.xMin + squareSize; 	// easy
-				squareTMP.yMax = squareTMP.yMin + squareSize; 	// easy
-				
-				//squareTMP.anchor.assign(xMax, yMin + (squareSize/2), 0);
-			} 
-			///////////////////////////////////////////////////////////////////////////
-			
-			
-			// Classifying the Square /////////////////////////////////////////////////
-			if (ctSquares == 0) {
-				squareTMP.relation = fppwrSQUARE.RelationType.BEGINNER;	
-				ctVertical = ++ctVertical % nVerticalSquares;
-			} else if (ctSquares == (numSquares -1)) {
-				squareTMP.relation = fppwrSQUARE.RelationType.FINISHER; // would be faster put it in the end
-			} else if (((ctSquares - nVerticalSquares) == lastUPDOWN)||(ctSquares == (nVerticalSquares-1))) {
-				squareTMP.relation = fppwrSQUARE.RelationType.UPDOWN; // extremes but not beginner neither finisher
-				lastUPDOWN = ctSquares;
-				ctHorizontal++;	
-				ctVertical = ++ctVertical % nVerticalSquares;
-			} else {
-				squareTMP.relation = fppwrSQUARE.RelationType.LEFTRIGHT; // none of up cases, so it is horizontal.
-				ctVertical = ++ctVertical % nVerticalSquares;
-			}
-			////////////////////////////////////////////////////////////////////////////	
-			
-
-			// fitting POIs in Squares /////////////////////////////////////////////////
-			ArrayList<POInode> squarePOIs = new ArrayList<POInode>();
-
-			for (int k=0; k < listOfPOIs.size(); k++) { 
-				POInode poiTMP = listOfPOIs.get(k);
-			
-				if (!poiTMP.flagFPPWR) {				
-//					System.out.println("[GS " + this.ID + "] POI " + poiTMP.ID + " x = " + poiTMP.getPosition().xCoord 
-//							+ " y = " + poiTMP.getPosition().yCoord 
-//							+ " against " + "Min (" + squareTMP.xMin + "," + squareTMP.yMin + ")" 
-//							+ " ... Max (" + squareTMP.xMax + "," + squareTMP.yMax + ")" );
-	
-					if ((poiTMP.getPosition().xCoord >= squareTMP.xMin)&&(squareTMP.xMax >= poiTMP.getPosition().xCoord)&&
-							(poiTMP.getPosition().yCoord >= squareTMP.yMin)&&(squareTMP.yMax >= poiTMP.getPosition().yCoord)){
-						squarePOIs.add(poiTMP);	
-						listOfPOIs.get(k).flagFPPWR = true;
-						//System.out.println("[GS " + this.ID + "] POI " + poiTMP.ID + " added on J_" + squareTMP.jID);
-					}	
-				}
-			}
-			////////////////////////////////////////////////////////////////////////////
-			
-			squareTMP.innerSquarePOIs = (ArrayList<POInode>) squarePOIs.clone();
-			squares.add(squareTMP);				
-			ctSquares++;
-
-		}
-		
-		// inner lists ////////////////////////////////////////////////////////////////////
-		System.out.println("\n[GS " + this.ID + "] FPPWR buquet path: ");
-		POInode poiTMP = null;
-		fppwrSQUARE jota = null;	
-		
-		ArrayList<POInode> resultPath = new ArrayList<POInode>();
-
-		for(int m=0; m < squares.size(); m++ ){
-			
-			jota = squares.get(m);
-			
-			//if (jota.innerSquarePOIs.size() >0 ){
-			//	System.out.print("\n[GS " + this.ID + "] J_" + jota.jID + " flagged as " + jota.relation.toString() 
-			//	+ " at (" + jota.xMin + ", " + jota.yMin + ") to (" + jota.xMax + ", " + jota.yMax + ") :"   );
-
-				for(int l=0; l < jota.innerSquarePOIs.size(); l++){
-					poiTMP = jota.innerSquarePOIs.get(l);
-					//System.out.print(poiTMP.ID + " - >");
-					resultPath.add(poiTMP);
-				}
-			//}
-		}
-		System.out.print("\n\n");
-		///////////////////////////////////////////////////////////////////////////////////
-
-		// not optimized path yet /////////////////////////////////////////////////////////
-		System.out.print("\n[GS " + this.ID + "] FPPWR raw path: ");
-		for(int l=0; l < resultPath.size(); l++){
-			poiTMP = resultPath.get(l);
-			System.out.print(poiTMP.ID + " - >");
-		}
-		System.out.print("\n\n");
-		///////////////////////////////////////////////////////////////////////////////////
-		
-		// looking for non coverd POI /////////////////////////////////////////////////////
-		System.out.print("\n[GS " + this.ID + "] Orfans POIs: ");
-		for(int l=0; l < resultPath.size(); l++){
-			poiTMP = resultPath.get(l);
-			
-			if (!poiTMP.flagFPPWR)
-				System.out.print(poiTMP.ID + " - >");
-		}
-		System.out.print("\n\n");
-		///////////////////////////////////////////////////////////////////////////////////
-
-
-		
-		return resultPath;
-			
-}
-	
-	
-	
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	
 	
 	

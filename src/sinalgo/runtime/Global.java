@@ -71,6 +71,7 @@ public class Global {
 	public static boolean isV2V2GS = true;
 	public static boolean isV2I2GS = false;
 	public static int originalPathSize = -1;
+	//public long ctRounds = 1;
 	
 	//save and load POI distribution stuff
 	public static boolean shouldSavePoiDistribution = false;
@@ -82,7 +83,11 @@ public class Global {
 	
 	// array of used positions and PoiDistributionNN NotNearby POI to POI
 	public static ArrayList<Position> insertedPositions = new ArrayList<Position>();
-
+	
+	// errors forced.
+	public static boolean UAVneedsRecharges = false;
+	public static boolean UAVsShouldBreak = false;
+	
 
 	
 	

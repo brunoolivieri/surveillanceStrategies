@@ -3,6 +3,7 @@ package projects.UAV_Surveillance.models.mobilityModels;
 import java.util.Random;
 
 import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode;
+import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode.STATUS;
 import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
 import sinalgo.configuration.Configuration;
 import sinalgo.configuration.CorruptConfigurationEntryException;
@@ -150,18 +151,24 @@ public class NaiveOrderedMobility  extends MobilityModel{
 	//@Oli: set target as next POI in each list from each UAV
 	protected synchronized Position GetNextWayPoint(UAVnode v) {
 			
-		POInode p = v.pathPOIs.get(v.getPathIdx());
+		if (v.myStatus == STATUS.REFUELPROCESS){ // going to refuel
+			
+			return v.myGS.getPosition();
+			
+		} else {		
+			POInode p = v.pathPOIs.get(v.getPathIdx());
+			
+			//System.out.println("v " + v.ID + " indo para p " + p.ID);
+			
+			double randx = p.getPosition().xCoord; 
+			double randy = p.getPosition().yCoord; 
+			double randz = 0;
 		
-		//System.out.println("v " + v.ID + " indo para p " + p.ID);
-		
-		double randx = p.getPosition().xCoord; 
-		double randy = p.getPosition().yCoord; 
-		double randz = 0;
+			v.setPathIdx(v.getPathIdx() + 1); // = v.pathIdx + v.ID;
+			v.setPathIdx(v.getPathIdx() % v.pathPOIs.size());
 	
-		v.setPathIdx(v.getPathIdx() + 1); // = v.pathIdx + v.ID;
-		v.setPathIdx(v.getPathIdx() % v.pathPOIs.size());
-
-		return new Position(randx, randy, randz);
+			return new Position(randx, randy, randz);
+		}
 	}
 	
 	

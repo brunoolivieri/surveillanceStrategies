@@ -139,22 +139,6 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	public void postRound() {
 		ctRounds++;
 		
-		//@Oli: break to get stats - REMEMBER TO REMOVE!!!
-		
-		
-		
-//		if(ctRounds>=1000000){
-//			try {
-//				this.summary();
-//			} catch (CorruptConfigurationEntryException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			
-//			//System.out.println("\n Nodeslist: " + Tools.getNodeList().size());
-//			
-//		}
-		
 		
 	}
 	
@@ -252,6 +236,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		int minDataInPois = Integer.MAX_VALUE;
 		int tmp = 0;
 		long globalAvgDelay = 0;
+		long GSglobalAvgDelay = 0;
 		ArrayList<Long> localMsgDelays = new ArrayList<Long>();	
 		String strategyRunning = "error";
 		long nMsgs = 0;
@@ -279,13 +264,14 @@ public class CustomGlobal extends AbstractCustomGlobal{
 				strategyRunning = ((GSnode)n).strategyRunning;
 				localMsgDelays = (ArrayList<Long>) ((GSnode) n).msgDelays;			
 				globalAvgDelay =0;		
-				
+				GSglobalAvgDelay = ((GSnode) n).globalAvgDelay;
+				nMsgs = localMsgDelays.size();
 				for (int i = 0; i < localMsgDelays.size(); i++) {
 					
 					if (localMsgDelays.get(i)<=0)
 						System.out.println("\n\n\n\n[CustomGlobal] ERROR IN MSG DELAY: " + i +  "\n\n\n\n\n");
 					
-					nMsgs++;
+					//nMsgs++;
 
 					globalAvgDelay = globalAvgDelay + localMsgDelays.get(i);					
 				}
@@ -307,7 +293,9 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		double surveillanceTax = 1 - ((double)(totalCost)/(ctRounds*ctPOI));
 		surveillanceTax = surveillanceTax*100;
 			
-		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;nMsgs;tourSize;mapName";
+		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;"+
+		
+				"TSP_threads;maxData;minData;globalAvgDelay;GSglobalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;mapName";
 			
 		double V2Vrange = Configuration.getDoubleParameter("GeometricNodeCollection/rMax");
 		
@@ -332,8 +320,11 @@ public class CustomGlobal extends AbstractCustomGlobal{
 						maxDataInPois + ";" + 
 						minDataInPois + ";" + 
 						globalAvgDelay + ";" + 
+						GSglobalAvgDelay + ";" + 
 						nMsgs + ";" +  
-						Global.originalPathSize + ";" +
+						Global.originalPathSize + ";" +		
+						surveillanceTax*100*1000 / ctRounds + ";" +
+						surveillanceTax*100*1000 / Global.originalPathSize + ";" +								
 						mapName;
 		
 		System.out.println("\n[CustomGlobal] Final!\n");
@@ -368,29 +359,8 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 		
 		
+		
 
-		// Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		// Save all delays
-		//
-		logline = "";
-		logline = mapName + ";" + strategyRunning + ";" + ctPOI	+ ";" + ctUAV;
-		for (int i = 0 ; i < localMsgDelays.size(); i++){
-			logline+= ";" + localMsgDelays.get(i).toString();
-		}
-        
-		try {
-		    Files.write(Paths.get("stats_delays_full.txt"), logline.getBytes(), StandardOpenOption.APPEND);
-		    Files.write(Paths.get("stats_delays_full.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
-		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_full.txt"));		
-		    //System.out.println("\n\n[Summary] Saved: " + logline);		
-
-		} catch (IOException e) {
-			System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
-			
-		}		
-		
-		
-		
 		
 		
 		// Working Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -423,9 +393,36 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		}
 		
 		
+	    if (true){ // disabled for while || jfreechart || very heavy! Better stay doing the math with python
+
+		
+
+		// Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Save all delays
+		//
+//		logline = "";
+//		logline = mapName + ";" + strategyRunning + ";" + ctPOI	+ ";" + ctUAV;
+//		for (int i = 0 ; i < localMsgDelays.size(); i++){
+//			logline+= ";" + localMsgDelays.get(i).toString();
+//		}
+//        
+//		try {
+//		    Files.write(Paths.get("stats_delays_full.txt"), logline.getBytes(), StandardOpenOption.APPEND);
+//		    Files.write(Paths.get("stats_delays_full.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
+//		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_full.txt"));		
+//		    //System.out.println("\n\n[Summary] Saved: " + logline);		
+//
+//		} catch (IOException e) {
+//			System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
+//			
+//		}		
+		
+		
+		
+		
 		
 		///////////////////////////////////////////////////////////
-	    if (false){ // disabled for while || jfreechart || very heavy! Better stay doing the math with python
+	    //if (false){ // disabled for while || jfreechart || very heavy! Better stay doing the math with python
 
 		
 		// trying save a boxplot Image to file
@@ -503,7 +500,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	        HistogramDataset datasetHistogram = new HistogramDataset();
 	        datasetHistogram.setType(HistogramType.RELATIVE_FREQUENCY);
 	                        
-	        datasetHistogram.addSeries("Hist",dataHistogram,10); // Number of bins is 50
+	        datasetHistogram.addSeries("Hist",dataHistogram,100); // Number of bins is 50
 	        String plotTitle = "Histogram of Delays";
 	        String xAxisX = "Frequency";
 	        String yAxisY = "Delays";

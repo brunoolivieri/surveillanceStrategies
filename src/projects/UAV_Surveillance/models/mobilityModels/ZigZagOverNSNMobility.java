@@ -6,6 +6,7 @@ import java.util.Collections;
 
 import projects.UAV_Surveillance.nodes.nodeImplementations.POInode;
 import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode;
+import projects.UAV_Surveillance.nodes.nodeImplementations.UAVnode.STATUS;
 import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.nodes.Node;
 import sinalgo.nodes.Position;
@@ -36,9 +37,12 @@ public class ZigZagOverNSNMobility extends NaiveOrderedMobility{
 	//set target as next POI in each list from each UAV
 	@Override
 	public synchronized Position GetNextWayPoint(UAVnode v) {
-			
 		
-		if (!v.roundVisitedAllPOIs){
+		if (v.myStatus == STATUS.REFUELPROCESS){ // going to refuel
+			
+			return v.myGS.getPosition();
+			
+		} else if (!v.roundVisitedAllPOIs){
 					
 			tmpPoi = v.pathPOIs.get(v.getPathIdx());
 		

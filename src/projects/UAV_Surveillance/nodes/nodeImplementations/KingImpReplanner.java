@@ -94,11 +94,8 @@ public class KingImpReplanner {
 	
 	public boolean rebalancePath(){
 		
-
-
 		return true;
 
-		
 	}
 	
 	private void mergePaths(){

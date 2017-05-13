@@ -9,7 +9,7 @@ public class fppwrSQUARE {
 	public enum RelationType {BEGINNER, LEFTRIGHT, UPDOWN, FINISHER}  
 	public ArrayList<POInode> innerSquarePOIs = new ArrayList<POInode>();
 	public RelationType relation;
-	public Position anchor;  //Sinalgo POSITION TYPE
+	public sinalgo.nodes.Position anchor;  //Sinalgo POSITION TYPE
 	public int jID;
 	
 	public double xMin = -1;
@@ -19,7 +19,7 @@ public class fppwrSQUARE {
 
 	public fppwrSQUARE(){
 		// TO-DO - create it decently
-		
+		anchor = new Position(0, 0, 0);
 	}
 	
 	
