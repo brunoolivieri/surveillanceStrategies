@@ -36,9 +36,12 @@ echo
 
 echo "Creating clean data file..."
 
-echo "Strategy;nPOIs;nUAV;SucessTax;V2V_range;nRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;mapName" > cleanDataFile.txt
+echo "Strategy;nPOIs;nUAV;SucessTax;V2V_range;nRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;GSglobalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;mapName" > cleanDataFile.txt
 
 cat $1 >> cleanDataFile.txt
+
+sed 's/./,/g' cleanDataFile.txt > cleanDataFile-excel-BR.txt
+
 
 echo 
 

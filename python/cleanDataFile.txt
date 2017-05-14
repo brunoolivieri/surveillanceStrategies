@@ -1,4 +1,4 @@
-Strategy;nPOIs;nUAV;SucessTax;V2V_range;nRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;mapName
+Strategy;nPOIs;nUAV;SucessTax;V2V_range;nRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;GSglobalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;mapName
 FPPWRMobility;20;2;2.38281;71;259200;12649;3334;1;253570;252295;2877;620;22977;86821;0.9192949459876534;2.74451169647896;1
 FPPWRMobility;20;4;4.15721;71;259200;12649;4107;1;249185;247290;2858;620;40257;86821;1.6038636212086554;4.788259184037082;1
 FPPWRMobility;20;8;6.71200;71;259200;12649;5965;1;243050;240095;2845;620;64463;86821;2.5895055774653257;7.730846749968469;1
