@@ -11,12 +11,12 @@ REFRESHRATE=259200
 #N_POI=20
 V2X=V2V
 
-for ((i=1; i<=LOOPS; i++)); do
+for ((i=1; i<=LOOPS; i++)); 
 do
 	for N_POI in 20 800
 	do
 		for SNAME in FPPWRMobility ZigZagOverNSNMobility 
-
+		do
 			TIME=$(date)
 			echo "$TIME  -->  nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i   >> acompanhamento.txt
 			
@@ -40,12 +40,12 @@ do
 	done
 done
 
-for ((i=1; i<=LOOPS; i++)); do
+for ((i=1; i<=LOOPS; i++));
 do
 	for N_POI in 20 800
 	do
 		for SNAME in TSPbasedMobility
-
+		do
 			TIME=$(date)
 			echo "$TIME  -->  nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i   >> acompanhamento.txt
 			
