@@ -22,6 +22,7 @@ echo
 
 echo "Backuping Config.xml..."
 cp ../src/projects/UAV_Surveillance/Config.xml ./
+cp ../linuxRunners/2017* ./
 
 echo "Formating results..."
 
@@ -40,8 +41,7 @@ echo "Strategy;nPOIs;nUAV;SucessTax;V2V_range;nRounds;dimX;simumationTimeMS;TSP_
 
 cat $1 >> cleanDataFile.txt
 
-sed 's/./,/g' cleanDataFile.txt > cleanDataFile-excel-BR.txt
-
+cat cleanDataFile.txt | sed 's/./,/g' > cleanDataFile-excel-BR.txt
 
 echo 
 
@@ -67,5 +67,3 @@ echo
 echo 
 echo "End of shell script!"
 echo
-
-

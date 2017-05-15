@@ -230,8 +230,8 @@
 
 <MessageTransmission ConstantTime="1"/>
 
-<ThreadToRunWithTSP threads="1"/>
-<ThreadToRunWithTSPTimer maxduration="300000"/>  		<!-- miliseconds to abort engine and get the best path so far. -->
+<ThreadToRunWithTSP threads="4"/>
+<ThreadToRunWithTSPTimer maxduration="600000"/>  		<!-- miliseconds to abort engine and get the best path so far. -->
 <ThreadToRunWithTSPTimeEnabler enabled="true"/>
 
 
