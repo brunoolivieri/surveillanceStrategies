@@ -46,9 +46,7 @@ cat cleanDataFile.txt | sed 's/./,/g' > cleanDataFile-excel-BR.txt
 echo 
 
 echo "First file to parser..."
-python analysis.py
-
-#python parser_results.py
+python parser_results.py
 
 echo
 

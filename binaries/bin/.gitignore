@@ -1,7 +1,7 @@
-/projects/
 /LICENSE
-/README.md
+/projects/
 /sinalgo/
+/README.md
 /ant/
 /checkstyle/
 /jcommon-1.0.23.jar
@@ -9,14 +9,14 @@
 /lib/
 /pom.xml
 /src/
-/org/
 /ChangeLog
 /NEWS
 /README.txt
 /docfiles/
-/jfreechart-1.0.19-demo.jar
+/org/
 /overview.html
 /experimental/
+/jfreechart-1.0.19-demo.jar
 /licence-LGPL.txt
 /source/
 /swt/

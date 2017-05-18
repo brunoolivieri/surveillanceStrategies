@@ -357,45 +357,38 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		    System.out.println("[Summary] ERRO: " + e);
 		}
 		
-		
-		
-		
 
 		
-		
-		// Working Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		// Save boxplot values to file
-		//
-		BoxAndWhiskerCalculator statistics = null;  
-		BoxAndWhiskerItem stats = statistics.calculateBoxAndWhiskerStatistics(localMsgDelays);
-		logline = "";
-		logline = strategyRunning + ";" +
-				  ctPOI		+ ";" +
-				  ctUAV		+ ";" +
-				  stats.getMinRegularValue().toString() + ";" +
-				  stats.getQ1().toString() + ";" +
-				  stats.getMedian() + ";" +
-				  stats.getQ3() + ";" +
-				  stats.getMaxRegularValue() + ";" +
-				  stats.getMean();
-		
-		// saving msg delays on by one in a file for each strategy
-		//String filename = "stats_delays_" + strategyRunning + ".txt";		
-		try {
-		    Files.write(Paths.get("stats_delays_boxplot.txt"), logline.getBytes(), StandardOpenOption.APPEND);
-		    Files.write(Paths.get("stats_delays_boxplot.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
-		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_boxplot.txt"));		
-		    System.out.println("\n\n[Summary] Saved: " + logline);		
+	    if (false){ // disabled for while || jfreechart || very heavy! Better stay doing the math with python
 
-		} catch (IOException e) {
-			System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
+			// Working Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			// Save boxplot values to file
+			//
+			BoxAndWhiskerCalculator statistics = null;  
+			BoxAndWhiskerItem stats = statistics.calculateBoxAndWhiskerStatistics(localMsgDelays);
+			logline = "";
+			logline = strategyRunning + ";" +
+					  ctPOI		+ ";" +
+					  ctUAV		+ ";" +
+					  stats.getMinRegularValue().toString() + ";" +
+					  stats.getQ1().toString() + ";" +
+					  stats.getMedian() + ";" +
+					  stats.getQ3() + ";" +
+					  stats.getMaxRegularValue() + ";" +
+					  stats.getMean();
 			
-		}
-		
-		
-	    if (true){ // disabled for while || jfreechart || very heavy! Better stay doing the math with python
+			// saving msg delays on by one in a file for each strategy
+			//String filename = "stats_delays_" + strategyRunning + ".txt";		
+			try {
+			    Files.write(Paths.get("stats_delays_boxplot.txt"), logline.getBytes(), StandardOpenOption.APPEND);
+			    Files.write(Paths.get("stats_delays_boxplot.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
+			    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_boxplot.txt"));		
+			    System.out.println("\n\n[Summary] Saved: " + logline);		
 
-		
+			} catch (IOException e) {
+				System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
+				
+			}
 
 		// Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Save all delays
@@ -523,6 +516,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	}// end of both jfreechart| DISABLE FOR WHILE
 		
 	}
+	    
 	
 }
 

@@ -243,12 +243,6 @@ plt.savefig('_TaxPerPathSize_Dense.png', dpi=100)
 
 
 
-
-
-
-
-
-
 # tourSize/mapa plots  #####################################################################
 
 #### Sparse
@@ -329,83 +323,7 @@ plt.savefig('_globalAvgDelaye_Dense.png', dpi=100)
 
 
 
-# tourSize/mapa plots  #####################################################################
 
-#### Sparse
-fig, ax = plt.subplots()
-labels = []
-i=0
-for key, grp in df_data_RAW_sparse.groupby('Strategy'):
-    ax = grp.plot(ax=ax, kind='line', x='mapName', y='tourSize',style=markers[i])
-    #ax.set_xlim(0, 101);
-    labels.append(key)
-    i+=1
-lines, _ = ax.get_legend_handles_labels()
-
-ax.set(xlabel="maps", ylabel="tourSize")
-ax.legend(lines, labels, loc='best')
-plt.title('tourSize - ESPARÇO')
-
-plt.savefig('_tourSize_Sparse.png', dpi=100)
-
-#### Dense
-fig, ax = plt.subplots()
-labels = []
-i=0
-for key, grp in df_data_RAW_sparse.groupby('Strategy'):
-    ax = grp.plot(ax=ax, kind='line', x='mapName', y='tourSize',style=markers[i])
-    #ax.set_xlim(0, 101);
-    labels.append(key)
-    i+=1
-lines, _ = ax.get_legend_handles_labels()
-
-ax.set(xlabel="maps", ylabel="tourSize")
-ax.legend(lines, labels, loc='best')
-plt.title('tourSize - DENSO')
-
-plt.savefig('_tourSize_Dense.png', dpi=100)
-
-########################################################################################
-
-
-
-# processingTime/mapa plots  #####################################################################
-
-#### Sparse
-fig, ax = plt.subplots()
-labels = []
-i=0
-for key, grp in df_data_RAW_sparse.groupby('Strategy'):
-    ax = grp.plot(ax=ax, kind='line', x='mapName', y='simumationTimeMS',style=markers[i])
-    #ax.set_xlim(0, 101);
-    labels.append(key)
-    i+=1
-lines, _ = ax.get_legend_handles_labels()
-
-ax.set(xlabel="maps", ylabel="simumationTimeMS")
-ax.legend(lines, labels, loc='best')
-plt.title('simumationTimeMS - ESPARÇO')
-
-plt.savefig('_tourSize_Sparse.png', dpi=100)
-
-#### Dense
-fig, ax = plt.subplots()
-labels = []
-i=0
-for key, grp in df_data_RAW_sparse.groupby('Strategy'):
-    ax = grp.plot(ax=ax, kind='line', x='mapName', y='simumationTimeMS',style=markers[i])
-    #ax.set_xlim(0, 101);
-    labels.append(key)
-    i+=1
-lines, _ = ax.get_legend_handles_labels()
-
-ax.set(xlabel="maps", ylabel="simumationTimeMS")
-ax.legend(lines, labels, loc='best')
-plt.title('simumationTimeMS - DENSO')
-
-plt.savefig('_globalAvgDelaye_Dense.png', dpi=100)
-
-########################################################################################
 
 
 

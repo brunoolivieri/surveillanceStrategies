@@ -26,6 +26,7 @@ import sinalgo.configuration.WrongConfigurationException;
 import sinalgo.gui.transformation.PositionTransformation;
 import sinalgo.io.eps.EPSOutputPrintStream;
 import sinalgo.nodes.Node;
+import sinalgo.nodes.Position;
 import sinalgo.nodes.messages.Inbox;
 import sinalgo.nodes.messages.Message;
 import sinalgo.runtime.Global;
@@ -225,6 +226,12 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				strategyRunning = "FPPWRMobility";
 				fppwrPlanner planner = new fppwrPlanner();
 				msgPOIorder = new msgPOIordered(planner.fppwrPlathPlanner(listOfPOIs));				
+			}
+			else if (((setOfUAVs.first().myMobilityModelName.endsWith("TSPConcordeMobility")))) {
+				System.out.print("[TSPConcordeMobility] ");
+				strategyRunning = "TSPConcorde";
+				ConcordePlanner planner = new ConcordePlanner();
+				msgPOIorder = new msgPOIordered(planner.getTSPsolution(listOfPOIs));	
 			}
 			
 			broadcast(msgPOIorder);			
@@ -546,9 +553,32 @@ private ArrayList<POInode> createNotSoNaiveBestPath() {
 		 * 
 		*/									
 
+		///////////////////////////////////////////////////////////////////////////
+		// evalutaion removing some precision from Chocosolver (maybe in the matrix would be better
+//		ArrayList<POInode> NonExactlistOfPOIs = listOfPOIs;
+//		Position posOriginal;
+//		Position posRelaxed = new Position(0,0,0);
+//		Double x=0.0;
+//		Double y=0.0;
+//		for (int i=0; i< NonExactlistOfPOIs.size(); i++){
+//			
+//			posOriginal = NonExactlistOfPOIs.get(i).getPosition();
+//			x = posOriginal.xCoord;
+//			y = posOriginal.yCoord;
+//			posRelaxed.assign(x.intValue(), y, 0);
+//			NonExactlistOfPOIs.get(i).getPosition().assign(posRelaxed);
+//			
+//		}
+		
+		///////////////////////////////////////////////////////////////////////////
+		
+		
 		// Choco Solver multithread approach 
 		final int[][] myDistMatrix = prepareDistMatrix(listOfPOIs, true);
+		//final int[][] myDistMatrix = prepareDistMatrix(NonExactlistOfPOIs, true);
         
+		
+		
 		int THREADS = 1; //default threads
 		try {
 			THREADS = (int) Configuration.getIntegerParameter("ThreadToRunWithTSP/threads");

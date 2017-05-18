@@ -718,3 +718,5 @@ TSPbased;800;4;Infinity;NaN;NaN;NaN;-Infinity;NaN
 TSPbased;800;2;Infinity;NaN;NaN;NaN;-Infinity;NaN
 TSPbased;800;8;Infinity;NaN;NaN;NaN;-Infinity;NaN
 TSPbased;800;16;Infinity;NaN;NaN;NaN;-Infinity;NaN
+KIMPOverNSN;10;2;5.0;75.5;146.5;217.5;304.0;147.33098591549296
+KIMPOverNSN;10;2;49.0;282.0;406.0;606.0;1085.0;438.52165103623946
