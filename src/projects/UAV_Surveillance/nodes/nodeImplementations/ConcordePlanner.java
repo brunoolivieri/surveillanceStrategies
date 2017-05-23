@@ -18,7 +18,8 @@ public class ConcordePlanner {
 	private static ArrayList<POInode> concordeTour = new ArrayList<POInode>();
 	
 	public static String winPath = "concorde\\";
-	public static String nixPath = "-1";
+	public static String nixPath = "./concorde/";
+	public static String formatedPath = "-1";
 	public static ArrayList<Integer> tour = new ArrayList<Integer>();
 	public static int tourLenght =-1;
 	private static String OS = System.getProperty("os.name").toLowerCase();
@@ -40,17 +41,13 @@ public class ConcordePlanner {
 	private void setSolution() {
 		System.out.println("\n[ConcordePlanner] Adjusting Concorde Tour with orignal POIs IDs... ");
 	
-		//POInode POItmp = null;
 		for (int i=0; i < tour.size(); i++ ){
-			
-			//System.out.println("[setSolution()] tour["+ i +"] = " + tour.get(i) + " e originalListOfPOIs[" + tour.get(i) + "] = " + originalListOfPOIs.get(tour.get(i)).ID);
-			concordeTour.add(   originalListOfPOIs.get(            tour.get(i)          ) );		
-			
+			concordeTour.add(originalListOfPOIs.get(tour.get(i)));		
 		}
 				
 		System.out.print("\n[ConcordePlanner] Tour: ");
 		concordeTour.forEach((a)->System.out.print(a.ID + " -> "));
-		System.out.println("");
+		System.out.println("\n");
 
 		
 	}
@@ -105,7 +102,7 @@ public class ConcordePlanner {
 			
 		    if ((OS.indexOf("nux") >= 0)){
 				builder = new ProcessBuilder(
-						nixPath + "lkh");
+						nixPath + "concorde", "-o ", " resultadoConcorde.txt", " tsp2solve.txt");
 		    } else {// it the windows machine
 				builder = new ProcessBuilder(
 						"cmd.exe", "/c", winPath + "runConcorde.bat");

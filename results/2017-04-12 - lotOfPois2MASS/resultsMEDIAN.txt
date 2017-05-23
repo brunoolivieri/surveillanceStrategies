@@ -1,7 +1,0 @@
-Strategy;nUAV;nPOIs;SucessTax;V2V_range;nRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;msgAVGDelayOnGS
-KIMPOverNSN;1;20;0.0;10.0;3.0;3000.0;19.0;4.0;3.0;3.0;0.0
-KIMPOverNSN;1;40;0.0;10.0;3.0;3000.0;27.0;4.0;3.0;3.0;0.0
-KIMPOverNSN;1;60;0.0;10.0;3.0;3000.0;27.5;4.0;3.0;3.0;0.0
-KIMPOverNSN;1;80;0.0;10.0;3.0;3000.0;28.0;4.0;3.0;3.0;0.0
-KIMPOverNSN;1;100;0.0;10.0;3.0;3000.0;33.0;4.0;3.0;3.0;0.0
-KIMPOverNSN;1;200;0.0;10.0;3.0;3000.0;56.0;4.0;3.0;3.0;0.0

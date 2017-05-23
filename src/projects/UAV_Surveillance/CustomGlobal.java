@@ -240,6 +240,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		ArrayList<Long> localMsgDelays = new ArrayList<Long>();	
 		String strategyRunning = "error";
 		long nMsgs = 0;
+		long pathProcessingTime =-1;
 
 		// Getting data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		for(Node n : Runtime.nodes) {			
@@ -262,6 +263,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 			
 			if (n instanceof GSnode){
 				strategyRunning = ((GSnode)n).strategyRunning;
+				pathProcessingTime = ((GSnode)n).totalPathProcessingTime;
 				localMsgDelays = (ArrayList<Long>) ((GSnode) n).msgDelays;			
 				globalAvgDelay =0;		
 				GSglobalAvgDelay = ((GSnode) n).globalAvgDelay;
@@ -293,7 +295,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		double surveillanceTax = 1 - ((double)(totalCost)/(ctRounds*ctPOI));
 		surveillanceTax = surveillanceTax*100;
 			
-		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;"+
+		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;pathTime;"+
 		
 				"TSP_threads;maxData;minData;globalAvgDelay;GSglobalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;mapName";
 			
@@ -316,6 +318,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 						ctRounds + ";" + 
 						sinalgo.configuration.Configuration.dimX + ";" + 
 						(simumationTime) + "MiliSegs;" + 
+						pathProcessingTime + "MiliSegs;" +
 						nThreads + "_TSP_thread;" + 
 						maxDataInPois + ";" + 
 						minDataInPois + ";" + 
@@ -331,27 +334,37 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		System.out.println(header);
 		System.out.println(logline);
 		
-		if(Global.isGuiMode){
-			if((ctUAV!=0)||(ctPOI!=0)){
-				Tools.appendToOutput(strategyRunning);
-				Tools.appendToOutput("\n\nPOIs = " + ctPOI);
-				Tools.appendToOutput("\nUAVs = " + ctUAV);
-				Tools.appendToOutput("\nV2Vrange = " + (int)V2Vrange);
-				Tools.appendToOutput("\nRounds = " + ctRounds);
-				Tools.appendToOutput("\nResult = " + String.format("%.3f", surveillanceTax) +"%");
-				Tools.appendToOutput("\nmaxData = " + maxDataInPois);
-				Tools.appendToOutput("\nminData = " + minDataInPois);
-				Tools.appendToOutput("\nglobalAvgDelay = " + globalAvgDelay);	
-				Tools.appendToOutput("\ntourSize = " + Global.originalPathSize);	
-			}
-			else{
-				JOptionPane.showMessageDialog(((GUIRuntime)Main.getRuntime()).getGUI(), "There is no node.");
-			}
-		}
+//																	if(Global.isGuiMode){
+//																		if((ctUAV!=0)||(ctPOI!=0)){
+//																			Tools.appendToOutput(strategyRunning);
+//																			Tools.appendToOutput("\n\nPOIs = " + ctPOI);
+//																			Tools.appendToOutput("\nUAVs = " + ctUAV);
+//																			Tools.appendToOutput("\nV2Vrange = " + (int)V2Vrange);
+//																			Tools.appendToOutput("\nRounds = " + ctRounds);
+//																			Tools.appendToOutput("\nResult = " + String.format("%.3f", surveillanceTax) +"%");
+//																			Tools.appendToOutput("\nmaxData = " + maxDataInPois);
+//																			Tools.appendToOutput("\nminData = " + minDataInPois);
+//																			Tools.appendToOutput("\nglobalAvgDelay = " + globalAvgDelay);	
+//																			Tools.appendToOutput("\ntourSize = " + Global.originalPathSize);	
+//																		}
+//																		else{
+//																			JOptionPane.showMessageDialog(((GUIRuntime)Main.getRuntime()).getGUI(), "There is no node.");
+//																		}
+//																	}
+		
+		////// Saving simulation results
+		String OS = System.getProperty("os.name").toLowerCase();
+		String formatedFile = "-1";
+		if ((OS.indexOf("nux") >= 0)){
+			formatedFile = "simulationResults\\stats_summary.txt";
+	    } else {// it the windows machine
+			formatedFile = "./simulationResults/stats_summary.txt";
+	    }
+		
 		try {
-		    Files.write(Paths.get("stats_summary.txt"), logline.getBytes(), StandardOpenOption.APPEND);
-		    Files.write(Paths.get("stats_summary.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
-		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("~/stats_summary.txt"));
+		    Files.write(Paths.get(formatedFile), logline.getBytes(), StandardOpenOption.APPEND);
+		    Files.write(Paths.get(formatedFile), "\n".getBytes(), StandardOpenOption.APPEND);
+		    System.out.println("\n\n[Summary] Saving file: " + Paths.get(formatedFile));
 			
 		}catch (IOException e) {
 		    System.out.println("[Summary] ERRO: " + e);

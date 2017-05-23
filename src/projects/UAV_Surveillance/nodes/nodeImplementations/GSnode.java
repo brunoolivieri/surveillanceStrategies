@@ -57,7 +57,10 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	public double distToGS = 0;
 	public boolean init =false;
 	
-	public int roundsRunning = 0;	
+	public int roundsRunning = 0;
+	public long startPathProcessingTime = -1 ; 
+	public long totalPathProcessingTime = -1 ; 
+
 	
 	public int globalAvgDelay = 0 ;
 	public ArrayList<Long> msgDelays = new ArrayList<Long>();	
@@ -181,6 +184,9 @@ public class GSnode extends Node implements Comparable<GSnode> {
 		
 		System.out.println("[GS " + this.ID + "] invoked to dispatch process paths/tours and dispatch UAVs" );
 
+		startPathProcessingTime = System.currentTimeMillis();  
+
+		
 		// Sent once to inform UAVs the visit order... Naive, TSP & Anti-TSP cases
 		// Random Safe Strategy does not wait for this step, because does not have an order
 				
@@ -234,6 +240,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				msgPOIorder = new msgPOIordered(planner.getTSPsolution(listOfPOIs));	
 			}
 			
+			totalPathProcessingTime = System.currentTimeMillis() - startPathProcessingTime;
 			broadcast(msgPOIorder);			
 			Global.originalPathSize = getPathSize(msgPOIorder.data);
 			cmdsSent = true;	

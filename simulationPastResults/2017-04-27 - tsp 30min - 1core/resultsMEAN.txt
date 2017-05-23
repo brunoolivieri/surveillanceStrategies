@@ -1,0 +1,2 @@
+Strategy;nUAV;nPOIs;SucessTax;V2V_range;nRounds;dimX;simumationTimeMS;TSP_threads;maxData;minData;globalAvgDelay;nMsgs;tourSize
+TSPbased;10;100;0.328163333333;71.0;360000.0;30000.0;1826908.5;1.0;359148.833333;358033.833333;29073.8333333;19006.2333333;1124398.53333

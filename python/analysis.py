@@ -323,7 +323,7 @@ ax.set(xlabel="maps", ylabel="globalAvgDelay")
 ax.legend(lines, labels, loc='best')
 plt.title('globalAvgDelay - DENSO')
 
-plt.savefig('_globalAvgDelaye_Dense.png', dpi=100)
+plt.savefig('_globalAvgDelay_Dense.png', dpi=100)
 
 ########################################################################################
 
@@ -384,9 +384,9 @@ lines, _ = ax.get_legend_handles_labels()
 
 ax.set(xlabel="maps", ylabel="simumationTimeMS")
 ax.legend(lines, labels, loc='best')
-plt.title('simumationTimeMS - ESPARÇO')
+plt.title('simumationTimeMS/map - ESPARÇO')
 
-plt.savefig('_tourSize_Sparse.png', dpi=100)
+plt.savefig('_simumationTimeMS_map_Sparse.png', dpi=100)
 
 #### Dense
 fig, ax = plt.subplots()
@@ -401,9 +401,9 @@ lines, _ = ax.get_legend_handles_labels()
 
 ax.set(xlabel="maps", ylabel="simumationTimeMS")
 ax.legend(lines, labels, loc='best')
-plt.title('simumationTimeMS - DENSO')
+plt.title('simumationTimeMS/map - DENSO')
 
-plt.savefig('_globalAvgDelaye_Dense.png', dpi=100)
+plt.savefig('_simumationTimeMS_map_Dense.png', dpi=100)
 
 ########################################################################################
 
