@@ -245,7 +245,7 @@
 
 <!-- @Oli: DO NOT TOUCH THAT UNLESS YOU REALLY KNOW ABOUT CUSTOM MOVEMENT CODE!!! -->
 <RandomWayPoint>
-	<Speed distribution="Gaussian" mean="1" variance="0" />
+	<Speed distribution="Gaussian" mean="20" variance="0" />
 	<WaitingTime distribution="Poisson" lambda="10" />
 </RandomWayPoint>
 		

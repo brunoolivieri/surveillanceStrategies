@@ -5,7 +5,7 @@ import matplotlib
 matplotlib.style.use('ggplot')
 
 
-fileIn="2017-05-28-novos 30 mapas.txt"
+fileIn="2017-05-29 - 100 tst.txt"
 SPARSE=20
 DENSE=200
 
