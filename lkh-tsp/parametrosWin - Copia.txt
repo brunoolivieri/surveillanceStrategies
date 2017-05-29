@@ -1,0 +1,2 @@
+PROBLEM_FILE=d:/cygwin64/home/c061300/280.tsp
+OUTPUT_TOUR_FILE=d:/cygwin64/home/c061300/LKH-output.txt

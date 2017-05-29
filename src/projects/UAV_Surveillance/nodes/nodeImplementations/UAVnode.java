@@ -201,14 +201,15 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 					msgPOIordered pathMsg = (msgPOIordered)msg;				
 					pathPOIs = (ArrayList<POInode>) pathMsg.data.clone();	// .clone() THIS KEEP ME SOMETIME!  missing ansiC			
 					pathOriginal = (ArrayList<POInode>)pathMsg.data.clone();
-					
+					pathIdx = pathMsg.idxPathStart;
 					pathSize = getPathSize(pathOriginal);
 					
 					System.out.print("[UAV " + this.ID + "] Good to go with original Path: ");
 					for (int i = 0; i<pathPOIs.size(); i++){
 						System.out.print(pathPOIs.get(i).ID + " - ");
 					}
-					System.out.println(" \n\n\n");
+					System.out.print("\n[UAV " + this.ID + "] PathIdx =  " + pathIdx);
+					System.out.println(" \n");
 				}			
 				// Rendezvous to balance paths // or ZZ rendezvous
 				if (msg instanceof msgKingImp) {	
@@ -343,7 +344,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			if (poiTmp.ID == testPoi.ID)				
 				return i;
 		}	
-		System.out.print("[UAV " + this.ID + "]\t ERROR from getIdxFromPoi() - Inexistent POI on path.\n\n");
+		System.out.println("[UAV " + this.ID + "]  ERROR getIdxFromPoi() - POI = " + testPoi.ID );
 		return 0;
 		
 	}
@@ -509,7 +510,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			if (Global.UAVsShouldBreak){
 				// break UAV code:
 				double failTax = 0.2; // 20%
-				int failPeriod = 20    *3600; // MTBF (mean time between failures) -- USED JUST FOR FAILURES // 20 horas
+				int failPeriod = 10    *3600; // MTBF (mean time between failures) -- USED JUST FOR FAILURES // n hours
 				// failTax % of all UAVs fail with intervals of failPeriod from the start of simulation... || could be better
 				if ((rounds >= failPeriod*this.nodeCreationOrder)&&(this.nodeCreationOrder <= (nKnownUAVs*failTax))){
 					System.out.println("[UAV " + this.ID + "] is Disabled. OUT OF WORK FOR GOOD.");

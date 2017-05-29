@@ -295,7 +295,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		double surveillanceTax = 1 - ((double)(totalCost)/(ctRounds*ctPOI));
 		surveillanceTax = surveillanceTax*100;
 			
-		String header = "Strategy;nPOIs;nUAV;nRounds;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;pathTime;"+
+		String header = "Strategy;nPOIs;nUAV;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;pathTime;"+
 		
 				"TSP_threads;maxData;minData;globalAvgDelay;GSglobalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;mapName";
 			
@@ -364,7 +364,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		try {
 		    Files.write(Paths.get(formatedFile), logline.getBytes(), StandardOpenOption.APPEND);
 		    Files.write(Paths.get(formatedFile), "\n".getBytes(), StandardOpenOption.APPEND);
-		    System.out.println("\n\n[Summary] Saving file: " + Paths.get(formatedFile));
+		    System.out.println("\n\n[Summary] File saved: " + Paths.get(formatedFile));
 			
 		}catch (IOException e) {
 		    System.out.println("[Summary] ERRO: " + e);
@@ -372,162 +372,170 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		
 
 		
-	    if (false){ // disabled for while || jfreechart || very heavy! Better stay doing the math with python
-
-			// Working Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			// Save boxplot values to file
-			//
-			BoxAndWhiskerCalculator statistics = null;  
-			BoxAndWhiskerItem stats = statistics.calculateBoxAndWhiskerStatistics(localMsgDelays);
-			logline = "";
-			logline = strategyRunning + ";" +
-					  ctPOI		+ ";" +
-					  ctUAV		+ ";" +
-					  stats.getMinRegularValue().toString() + ";" +
-					  stats.getQ1().toString() + ";" +
-					  stats.getMedian() + ";" +
-					  stats.getQ3() + ";" +
-					  stats.getMaxRegularValue() + ";" +
-					  stats.getMean();
-			
-			// saving msg delays on by one in a file for each strategy
-			//String filename = "stats_delays_" + strategyRunning + ".txt";		
-			try {
-			    Files.write(Paths.get("stats_delays_boxplot.txt"), logline.getBytes(), StandardOpenOption.APPEND);
-			    Files.write(Paths.get("stats_delays_boxplot.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
-			    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_boxplot.txt"));		
-			    System.out.println("\n\n[Summary] Saved: " + logline);		
-
-			} catch (IOException e) {
-				System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
-				
-			}
-
+		
+		// Save delays in just some cases: MAPS MULTIPLE OF 10
 		// Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Save all delays
-		//
-//		logline = "";
-//		logline = mapName + ";" + strategyRunning + ";" + ctPOI	+ ";" + ctUAV;
-//		for (int i = 0 ; i < localMsgDelays.size(); i++){
-//			logline+= ";" + localMsgDelays.get(i).toString();
+//		int codMap =  Integer.parseInt(mapName.replaceAll("[\\D]", ""));
+//		if ((codMap % 10) == 0) { 
+//			logline = "";
+//			logline = mapName + ";" + strategyRunning + ";" + ctPOI	+ ";" + ctUAV;
+//			for (int i = 0 ; i < localMsgDelays.size(); i++){
+//				logline+= ";" + localMsgDelays.get(i).toString();
+//			}
+//			if ((OS.indexOf("nux") >= 0)){
+//				formatedFile = "simulationResults\\stats_delays_" + strategyRunning + ".txt";
+//		    } else {// it the windows machine
+//				formatedFile = "./simulationResults/stats_delays_" + strategyRunning + ".txt";
+//		    }
+//			try {
+//			    Files.write(Paths.get(formatedFile), logline.getBytes(), StandardOpenOption.APPEND);
+//			    Files.write(Paths.get(formatedFile), "\n".getBytes(), StandardOpenOption.APPEND);
+//			    System.out.println("\n\n[Summary] Saving file: " + Paths.get(formatedFile));		
+//			    //System.out.println("\n\n[Summary] Saved: " + logline);		
+//	
+//			} catch (IOException e) {
+//				System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
+//				
+//			}
 //		}
-//        
-//		try {
-//		    Files.write(Paths.get("stats_delays_full.txt"), logline.getBytes(), StandardOpenOption.APPEND);
-//		    Files.write(Paths.get("stats_delays_full.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
-//		    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_full.txt"));		
-//		    //System.out.println("\n\n[Summary] Saved: " + logline);		
+//		
+		
+		
+		
+//	    if (false){ // disabled for while || jfreechart || very heavy! Better stay doing the math with python
 //
-//		} catch (IOException e) {
-//			System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
+//			// Working Delay data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//			// Save boxplot values to file
+//			//
+//			BoxAndWhiskerCalculator statistics = null;  
+//			BoxAndWhiskerItem stats = statistics.calculateBoxAndWhiskerStatistics(localMsgDelays);
+//			logline = "";
+//			logline = strategyRunning + ";" +
+//					  ctPOI		+ ";" +
+//					  ctUAV		+ ";" +
+//					  stats.getMinRegularValue().toString() + ";" +
+//					  stats.getQ1().toString() + ";" +
+//					  stats.getMedian() + ";" +
+//					  stats.getQ3() + ";" +
+//					  stats.getMaxRegularValue() + ";" +
+//					  stats.getMean();
 //			
-//		}		
-		
-		
-		
-		
-		
-		///////////////////////////////////////////////////////////
-	    //if (false){ // disabled for while || jfreechart || very heavy! Better stay doing the math with python
-
-		
-		// trying save a boxplot Image to file
-			String file2saveGraph = "visualResults/boxplots/" + mapName + " - delay BoxPlot - " + ctUAV + " UAVs" + " - " + strategyRunning + ".png";
-	
-			if ((OS.indexOf("nux") >= 0)){ // creates a foo file...rsrs
-			
-				try {
-					File directory = new File (".");
-				    //directory.getCanonicalPath() 
-				    //directory.getAbsolutePath()
-				    long timestamp = System.currentTimeMillis();
-				    if (!directory.exists()) {
-				        new FileOutputStream(directory.getAbsolutePath() + file2saveGraph).close();
-				     }
-	
-				    directory.setLastModified(timestamp);
-				    
-				}catch(Exception e) {
-				    System.out.println("Exceptione is ="+e.getMessage());
-				}
-				
-				
-		    } else {// it the windows machine
-		    	// works transparently
-		    } 
-			
-			ArrayList<Double> doubleArrayDelays = new ArrayList<Double>();
-			for (int i = 0 ; i < localMsgDelays.size(); i++){
-				if (localMsgDelays.get(i) < Double.MAX_VALUE) {
-					doubleArrayDelays.add((double) localMsgDelays.get(i));	
-				} else{
-					doubleArrayDelays.add(Double.MAX_VALUE);
-				}			
-			}
-			
-			
-			DefaultBoxAndWhiskerCategoryDataset dataset = new DefaultBoxAndWhiskerCategoryDataset();
-		    HashMap<String, ArrayList<Double>> test = new HashMap<String, ArrayList<Double>>();
-		    test.put(strategyRunning,doubleArrayDelays);
-	
-		    for (String k : test.keySet()){
-		        /* change to 
-		         *     String xAxisLabel = "";
-		         * to get wide plot
-		         */
-		        String xAxisLabel = k;
-		        dataset.add(test.get(k), xAxisLabel, k);// + beta of interactionterm");
-		    }
-		    final CategoryAxis xAxis = new CategoryAxis("x-axis: Series");
-		    final NumberAxis yAxis = new NumberAxis("y-axis: Delays");
-		    yAxis.setAutoRangeIncludesZero(false);
-		    final BoxAndWhiskerRenderer renderer = new BoxAndWhiskerRenderer();
-		    renderer.setFillBox(false);
-		    renderer.setSeriesToolTipGenerator(1, new BoxAndWhiskerToolTipGenerator());
-		    renderer.setMeanVisible(false);
-		    final CategoryPlot plot = new CategoryPlot(dataset, xAxis, yAxis, renderer);
-	
-		    final JFreeChart chartBoxPlot = new JFreeChart("BoxPlot of Delays",plot);
-		    
-		    final ChartPanel chartPanel = new ChartPanel(chartBoxPlot);
-		    chartPanel.setPreferredSize(new java.awt.Dimension(3000,1800));
-		    ChartUtilities.saveChartAsPNG(new File(file2saveGraph), chartBoxPlot, 200, 600);
-		
-		// box plot saved/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	    
-	    
-	    // Histogram trial /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	    //	
-		    double[] dataHistogram = new double[doubleArrayDelays.size()];
-		    for (int i = 0; i < dataHistogram.length; i++) {
-		    	dataHistogram[i] = doubleArrayDelays.get(i); 
-		     }
-		    
-	        HistogramDataset datasetHistogram = new HistogramDataset();
-	        datasetHistogram.setType(HistogramType.RELATIVE_FREQUENCY);
-	                        
-	        datasetHistogram.addSeries("Hist",dataHistogram,100); // Number of bins is 50
-	        String plotTitle = "Histogram of Delays";
-	        String xAxisX = "Frequency";
-	        String yAxisY = "Delays";
-	        PlotOrientation orientation = PlotOrientation.VERTICAL;
-	
-	        boolean show = false;
-	        boolean toolTips = false;
-	        boolean urls = false;
-	        JFreeChart chartHistogram = ChartFactory.createHistogram(plotTitle, xAxisX, yAxisY,
-	        		(IntervalXYDataset) datasetHistogram, orientation, show, toolTips, urls);
-	
-	        chartHistogram.setBackgroundPaint(Color.white);
-	
-	        file2saveGraph = "visualResults/histograms/" + mapName + " - delay Histogram - " + ctUAV + " UAVs" + " - " + strategyRunning + ".png";
-	
-	        ChartUtilities.saveChartAsPNG(new File(file2saveGraph), chartHistogram, 1000, 600);
-	  
-	    // Histrogram saved/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	    
-	}// end of both jfreechart| DISABLE FOR WHILE
-		
+//			// saving msg delays on by one in a file for each strategy
+//			//String filename = "stats_delays_" + strategyRunning + ".txt";		
+//			try {
+//			    Files.write(Paths.get("stats_delays_boxplot.txt"), logline.getBytes(), StandardOpenOption.APPEND);
+//			    Files.write(Paths.get("stats_delays_boxplot.txt"), "\n".getBytes(), StandardOpenOption.APPEND);
+//			    System.out.println("\n\n[Summary] Saving file: " + Paths.get("stats_delays_boxplot.txt"));		
+//			    System.out.println("\n\n[Summary] Saved: " + logline);		
+//
+//			} catch (IOException e) {
+//				System.out.println("\n\n\n[Summary] ERRO nas estatísticas: \n\n" + e);
+//				
+//			}
+//
+//	
+//		///////////////////////////////////////////////////////////
+//	    //if (false){ // disabled for while || jfreechart || very heavy! Better stay doing the math with python
+//
+//		
+//		// trying save a boxplot Image to file
+//			String file2saveGraph = "visualResults/boxplots/" + mapName + " - delay BoxPlot - " + ctUAV + " UAVs" + " - " + strategyRunning + ".png";
+//	
+//			if ((OS.indexOf("nux") >= 0)){ // creates a foo file...rsrs
+//			
+//				try {
+//					File directory = new File (".");
+//				    //directory.getCanonicalPath() 
+//				    //directory.getAbsolutePath()
+//				    long timestamp = System.currentTimeMillis();
+//				    if (!directory.exists()) {
+//				        new FileOutputStream(directory.getAbsolutePath() + file2saveGraph).close();
+//				     }
+//	
+//				    directory.setLastModified(timestamp);
+//				    
+//				}catch(Exception e) {
+//				    System.out.println("Exceptione is ="+e.getMessage());
+//				}
+//				
+//				
+//		    } else {// it the windows machine
+//		    	// works transparently
+//		    } 
+//			
+//			ArrayList<Double> doubleArrayDelays = new ArrayList<Double>();
+//			for (int i = 0 ; i < localMsgDelays.size(); i++){
+//				if (localMsgDelays.get(i) < Double.MAX_VALUE) {
+//					doubleArrayDelays.add((double) localMsgDelays.get(i));	
+//				} else{
+//					doubleArrayDelays.add(Double.MAX_VALUE);
+//				}			
+//			}
+//			
+//			
+//			DefaultBoxAndWhiskerCategoryDataset dataset = new DefaultBoxAndWhiskerCategoryDataset();
+//		    HashMap<String, ArrayList<Double>> test = new HashMap<String, ArrayList<Double>>();
+//		    test.put(strategyRunning,doubleArrayDelays);
+//	
+//		    for (String k : test.keySet()){
+//		        /* change to 
+//		         *     String xAxisLabel = "";
+//		         * to get wide plot
+//		         */
+//		        String xAxisLabel = k;
+//		        dataset.add(test.get(k), xAxisLabel, k);// + beta of interactionterm");
+//		    }
+//		    final CategoryAxis xAxis = new CategoryAxis("x-axis: Series");
+//		    final NumberAxis yAxis = new NumberAxis("y-axis: Delays");
+//		    yAxis.setAutoRangeIncludesZero(false);
+//		    final BoxAndWhiskerRenderer renderer = new BoxAndWhiskerRenderer();
+//		    renderer.setFillBox(false);
+//		    renderer.setSeriesToolTipGenerator(1, new BoxAndWhiskerToolTipGenerator());
+//		    renderer.setMeanVisible(false);
+//		    final CategoryPlot plot = new CategoryPlot(dataset, xAxis, yAxis, renderer);
+//	
+//		    final JFreeChart chartBoxPlot = new JFreeChart("BoxPlot of Delays",plot);
+//		    
+//		    final ChartPanel chartPanel = new ChartPanel(chartBoxPlot);
+//		    chartPanel.setPreferredSize(new java.awt.Dimension(3000,1800));
+//		    ChartUtilities.saveChartAsPNG(new File(file2saveGraph), chartBoxPlot, 200, 600);
+//		
+//		// box plot saved/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	    
+//	    
+//	    // Histogram trial /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	    //	
+//		    double[] dataHistogram = new double[doubleArrayDelays.size()];
+//		    for (int i = 0; i < dataHistogram.length; i++) {
+//		    	dataHistogram[i] = doubleArrayDelays.get(i); 
+//		     }
+//		    
+//	        HistogramDataset datasetHistogram = new HistogramDataset();
+//	        datasetHistogram.setType(HistogramType.RELATIVE_FREQUENCY);
+//	                        
+//	        datasetHistogram.addSeries("Hist",dataHistogram,100); // Number of bins is 50
+//	        String plotTitle = "Histogram of Delays";
+//	        String xAxisX = "Frequency";
+//	        String yAxisY = "Delays";
+//	        PlotOrientation orientation = PlotOrientation.VERTICAL;
+//	
+//	        boolean show = false;
+//	        boolean toolTips = false;
+//	        boolean urls = false;
+//	        JFreeChart chartHistogram = ChartFactory.createHistogram(plotTitle, xAxisX, yAxisY,
+//	        		(IntervalXYDataset) datasetHistogram, orientation, show, toolTips, urls);
+//	
+//	        chartHistogram.setBackgroundPaint(Color.white);
+//	
+//	        file2saveGraph = "visualResults/histograms/" + mapName + " - delay Histogram - " + ctUAV + " UAVs" + " - " + strategyRunning + ".png";
+//	
+//	        ChartUtilities.saveChartAsPNG(new File(file2saveGraph), chartHistogram, 1000, 600);
+//	  
+//	    // Histrogram saved/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	    
+//	}// end of both jfreechart| DISABLE FOR WHILE
+//		
 	}
 	    
 	

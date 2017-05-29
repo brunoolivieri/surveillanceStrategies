@@ -8,10 +8,10 @@
 		<dimensions value="2" />
 
 		<!--Length of the deployment field along the x-axis.-->
-		<dimX value="10000" />
+		<dimX value="13000" />
 
 		<!--Length of the deployment field along the y-axis.-->
-		<dimY value="10000" />
+		<dimY value="13000" />
 
 		<!--Length of the deployment field along the z-axis.-->
 		<dimZ value="1" />
@@ -235,17 +235,17 @@
 <ThreadToRunWithTSPTimeEnabler enabled="true"/>
 
 
-<GeometricNodeCollection rMax="30"/>
-<UDG rMax="30"/>
+<GeometricNodeCollection rMax="71"/>
+<UDG rMax="71"/>
 
-<QUDG rMin="30" rMax="30" ProbabilityType="constant" connectionProbability="0.9"/>
+<QUDG rMin="71" rMax="71" ProbabilityType="constant" connectionProbability="0.9"/>
 
 <SINR alpha="2" beta="0.7" noise="0.1"/>
 
 
 <!-- @Oli: DO NOT TOUCH THAT UNLESS YOU REALLY KNOW ABOUT CUSTOM MOVEMENT CODE!!! -->
 <RandomWayPoint>
-	<Speed distribution="Gaussian" mean="5" variance="0" />
+	<Speed distribution="Gaussian" mean="1" variance="0" />
 	<WaitingTime distribution="Poisson" lambda="10" />
 </RandomWayPoint>
 		

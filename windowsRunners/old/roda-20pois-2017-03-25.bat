@@ -8,7 +8,7 @@ rem set ROUNDS=3750000
 set N_POI=20
 
 rem set STRATS=KingstonImprovedOverNSNMobility ZigZagOverNSNMobility
-set STRATS=ZigZagOverNSNMobility
+set STRATS=FPPWRMobility ZigZagOverNSNMobility TSPConcordeMobility
 
 FOR /L %%A IN (1,1,%MAX_TRIES%) DO (
 

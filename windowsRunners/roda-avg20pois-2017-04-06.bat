@@ -2,7 +2,7 @@
 
 cd..
 
-set MAX_TRIES=30
+set MAX_TRIES=5
 set ROUNDS=3750000
 rem set ROUNDS=3750000
 set N_POI=20
