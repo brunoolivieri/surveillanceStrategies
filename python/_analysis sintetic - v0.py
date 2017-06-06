@@ -5,7 +5,7 @@ import matplotlib
 matplotlib.style.use('ggplot')
 
 
-fileIn="2017-05-29 - 100 tst.txt"
+fileIn="_2017-06-05 - fully 20 40 200 - TST.txt"
 SPARSE=20
 DENSE=200
 
@@ -110,7 +110,7 @@ for i in range(0,len(tiposStats)):
         labels = []
         k=0
         for key, grp in dataFrames[j].groupby('Strategy'):
-            ax = grp.plot(ax=ax, kind='line', x=xStatsCods[i], y=yStatsCods[i], style=markers[k])
+            ax = grp.plot(ax=ax, kind='line', x=xStatsCods[i], y=yStatsCods[i])#, style=markers[k])
             #ax.set_xlim(0, 32);
             labels.append(key)
             k+=1
@@ -122,6 +122,89 @@ for i in range(0,len(tiposStats)):
     #plt.title(tiposStats[i])
         plt.savefig('_1' + str(i) + str(j) + '_' + tiposStats[i] + ' - ' + dataFramesNames[j] + '.png', dpi=100)
     #plt.savefig('_' + tiposStats[i] + '.png', dpi=100)
+
+
+
+##########################################################################################################
+##########################################################################################################
+##########################################################################################################
+
+#selected graphics
+
+
+tiposStats=['Amount of Data','Throughput','Mean Msgs Delays','Worst Data Collection','Amount by toursize']
+yStatsCods=['SucessTax','throughput','globalAvgDelay','maxData','TaxPerPathSize']
+xStatsCods=['nUAV','nUAV','nUAV','nUAV','nUAV']
+
+dataFrames=[df_data_MEAN_sparse,df_data_MEAN_dense]
+dataFramesNames=['Sparse','Dense']
+
+for i in range(0,len(tiposStats)):  
+    plt.figure(i+1)                # the first figure
+    for j in range(0,len(dataFrames)):
+        #plt.subplot(2,2,j+1)             
+        #subplot(nrows, ncols, plot_number)
+        print(tiposStats[i] + ' - ' + dataFramesNames[j] + '\n\n')
+        fig, ax = plt.subplots()
+        labels = []
+        k=0
+        for key, grp in dataFrames[j].groupby('Strategy'):
+            if key not in ['FPPWR']:
+                ax = grp.plot(ax=ax, kind='line', x=xStatsCods[i], y=yStatsCods[i], style=markers[k])
+                #ax.set_xlim(0, 28);
+                labels.append(key)
+                k+=1
+        lines, _ = ax.get_legend_handles_labels()
+        
+        ax.set(xlabel="Number of UAVs", ylabel=tiposStats[i])
+        ax.legend(lines, labels, loc='best')
+        plt.title(tiposStats[i] + ' - ' + dataFramesNames[j])
+    #plt.title(tiposStats[i])
+        plt.savefig('_s_0' + str(i) + str(j) + '_' + tiposStats[i] + ' - ' + dataFramesNames[j] + '.png', dpi=100)
+    #plt.savefig('_' + tiposStats[i] + '.png', dpi=100)
+
+
+print('Graphics regarding nUAV and MEANS done...\n')
+
+##########################################################################################################
+
+#import sys
+#sys.exit()
+
+print('Going back do RAW data, without means...\n')
+
+tiposStats=['Tour size by map','Mean msg delay by map','Processing Tour time by map']
+yStatsCods=['tourSize','globalAvgDelay','pathTime']
+xStatsCods=['mapName','mapName','mapName']
+
+dataFrames=[df_data_RAW_sparse,df_data_RAW_dense]
+dataFramesNames=['Sparse','Dense']
+
+for i in range(0,len(tiposStats)):  
+    #plt.figure(i+1)                # the first figure
+    for j in range(0,len(dataFrames)):
+        #plt.subplot(2,2,j+1)             
+        #subplot(nrows, ncols, plot_number)
+        print(tiposStats[i] + ' - ' + dataFramesNames[j] + '\n\n')
+        fig, ax = plt.subplots()
+        labels = []
+        k=0
+        for key, grp in dataFrames[j].groupby('Strategy'):
+            if key not in ['FPPWR']:
+                ax = grp.plot(ax=ax, kind='line', x=xStatsCods[i], y=yStatsCods[i])#, style=markers[k])
+                #ax.set_xlim(0, 32);
+                labels.append(key)
+                k+=1
+        lines, _ = ax.get_legend_handles_labels()
+        
+        ax.set(xlabel="Maps", ylabel=tiposStats[i])
+        ax.legend(lines, labels, loc='best')
+        plt.title(tiposStats[i] + ' - ' + dataFramesNames[j])
+    #plt.title(tiposStats[i])
+        plt.savefig('_s_1' + str(i) + str(j) + '_' + tiposStats[i] + ' - ' + dataFramesNames[j] + '.png', dpi=100)
+    #plt.savefig('_' + tiposStats[i] + '.png', dpi=100)
+
+
 
 
 
