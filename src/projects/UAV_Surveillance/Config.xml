@@ -234,6 +234,8 @@
 <ThreadToRunWithTSPTimer maxduration="600000"/>  		<!-- miliseconds to abort engine and get the best path so far. -->
 <ThreadToRunWithTSPTimeEnabler enabled="true"/>
 
+<MachineExternalProcessToDesconsider timeInMS="0"/>
+
 
 <GeometricNodeCollection rMax="71"/>
 <UDG rMax="71"/>

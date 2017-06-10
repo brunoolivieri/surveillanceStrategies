@@ -58,8 +58,8 @@ public class GSnode extends Node implements Comparable<GSnode> {
 	public boolean init =false;
 	
 	public int roundsRunning = 0;
-	public long startPathProcessingTime = -1 ; 
-	public long totalPathProcessingTime = -1 ; 
+	public long startPathProcessingTime = 0; 
+	public long totalPathProcessingTime = 0; 
 
 	
 	public int globalAvgDelay = 0 ;
@@ -186,6 +186,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 
 		startPathProcessingTime = System.currentTimeMillis();  
 
+		boolean needCompensateExternalProcessingTime = false;
 		
 		// Sent once to inform UAVs the visit order... Naive, TSP & Anti-TSP cases
 		// Random Safe Strategy does not wait for this step, because does not have an order
@@ -201,37 +202,49 @@ public class GSnode extends Node implements Comparable<GSnode> {
 					// Does O(n2) path path and populates "msgPOIorder"	
 					msgPOIorder = new msgPOIordered(createNotSoNaiveBestPath(),0);
 					strategyRunning = "NSNOrdered";
+					needCompensateExternalProcessingTime = true;
 			} 
 			else if ((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))){
 					System.out.println("[ZigZagOverNaiveMobility] ");
 					msgPOIorder = new msgPOIordered(listOfPOIs,0);
-					strategyRunning = "DADCA_NAIVA";
+					strategyRunning = "DADCA_NAIVE";
+					needCompensateExternalProcessingTime = true;
 			} 
 			else if ((setOfUAVs.first().myMobilityModelName.endsWith("NaiveOrderedMobility"))&&(!setOfUAVs.first().myMobilityModelName.endsWith("NotSoNaiveOrderedMobility"))){				
 					System.out.println("[NaiveOrderedMobility] ");
 					msgPOIorder = new msgPOIordered(listOfPOIs,0);
 					strategyRunning = "Naive";
+					needCompensateExternalProcessingTime = true;
+
 			} 
 			else if ((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverNSNMobility"))){
 					System.out.println("[ZigZagOverNSNMobility] ");
 					msgPOIorder = new msgPOIordered(createNotSoNaiveBestPath(),0);// same as NotSoNaiveOrderedMobility
 					strategyRunning = "DADCA-NSN";
+					needCompensateExternalProcessingTime = true;
+
 			} 
 			else if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNSNMobility"))){
 					System.out.println("[KingstonImprovedOverNSNMobility] ");
 					msgPOIorder = new msgPOIordered(createNotSoNaiveBestPath(),0);// same as NotSoNaiveOrderedMobility
 					strategyRunning = "KIMP-NSN";
+					needCompensateExternalProcessingTime = true;
+
 			} 
 			else if ((setOfUAVs.first().myMobilityModelName.endsWith("KingstonImprovedOverNaiveMobility"))){
 					System.out.print("[KingstonImprovedOverNaiveMobility] ");
 					msgPOIorder = new msgPOIordered(listOfPOIs,0);
 					strategyRunning = "KIMP-Naive";
+					needCompensateExternalProcessingTime = true;
+
 			}							
 			else if (((setOfUAVs.first().myMobilityModelName.endsWith("FPPWRMobility")))) {
 				System.out.println("[FPPWRMobility] ");
 				strategyRunning = "FPPWR";
 				fppwrPlanner planner = new fppwrPlanner();
-				msgPOIorder = new msgPOIordered(planner.fppwrPlathPlanner(listOfPOIs),0);				
+				msgPOIorder = new msgPOIordered(planner.fppwrPlathPlanner(listOfPOIs),0);	
+				needCompensateExternalProcessingTime = true;
+
 			}
 			else if (((setOfUAVs.first().myMobilityModelName.endsWith("TSPConcordeMobility")))) {
 				System.out.println("[TSPConcordeMobility] ");
@@ -247,6 +260,8 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				solution = planner.getDadcaPartedNaiveSolution();					
 				//msgPOIorder = new msgPOIordered(solution, getIdxFromPoiByID(this.ID, solution)+1);	
 				msgPOIorder = new msgPOIordered(solution, 0);	
+				needCompensateExternalProcessingTime = true;
+
 			}			
 			else if (((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagPartedOverNSNMobility")))) {
 				System.out.println("[ZigZagPartedOverNSNMobility] ");
@@ -256,6 +271,7 @@ public class GSnode extends Node implements Comparable<GSnode> {
 				solution = planner.getDadcaPartedNSNSolution();					
 				//msgPOIorder = new msgPOIordered(solution, getIdxFromPoiByID(this.ID, solution)+1);	
 				msgPOIorder = new msgPOIordered(solution, 0);	
+				needCompensateExternalProcessingTime = true;
 			}
 			
 			else if (((setOfUAVs.first().myMobilityModelName.endsWith("ZigZagOverLKHMobility")))) {
@@ -282,10 +298,26 @@ public class GSnode extends Node implements Comparable<GSnode> {
 			
 			
 			
-			totalPathProcessingTime = System.currentTimeMillis() - startPathProcessingTime;
+			totalPathProcessingTime += System.currentTimeMillis() - startPathProcessingTime;
 			broadcast(msgPOIorder);			
 			Global.originalPathSize = getPathSize(msgPOIorder.data);
 			cmdsSent = true;	
+			
+			// This must be tunned machine by machine and set of POIS to set of POIS.
+			// This tries to consider the external processing time and I/O stuff
+			if (needCompensateExternalProcessingTime) {
+				
+				try {
+					totalPathProcessingTime += Configuration.getDoubleParameter("MachineExternalProcessToDesconsider/timeInMS");
+				} catch (CorruptConfigurationEntryException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+		
+			
 		}
 		
 		

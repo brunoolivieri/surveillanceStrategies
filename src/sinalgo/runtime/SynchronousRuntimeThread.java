@@ -40,6 +40,7 @@ package sinalgo.runtime;
 import java.util.Date;
 
 import sinalgo.configuration.Configuration;
+import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.configuration.WrongConfigurationException;
 import sinalgo.nodes.Node;
 import sinalgo.tools.logging.LogL;
@@ -125,7 +126,12 @@ public class SynchronousRuntimeThread extends Thread {
 			// Perform the step for each node
 			try{
 				for(Node n : Runtime.nodes) {
-					n.step();
+					try {
+						n.step();
+					} catch (CorruptConfigurationEntryException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			} catch(WrongConfigurationException wCE){
 				Main.minorError(wCE); // in gui, a popup is shown. in batch, exits.

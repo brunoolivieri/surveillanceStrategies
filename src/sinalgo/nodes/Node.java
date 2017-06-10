@@ -160,9 +160,10 @@ public abstract class Node implements DoublyLinkedListEntry{
 	/**
 	 * This method is invoked at the beginning of each step. 
 	 * Add actions to this method that this node should perform in every step.
+	 * @throws CorruptConfigurationEntryException 
 	 * @see Node#step() for the calling sequence of the node methods.
 	 */
-	public abstract void preStep();
+	public abstract void preStep() throws CorruptConfigurationEntryException;
 	
 	
 	/**
@@ -931,8 +932,9 @@ public abstract class Node implements DoublyLinkedListEntry{
 	 * by the system. It specifies the order in which the behavior methods are called. Study this
 	 * method carefully to understand the simulation.
 	 * @throws WrongConfigurationException 
+	 * @throws CorruptConfigurationEntryException 
 	 */
-	public final void step() throws WrongConfigurationException{
+	public final void step() throws WrongConfigurationException, CorruptConfigurationEntryException{
 		
 		//update the message buffer
 		packetBuffer.updateMessageBuffer();
