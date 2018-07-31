@@ -39,6 +39,11 @@ package projects.UAV_Surveillance.nodes.nodeImplementations;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -46,10 +51,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TreeSet;
 
+import javax.imageio.ImageIO;
+
 import projects.UAV_Surveillance.nodes.messages.msgFOV;
 import projects.UAV_Surveillance.nodes.messages.msgFromPOI;
 import projects.UAV_Surveillance.nodes.messages.msgKingImp;
 import projects.UAV_Surveillance.nodes.messages.msgPOIordered;
+import sinalgo.configuration.Configuration;
 import sinalgo.configuration.WrongConfigurationException;
 import sinalgo.gui.transformation.PositionTransformation;
 import sinalgo.io.eps.EPSOutputPrintStream;
@@ -122,7 +130,8 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	public STATUS myStatus = STATUS.ALLRIGHT;
 
 	
-	
+	public BufferedImage img = null; // to draw drones
+
 
 	//Logging uav_log = Logging.getLogger("UAV_id_" + this.ID + ".txt");
 	
@@ -368,6 +377,25 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 		        );
 			init = true;
 			System.out.println("[UAV " + this.ID + "] dist to zero = " + this.distToGS);
+			
+			
+			//super.init();
+			try {
+				InputStream in = null;
+				in = new FileInputStream("src/" + Configuration.userProjectDir
+						+ "/" + Global.projectName + "/" + "images/smallDrone.jpg");
+				if ((img = ImageIO.read(in)) == null) {
+					throw new FileNotFoundException(
+							"\n 'map.bmp' - This image format is not supported.");
+				}
+				in.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
 		}		
 	}
 
@@ -549,7 +577,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 	 */
 	public void draw(Graphics g, PositionTransformation pt, boolean highlight) {
 
-		this.drawingSizeInPixels = 15 ; 
+		this.drawingSizeInPixels = 30 ; 
 		
 		if (myStatus == STATUS.ALLRIGHT){   // means working properly
 			
@@ -560,15 +588,16 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			}	
 			//String text = Integer.toString(this.ID) + "|" + poiMessages.size() ; 	
 			String text = Integer.toString(this.nodeCreationOrder) + "|" + poiMessages.size() ; 
+			text = "";
+			super.drawNodeAsDiskWithText(g, pt, highlight, text, this.drawingSizeInPixels, Color.YELLOW);
 			
-			super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
 		} else if (myStatus == STATUS.BROKEN){   // means not working
-			
+			this.setColor(Color.RED);
 			//String text = Integer.toString(this.ID) + "|" + poiMessages.size() ; 	
 			String text = Integer.toString(this.nodeCreationOrder) + "|" + poiMessages.size() ; 
 			
-			this.setColor(Color.RED);
-			super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.BLACK);
+			text = "";
+			super.drawNodeAsDiskWithText(g, pt, highlight, text, this.drawingSizeInPixels, Color.BLACK);
 			
 		}else if (myStatus == STATUS.REFUELPROCESS){   // means not working
 			
@@ -576,10 +605,55 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			String text = Integer.toString(this.nodeCreationOrder) + "|" + poiMessages.size() ; 
 			
 			this.setColor(Color.YELLOW);
-			super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.BLACK);
+			text = "";
+			super.drawNodeAsDiskWithText(g, pt, highlight, text, this.drawingSizeInPixels, Color.BLACK);
 			
 		}
 		
+		// pink style
+		Color bckup = g.getColor();
+		g.setColor(Color.BLACK);
+		this.drawingSizeInPixels = (int) (defaultDrawingSizeInPixels * pt
+				.getZoomFactor());
+		// pink: super.drawAsDisk(g, pt, highlight, drawingSizeInPixels);
+		String text = Integer.toString(this.nodeCreationOrder) + "|" + poiMessages.size() ; 
+		//super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW); // mine
+		
+		g.setColor(Color.GRAY);
+		pt.translateToGUIPosition(this.getPosition());
+		//int r = (int) (radius * pt.getZoomFactor());
+		//g.drawOval(pt.guiX - r, pt.guiY - r, r * 2, r * 2);
+		//g.setColor(bckup);
+
+		int imgWidth = 0;
+		int imgHeight = 0;
+		int[][] grid = null;
+		imgWidth = img.getWidth();
+		imgHeight = img.getHeight();
+		grid = new int[imgWidth][imgHeight];
+		// copy the image data
+		for (int i = 0; i < imgWidth; i++) {
+			for (int j = 0; j < imgHeight; j++) {
+				grid[i][j] = img.getRGB(i, j);
+			}
+		}
+
+		int iniX = (int) this.getPosition().xCoord - (imgWidth / 2);
+		int iniY = (int) this.getPosition().yCoord - (imgHeight / 2);
+
+		for (int i = iniX; i < imgWidth + iniX; i++) {
+			for (int j = iniY; j < imgHeight + iniY; j++) {
+				pt.translateToGUIPosition(i, j, 0); // top left corner of cell
+				int topLeftX = pt.guiX, topLeftY = pt.guiY;
+				pt.translateToGUIPosition((i + 1), (j + 1), 0); // bottom right
+																// corner of
+																// cell
+				Color col = new Color(grid[i - iniX][j - iniY]);
+				g.setColor(col);
+				g.fillRect(topLeftX, topLeftY, pt.guiX - topLeftX, pt.guiY
+						- topLeftY);
+			}
+		}
 
 	}
 	

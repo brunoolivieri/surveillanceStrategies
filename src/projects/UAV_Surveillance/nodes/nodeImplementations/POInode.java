@@ -4,11 +4,20 @@ package projects.UAV_Surveillance.nodes.nodeImplementations;
 import java.awt.Color;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.TreeSet;
 
+import javax.imageio.ImageIO;
+
 import projects.UAV_Surveillance.nodes.messages.msgFOV;
+import sinalgo.configuration.Configuration;
+import sinalgo.configuration.CorruptConfigurationEntryException;
 import sinalgo.configuration.WrongConfigurationException;
 import sinalgo.gui.transformation.PositionTransformation;
 import sinalgo.io.eps.EPSOutputPrintStream;
@@ -16,6 +25,7 @@ import sinalgo.nodes.Node;
 import sinalgo.nodes.Position;
 import sinalgo.nodes.edges.Edge;
 import sinalgo.nodes.messages.Inbox;
+import sinalgo.runtime.Global;
 import sinalgo.runtime.Runtime;
 import sinalgo.tools.Tools;
 import sinalgo.nodes.messages.Message;
@@ -52,6 +62,8 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 	public Position myPos;
 	public boolean flagFPPWR = false;
 	public int fppwrDistToSquareRoot = -1;
+	
+	public BufferedImage img = null; // to draw POI/ sensor
 	
 	
 	/**
@@ -108,6 +120,25 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 		        );
 			init = true;
 			System.out.println("[POI " + this.ID + "] " + "dist to GS = " + this.distToGS);
+			
+			//super.init();
+			try {
+				InputStream in = null;
+				in = new FileInputStream("src/" + Configuration.userProjectDir
+						+ "/" + Global.projectName + "/" + "images/smallCH.png");
+				if ((img = ImageIO.read(in)) == null) {
+					throw new FileNotFoundException(
+							"\n 'map.bmp' - This image format is not supported.");
+				}
+				in.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
+			
 		}
 			
 	}
@@ -143,22 +174,77 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 		return this.getClass().getCanonicalName();
 	}
 	
+	private static int radius;
+	{
+		try {
+			radius = (int) Configuration.getDoubleParameter("GeometricNodeCollection/rMax"); // mine
+					//.getIntegerParameter("AntennaConnection/rMax"); //pink
+					
+		} catch (CorruptConfigurationEntryException e) {
+			Tools.fatalError(e.getMessage());
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see sinalgo.nodes.Node#draw(java.awt.Graphics, sinalgo.gui.transformation.PositionTransformation, boolean)
 	 */
 	public void draw(Graphics g, PositionTransformation pt, boolean highlight) {
 		
 		this.setColor(Color.BLACK);
-
 		//debug
 		this.drawingSizeInPixels = 15 ; // (int) (fraction * pt.getZoomFactor() * this.defaultDrawingSizeInPixels);
-		
 		String text = Integer.toString(this.ID) ; // + "|" + Integer.toString(roundsNeglected);// + "|" + msgSentInThisRound;
-		
 		//String text = Integer.toString(this.nodeCreationOrder) ; // + "|" + Integer.toString(roundsNeglected);// + "|" + msgSentInThisRound;
 		
 		if (!amIphantom){
-			super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);
+			//super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);	
+
+			
+			Color bckup = g.getColor();
+			g.setColor(Color.BLACK);
+			this.drawingSizeInPixels = (int) (defaultDrawingSizeInPixels * pt
+					.getZoomFactor());
+			// pink: super.drawAsDisk(g, pt, highlight, drawingSizeInPixels);
+			//super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW); // mine
+			
+			g.setColor(Color.GRAY);
+			pt.translateToGUIPosition(this.getPosition());
+			//int r = (int) (radius * pt.getZoomFactor());
+			//g.drawOval(pt.guiX - r, pt.guiY - r, r * 2, r * 2);
+			//g.setColor(bckup);
+
+			int imgWidth = 0;
+			int imgHeight = 0;
+			int[][] grid = null;
+			imgWidth = img.getWidth();
+			imgHeight = img.getHeight();
+			grid = new int[imgWidth][imgHeight];
+			// copy the image data
+			for (int i = 0; i < imgWidth; i++) {
+				for (int j = 0; j < imgHeight; j++) {
+					grid[i][j] = img.getRGB(i, j);
+				}
+			}
+
+			int iniX = (int) this.getPosition().xCoord - (imgWidth / 2);
+			int iniY = (int) this.getPosition().yCoord - (imgHeight / 2);
+
+			for (int i = iniX; i < imgWidth + iniX; i++) {
+				for (int j = iniY; j < imgHeight + iniY; j++) {
+					pt.translateToGUIPosition(i, j, 0); // top left corner of cell
+					int topLeftX = pt.guiX, topLeftY = pt.guiY;
+					pt.translateToGUIPosition((i + 1), (j + 1), 0); // bottom right
+																	// corner of
+																	// cell
+					Color col = new Color(grid[i - iniX][j - iniY]);
+					g.setColor(col);
+					g.fillRect(topLeftX, topLeftY, pt.guiX - topLeftX, pt.guiY
+							- topLeftY);
+				}
+			}
+
+			
+			
 		}
 		
 		
