@@ -8,10 +8,11 @@
 		<dimensions value="2" />
 
 		<!--Length of the deployment field along the x-axis.-->
-		<dimX value="500" />
+		<dimX value="1134" />  		<!--Length of the deployment field along the x-axis.-->
+
 
 		<!--Length of the deployment field along the y-axis.-->
-		<dimY value="500" />
+		<dimY value="697" />
 
 		<!--Length of the deployment field along the z-axis.-->
 		<dimZ value="1" />
@@ -122,10 +123,10 @@
 		<!--  Background map in 2D                                                 -->
 		<!--***********************************************************************-->
 		<!--If set to true, the background of a 2D simulation is colored according to a map, specified in a map-file, specified by the field map-->
-		<useMap value="false" />
+		<useMap value="true" />
 
 		<!--In 2D, the background can be colored depending on a map file. This field contains the file name for this map, which is supposed to be located in the source folder of the current project. The map is only painted if useMap is set to true.-->
-		<map value="images/map4.bmp" />
+		<map value="images/mapaVideo.bmp" />
 
 		<!--***********************************************************************-->
 		<!--  Models                                                               -->
