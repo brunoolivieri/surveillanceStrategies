@@ -63,7 +63,7 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 	public boolean flagFPPWR = false;
 	public int fppwrDistToSquareRoot = -1;
 	
-	public BufferedImage img = null; // to draw POI/ sensor
+	public transient BufferedImage img = null; // to draw POI/sensor   //transient because for the videos, I put an image
 	
 	
 	/**

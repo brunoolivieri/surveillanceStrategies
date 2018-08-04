@@ -61,7 +61,9 @@ public class NaiveOrderedMobility  extends MobilityModel{
 		Position newPos = new Position();
 		boolean nonFlyZone = false;
 		if(Configuration.useMap){
-			nonFlyZone = !map.isWhite(n.getPosition());  //we are already standing in the lake
+			// //@oli: linha abaixo comentada goHorse por causa do mapa dos videos
+			// nonFlyZone = !map.isWhite(n.getPosition());  //we are already standing in the lake
+			
 		}
 		if(nonFlyZone){
 			Main.fatalError("A node is standing in a non flying zone. Cannot find a step outside.");
@@ -71,8 +73,9 @@ public class NaiveOrderedMobility  extends MobilityModel{
 			newPos = legacyGetNextPos(n);
 			if(Configuration.useMap){
 				if(!map.isWhite(newPos)) {
-					nonFlyZone = true;
-					remaining_hops = 0;//this foces the node to search for an other target...
+					// //@oli: linhaS abaixo comentadaS goHorse por causa do mapa dos videos
+					//nonFlyZone = true;
+					//remaining_hops = 0;//this foces the node to search for an other target...
 				}
 			}
 		}	while(nonFlyZone);

@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -38,7 +39,7 @@ import sinalgo.tools.logging.Logging;
 
 
 
-public class GSnode extends Node implements Comparable<GSnode> {
+public class GSnode extends Node implements Comparable<GSnode>,Serializable {
 
 	//@Oli: our vars
 	private ArrayList<POInode> listOfPOIs = new ArrayList<POInode>();

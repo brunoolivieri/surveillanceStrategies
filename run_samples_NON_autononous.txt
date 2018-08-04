@@ -27,9 +27,6 @@ ZigZagOverLKHCuttedMobility
 
 
 
-2018-05-09: TSP 1 uav just to present program
-java -cp binaries/bin sinalgo.Run -V2V -project UAV_Surveillance -rounds 1 -refreshRate 1 -gen 1 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:TSPbasedMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen 10 UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionNN C=UDG I=NoInterference M=NoMobility R=ReliableDelivery 
-
 
 
 ------ Original samples ------ 
@@ -90,8 +87,29 @@ java -cp binaries/bin sinalgo.Run -project UAV_Surveillance -rounds 5000 -refres
 
 12) TSPConcordeMobility
 
+--------------------------------------------------------------------------------------
+
+2018-05-09: TSP 1 uav just to present program
+java -cp binaries/bin sinalgo.Run -V2V -project UAV_Surveillance -rounds 1 -refreshRate 1 -gen 1 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:TSPbasedMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility R=ReliableDelivery -gen 10 UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionNN C=UDG I=NoInterference M=NoMobility R=ReliableDelivery 
+
+--------------------------------------------------------------------------------------
+
+2018-08-03:
+
+TESTANDO O MAPA SALVO PARA O VIDEO - ESCREVER - foi usado só uma vez.... que saco!
+java -cp binaries/bin sinalgo.Run -SAVEFOLDER4VIDEO savedDistributions/ -batch exitAfter=true exitAfter/Rounds=1 -project UAV_Surveillance -rounds 1 -refreshRate 1 -gen 3 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:ZigZagOverLKHMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility  R=ReliableDelivery -gen 12 UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionForVideos C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
+
+TESTANDO O MAPA SALVO PARA O VIDEO - LER
+java -cp binaries/bin sinalgo.Run -LOADFILE savedDistributions/pois4video.txt -project UAV_Surveillance -rounds 5000 -refreshRate 1  -gen 3 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:ZigZagOverLKHMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility  R=ReliableDelivery -gen 12 UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
 
 
 
 
  
+
+
+
+
+
+
+

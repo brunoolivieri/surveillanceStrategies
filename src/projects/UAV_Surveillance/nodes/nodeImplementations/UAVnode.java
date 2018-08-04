@@ -44,6 +44,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,9 +70,11 @@ import sinalgo.runtime.Runtime;
 import sinalgo.tools.Tools;
 import sinalgo.tools.logging.Logging;
 import sinalgo.nodes.messages.Message;
+import java.io.Serializable;
 
 
-public class UAVnode extends Node implements Comparable<UAVnode> {
+
+public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 
 	//@Oli: Our vars
 	public int nKnownPOIs = 0;
@@ -610,6 +613,7 @@ public class UAVnode extends Node implements Comparable<UAVnode> {
 			
 		}
 		
+	
 		// pink style
 		Color bckup = g.getColor();
 		g.setColor(Color.BLACK);

@@ -162,15 +162,6 @@ public class CustomGlobal extends AbstractCustomGlobal{
 			// EVERYTHING REGADING READING WAS MIGRATED TO RUNTIME.JAVA just after parameter reading.
 			
 			Global.lastPOIloaded = 0;
-//			sinalgo.runtime.GlobalWriteAndLoadPositions loader = new sinalgo.runtime.GlobalWriteAndLoadPositions();
-//			try {
-//				Global.listOfLoadedPOIs = loader.load(Global.distributionFile);
-//			} catch (ClassNotFoundException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-		
-
 		}
 				
 	}
@@ -180,13 +171,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 	 */
 	@GlobalMethod(menuText="reset")
 	public void reset() {
-		
-		//@Oli: not used yet
-		
-//		for(Node n : Tools.getNodeList()) {
-//			((S2Node) n).reset();
-//		}
-//		Tools.repaintGUI();
+
 	}
 
 	//@Oli: not used yet
