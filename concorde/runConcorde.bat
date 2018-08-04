@@ -1,5 +1,5 @@
 @echo off
-set PATH=%PATH%;c:\cygwin32\bin;d:\cygwin32;C:\cygwin32\home\bruno;C:\Users\bruno\Documents\_gits\surveillanceStrategies\concorde
+set PATH=%PATH%;d:\cygwin\bin;d:\cygwin;d:\cygwin\home\bruno;D:\OneDrive\Documents\c - gits\surveillanceStrategies\concorde
 
 cd concorde
 

@@ -1,2 +1,3 @@
-PROBLEM_FILE=C:/Users/bruno/Documents/_gits/surveillanceStrategies/lkh-tsp/tsp2solve.txt
-OUTPUT_TOUR_FILE=C:/Users/bruno/Documents/_gits/surveillanceStrategies/lkh-tsp/LKH-output.txt
+PROBLEM_FILE=D:/OneDrive/Documents/c - gits/surveillanceStrategies/lkh-tsp/tsp2solve.txt
+OUTPUT_TOUR_FILE=D:/OneDrive/Documents/c - gits/surveillanceStrategies/lkh-tsp/LKH-output.txt
+
