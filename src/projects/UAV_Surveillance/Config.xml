@@ -239,9 +239,9 @@
 
 
 <GeometricNodeCollection rMax="71"/>
-<UDG rMax="71"/>
+<UDG rMax="15"/>
 
-<QUDG rMin="71" rMax="71" ProbabilityType="constant" connectionProbability="0.9"/>
+<QUDG rMin="15" rMax="15" ProbabilityType="constant" connectionProbability="0.9"/>
 
 <SINR alpha="2" beta="0.7" noise="0.1"/>
 

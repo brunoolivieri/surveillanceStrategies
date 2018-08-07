@@ -54,7 +54,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 		return this.getClass().getCanonicalName();
 	};
 	
-	//@oli: Get next position avoiding obstacles.
+	// @oli: Get next position avoiding obstacles.
 	// NOT TESTED WITH OBSTACLES YET
 	public synchronized Position getNextPos(Node n){
 		Map map = Tools.getBackgroundMap();
@@ -161,7 +161,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 		} else {		
 			POInode p = v.pathPOIs.get(v.getPathIdx());
 			
-			//System.out.println("v " + v.ID + " indo para p " + p.ID);
+			System.out.println("v " + v.ID + " indo para p " + p.ID);
 			
 			double randx = p.getPosition().xCoord; 
 			double randy = p.getPosition().yCoord; 

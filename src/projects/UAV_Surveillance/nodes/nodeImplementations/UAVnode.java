@@ -500,12 +500,24 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 			visitedAllPOIs = false;
 		}	
 			
-		if((roundVisitedPOIs.size() >= pathPOIs.size())  && (nKnownPOIs !=0) && canImove) { 
+		// 2018/08/07: adding "pathIdx == 0 "
+		if((roundVisitedPOIs.size() >= pathPOIs.size())  && (nKnownPOIs !=0) && canImove && (pathIdx == 0) ) { 
 			roundVisitedAllPOIs = true;
-			//System.out.println("\n\n CHEGUEI em todos ainda");
+//			System.out.println("\n [UAV " + this.ID + "] Já fiz todos deste round");
+//			System.out.println("[UAV " + this.ID + "]  lastPoi = " + this.lastPoi.ID);
+//			System.out.println("[UAV " + this.ID + "]  myStatus = " + this.myStatus.toString());
+//			System.out.println("[UAV " + this.ID + "]  nextPoi = " + this.nextPoi.ID);
+//			System.out.println("[UAV " + this.ID + "]  nKnownPOIs = " + this.nKnownPOIs);
+//			System.out.println("[UAV " + this.ID + "]  pathIdx = " + this.pathIdx);
+//			System.out.println("[UAV " + this.ID + "]  pathSize = " + this.pathSize);
+//			System.out.println("[UAV " + this.ID + "]  visitedAllPOIs = " + this.visitedAllPOIs);
+//			System.out.println("[UAV " + this.ID + "]  visitedPOIs.size = " + this.visitedPOIs.size());
+
 		} 
 		 else {
 			roundVisitedAllPOIs = false;
+			//System.out.println("\n\n Ainda NÃO já cheguei em todos");
+
 		}
 
 		
@@ -613,7 +625,7 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 			
 		}
 		
-		boolean doNotdrawNothing = true; //debuging view
+		boolean doNotdrawNothing = true; //debugging view
 		
 		if (doNotdrawNothing) {
 			// pink: super.drawAsDisk(g, pt, highlight, drawingSizeInPixels);
