@@ -1,6 +1,6 @@
 NAME : sim13.3318.tour
 COMMENT : Length = 3318
-COMMENT : Found by LKH [Keld Helsgaun] Tue Aug 07 09:38:12 2018
+COMMENT : Found by LKH [Keld Helsgaun] Tue Aug 07 16:16:36 2018
 TYPE : TOUR
 DIMENSION : 13
 TOUR_SECTION

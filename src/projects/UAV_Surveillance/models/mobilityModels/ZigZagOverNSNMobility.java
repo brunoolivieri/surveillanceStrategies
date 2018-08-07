@@ -47,7 +47,7 @@ public class ZigZagOverNSNMobility extends NaiveOrderedMobility{
 			tmpPoi = v.pathPOIs.get(v.getPathIdx());
 		
 			v.nextPoi = tmpPoi; // where shaw it go		
-			System.out.println("[UAV " + v.ID + "] setting next POI to  " + tmpPoi.ID);
+			//System.out.println("[UAV " + v.ID + "] setting next POI to  " + tmpPoi.ID);
 
 			
 			if (v.getPathIdx() >= v.pathPOIs.size()-1 ){				

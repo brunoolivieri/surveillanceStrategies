@@ -346,7 +346,7 @@ public class GSnode extends Node implements Comparable<GSnode>,Serializable {
 		
 		ArrayList<POInode> cutted = new ArrayList<POInode>();		
 		
-		int mid = list2cut.size() / 2;
+		int mid = (list2cut.size()+1) / 2;  // +1 because there is a phantom near GS
 		
 		System.out.println("[GS " + this.ID + "] CutPOS =  " + mid +  " value = " + list2cut.get(mid).ID );
 

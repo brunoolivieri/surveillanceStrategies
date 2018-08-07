@@ -240,8 +240,9 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 							//System.out.println("[UAV " + this.ID + "] could balance with " + tmpMsg.fromID);
 																							
 							// ZigZag
-							if ((this.myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))||(this.myMobilityModelName.endsWith("ZigZagOverNSNMobility"))){								
-					
+							//if ((this.myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))||(this.myMobilityModelName.endsWith("ZigZagOverNSNMobility"))){								
+							if ((this.myMobilityModelName.contains("ZigZag"))){								
+			
 								meiaVoltaVolver();
 								
 								// just clonning from KIMP to test...
@@ -438,6 +439,9 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 						
 						if (((this.myMobilityModelName.endsWith("ZigZagOverNaiveMobility"))||
 								(this.myMobilityModelName.endsWith("ZigZagOverNSNMobility"))||
+								(this.myMobilityModelName.endsWith("ZigZagPartedOverNSNMobility"))||  			// added on 2018/08/07
+								(this.myMobilityModelName.endsWith("ZigZagOverLKHMobility"))||  			// added on 2018/08/07
+								(this.myMobilityModelName.endsWith("ZigZagOverLKHCuttedMobility"))||		// added on 2018/08/07  
 								(this.myMobilityModelName.endsWith("KingstonImprovedOverNSNMobility"))||
 								(this.myMobilityModelName.endsWith("KingstonImprovedOverNaiveMobility"))
 								)&&(!adjustingPath)){		
@@ -500,7 +504,7 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 			visitedAllPOIs = false;
 		}	
 			
-		// 2018/08/07: adding "pathIdx == 0 "
+		// 2018/08/07: adding "pathIdx == 0 " 
 		if((roundVisitedPOIs.size() >= pathPOIs.size())  && (nKnownPOIs !=0) && canImove && (pathIdx == 0) ) { 
 			roundVisitedAllPOIs = true;
 //			System.out.println("\n [UAV " + this.ID + "] Já fiz todos deste round");

@@ -161,7 +161,7 @@ public class NaiveOrderedMobility  extends MobilityModel{
 		} else {		
 			POInode p = v.pathPOIs.get(v.getPathIdx());
 			
-			System.out.println("v " + v.ID + " indo para p " + p.ID);
+			//System.out.println("v " + v.ID + " indo para p " + p.ID);
 			
 			double randx = p.getPosition().xCoord; 
 			double randy = p.getPosition().yCoord; 
