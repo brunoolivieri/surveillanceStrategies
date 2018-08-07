@@ -213,6 +213,7 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 			//g.drawOval(pt.guiX - r, pt.guiY - r, r * 2, r * 2);
 			//g.setColor(bckup);
 
+			/*// REMOVED FOR VIDEOS
 			int imgWidth = 0;
 			int imgHeight = 0;
 			int[][] grid = null;
@@ -242,7 +243,7 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 							- topLeftY);
 				}
 			}
-
+			*/
 			
 			
 		}
