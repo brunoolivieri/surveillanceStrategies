@@ -604,8 +604,8 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 			
 		}else if (myStatus == STATUS.REFUELPROCESS){   // means not working
 			
-			//String text = Integer.toString(this.ID) + "|" + poiMessages.size() ; 	
-			String text = Integer.toString(this.nodeCreationOrder) + "|" + poiMessages.size() ; 
+			String text = Integer.toString(this.ID) + "|" + poiMessages.size() ; 	
+			//String text = Integer.toString(this.nodeCreationOrder) + "|" + poiMessages.size() ; 
 			
 			this.setColor(Color.YELLOW);
 			text = "";
@@ -613,51 +613,60 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 			
 		}
 		
-	
-		// pink style
-		Color bckup = g.getColor();
-		g.setColor(Color.BLACK);
-		this.drawingSizeInPixels = (int) (defaultDrawingSizeInPixels * pt
-				.getZoomFactor());
-		// pink: super.drawAsDisk(g, pt, highlight, drawingSizeInPixels);
-		String text = Integer.toString(this.nodeCreationOrder) + "|" + poiMessages.size() ; 
-		//super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW); // mine
+		boolean doNotdrawNothing = true; //debuging view
 		
-		g.setColor(Color.GRAY);
-		pt.translateToGUIPosition(this.getPosition());
-		//int r = (int) (radius * pt.getZoomFactor());
-		//g.drawOval(pt.guiX - r, pt.guiY - r, r * 2, r * 2);
-		//g.setColor(bckup);
+		if (doNotdrawNothing) {
+			// pink: super.drawAsDisk(g, pt, highlight, drawingSizeInPixels);
+			String text = Integer.toString(this.nodeCreationOrder) + "|" + poiMessages.size() ; 
+			super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW); // mine
+			
+		} else {
+			// pink style
+			Color bckup = g.getColor();
+			g.setColor(Color.BLACK);
+			this.drawingSizeInPixels = (int) (defaultDrawingSizeInPixels * pt
+					.getZoomFactor());
+			// pink: super.drawAsDisk(g, pt, highlight, drawingSizeInPixels);
+			String text = Integer.toString(this.nodeCreationOrder) + "|" + poiMessages.size() ; 
+			//super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW); // mine
+			
+			g.setColor(Color.GRAY);
+			pt.translateToGUIPosition(this.getPosition());
+			//int r = (int) (radius * pt.getZoomFactor());
+			//g.drawOval(pt.guiX - r, pt.guiY - r, r * 2, r * 2);
+			//g.setColor(bckup);
 
-		int imgWidth = 0;
-		int imgHeight = 0;
-		int[][] grid = null;
-		imgWidth = img.getWidth();
-		imgHeight = img.getHeight();
-		grid = new int[imgWidth][imgHeight];
-		// copy the image data
-		for (int i = 0; i < imgWidth; i++) {
-			for (int j = 0; j < imgHeight; j++) {
-				grid[i][j] = img.getRGB(i, j);
+			int imgWidth = 0;
+			int imgHeight = 0;
+			int[][] grid = null;
+			imgWidth = img.getWidth();
+			imgHeight = img.getHeight();
+			grid = new int[imgWidth][imgHeight];
+			// copy the image data
+			for (int i = 0; i < imgWidth; i++) {
+				for (int j = 0; j < imgHeight; j++) {
+					grid[i][j] = img.getRGB(i, j);
+				}
+			}
+
+			int iniX = (int) this.getPosition().xCoord - (imgWidth / 2);
+			int iniY = (int) this.getPosition().yCoord - (imgHeight / 2);
+
+			for (int i = iniX; i < imgWidth + iniX; i++) {
+				for (int j = iniY; j < imgHeight + iniY; j++) {
+					pt.translateToGUIPosition(i, j, 0); // top left corner of cell
+					int topLeftX = pt.guiX, topLeftY = pt.guiY;
+					pt.translateToGUIPosition((i + 1), (j + 1), 0); // bottom right
+																	// corner of
+																	// cell
+					Color col = new Color(grid[i - iniX][j - iniY]);
+					g.setColor(col);
+					g.fillRect(topLeftX, topLeftY, pt.guiX - topLeftX, pt.guiY
+							- topLeftY);
+				}
 			}
 		}
-
-		int iniX = (int) this.getPosition().xCoord - (imgWidth / 2);
-		int iniY = (int) this.getPosition().yCoord - (imgHeight / 2);
-
-		for (int i = iniX; i < imgWidth + iniX; i++) {
-			for (int j = iniY; j < imgHeight + iniY; j++) {
-				pt.translateToGUIPosition(i, j, 0); // top left corner of cell
-				int topLeftX = pt.guiX, topLeftY = pt.guiY;
-				pt.translateToGUIPosition((i + 1), (j + 1), 0); // bottom right
-																// corner of
-																// cell
-				Color col = new Color(grid[i - iniX][j - iniY]);
-				g.setColor(col);
-				g.fillRect(topLeftX, topLeftY, pt.guiX - topLeftX, pt.guiY
-						- topLeftY);
-			}
-		}
+		
 
 	}
 	

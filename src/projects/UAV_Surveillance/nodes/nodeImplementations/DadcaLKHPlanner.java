@@ -49,7 +49,7 @@ public class DadcaLKHPlanner {
 	
 	
 	private void setSolution() {
-		System.out.println("\n[DadcaLKHPlanner] Adjusting Concorde Tour with orignal POIs IDs... ");
+		System.out.println("\n[DadcaLKHPlanner] Adjusting LKH Tour with orignal POIs IDs... ");
 	
 		lkhTour.clear();
 		//System.out.print("\n[DadcaLKHPlanner] Tour order: ");

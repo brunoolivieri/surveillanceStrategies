@@ -123,7 +123,7 @@
 		<!--  Background map in 2D                                                 -->
 		<!--***********************************************************************-->
 		<!--If set to true, the background of a 2D simulation is colored according to a map, specified in a map-file, specified by the field map-->
-		<useMap value="true" />
+		<useMap value="false" />
 
 		<!--In 2D, the background can be colored depending on a map file. This field contains the file name for this map, which is supposed to be located in the source folder of the current project. The map is only painted if useMap is set to true.-->
 		<map value="images/mapaVideo.bmp" />

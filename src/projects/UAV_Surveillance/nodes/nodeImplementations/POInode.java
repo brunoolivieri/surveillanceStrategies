@@ -193,59 +193,66 @@ public class POInode extends Node implements Comparable<POInode>, Serializable {
 		this.setColor(Color.BLACK);
 		//debug
 		this.drawingSizeInPixels = 15 ; // (int) (fraction * pt.getZoomFactor() * this.defaultDrawingSizeInPixels);
+		
 		String text = Integer.toString(this.ID) ; // + "|" + Integer.toString(roundsNeglected);// + "|" + msgSentInThisRound;
 		//String text = Integer.toString(this.nodeCreationOrder) ; // + "|" + Integer.toString(roundsNeglected);// + "|" + msgSentInThisRound;
 		
 		if (!amIphantom){
 			//super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW);	
 
+			if(!Configuration.useMap){ // beautiful map
 			
-			Color bckup = g.getColor();
-			g.setColor(Color.BLACK);
-			this.drawingSizeInPixels = (int) (defaultDrawingSizeInPixels * pt
-					.getZoomFactor());
-			// pink: super.drawAsDisk(g, pt, highlight, drawingSizeInPixels);
-			//super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW); // mine
-			
-			g.setColor(Color.GRAY);
-			pt.translateToGUIPosition(this.getPosition());
-			//int r = (int) (radius * pt.getZoomFactor());
-			//g.drawOval(pt.guiX - r, pt.guiY - r, r * 2, r * 2);
-			//g.setColor(bckup);
-
-			/*// REMOVED FOR VIDEOS
-			int imgWidth = 0;
-			int imgHeight = 0;
-			int[][] grid = null;
-			imgWidth = img.getWidth();
-			imgHeight = img.getHeight();
-			grid = new int[imgWidth][imgHeight];
-			// copy the image data
-			for (int i = 0; i < imgWidth; i++) {
-				for (int j = 0; j < imgHeight; j++) {
-					grid[i][j] = img.getRGB(i, j);
+				boolean doNotdrawNothing = true; //debugging view
+				
+				if (doNotdrawNothing) {
+					this.setColor(Color.BLACK);
+					this.drawingSizeInPixels = 15 ; // (int) (fraction * pt.getZoomFactor() * this.defaultDrawingSizeInPixels);
+					super.drawNodeAsDiskWithText(g, pt, highlight, text, 15, Color.YELLOW); // mine
+					
+				} else {
+					
+				Color bckup = g.getColor();
+				g.setColor(Color.BLACK);
+				this.drawingSizeInPixels = (int) (defaultDrawingSizeInPixels * pt
+						.getZoomFactor());
+				
+				g.setColor(Color.GRAY);
+				pt.translateToGUIPosition(this.getPosition());
+				//int r = (int) (radius * pt.getZoomFactor());
+				//g.drawOval(pt.guiX - r, pt.guiY - r, r * 2, r * 2);
+				//g.setColor(bckup);
+				
+				int imgWidth = 0;
+				int imgHeight = 0;
+				int[][] grid = null;
+				imgWidth = img.getWidth();
+				imgHeight = img.getHeight();
+				grid = new int[imgWidth][imgHeight];
+				// copy the image data
+				for (int i = 0; i < imgWidth; i++) {
+					for (int j = 0; j < imgHeight; j++) {
+						grid[i][j] = img.getRGB(i, j);
+					}
 				}
-			}
 
-			int iniX = (int) this.getPosition().xCoord - (imgWidth / 2);
-			int iniY = (int) this.getPosition().yCoord - (imgHeight / 2);
+				int iniX = (int) this.getPosition().xCoord - (imgWidth / 2);
+				int iniY = (int) this.getPosition().yCoord - (imgHeight / 2);
 
-			for (int i = iniX; i < imgWidth + iniX; i++) {
-				for (int j = iniY; j < imgHeight + iniY; j++) {
-					pt.translateToGUIPosition(i, j, 0); // top left corner of cell
-					int topLeftX = pt.guiX, topLeftY = pt.guiY;
-					pt.translateToGUIPosition((i + 1), (j + 1), 0); // bottom right
-																	// corner of
-																	// cell
-					Color col = new Color(grid[i - iniX][j - iniY]);
-					g.setColor(col);
-					g.fillRect(topLeftX, topLeftY, pt.guiX - topLeftX, pt.guiY
-							- topLeftY);
+				for (int i = iniX; i < imgWidth + iniX; i++) {
+					for (int j = iniY; j < imgHeight + iniY; j++) {
+						pt.translateToGUIPosition(i, j, 0); // top left corner of cell
+						int topLeftX = pt.guiX, topLeftY = pt.guiY;
+						pt.translateToGUIPosition((i + 1), (j + 1), 0); // bottom right
+																		// corner of
+																		// cell
+						Color col = new Color(grid[i - iniX][j - iniY]);
+						g.setColor(col);
+						g.fillRect(topLeftX, topLeftY, pt.guiX - topLeftX, pt.guiY
+								- topLeftY);
+					}
 				}
-			}
-			*/
-			
-			
+				}
+			}			
 		}
 		
 		
