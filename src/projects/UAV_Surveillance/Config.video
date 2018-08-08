@@ -8,10 +8,11 @@
 		<dimensions value="2" />
 
 		<!--Length of the deployment field along the x-axis.-->
-		<dimX value="13000" />
+		<dimX value="1134" />  		<!--Length of the deployment field along the x-axis.-->
+
 
 		<!--Length of the deployment field along the y-axis.-->
-		<dimY value="13000" />
+		<dimY value="697" />
 
 		<!--Length of the deployment field along the z-axis.-->
 		<dimZ value="1" />
@@ -125,7 +126,7 @@
 		<useMap value="false" />
 
 		<!--In 2D, the background can be colored depending on a map file. This field contains the file name for this map, which is supposed to be located in the source folder of the current project. The map is only painted if useMap is set to true.-->
-		<map value="images/map4.bmp" />
+		<map value="images/mapaVideo.bmp" />
 
 		<!--***********************************************************************-->
 		<!--  Models                                                               -->
@@ -185,7 +186,7 @@
 		<!--  Animation Settings                                                   -->
 		<!--***********************************************************************-->
 		<!--Draw an envelope for each message that is being sent-->
-		<showMessageAnimations value="true" />
+		<showMessageAnimations value="false" />
 
 		<!--Width of the envelope (when the message animation is enabled)-->
 		<messageAnimationEnvelopeWidth value="30.0" />
@@ -234,18 +235,20 @@
 <ThreadToRunWithTSPTimer maxduration="600000"/>  		<!-- miliseconds to abort engine and get the best path so far. -->
 <ThreadToRunWithTSPTimeEnabler enabled="true"/>
 
+<MachineExternalProcessToDesconsider timeInMS="0"/>
+
 
 <GeometricNodeCollection rMax="71"/>
-<UDG rMax="71"/>
+<UDG rMax="15"/>
 
-<QUDG rMin="71" rMax="71" ProbabilityType="constant" connectionProbability="0.9"/>
+<QUDG rMin="15" rMax="15" ProbabilityType="constant" connectionProbability="0.9"/>
 
 <SINR alpha="2" beta="0.7" noise="0.1"/>
 
 
 <!-- @Oli: DO NOT TOUCH THAT UNLESS YOU REALLY KNOW ABOUT CUSTOM MOVEMENT CODE!!! -->
 <RandomWayPoint>
-	<Speed distribution="Gaussian" mean="20" variance="0" />
+	<Speed distribution="Gaussian" mean="1" variance="0" />
 	<WaitingTime distribution="Poisson" lambda="10" />
 </RandomWayPoint>
 		

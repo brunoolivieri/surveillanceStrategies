@@ -1,3 +1,11 @@
+# 
+#
+# Extra stats -> sparse/dense/loaded
+# _4xx: lines regarding PROCESSING TIME AND TOURSIZE 
+# _5xx: boxplot regarding _4xxx
+# _6xx: zoom in _5xx
+# 
+#
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -5,10 +13,10 @@ import matplotlib
 matplotlib.style.use('ggplot')
 
 
-fileIn="_2017-06-10 - Timing.txt"
-SPARSE=50
-DENSE=500
-LOADED=1000
+fileIn="_stats_summary.txt"
+SPARSE=20
+DENSE=100
+LOADED=200
 DPI2SAVE=100
 
 #to use with Jupyter. Remove when using bash
@@ -66,7 +74,7 @@ print('Files imported...\n\n')
 ##########################################################################################################################
 
 
-print('Going back do RAW data, without means...\n\n')
+print('  _4  Going back do RAW data, without means...\n\n')
 
 tiposStats=['Tour size','pathTime']
 yStatsCods=['tourSize','pathTime']
@@ -102,14 +110,13 @@ for i in range(0,len(tiposStats)):
 
 plt.clf()
 
-print('Done RAW data, without means...\n\n')
-
+print('  _4  Done RAW data, without means...\n\n')
 
 #import sys
 #sys.exit()
 
 ##########################################################################################################################
-print('Doing Boxplots...\n\n')
+print('  _5  Doing Boxplots...\n\n')
 
 tiposStats=['Tour size','pathTime']
 yStatsCods=['tourSize','pathTime']
@@ -144,6 +151,7 @@ for i in range(0,len(tiposStats)):
         plt.show()
         plt.clf()
 
+print('  _5    Done Boxplots...\n\n')
 
 #import sys
 #sys.exit()
@@ -151,7 +159,7 @@ for i in range(0,len(tiposStats)):
 ##########################################################################################################################
 
 
-print('Doing SPECIFIC Boxplots for tour Size...\n\n')
+print('  _6  Doing SPECIFIC Boxplots for tour Size...\n\n')
 
 tiposStats=['Tour size','pathTime']
 yStatsCods=['tourSize','pathTime']
@@ -198,8 +206,10 @@ for i in range(0,len(tiposStats)):
         plt.show()
         plt.clf()
 
-import sys
-sys.exit()
+print('  _6  Done SPECIFIC Boxplots for tour Size...\n\n')
+
+#import sys
+#sys.exit()
 ##########################################################################################################################
 
 
