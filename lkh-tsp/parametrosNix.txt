@@ -1,0 +1,3 @@
+PROBLEM_FILE=./tsp2solve.txt
+OUTPUT_TOUR_FILE=./LKH-output.txt
+

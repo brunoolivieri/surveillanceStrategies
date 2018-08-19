@@ -86,7 +86,7 @@ public class DadcaLKHPlanner {
 		
 	    if ((OS.indexOf("nux") >= 0)){
 			builder = new ProcessBuilder(
-					nixPath + "lkh", 
+					nixPath + "LKH", 
 					nixPath + "parametrosNix.txt");
 	    } else {// it the windows machine
 			builder = new ProcessBuilder(
