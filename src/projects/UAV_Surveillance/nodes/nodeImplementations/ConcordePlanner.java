@@ -18,11 +18,11 @@ public class ConcordePlanner {
 	private static ArrayList<POInode> concordeTour = new ArrayList<POInode>();
 	
 	public static String winPath = "concorde\\";
-	public static String nixPath = "~/phdTests/surveillanceStrategies/concorde/"; // shoulde be only ./cooncorde/
+	public static String nixPath = "~/phd/surveillanceStrategies/concorde/"; // shoulde be only ./cooncorde/
 	public static String formatedPath = "-1";
 	public static ArrayList<Integer> tour = new ArrayList<Integer>();
 	public static int tourLenght =-1;
-	private static String OS = System.getProperty("os.name").toLowerCase();nixPath
+	private static String OS = System.getProperty("os.name").toLowerCase();
 
 	
 	public ArrayList<POInode> getTSPsolution(ArrayList<POInode> listOfPOIs) {
