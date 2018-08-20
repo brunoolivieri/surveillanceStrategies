@@ -12,7 +12,7 @@ cd ..
 #cd ..
 rm nohup.out
 
-LOOPS=1
+LOOPS=100
 #a day in seconds
 ROUNDS=2 #259200   # 72h in seconds
 REFRESHRATE=2  #259200
@@ -34,23 +34,23 @@ TIME=$(date)
 
 for ((i=1; i<=LOOPS; i++)); 
 do
-	for N_POI in 50
-	# 100 250 500 1000 1000 2000 3000 4000 5000
+	for N_POI in 50 100 250 500 1000 1000 2000 3000 4000 5000
 	do
 		#for SNAME in TSPConcordeMobility
 		#do
 			TIME=$(date)
-			echo "$TIME  -->  nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i   >> ./simulationResults/acompanhamento.txt
-			SNAME=TSPConcordeMobility
-			#N_UAV=$(echo "($N_POI / 20)/1" | bc )  		
-			N_UAV=4
+			#echo "$TIME  -->  nPOI = "$N_POI"  strat = "$SNAME"  loop = "$i   >> ./simulationResults/acompanhamento.txt
 			
+			SNAME=ZigZagOverNSNMobility
+			#N_UAV=$(echo "($N_POI / 20)/1" | bc )  		
+			N_UAV=4			
 			nohup java -cp binaries/bin/. sinalgo.Run -V2V -RECHARGE -CASUATIES -LOADFILE savedDistributions/13000x13000x5000POIsxR71/$i.txt -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=QUDG I=NoInterference M=UAV_Surveillance:$SNAME R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=QUDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=QUDG I=NoInterference M=NoMobility R=ReliableDelivery &
 
-			#N_UAV=$(echo "($N_POI / 10)/1" | bc  ) 
+			#
+			N_UAV=$(echo "($N_POI / 10)/1" | bc  ) 
 			N_UAV=2
-			
-			nohup java -cp binaries/bin/. sinalgo.Run -V2V -RECHARGE -CASUATIES -LOADFILE savedDistributions/13000x13000x5000POIsxR71/$i.txt -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=QUDG I=NoInterference M=UAV_Surveillance:$SNAME R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=QUDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=QUDG I=NoInterference M=NoMobility R=ReliableDelivery &
+			SNAME=TSPConcordeMobility
+			java -cp binaries/bin/. sinalgo.Run -V2V -RECHARGE -CASUATIES -LOADFILE savedDistributions/13000x13000x5000POIsxR71/$i.txt -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=QUDG I=NoInterference M=UAV_Surveillance:$SNAME R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=QUDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=QUDG I=NoInterference M=NoMobility R=ReliableDelivery &
 			
 			#N_UAV=$(echo "($N_POI / 4)/1" | bc  ) 
 			#N_UAV=8
@@ -69,6 +69,7 @@ do
 				echo "LOOPS_EFETUADOS = $LOOPS_EFETUADOS ..."
 				TIME=$(date)
 				./woofyMSG.sh "[$HOST][$TIME] LOOPS_EFETUADOS = $LOOPS_EFETUADOS ... "
+				echo "[$HOST][$TIME] LOOPS_EFETUADOS = $LOOPS_EFETUADOS ... " >> ./simulationResults/acompanhamento.txt
 			fi
 			
 			
