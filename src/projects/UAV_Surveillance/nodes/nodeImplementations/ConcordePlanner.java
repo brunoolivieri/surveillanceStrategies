@@ -102,7 +102,7 @@ public class ConcordePlanner {
 			
 		    if ((OS.indexOf("nux") >= 0)){
 				builder = new ProcessBuilder(
-						nixPath + "concorde", "-o ", nixPath+"resultadoConcorde.txt", nixPath+"tsp2solve.txt");
+						nixPath + "concorde", "-o ", "resultadoConcorde.txt", "tsp2solve.txt");
 		    } else {// it the windows machine
 				builder = new ProcessBuilder(
 						"cmd.exe", "/c", winPath + "runConcorde.bat");
