@@ -18,7 +18,7 @@ public class ConcordePlanner {
 	private static ArrayList<POInode> concordeTour = new ArrayList<POInode>();
 	
 	public static String winPath = "concorde\\";
-	public static String nixPath = "~/phd/surveillanceStrategies/concorde/"; // shoulde be only ./cooncorde/
+	public static String nixPath = "/home/jaog/phd/surveillanceStrategies/concorde/"; // shoulde be only ./cooncorde/
 	public static String formatedPath = "-1";
 	public static ArrayList<Integer> tour = new ArrayList<Integer>();
 	public static int tourLenght =-1;
