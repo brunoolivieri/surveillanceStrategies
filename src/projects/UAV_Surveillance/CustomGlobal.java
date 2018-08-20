@@ -322,7 +322,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		String OS = System.getProperty("os.name").toLowerCase();
 		String formatedFile = "-1";
 		if ((OS.indexOf("nux") >= 0)){
-			formatedFile = "simulationResults\\stats_summary.txt";
+			formatedFile = "simulationResults/stats_summary.txt";
 	    } else {// it the windows machine
 			formatedFile = "./simulationResults/stats_summary.txt";
 	    }
