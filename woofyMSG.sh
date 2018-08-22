@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#./woofy.sh 123705340 "msg string entre aspas"
+#./woofy.sh 387205003 "msg string entre aspas"
 
 
-./woofy.sh 123705340 $1
+./woofy.sh 387205003 "$1"

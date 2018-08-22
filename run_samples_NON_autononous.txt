@@ -121,16 +121,11 @@ ZigZagOverLKHCuttedMobility -ok1
  
 KingstonImprovedOverNSNMobility
 
-
-2018-08-08:
-
-Novo .bat para rodar um set completo e ver o que sai...
-
-2018-08-20 
-
-Concorde para LNX agora tem que ser pelo runconcorde.sh
-
----------------------
+----------
+2018-08-08: Novo .bat para rodar um set completo e ver o que sai...
+----------
+2018-08-20: Concorde para LNX agora tem que ser pelo runconcorde.sh
+----------
 
 
 SEM TELA ATUAL
