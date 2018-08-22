@@ -210,6 +210,7 @@ public class Global {
 	 * True if runing in asynchronousMode, false otherwise.
 	 */
 	public static boolean isAsynchronousMode = true;
+	public static boolean RESUE;
 	
 	/**
 	 * Gathers all implementations contained in the project-folder and the default folder.

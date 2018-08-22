@@ -3,14 +3,23 @@ package projects.UAV_Surveillance.nodes.nodeImplementations;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import sinalgo.runtime.Global;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 
 public class ConcordePlanner {
 
@@ -23,19 +32,72 @@ public class ConcordePlanner {
 	public static ArrayList<Integer> tour = new ArrayList<Integer>();
 	public static int tourLenght =-1;
 	private static String OS = System.getProperty("os.name").toLowerCase();
-
+	private String uniqueProblem;
+	public static String reUseWinPath = "reusepaths\\";
+	public static String reUseNixPath = "./reusepaths/"; // shoulde be only ./concorde/
 	
 	public ArrayList<POInode> getTSPsolution(ArrayList<POInode> listOfPOIs) {
 
 		originalListOfPOIs = listOfPOIs;
 		
+		if (Global.shouldLoadPoiDistribution) { //
+			//// trying to use a pre-processed solution
+			String tmp = "TSP-" + originalListOfPOIs.size() + "-" + Global.distributionFile;
+			uniqueProblem = tmp.replaceAll("/", "-");		
+			System.out.println("\n\n o unique problem é " + uniqueProblem + "\n\n") ;
+		
+		}
+		
 		genarateTSPfile();
-		runConcorde();
+
+		
+		//  IFF Global.RESUE para poder dar aquela testada boa mesmo em pequenos
+//		if (nunca rodou) {
+			runConcorde();
+//		} else {
+//			pega a solução antiga e copia para a pasta			
+//		}
+//		
 		getConcordeResults();
 		setSolution();
 		
 	
 		return concordeTour;
+	}
+	
+	
+	private void backupSolution() {
+		
+		String result ="";
+		String backupFolder = "";
+		
+		
+	    if ((OS.indexOf("nux") >= 0)){
+	    	result = nixPath + "resultadoConcorde.txt";
+	    	backupFolder = reUseNixPath;
+	    } else {// it the windows machine
+	    	result = winPath + "resultadoConcorde.txt";
+	    	backupFolder = reUseWinPath;
+
+	    }
+				
+		FileChannel src;
+		FileChannel dest;
+		try {
+			src = new FileInputStream(result).getChannel();
+			dest = new FileOutputStream(backupFolder + uniqueProblem).getChannel();
+			dest.transferFrom(src, 0, src.size());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("\n\n[ConcordePlanner] ERROR creating a solution backup - NEW File*tStream\n\n" );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("\n\n[ConcordePlanner] ERROR creating a solution backup - dest.transferFrom\n\n" );
+		}
+		
+		
 	}
 	
 	private void setSolution() {
@@ -137,12 +199,16 @@ public class ConcordePlanner {
 	        w.write("foo"); // on windows a pause() function is used, it release the execution flow. Need to verify in *nix
 	        	        
 	    	System.out.println("[ConcordePlanner] Looks like finish well...\n");
+	    	
+	    	backupSolution();
 
 			} catch (IOException e) {
 				System.out.println("\n\n\n[ConcordePlanner] Error trying to execute Concorde solver\n\n\n");
 				e.printStackTrace();
 				System.exit(-1);
 			}
+		
+		
 		
 	}
 

@@ -210,7 +210,7 @@ public class GSnode extends Node implements Comparable<GSnode>,Serializable {
 
 		startPathProcessingTime = System.currentTimeMillis();  
 
-		boolean needCompensateExternalProcessingTime = false; // price for external PID generation
+		boolean needCompensateExternalProcessingTime = true; // price for external PID generation
 		
 		// Sent once to inform UAVs the visit order... Naive, TSP & Anti-TSP cases
 		// Random Safe Strategy does not wait for this step, because does not have an order

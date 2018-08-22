@@ -236,7 +236,11 @@ public abstract class Runtime{
 			if(args[i].equals("-CASUATIES")) { // V2V or V2I messages delivery to GS method.
 				Global.UAVsShouldBreak = true;
 				System.out.println("\n A UAV should Break! ACCIDENTS ENABLED\n\n");
-			}			
+			}	
+			if(args[i].equals("-REUSE")) { // V2V or V2I messages delivery to GS method.
+				Global.RESUE = true;
+				System.out.println("\n TSP and LKH can be reused\n\n");
+			}	
 			
 			
 			
