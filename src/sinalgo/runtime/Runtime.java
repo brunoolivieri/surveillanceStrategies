@@ -513,6 +513,9 @@ public abstract class Runtime{
 			else if(args[i].equals("-CASUATIES")){
 				//  UAV breaks... 
 			}
+			else if(args[i].equals("-REUSE")){
+				//  UAV breaks... 
+			}
 			else if(args[i].equals("-RECHARGE")){
 				//  UAV needs recharges
 			}

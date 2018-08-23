@@ -2,6 +2,7 @@ package projects.UAV_Surveillance.nodes.nodeImplementations;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,6 +15,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import sinalgo.runtime.Global;
 
@@ -33,52 +35,128 @@ public class ConcordePlanner {
 	public static int tourLenght =-1;
 	private static String OS = System.getProperty("os.name").toLowerCase();
 	private String uniqueProblem;
-	public static String reUseWinPath = "reusepaths\\";
-	public static String reUseNixPath = "./reusepaths/"; // shoulde be only ./concorde/
+	public static String reUseWinPath = "tspcache\\";
+	public static String reUseNixPath = "./tspcache/"; 
+	private static String backupFolder = "";
+
 	
 	public ArrayList<POInode> getTSPsolution(ArrayList<POInode> listOfPOIs) {
 
 		originalListOfPOIs = listOfPOIs;
-		
+
+		// save solutions by a unique name for a possible future use
 		if (Global.shouldLoadPoiDistribution) { //
-			//// trying to use a pre-processed solution
 			String tmp = "TSP-" + originalListOfPOIs.size() + "-" + Global.distributionFile;
 			uniqueProblem = tmp.replaceAll("/", "-");		
-			System.out.println("\n\n o unique problem é " + uniqueProblem + "\n\n") ;
-		
+			//System.out.println("\n\n[ConcordePlanner] o unique problem é " + uniqueProblem + "\n") ;
+			if ((OS.indexOf("nux") >= 0)){
+		    	backupFolder = reUseNixPath;
+		    } else {// it the windows machine
+		    	backupFolder = reUseWinPath;
+		    }
+			// System.out.println("\n[ConcordePlanner] Armazenamento de NOVAS soluções em " + backupFolder + "\n") ;
 		}
 		
-		genarateTSPfile();
-
-		
-		//  IFF Global.RESUE para poder dar aquela testada boa mesmo em pequenos
-//		if (nunca rodou) {
+		if (Global.RESUE) {			
+			
+			if (alreadyComputed(uniqueProblem)) {	
+				System.out.println("\n\n\n\n\n[ConcordePlanner] JÁ TINHA ESSA SOLUÇÃOOOOOOOO vou aproveitar \n\n\n\n") ;
+				restoreSolution(uniqueProblem);				
+			} else {
+				System.out.println("\n\n[ConcordePlanner] não tinha essa solução, fazendo nova \n\n") ;
+				genarateTSPfile();
+				runConcorde();
+			}
+			
+		} else {
+			genarateTSPfile();
 			runConcorde();
-//		} else {
-//			pega a solução antiga e copia para a pasta			
-//		}
-//		
+
+		}
 		getConcordeResults();
 		setSolution();
 		
-	
 		return concordeTour;
 	}
 	
 	
+	private boolean alreadyComputed(String uniqueProblem) {
+		
+		List<String> preComputedResults = new ArrayList<String>();
+		File[] files = null;
+		try {				
+			if ((OS.indexOf("nux") >= 0)){
+				files = new File(backupFolder).listFiles();
+		    } else {// it the windows machine
+				files = new File(".\\"+ backupFolder).listFiles();
+		    }
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//If this pathname does not denote a directory, then listFiles() returns null. 
+
+		//System.out.println("\n\n[ConcordePlanner] Soluções JÁ computadas :" ) ;
+		for (File file : files) {
+		    if (file.isFile()) {
+		    	preComputedResults.add(file.getName());
+				//System.out.println("[ConcordePlanner] Sol: " + file.getName()) ;
+		    }
+		}
+		System.out.println("") ;
+		
+		String search = uniqueProblem;
+		search = search.toLowerCase(); // outside loop
+		
+		for(String str: preComputedResults) {
+			if(str.trim().toLowerCase().contains(search))
+		       return true;
+		}
+		return false;		
+	}
+	
+	private void restoreSolution(String uniqueProblem) {
+
+		String solutionRestored ="";
+		
+	    if ((OS.indexOf("nux") >= 0)){
+	    	solutionRestored = nixPath + "resultadoConcorde.txt";
+	    } else {// it the windows machine
+	    	solutionRestored = winPath + "resultadoConcorde.txt";
+	    }
+				
+		FileChannel src;
+		FileChannel dest;
+		try {
+			src = new FileInputStream(backupFolder + uniqueProblem).getChannel();
+			dest = new FileOutputStream(solutionRestored).getChannel();
+		
+			System.out.println("\n[ConcordePlanner] backupFolder + uniqueProblem: " + backupFolder + uniqueProblem);
+			System.out.println("\n[ConcordePlanner] solutionRestored: " + solutionRestored);
+
+			
+			dest.transferFrom(src, 0, src.size());
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("\n\n[ConcordePlanner] ERROR restoring a solution - NEW File*tStream\n\n" );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("\n\n[ConcordePlanner] ERROR restoring a solution - dest.transferFrom\n\n" );
+		}
+		
+	}
+	
 	private void backupSolution() {
 		
 		String result ="";
-		String backupFolder = "";
-		
-		
+	
 	    if ((OS.indexOf("nux") >= 0)){
 	    	result = nixPath + "resultadoConcorde.txt";
-	    	backupFolder = reUseNixPath;
 	    } else {// it the windows machine
 	    	result = winPath + "resultadoConcorde.txt";
-	    	backupFolder = reUseWinPath;
-
 	    }
 				
 		FileChannel src;
