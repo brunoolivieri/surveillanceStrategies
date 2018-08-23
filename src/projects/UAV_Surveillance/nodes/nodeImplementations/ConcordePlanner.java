@@ -35,8 +35,8 @@ public class ConcordePlanner {
 	public static int tourLenght =-1;
 	private static String OS = System.getProperty("os.name").toLowerCase();
 	private String uniqueProblem;
-	public static String reUseWinPath = "tspcache\\";
-	public static String reUseNixPath = "./tspcache/"; 
+	public static String reUseWinPath = "cachetsp\\";
+	public static String reUseNixPath = "./cachetsp/"; 
 	private static String backupFolder = "";
 
 	

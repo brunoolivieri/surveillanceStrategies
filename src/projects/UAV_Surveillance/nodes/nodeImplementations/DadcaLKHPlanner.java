@@ -2,14 +2,21 @@ package projects.UAV_Surveillance.nodes.nodeImplementations;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.List;
+
+import sinalgo.runtime.Global;
 
 public class DadcaLKHPlanner {
 
@@ -28,6 +35,10 @@ public class DadcaLKHPlanner {
 	public static ArrayList<Integer> tour = new ArrayList<Integer>();
 	public static int tourLenght =-1;
 	private static String OS = System.getProperty("os.name").toLowerCase();
+	private static String uniqueProblem;	
+	public static String reUseWinPath = "cachelkh\\";
+	public static String reUseNixPath = "./cachelkh/"; 
+	private static String backupFolder = "";
 	
 	public DadcaLKHPlanner(ArrayList<POInode> listOfPOIs) {
 		originalListOfPOIs = listOfPOIs;
@@ -36,10 +47,34 @@ public class DadcaLKHPlanner {
 
 
 	public ArrayList<POInode> getDadcaLKHSolution() {
-		// TODO Auto-generated method stub
+
+		// save solutions by a unique name for a possible future use
+		if (Global.shouldLoadPoiDistribution) { //
+			String tmp = "lkh-" + originalListOfPOIs.size() + "-" + Global.distributionFile;
+			uniqueProblem = tmp.replaceAll("/", "-");		
+			//System.out.println("\n\n[LKHPlanner] o unique problem é " + uniqueProblem + "\n") ;
+			if ((OS.indexOf("nux") >= 0)){
+		    	backupFolder = reUseNixPath;
+		    } else {// it the windows machine
+		    	backupFolder = reUseWinPath;
+		    }
+			// System.out.println("\n[LKHPlanner] Armazenamento de NOVAS soluções em " + backupFolder + "\n") ;
+		}
 		
-		genarateTSPfile();
-		runLKH();
+		if (Global.RESUE) {			
+			
+			if (alreadyComputed(uniqueProblem)) {	
+				System.out.println("\n\n\n\n\n[ConcordePlanner] JÁ TINHA ESSA SOLUÇÃOOOOOOOO vou aproveitar \n\n\n\n") ;
+				restoreSolution(uniqueProblem);				
+			} else {
+				System.out.println("\n\n[ConcordePlanner] não tinha essa solução, fazendo nova \n\n") ;
+				genarateTSPfile();
+				runLKH();					}
+			
+		} else {
+			genarateTSPfile();
+			runLKH();
+		}
 		importLKHtour();
 		setSolution();
 		
@@ -47,7 +82,105 @@ public class DadcaLKHPlanner {
 		return lkhTour;
 	}
 	
+	private boolean alreadyComputed(String uniqueProblem) {
+			
+			List<String> preComputedResults = new ArrayList<String>();
+			File[] files = null;
+			try {				
+				if ((OS.indexOf("nux") >= 0)){
+					files = new File(backupFolder).listFiles();
+			    } else {// it the windows machine
+					files = new File(".\\"+ backupFolder).listFiles();
+			    }
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//If this pathname does not denote a directory, then listFiles() returns null. 
 	
+			//System.out.println("\n\n[ConcordePlanner] Soluções JÁ computadas :" ) ;
+			for (File file : files) {
+			    if (file.isFile()) {
+			    	preComputedResults.add(file.getName());
+					//System.out.println("[ConcordePlanner] Sol: " + file.getName()) ;
+			    }
+			}
+			System.out.println("") ;
+			
+			String search = uniqueProblem;
+			search = search.toLowerCase(); // outside loop
+			
+			for(String str: preComputedResults) {
+				if(str.trim().toLowerCase().contains(search))
+			       return true;
+			}
+			return false;		
+		}
+	
+	private void restoreSolution(String uniqueProblem) {
+
+		String solutionRestored ="";
+		
+	    if ((OS.indexOf("nux") >= 0)){
+	    	solutionRestored = nixPath + "LKH-output.txt";
+	    } else {// it the windows machine
+	    	solutionRestored = winPath + "LKH-output.txt";
+	    }
+				
+		FileChannel src;
+		FileChannel dest;
+		try {
+			src = new FileInputStream(backupFolder + uniqueProblem).getChannel();
+			dest = new FileOutputStream(solutionRestored).getChannel();
+		
+			System.out.println("\n[LKHPlanner] backupFolder + uniqueProblem: " + backupFolder + uniqueProblem);
+			System.out.println("\n[LKHPlanner] solutionRestored: " + solutionRestored);
+
+			
+			dest.transferFrom(src, 0, src.size());
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("\n\n[LKHPlanner] ERROR restoring a solution - NEW File*tStream\n\n" );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("\n\n[LKHPlanner] ERROR restoring a solution - dest.transferFrom\n\n" );
+		}
+		
+	}
+
+private static void backupSolution() {
+		
+		String result ="";
+	
+	    if ((OS.indexOf("nux") >= 0)){
+	    	result = nixPath + "LKH-output.txt";
+	    } else {// it the windows machine
+	    	result = winPath + "LKH-output.txt";
+	    }
+				
+		FileChannel src;
+		FileChannel dest;
+		try {
+			src = new FileInputStream(result).getChannel();
+			dest = new FileOutputStream(backupFolder + uniqueProblem).getChannel();
+			dest.transferFrom(src, 0, src.size());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("\n\n[LKHPlanner] ERROR creating a solution backup - NEW File*tStream\n\n" );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("\n\n[LKHPlanner] ERROR creating a solution backup - dest.transferFrom\n\n" );
+		}
+		
+		
+	}
+	
+
 	private void setSolution() {
 		System.out.println("\n[DadcaLKHPlanner] Adjusting LKH Tour with orignal POIs IDs... ");
 	
@@ -114,6 +247,8 @@ public class DadcaLKHPlanner {
         }
         
         w.write("oi"); // on windows a pause() function is used, it release the execution flow. Need to verify in *nix
+        
+        backupSolution();
         
 		} catch (IOException e) {
 			System.out.println("\n\n\n[DadcaLKHPlanner] Error trying to execute LKH solver\n\n\n");

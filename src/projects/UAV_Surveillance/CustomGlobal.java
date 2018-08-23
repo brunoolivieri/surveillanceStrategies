@@ -263,7 +263,7 @@ public class CustomGlobal extends AbstractCustomGlobal{
 			
 		String header = "Strategy;nPOIs;nUAV;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;pathTime;"+
 		
-				"TSP_threads;maxData;minData;globalAvgDelay;GSglobalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;mapName";
+				"TSP_threads;maxData;minData;globalAvgDelay;GSglobalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;Memory;mapName";
 			
 		double V2Vrange = Configuration.getDoubleParameter("GeometricNodeCollection/rMax");
 		
@@ -293,7 +293,8 @@ public class CustomGlobal extends AbstractCustomGlobal{
 						nMsgs + ";" +  
 						Global.originalPathSize + ";" +		
 						surveillanceTax*100*1000 / ctRounds + ";" +
-						surveillanceTax*100*1000 / Global.originalPathSize + ";" +								
+						surveillanceTax*100*1000 / Global.originalPathSize + ";" +		
+						Global.memory + ";" +								
 						mapName;
 		
 		System.out.println("\n[CustomGlobal] Final!\n");
