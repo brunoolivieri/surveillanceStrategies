@@ -130,6 +130,7 @@ KingstonImprovedOverNSNMobility
 2018-08-22: Salvando soluções TSP e tentando aproveitar
 2018-08-23: Flag -REUSE para TSP rodando no windows e linux
 2018-08-23: Flag -REUSE para LKH rodando no windows e linux
+2018-08-23: Largando um teste completinho para rodar na PUC
 ----------
 
 
