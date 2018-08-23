@@ -71,7 +71,7 @@ public class Global {
 	public static boolean isV2V2GS = true;
 	public static boolean isV2I2GS = false;
 	public static int originalPathSize = -1;
-	public static int memory = -1;
+	public static long memory = -1;
 	
 	//public long ctRounds = 1;
 	

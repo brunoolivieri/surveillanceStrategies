@@ -287,7 +287,7 @@ public class GSnode extends Node implements Comparable<GSnode>,Serializable {
 				strategyRunning = "DADCA-parted-nsn";
 				DadcaPartedPlanner planner = new DadcaPartedPlanner(this.ID, listOfPOIs);
 				ArrayList<POInode> solution = new ArrayList<POInode>();
-				solution = planner.getDadcaPartedNSNSolution();					
+				solution = planner.getDadcaPartedNSNSolution();		
 				//msgPOIorder = new msgPOIordered(solution, getIdxFromPoiByID(this.ID, solution)+1);	
 				msgPOIorder = new msgPOIordered(solution, 0);	
 				needCompensateExternalProcessingTime = true;

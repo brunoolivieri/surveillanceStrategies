@@ -128,7 +128,8 @@ KingstonImprovedOverNSNMobility
 ----------
 2018-08-22: Fix no LKH path & Novo script para teste grande no servidor
 2018-08-22: Salvando soluções TSP e tentando aproveitar
-2018-08-23: Flag -REUSE para TSP rodando no windows
+2018-08-23: Flag -REUSE para TSP rodando no windows e linux
+2018-08-23: Flag -REUSE para LKH rodando no windows e linux
 ----------
 
 

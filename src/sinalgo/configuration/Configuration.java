@@ -279,7 +279,7 @@ public class Configuration {
 	
 	/** */
 	@DefaultInConfigFile("Maximum memory the Java VM is allowed to use (in MB)")
-	public static int javaVMmaxMem = 500;
+	public static int javaVMmaxMem = 2000;
 	
 	//-------------------------------------------------------------------------
 	// Seed for random number generator
