@@ -1,0 +1,6 @@
+TSPConcorde;200;2;0,00000%;71;2;13000;2275MiliSegs;2186MiliSegs;4_TSP_thread;2;2;-1;0;0;140286;0.0;0.0;-1;map_1.txt
+TSPConcorde;400;2;0,00000%;71;2;13000;4098MiliSegs;4088MiliSegs;4_TSP_thread;2;2;-1;0;0;194862;0.0;0.0;-1;map_1.txt
+DADCA-NSN;200;2;0,00000%;71;2;13000;62MiliSegs;67MiliSegs;4_TSP_thread;2;2;-1;0;0;166966;0.0;0.0;-1;map_1.txt
+DADCA-lkh;500;2;0,00000%;71;2;13000;12963MiliSegs;12944MiliSegs;4_TSP_thread;2;2;-1;0;0;217900;0.0;0.0;-1;map_1.txt
+DADCA-NSN;1100;2;0,00000%;71;1;13000;620MiliSegs;497MiliSegs;4_TSP_thread;1;1;-1;0;0;404943;0.0;0.0;-1;map_
+DADCA-NSN;1100;2;0,00000%;71;1;13000;520MiliSegs;482MiliSegs;4_TSP_thread;1;1;-1;0;0;393564;0.0;0.0;-1;map_
