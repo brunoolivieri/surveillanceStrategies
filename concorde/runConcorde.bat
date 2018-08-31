@@ -13,4 +13,6 @@ del *.pul
 del *.resultadoConcorde
 del *.sav
 del *.res
+del *.sol
+del *.mas
 

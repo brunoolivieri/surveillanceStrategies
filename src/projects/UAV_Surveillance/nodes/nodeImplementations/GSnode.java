@@ -501,6 +501,16 @@ public class GSnode extends Node implements Comparable<GSnode>,Serializable {
 				             (thisPOI.getPosition().yCoord - lastPOI.getPosition().yCoord) *  (thisPOI.getPosition().yCoord - lastPOI.getPosition().yCoord)
 				              );
 		}
+		
+		// to-do:  IFF hamiltonial cycle  add the last edge	
+		if  (  (setOfUAVs.first().myMobilityModelName.endsWith("TSPConcordeMobility"))  	
+			|| (setOfUAVs.first().myMobilityModelName.endsWith("FPPWRMobility")) ) {
+			lastPOI = (POInode)path.get(path.size()-1);
+			//size += lastPOI.distToGS;			
+		} // agosto de 2018
+
+		
+		
 		return size;
 	}
 	
