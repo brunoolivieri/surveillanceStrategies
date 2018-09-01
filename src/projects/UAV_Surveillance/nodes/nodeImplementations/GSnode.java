@@ -1,7 +1,8 @@
 package projects.UAV_Surveillance.nodes.nodeImplementations;
 
 
-
+import java.util.*;
+import java.io.*;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -39,6 +40,7 @@ import sinalgo.tools.logging.Logging;
 
 
 
+
 public class GSnode extends Node implements Comparable<GSnode>,Serializable {
 
 	//@Oli: our vars
@@ -72,7 +74,10 @@ public class GSnode extends Node implements Comparable<GSnode>,Serializable {
 	public String strategyRunning;
 	
 	public BufferedImage img = null; // to draw minivan
-
+	
+	public long beforeUsedMem = 0;
+	public long afterUsedMem = 0;
+	public long actualMemUsed= 0 ;
 	
 	public void reset() {
 	
@@ -215,7 +220,10 @@ public class GSnode extends Node implements Comparable<GSnode>,Serializable {
 		// Sent once to inform UAVs the visit order... Naive, TSP & Anti-TSP cases
 		// Random Safe Strategy does not wait for this step, because does not have an order
 				
-		if ((!cmdsSent) && (!setOfUAVs.first().myMobilityModelName.endsWith("RandomSafeMobility"))){		
+		if ((!cmdsSent) && (!setOfUAVs.first().myMobilityModelName.endsWith("RandomSafeMobility"))){	
+			
+			long beforeUsedMem=java.lang.Runtime.getRuntime().totalMemory()-java.lang.Runtime.getRuntime().freeMemory();
+		
 			if ((setOfUAVs.first().myMobilityModelName.endsWith("NotSoNaiveOrderedMobility"))){			
 					System.out.println("[NotSoNaiveOrderedMobility] ");
 					// Does O(n2) path path and populates "msgPOIorder"	
@@ -315,7 +323,10 @@ public class GSnode extends Node implements Comparable<GSnode>,Serializable {
 			}
 			
 			
-			
+
+			afterUsedMem=java.lang.Runtime.getRuntime().totalMemory()-java.lang.Runtime.getRuntime().freeMemory();
+
+			Global.memory=afterUsedMem-beforeUsedMem;
 			
 			totalPathProcessingTime += System.currentTimeMillis() - startPathProcessingTime;
 			broadcast(msgPOIorder);			
