@@ -216,12 +216,12 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 					pathIdx = pathMsg.idxPathStart;
 					pathSize = getPathSize(pathOriginal);
 					
-					System.out.print("[UAV " + this.ID + "] Good to go with original Path: ");
-					for (int i = 0; i<pathPOIs.size(); i++){
-						System.out.print(pathPOIs.get(i).ID + " - ");
-					}
-					System.out.print("\n[UAV " + this.ID + "] PathIdx =  " + pathIdx);
-					System.out.println(" \n");
+//					System.out.print("[UAV " + this.ID + "] Good to go with original Path: ");
+//					for (int i = 0; i<pathPOIs.size(); i++){
+//						System.out.print(pathPOIs.get(i).ID + " - ");
+//					}
+//					System.out.print("\n[UAV " + this.ID + "] PathIdx =  " + pathIdx);
+//					System.out.println(" \n");
 				}			
 				// Rendezvous to balance paths // or ZZ rendezvous
 				if (msg instanceof msgKingImp) {	
@@ -380,7 +380,7 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 		            (this.getPosition().yCoord - 0) *  (this.getPosition().yCoord - 0)
 		        );
 			init = true;
-			System.out.println("[UAV " + this.ID + "] dist to zero = " + this.distToGS);
+			//System.out.println("[UAV " + this.ID + "] dist to zero = " + this.distToGS);
 			
 			
 			//super.init();
