@@ -17,7 +17,7 @@ MAPS=1000
 ROUNDS=2   # 72h in seconds
 REFRESHRATE=259200
 
-GRUPOS_POIS=5
+GRUPOS_POIS=4
 N_STRATS=1
 LOOPS_EFETUADOS=0
 TOTAL_DE_LOOPS=$(echo "($GRUPOS_POIS * $MAPS * $N_STRATS)" | bc )
@@ -39,16 +39,16 @@ TIME=$(date)
 
 
 
-for ((i=1; i<=MAPS; i++)); 
-do
-	java -cp binaries/bin sinalgo.Run -SAVEFOLDER $FOLDER -batch exitAfter=true exitAfter/Rounds=1 -project UAV_Surveillance -rounds 1 -refreshRate 1 -gen 2 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:ZigZagOverNSNMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility  R=ReliableDelivery -gen 1100 UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionNN C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
-done	
+#for ((i=1; i<=MAPS; i++)); 
+#do
+#	java -cp binaries/bin sinalgo.Run -SAVEFOLDER $FOLDER -batch exitAfter=true exitAfter/Rounds=1 -project UAV_Surveillance -rounds 1 -refreshRate 1 -gen 2 UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=UAV_Surveillance:ZigZagOverNSNMobility R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=UDG I=NoInterference M=NoMobility  R=ReliableDelivery -gen 1100 UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionNN C=UDG I=NoInterference M=NoMobility R=ReliableDelivery
+#done	
 
 
 
 
 
-for N_POI in 50 250 500 750 1000
+for N_POI in 50 250 500 1000
 do
 	for ((i=1; i<=MAPS; i++)); 
 	do
