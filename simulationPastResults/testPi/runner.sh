@@ -17,7 +17,7 @@ MAPS=100
 ROUNDS=2   # 72h in seconds
 REFRESHRATE=259200
 
-GRUPOS_POIS=5
+GRUPOS_POIS=6
 N_STRATS=6
 LOOPS_EFETUADOS=0
 TOTAL_DE_LOOPS=$(echo "($GRUPOS_POIS * $MAPS * $N_STRATS)" | bc )
@@ -37,7 +37,7 @@ TIME=$(date)
 ./woofyMSG.sh "..."
 
 
-for N_POI in 50 100 150 200 300
+for N_POI in 50 100 200 300 400 500
 do
 	for ((i=1; i<=MAPS; i++)); 
 	do
@@ -46,7 +46,7 @@ do
 			TIME=$(date)
 			#echo "$TIME  -->  nPOI = "$N_POI"  strat = "$SNAME"  map = "$i   >> ./simulationResults/acompanhamento.txt
 			
-			#N_UAV=$(echo "($N_POI / 20)/1" | bc )
+			
 			N_UAV=2
 			java -cp binaries/bin/. sinalgo.Run -V2V -RECHARGE -CASUATIES -LOADFILE savedDistributions/13000x13000x5000POIsxR71/$i.txt -project UAV_Surveillance -rounds $ROUNDS -refreshRate $REFRESHRATE -batch exitAfter=true exitAfter/Rounds=$ROUNDS exitOnTerminationInGUI=true AutoStart=true outputToConsole=false extendedControl=false -gen $N_UAV UAV_Surveillance:UAVnode UAV_Surveillance:UavNearGsDistribution C=QUDG I=NoInterference M=UAV_Surveillance:$SNAME R=ReliableDelivery -gen 1 UAV_Surveillance:GSnode UAV_Surveillance:UavNearGsDistribution C=QUDG I=NoInterference M=NoMobility R=ReliableDelivery -gen $N_POI UAV_Surveillance:POInode UAV_Surveillance:PoiDistributionFromFile C=QUDG I=NoInterference M=NoMobility R=ReliableDelivery 
 
