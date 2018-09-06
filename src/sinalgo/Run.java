@@ -62,7 +62,7 @@ public class Run {
 	public static void main(String args[]) {
 		String classPathSeparator = System.getProperty("path.separator");
 		String dirSeparator = System.getProperty("file.separator");
-		testJavaVersion();
+		//testJavaVersion();
 		addJDOMtoClassPath();
 
 		String command = ""; // the entire command
@@ -107,11 +107,11 @@ public class Run {
 			// cmds.add("binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jdom.jar");
 			
 			// Modification for enabling other JARs in the Main Command Line
-			String classPATH = "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jdom.jar" + classPathSeparator
-							 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jfreechart-1.0.19.jar" + classPathSeparator
-							 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jcommon-1.0.23.jar" + classPathSeparator
-							 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jcommon-xml-1.0.23.jar" + classPathSeparator
-			                 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"choco-solver-3.3.3-j7-with-dependencies.jar";
+			String classPATH = "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jdom.jar" + classPathSeparator;
+						//	 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jfreechart-1.0.19.jar" + classPathSeparator
+						//	 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jcommon-1.0.23.jar" + classPathSeparator
+						//	 + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"jcommon-xml-1.0.23.jar" + classPathSeparator
+			            //     + "binaries" + dirSeparator + "bin" + classPathSeparator + "binaries" + dirSeparator +"choco-solver-3.3.3-j7-with-dependencies.jar";
 			
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			

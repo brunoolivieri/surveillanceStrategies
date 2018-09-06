@@ -72,6 +72,9 @@ public class Global {
 	public static boolean isV2I2GS = false;
 	public static int originalPathSize = -1;
 	public static long memory = -1;
+	public static long validRendesvouz = 0;
+	public static long totalRendesvouz = 0;
+
 	
 	//public long ctRounds = 1;
 	

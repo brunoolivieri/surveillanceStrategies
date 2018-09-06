@@ -85,6 +85,8 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 	//public int UAVnodeOrder = 0;
 	private double FULLBATTERY = 16 * 3600;
 	private double battery = FULLBATTERY; // mah? test to spend 1mah/ second? 
+	
+	public long msgSent2Pal = 0;
 
 	
 	// To control execution flow 
@@ -226,6 +228,8 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 				// Rendezvous to balance paths // or ZZ rendezvous
 				if (msg instanceof msgKingImp) {	
 					
+					Global.totalRendesvouz++;
+					
 					if (kingImpAllowed){ // just to enable conditions to start changing, such as minimum visited POIs or UAVs (Originaly = 3)			
 							
 						msgKingImp tmpMsg = (msgKingImp)msg.clone();
@@ -237,6 +241,8 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 								|| ((this.nextPoi.ID == tmpMsg.nextPoi.ID))// &&(this.lastPoi.ID == tmpMsg.lastPoi.ID))
 								) { // So, it is comming from where I am going... // Would be better if inserted in that class
 						
+							Global.validRendesvouz++;
+							
 							//System.out.println("[UAV " + this.ID + "] could balance with " + tmpMsg.fromID);
 																							
 							// ZigZag
@@ -466,6 +472,10 @@ public class UAVnode extends Node implements Comparable<UAVnode>, Serializable {
 	
 	private void sendDataToLeftPal(int leftPal){
 
+		// number of messages transmitted
+		msgSent2Pal += poiMessages.size();
+		
+		
 		// quick setting each msg recipient from the UAV to the GS
 		poiMessages.forEach((a)->a.recipient=leftPal);
 		// quick sending all of them to the GS

@@ -1,6 +1,6 @@
 NAME : sim501.217525.tour
 COMMENT : Length = 217525
-COMMENT : Found by LKH [Keld Helsgaun] Wed Aug 29 09:22:28 2018
+COMMENT : Found by LKH [Keld Helsgaun] Wed Sep 05 07:59:01 2018
 TYPE : TOUR
 DIMENSION : 501
 TOUR_SECTION

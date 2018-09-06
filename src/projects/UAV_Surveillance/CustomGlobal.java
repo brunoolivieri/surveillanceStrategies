@@ -207,12 +207,14 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		String strategyRunning = "error";
 		long nMsgs = 0;
 		long pathProcessingTime =-1;
+		long rendezvousMsgs = 0;
 
 		// Getting data /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		for(Node n : Runtime.nodes) {			
 			if (n instanceof UAVnode){
 		    	ctUAV++;
 		    	//visitsStrategy = (String)(((UAVnode)n).getMobilityModel().toString());
+		    	rendezvousMsgs += (long)(((UAVnode)n).msgSent2Pal);
 			}
 			if (n instanceof POInode){
 		    	ctPOI++;
@@ -261,11 +263,17 @@ public class CustomGlobal extends AbstractCustomGlobal{
 		double surveillanceTax = 1 - ((double)(totalCost)/(ctRounds*ctPOI));
 		surveillanceTax = surveillanceTax*100;
 			
-		String header = "Strategy;nPOIs;nUAV;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;pathTime;"+
+		//String header = "Strategy;nPOIs;nUAV;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;pathTime;"+
+		String header = "Strategy;nPOIs;nUAV;SucessTax;V2V_range;ctRounds;dimX;pathTime;"+
+
+				
+		//"TSP_threads;maxData;minData;globalAvgDelay;GSglobalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;Memory;validRendesvouz;totalRendesvouz;mapName";
 		
-				"TSP_threads;maxData;minData;globalAvgDelay;GSglobalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;Memory;mapName";
+		"globalAvgDelay;nMsgs;tourSize;Memory;validRendesvouz;totalRendesvouz;rendezVousMsgs;rVsMsgByUAV;energyDueREndezVous;mapName";	
 			
 		double V2Vrange = Configuration.getDoubleParameter("GeometricNodeCollection/rMax");
+		double energyDueREndezVous = Configuration.getDoubleParameter("mhaByMsgSent/byMsg");
+
 		
 		Date tem = new Date();
 		long simumationTime = tem.getTime() - Global.startTime.getTime();
@@ -283,18 +291,23 @@ public class CustomGlobal extends AbstractCustomGlobal{
 						+ (int)V2Vrange + ";" + 
 						ctRounds + ";" + 
 						sinalgo.configuration.Configuration.dimX + ";" + 
-						(simumationTime) + "MiliSegs;" + 
+					//	(simumationTime) + "MiliSegs;" + 
 						pathProcessingTime + "MiliSegs;" +
-						nThreads + "_TSP_thread;" + 
-						maxDataInPois + ";" + 
-						minDataInPois + ";" + 
-						globalAvgDelay + ";" + 
-						GSglobalAvgDelay + ";" + 
+					//	nThreads + "_TSP_thread;" + 
+					//	maxDataInPois + ";" + 
+					//	minDataInPois + ";" + 
+						globalAvgDelay + "MiliSegs;" +
+					//	GSglobalAvgDelay + ";" + 
 						nMsgs + ";" +  
 						Global.originalPathSize + ";" +		
-						surveillanceTax*100*1000 / ctRounds + ";" +
-						surveillanceTax*100*1000 / Global.originalPathSize + ";" +		
+					//	surveillanceTax*100*1000 / ctRounds + ";" +
+					//	surveillanceTax*100*1000 / Global.originalPathSize + ";" +		
 						Global.memory + ";" +								
+						Global.validRendesvouz + ";" +
+						Global.totalRendesvouz + ";" +
+						rendezvousMsgs + ";" +
+						(rendezvousMsgs/ ctUAV ) + ";" +
+						(rendezvousMsgs/ ctUAV ) * energyDueREndezVous  + ";" +
 						mapName;
 		
 		System.out.println("\n[CustomGlobal] Final!\n");
