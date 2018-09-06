@@ -1,0 +1,1 @@
+NÂO TEM O SOMADOR do tamanho da ultima aresta de quem faz o ciclo hamiltoniano

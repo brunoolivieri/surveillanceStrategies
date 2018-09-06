@@ -517,7 +517,7 @@ public class GSnode extends Node implements Comparable<GSnode>,Serializable {
 		if  (  (setOfUAVs.first().myMobilityModelName.endsWith("TSPConcordeMobility"))  	
 			|| (setOfUAVs.first().myMobilityModelName.endsWith("FPPWRMobility")) ) {
 			lastPOI = (POInode)path.get(path.size()-1);
-			//size += lastPOI.distToGS;			
+			size += lastPOI.distToGS;			
 		} // agosto de 2018
 
 		
