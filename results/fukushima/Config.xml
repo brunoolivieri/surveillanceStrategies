@@ -8,10 +8,10 @@
 		<dimensions value="2" />
 
 		<!--Length of the deployment field along the x-axis.-->
-		<dimX value="13000" />
+		<dimX value="12649" />
 
 		<!--Length of the deployment field along the y-axis.-->
-		<dimY value="13000" />
+		<dimY value="12649" />
 
 		<!--Length of the deployment field along the z-axis.-->
 		<dimZ value="1" />
