@@ -1,0 +1,25 @@
+NAME : sim17.48859.tour
+COMMENT : Length = 48859
+COMMENT : Found by LKH [Keld Helsgaun] Sun Sep 16 14:52:52 2018
+TYPE : TOUR
+DIMENSION : 17
+TOUR_SECTION
+1
+8
+10
+6
+5
+11
+3
+2
+14
+7
+12
+13
+9
+17
+4
+16
+15
+-1
+EOF

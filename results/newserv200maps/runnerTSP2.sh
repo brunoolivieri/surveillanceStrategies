@@ -40,7 +40,7 @@ TIME=$(date)
 echo "[$HOST];[$TIME]; começou " >> ./simulationResults/acompanhamento.txt
 
 
-for N_POI in 16 32 48
+for N_POI in 16 32 48 80 160 320
 do
 	for ((i=ULTIMOMAPA; i<=MAPS; i++)); 
 	do

@@ -1,0 +1,41 @@
+NAME : sim33.61574.tour
+COMMENT : Length = 61574
+COMMENT : Found by LKH [Keld Helsgaun] Fri Sep 14 13:49:45 2018
+TYPE : TOUR
+DIMENSION : 33
+TOUR_SECTION
+1
+4
+31
+8
+26
+18
+11
+33
+29
+17
+9
+32
+10
+5
+23
+27
+12
+15
+14
+3
+22
+28
+2
+25
+19
+16
+6
+24
+21
+13
+30
+20
+7
+-1
+EOF

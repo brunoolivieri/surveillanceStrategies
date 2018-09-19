@@ -1,0 +1,57 @@
+NAME : sim49.77949.tour
+COMMENT : Length = 77949
+COMMENT : Found by LKH [Keld Helsgaun] Fri Sep 14 17:05:45 2018
+TYPE : TOUR
+DIMENSION : 49
+TOUR_SECTION
+1
+32
+27
+37
+5
+45
+40
+13
+47
+20
+26
+3
+41
+29
+34
+2
+43
+46
+38
+4
+10
+24
+28
+31
+30
+7
+25
+49
+12
+22
+39
+14
+15
+23
+33
+6
+19
+18
+48
+35
+16
+9
+42
+8
+44
+21
+11
+17
+36
+-1
+EOF
