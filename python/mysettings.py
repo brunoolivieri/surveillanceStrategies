@@ -34,7 +34,7 @@ FILECHAVGS="out_by_stratnPOIs_AVGS.txt"
 
 DISTSIZES=0 # array for nPOIs/CHs numbers...
 
-SINGLEUAVCOUNT=8 # ATTENTION ON RUNNERS!!! Check the inputfile from simulations (time vs REUSE flag for TSP and LKH)
+SINGLEUAVCOUNT=4 # ATTENTION ON RUNNERS!!! Check the inputfile from simulations (time vs REUSE flag for TSP and LKH)
 
 
 

@@ -1,0 +1,12 @@
+
+
+2018-09-19
+Resultados bonitos, dentro do esperado. Só a CUT que foi mal nos Delays com densidade média.
+
+Ali pelo mapa 191 e stats_file na linha 14257 do datapool angra, eu mandei rodar a CUT novamente nos mapas com densidade = 140...
+
+Depois, seguir e fazer mais uns 100, ou seja, de 0 até 300
+
+
+2018-09-18 
+Peguei uma parcial para ver como estava.

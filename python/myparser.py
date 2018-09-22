@@ -23,8 +23,7 @@ def add_header(filename):
     with open(filename, "rt") as fin:
         with open(FILETMP, "wt") as fout:
             #fout.write('Strategy;nPOIs;nUAV;SucessTax;V2V_range;ctRounds;dimX;simumationTimeMS;pathTime;TSP_threads;maxData;minData;globalAvgDelay;GSglobalAvgDelay;nMsgs;tourSize;throughput;TaxPerPathSize;memory;mapName\n')
-            fout.write('Strategy;nPOIs;nUAV;SucessTax;V2V_range;ctRounds;dimX;pathTime;globalAvgDelay;nMsgs;tourSize;memory;validrendezvous;totalrendezvous;rendezMsgs;rendezMsgAVGByUAV;rendezMsgAVGByUAVXEnergybyMSG;mapName\n')
-
+            fout.write('Strategy;nPOIs;nUAV;SucessTax;V2V_range;ctRounds;dimX;pathTime;globalAvgDelay;nMsgs;tourSize;memory;validRVZ;totRVZ;msgsRVZ;msgsRVZbyUAVs;msgsRVZbyUAVsXEnergy;mapName\n')
             for line in fin:
                 fout.write(line)
     os.remove(filename)

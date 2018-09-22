@@ -130,9 +130,7 @@ def import_files():
     df_in = pd.read_csv(mysettings.FILEPARSED,sep=';', index_col =["Strategy", "nUAV", "nPOIs"] )
     
     # cutting unnecessary colls
-    df_file = df_in.drop(['V2V_range','ctRounds','dimX','TSP_threads','maxData','minData','nMsgs','throughput','TaxPerPathSize','GSglobalAvgDelay'], axis=1)
-    #miliseconds to minutes    
-    df_file = df_file.assign(simumationTimeMS = df_file.simumationTimeMS.mul(1/60000))
+    df_file = df_in.drop(['V2V_range','ctRounds','dimX','nMsgs'], axis=1)
     df_file = df_file.assign(pathTime = df_file.pathTime.mul(1/60000))
 
          
@@ -161,9 +159,8 @@ def import_files():
     df_in = df_file_raw.loc[df_file_raw['nUAV'] == mysettings.SINGLEUAVCOUNT] #filtering
     
     # cutting unnecessary colls
-    df_file_raw_single_uav = df_in.drop(['V2V_range','ctRounds','dimX','TSP_threads','maxData','minData','nMsgs','throughput','TaxPerPathSize','GSglobalAvgDelay'], axis=1)
+    df_file_raw_single_uav = df_in.drop(['V2V_range','ctRounds','dimX','nMsgs'], axis=1)
     #miliseconds to minutes    
-    df_file_raw_single_uav = df_file_raw_single_uav.assign(simumationTimeMS = df_file_raw_single_uav.simumationTimeMS.mul(1/60000))
     df_file_raw_single_uav = df_file_raw_single_uav.assign(pathTime = df_file_raw_single_uav.pathTime.mul(1/60000))
     
     df_file_raw_single_uav = df_file_raw_single_uav.assign(tourSize = df_file_raw_single_uav.tourSize.mul(1/1000))
@@ -202,6 +199,8 @@ def select_df(dict,strats):
         df_collection_temp[i]=df2plot
     return df_collection_temp
 
+
+
 def run_thesis_ploter():
     print('[Ploter - thesis one] Importing files ...')
     import_files()
@@ -228,7 +227,7 @@ def run_thesis_ploter():
     boxplots_plots('toursizes_boxplot_' + str(mysettings.SINGLEUAVCOUNT) + 'UAVs_' ,titleGraphs,df_coll_1UAV_raw,setSizes,yStatsCods,yLabel)
     
     
-    wantedStrats_forZoom=['TSP-based','DADCA-LKH','DADCA-LKH-Cutted']
+    wantedStrats_forZoom=['TSP-based','DADCA-LKH','DADCA-LKH-Cut']
     df_select = select_df(df_coll_1UAV_median,wantedStrats_forZoom)
     line_plots('toursizes_zoom_' + str(mysettings.SINGLEUAVCOUNT) + 'UAVs_' ,titleGraphs,df_select,setSizes,xStatsCods,yStatsCods,xLabel,yLabel)
     df_select = select_df(df_coll_1UAV_raw,wantedStrats_forZoom)
@@ -250,7 +249,7 @@ def run_thesis_ploter():
     boxplots_plots('pathTime_boxplot_' + str(mysettings.SINGLEUAVCOUNT) + 'UAVs_' ,titleGraphs,df_coll_1UAV_raw,setSizes,yStatsCods,yLabel)
     
     
-    wantedStrats_forZoom=['TSP-based','DADCA-LKH','DADCA-LKH-Cutted']
+    wantedStrats_forZoom=['TSP-based','DADCA-LKH','DADCA-LKH-Cut']
     df_select = select_df(df_coll_1UAV_median,wantedStrats_forZoom)
     line_plots('pathTime_zoom_' + str(mysettings.SINGLEUAVCOUNT) + 'UAVs_' ,titleGraphs,df_select,setSizes,xStatsCods,yStatsCods,xLabel,yLabel)
     
@@ -271,7 +270,7 @@ def run_thesis_ploter():
     line_plots('amount_' ,titleGraphs,df_coll_MapSummd_avgs,setSizes,xStatsCods,yStatsCods,xLabel,yLabel)
     boxplots_plots('amount_boxplot_' ,titleGraphs,df_coll_1UAV_median,setSizes,yStatsCods,yLabel)
     
-    wantedStrats_forZoom=['TSP-based','DADCA-LKH','DADCA-LKH-Cutted',]
+    wantedStrats_forZoom=['TSP-based','DADCA-LKH','DADCA-LKH-Cut',]
     df_select = select_df(df_coll_MapSummd_avgs,wantedStrats_forZoom)
     line_plots('amount_zoom_'  ,titleGraphs,df_select,setSizes,xStatsCods,yStatsCods,xLabel,yLabel)
     boxplots_plots('amount_boxplot_zoom_'  ,titleGraphs,df_select,setSizes,yStatsCods,yLabel)
@@ -290,7 +289,7 @@ def run_thesis_ploter():
     line_plots('delay_' ,titleGraphs,df_coll_MapSummd_avgs,setSizes,xStatsCods,yStatsCods,xLabel,yLabel)
     boxplots_plots('delay_boxplot_' ,titleGraphs,df_coll_1UAV_median,setSizes,yStatsCods,yLabel)
     
-    wantedStrats_forZoom=['TSP-based','DADCA-LKH','DADCA-LKH-Cutted',]
+    wantedStrats_forZoom=['TSP-based','DADCA-LKH','DADCA-LKH-Cut',]
     df_select = select_df(df_coll_MapSummd_avgs,wantedStrats_forZoom)
     line_plots('delay_zoom_'  ,titleGraphs,df_select,setSizes,xStatsCods,yStatsCods,xLabel,yLabel)
     boxplots_plots('delay_boxplot_zoom_'  ,titleGraphs,df_select,setSizes,yStatsCods,yLabel)
@@ -323,16 +322,13 @@ def dataset_analisys():
     
     
     
-    wantedStrats=['TSP-based','DADCA-LKH','DADCA-LKH-Cutted']
+    wantedStrats=['TSP-based','DADCA-LKH','DADCA-LKH-Cut']
     df_select = select_df(df_coll_1UAV_median,wantedStrats)
     
-    nMaps=1000
+    nMaps=200
     
     for i in range(0,len(setSizes)):
-        #df_thin = df_select[i].drop(['nUAV', 'V2V_range','ctRounds','dimX','TSP_threads','maxData','minData','nMsgs','throughput','TaxPerPathSize'], axis=1)
-        
-        df_thin = df_select[i]
-        
+        df_thin = df_select[i]   
         tspcount=0    
         lkhcount=0
         lkhcuttedcount=0
@@ -347,9 +343,9 @@ def dataset_analisys():
             try:
                 tsp = mapadavez.loc[df_thin['Strategy'] == 'TSP-based']
                 lkh = mapadavez.loc[df_thin['Strategy'] == 'DADCA-LKH']
-                lkhcutted = mapadavez.loc[df_thin['Strategy'] == 'DADCA-LKH-Cutted']
+                lkhcutted = mapadavez.loc[df_thin['Strategy'] == 'DADCA-LKH-Cut']
           
-                criterio = 'tourSize' # 'SucessTax' # 
+                criterio = 'maiorMelhor' # 'SucessTax' # 
                
                 lkhRate = lkh.iloc[0][criterio]
                 tspRate = tsp.iloc[0][criterio]
@@ -359,9 +355,10 @@ def dataset_analisys():
                 lkhavg= (lkhavg+ lkhRate) /2
                 lkhcutavg= (lkhcutavg + lkhcuttedRate) /2
                 
-                if criterio=='SucessTax':
+                if criterio=='maiorMelhor':
                     if lkhRate <= tspRate and lkhcuttedRate <= tspRate :
-                        tspcount+=1                     
+                        tspcount+=1  
+                        print('TSPConcorde;' + setSizes[i] + '; *****;map_' + str(j)  + '.txt' )
                     else:
                         if lkhRate >= lkhcuttedRate:
                             lkhcount+=1 
