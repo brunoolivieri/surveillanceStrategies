@@ -12,8 +12,8 @@ cd ..
 #cd ..
 rm nohup.out
 
-MAPS=100
-ULTIMOMAPA=1
+MAPS=200
+ULTIMOMAPA=100
 
 #a day in seconds
 ROUNDS=2  # 72h in seconds
