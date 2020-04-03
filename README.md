@@ -1,5 +1,5 @@
 # surveillanceStrategies
-Squads of UAVs collecting data from WSN in a distributed manner.  
+Squads of UAVs collecting data from WSN in a distributed manner. Some results from my PhD dissertation.  
 
 Some results:  
 
